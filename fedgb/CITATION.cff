@@ -16,8 +16,8 @@ authors:
       University, Dhaka, Bangladesh
 type: software
 license: MIT
-repository-code: "[FILL IN: anonymous-review or public repository URL]"
-date-released: "[FILL IN: date of first public/reviewer-accessible release]"
+repository-code: "https://github.com/Xrenes/uidatagb-xai-reliability"
+date-released: "2026-09-27"
 preferred-citation:
   type: article
   title: >-
