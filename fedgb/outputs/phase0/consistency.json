@@ -1,0 +1,132 @@
+{
+  "n_images": 72,
+  "per_class_n": 8,
+  "bootstrap_n_resamples": 2000,
+  "methods": {
+    "Grad-CAM": {
+      "macro_mean": 0.7690966308782433,
+      "macro_std": 0.3141418816560223,
+      "per_replicate_mean": [
+        0.8978331674367183,
+        0.628715906740246,
+        0.7807408184577656
+      ],
+      "per_replicate_mean_std_of_means": 0.11017475612100254,
+      "bootstrap_95ci": [
+        0.7345625836122258,
+        0.8025142982909798
+      ],
+      "per_class_mean": {
+        "01_gallstones": 0.594511461244208,
+        "02_abdomen_and_retroperitoneum": 0.8504266258975878,
+        "03_cholecystitis": 0.8603463145965186,
+        "04_membranous_and_gangrenous_cholecystitis": 0.7272401409746552,
+        "05_perforation": 0.7493005124201195,
+        "06_polyps_and_cholesterol_crystals": 0.8733461357660541,
+        "07_adenomyomatosis": 0.8949496699851341,
+        "08_carcinoma": 0.7416605636928381,
+        "09_various_causes_of_gallbladder_wall_thickening": 0.6300882533270745
+      }
+    },
+    "Grad-CAM++": {
+      "macro_mean": 0.9435805830202681,
+      "macro_std": 0.04416667469031422,
+      "per_replicate_mean": [
+        0.948197066295365,
+        0.9347027884132039,
+        0.9478418943522359
+      ],
+      "per_replicate_mean_std_of_means": 0.006279223125579191,
+      "bootstrap_95ci": [
+        0.9353386965464153,
+        0.9503169855843056
+      ],
+      "per_class_mean": {
+        "01_gallstones": 0.9315033662831574,
+        "02_abdomen_and_retroperitoneum": 0.9413958532515556,
+        "03_cholecystitis": 0.9434412007607985,
+        "04_membranous_and_gangrenous_cholecystitis": 0.9588639338354978,
+        "05_perforation": 0.940587044654169,
+        "06_polyps_and_cholesterol_crystals": 0.9592909302068614,
+        "07_adenomyomatosis": 0.9390685023558353,
+        "08_carcinoma": 0.9165193381778357,
+        "09_various_causes_of_gallbladder_wall_thickening": 0.9615550776567026
+      }
+    },
+    "Saliency": {
+      "macro_mean": 0.681347939660082,
+      "macro_std": 0.03687023323733109,
+      "per_replicate_mean": [
+        0.6861918142350694,
+        0.6693225115506486,
+        0.6885294931945286
+      ],
+      "per_replicate_mean_std_of_means": 0.008556649525008463,
+      "bootstrap_95ci": [
+        0.6754428308097619,
+        0.6873577849565341
+      ],
+      "per_class_mean": {
+        "01_gallstones": 0.6511164314152084,
+        "02_abdomen_and_retroperitoneum": 0.7020833248068982,
+        "03_cholecystitis": 0.6695927127020097,
+        "04_membranous_and_gangrenous_cholecystitis": 0.6806853696861875,
+        "05_perforation": 0.6778678220713402,
+        "06_polyps_and_cholesterol_crystals": 0.6973803210806202,
+        "07_adenomyomatosis": 0.6875216612977925,
+        "08_carcinoma": 0.6857841580520629,
+        "09_various_causes_of_gallbladder_wall_thickening": 0.6800996558286195
+      }
+    },
+    "Eigen-CAM": {
+      "macro_mean": 0.24230351171170317,
+      "macro_std": 0.34308396239583466,
+      "per_replicate_mean": [
+        0.2800549688391101,
+        0.22713761754375394,
+        0.21971794875224548
+      ],
+      "per_replicate_mean_std_of_means": 0.026865619388303116,
+      "bootstrap_95ci": [
+        0.17433649134231538,
+        0.3141084730586494
+      ],
+      "per_class_mean": {
+        "01_gallstones": 0.2709593448571073,
+        "02_abdomen_and_retroperitoneum": 0.2551327487114991,
+        "03_cholecystitis": 0.33303515610690054,
+        "04_membranous_and_gangrenous_cholecystitis": 0.07291755994911836,
+        "05_perforation": 0.3793009947121768,
+        "06_polyps_and_cholesterol_crystals": 0.5261130328871754,
+        "07_adenomyomatosis": 0.08519598152664297,
+        "08_carcinoma": 0.19202988448883293,
+        "09_various_causes_of_gallbladder_wall_thickening": 0.06604690216587518
+      }
+    },
+    "Score-CAM": {
+      "macro_mean": 0.9369241087951657,
+      "macro_std": 0.051298610938846946,
+      "per_replicate_mean": [
+        0.9394929623010605,
+        0.9340577567452315,
+        0.9372216073392055
+      ],
+      "per_replicate_mean_std_of_means": 0.0022288627737492594,
+      "bootstrap_95ci": [
+        0.9288841713333879,
+        0.9442151116513922
+      ],
+      "per_class_mean": {
+        "01_gallstones": 0.9281167892903092,
+        "02_abdomen_and_retroperitoneum": 0.9343361265544815,
+        "03_cholecystitis": 0.9433240382243618,
+        "04_membranous_and_gangrenous_cholecystitis": 0.9308714499593828,
+        "05_perforation": 0.931624674203384,
+        "06_polyps_and_cholesterol_crystals": 0.9564424597638351,
+        "07_adenomyomatosis": 0.9432773243267313,
+        "08_carcinoma": 0.9114675244197529,
+        "09_various_causes_of_gallbladder_wall_thickening": 0.9528565924142534
+      }
+    }
+  }
+}

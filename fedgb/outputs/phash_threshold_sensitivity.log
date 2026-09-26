@@ -1,0 +1,36 @@
+[phash-sensitivity] total images: 10692
+[phash-sensitivity] hashing all images once...
+[phash-sensitivity] hashed 1000/10692
+[phash-sensitivity] hashed 2000/10692
+[phash-sensitivity] hashed 3000/10692
+[phash-sensitivity] hashed 4000/10692
+[phash-sensitivity] hashed 5000/10692
+[phash-sensitivity] hashed 6000/10692
+[phash-sensitivity] hashed 7000/10692
+[phash-sensitivity] hashed 8000/10692
+[phash-sensitivity] hashed 9000/10692
+[phash-sensitivity] hashed 10000/10692
+
+[phash-sensitivity] clustering at threshold=4...
+[phash-sensitivity] threshold=4: {'hamming_threshold': 4, 'n_components': 3862, 'n_singleton_components': 782, 'max_component_size': 12, 'median_component_size': 3, 'n_mixed_class_components': 2, 'pct_val_images_with_train_match_in_same_component': 0.0}
+
+[phash-sensitivity] clustering at threshold=6...
+[phash-sensitivity] threshold=6: {'hamming_threshold': 6, 'n_components': 3182, 'n_singleton_components': 104, 'max_component_size': 18, 'median_component_size': 3, 'n_mixed_class_components': 11, 'pct_val_images_with_train_match_in_same_component': 0.0}
+
+[phash-sensitivity] clustering at threshold=8...
+[phash-sensitivity] threshold=8: {'hamming_threshold': 8, 'n_components': 2993, 'n_singleton_components': 10, 'max_component_size': 27, 'median_component_size': 3, 'n_mixed_class_components': 37, 'pct_val_images_with_train_match_in_same_component': 0.0}
+
+[phash-sensitivity] clustering at threshold=10...
+[phash-sensitivity] threshold=10: {'hamming_threshold': 10, 'n_components': 2645, 'n_singleton_components': 2, 'max_component_size': 132, 'median_component_size': 3, 'n_mixed_class_components': 118, 'pct_val_images_with_train_match_in_same_component': 14.78}
+
+[phash-sensitivity] clustering at threshold=12...
+[phash-sensitivity] threshold=12: {'hamming_threshold': 12, 'n_components': 1657, 'n_singleton_components': 0, 'max_component_size': 4272, 'median_component_size': 3, 'n_mixed_class_components': 100, 'pct_val_images_with_train_match_in_same_component': 48.01}
+
+[phash-sensitivity] wrote ./outputs/leakage\phash_threshold_sensitivity.csv
+[phash-sensitivity] wrote ./figures\phash_threshold_sensitivity.png
+
+[phash-sensitivity] auditing components at selected threshold=8...
+[phash-sensitivity] non-singleton component diameters: max=26, median=4, n_components_checked=2983
+[phash-sensitivity] wrote ./outputs/leakage\cross_label_component_audit.csv (37 cross-label components at threshold=8; manual_review_category left UNREVIEWED for manual completion)
+
+[phash-sensitivity] done. wrote outputs/leakage/phash_threshold_sensitivity_summary.json

@@ -1,0 +1,11 @@
+{
+  "temperature": 1.4683502912521362,
+  "n_calib": 1594,
+  "n_test": 1599,
+  "ece_before": 0.03390222549205646,
+  "ece_after": 0.009056090968442732,
+  "brier_before": 0.10914430767297745,
+  "brier_after": 0.10597667098045349,
+  "accuracy_test": 0.9318323731422424,
+  "interpretation": "Temperature scaling (T=1.47) reduces ECE from 0.034 to 0.009 and Brier score from 0.109 to 0.106 on the held-out validation half, without changing discrimination (accuracy is unchanged by construction)."
+}

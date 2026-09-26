@@ -1,0 +1,25 @@
+C:\Users\HomePC\Documents\resarch - Copy\resarch - Copy\fedgb\_p0common.py:60: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  m.load_state_dict(torch.load(CKPT, map_location=DEVICE))
+[Dataset] Loaded 3193 images from C:\Users\HomePC\Documents\resarch - Copy\resarch - Copy\fedgb\data\uidatagb\validation
+[fig9] generating cross-method grid with raw heatmap panels...
+  row 1/9: Gallstones done (pred=Gallstones, conf=1.000)
+  row 2/9: Abdomen & Retroperitoneum done (pred=Abdomen & Retroperitoneum, conf=1.000)
+  row 3/9: Cholecystitis done (pred=Cholecystitis, conf=1.000)
+  row 4/9: Membranous/Gangrenous Cholecystitis done (pred=Membranous/Gangrenous Cholecystitis, conf=0.965)
+  row 5/9: Perforation done (pred=Perforation, conf=0.913)
+  row 6/9: Polyps & Cholesterol Crystals done (pred=Polyps & Cholesterol Crystals, conf=0.999)
+  row 7/9: Adenomyomatosis done (pred=Adenomyomatosis, conf=1.000)
+  row 8/9: Carcinoma done (pred=Carcinoma, conf=0.949)
+  row 9/9: Wall Thickening (Various Causes) done (pred=Wall Thickening (Various Causes), conf=0.610)
+[fig9] wrote C:\Users\HomePC\Documents\resarch - Copy\resarch - Copy\fedgb\outputs\figures\xai_cross_method_grid.png
+[fig10] generating per-class grid with raw heatmap panels...
+  row 1/9: Gallstones done (pred=Gallstones, conf=0.999)
+  row 2/9: Abdomen & Retroperitoneum done (pred=Abdomen & Retroperitoneum, conf=0.999)
+  row 3/9: Cholecystitis done (pred=Membranous/Gangrenous Cholecystitis, conf=0.644)
+  row 4/9: Membranous/Gangrenous Cholecystitis done (pred=Membranous/Gangrenous Cholecystitis, conf=0.998)
+  row 5/9: Perforation done (pred=Perforation, conf=0.906)
+  row 6/9: Polyps & Cholesterol Crystals done (pred=Polyps & Cholesterol Crystals, conf=0.997)
+  row 7/9: Adenomyomatosis done (pred=Adenomyomatosis, conf=1.000)
+  row 8/9: Carcinoma done (pred=Carcinoma, conf=0.993)
+  row 9/9: Wall Thickening (Various Causes) done (pred=Wall Thickening (Various Causes), conf=0.949)
+[fig10] wrote C:\Users\HomePC\Documents\resarch - Copy\resarch - Copy\fedgb\outputs\figures\per_class_heatmap_grid.png

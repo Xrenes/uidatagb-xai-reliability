@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    "james-yu.latex-workshop",
+    "ltex-plus.vscode-ltex-plus",
+    "streetsidesoftware.code-spell-checker",
+    "eamodio.gitlens",
+    "gruntfuggly.todo-tree",
+    "ms-python.python",
+    "ms-toolsai.jupyter",
+    "redhat.vscode-yaml",
+    "editorconfig.editorconfig"
+  ]
+}

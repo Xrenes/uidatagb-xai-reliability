@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FedGB - Simulation Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&family=Orbitron:wght@400;700;900&display=swap');
+:root{--c-acc:#00e5ff;--c-loss:#ff4d6d;--c-c0:#a78bfa;--c-c1:#34d399;--c-c2:#fbbf24;--bg:#080808;--bg2:#111;--bg3:#141414;--border:#222;--border2:#1a1a1a;--muted:#888;--dim:#444}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'JetBrains Mono',monospace;background:var(--bg);color:#fff;min-height:100vh;overflow-x:hidden}
+header{background:#0c0c0c;border-bottom:1px solid var(--border);padding:14px 32px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Orbitron',sans-serif;font-size:1.3rem;font-weight:900;letter-spacing:.12em;color:#fff}
+.logo-sub{font-size:.65rem;color:var(--muted);letter-spacing:.08em;margin-left:12px}
+.header-right{display:flex;align-items:center;gap:20px}
+.clock{font-size:.68rem;color:var(--muted)}
+#status-badge{font-size:.62rem;font-weight:600;letter-spacing:.1em;padding:5px 14px;border-radius:3px;text-transform:uppercase}
+.badge-waiting{border:1px solid var(--dim);color:var(--muted)}
+.badge-running{border:1px solid #fff;color:#fff}
+.badge-done{border:1px solid var(--muted);color:var(--muted)}
+.page{padding:20px 28px}
+.section-title{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.kpi-row{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:22px}
+.kpi{background:var(--bg3);border:1px solid var(--border);border-radius:4px;padding:16px 18px}
+.kpi-label{font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.kpi-value{font-family:'Orbitron',sans-serif;font-size:1.6rem;font-weight:700;color:#fff;line-height:1}
+.kpi-sub{font-size:.6rem;color:var(--dim);margin-top:6px}
+.progress-section{margin-bottom:22px}
+.progress-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.progress-track{background:var(--bg2);border:1px solid var(--border);border-radius:2px;height:20px;overflow:hidden;position:relative}
+.progress-fill{height:100%;background:#fff;border-radius:2px;transition:width .8s cubic-bezier(.4,0,.2,1)}
+.progress-text{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:.65rem;font-weight:700;color:#080808;letter-spacing:.08em}
+.charts-pair{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:22px}
+.panel{background:var(--bg3);border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.panel-header{display:flex;align-items:center;justify-content:space-between;padding:9px 14px;border-bottom:1px solid var(--border2)}
+.panel-title{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.panel-dot{width:6px;height:6px;border-radius:50%;animation:blink 1.5s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+.panel-body{padding:14px}
+.chart-wrap{height:190px}
+.clients-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:22px}
+.client-panel{background:var(--bg3);border:1px solid var(--border);border-radius:4px;overflow:hidden;transition:border-color .3s}
+.client-panel.active{border-color:#555}
+.client-panel.done{border-color:#333}
+.client-head{display:flex;align-items:center;justify-content:space-between;padding:9px 14px;background:var(--bg2);border-bottom:1px solid var(--border2)}
+.client-name{font-family:'Orbitron',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.1em;color:#fff}
+.tag{font-size:.55rem;padding:2px 7px;border-radius:2px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--dim);color:var(--muted)}
+.tag-active{border-color:#888;color:#fff}
+.tag-done{border-color:#444;color:var(--muted)}
+.client-body{padding:12px 14px}
+.metric-line{display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid var(--border2)}
+.metric-line:last-child{border-bottom:none}
+.ml-key{font-size:.62rem;color:var(--muted)}
+.ml-val{font-size:.7rem;font-weight:600;color:#fff}
+.ml-val.dim{color:var(--muted)}
+.acc-bar-wrap{display:flex;align-items:center;gap:8px}
+.acc-bar-track{flex:1;height:3px;background:var(--bg2);border-radius:2px;overflow:hidden}
+.acc-bar-fill{height:100%;border-radius:2px;transition:width .8s ease}
+.table-wrap{background:var(--bg3);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:22px}
+.table-head{padding:9px 14px;border-bottom:1px solid var(--border2)}
+table{width:100%;border-collapse:collapse}
+thead tr{border-bottom:1px solid var(--border)}
+th{padding:8px 14px;text-align:left;font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:400}
+td{padding:8px 14px;font-size:.7rem;color:#fff;border-bottom:1px solid var(--border2)}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover td{background:#161616}
+.chip{display:inline-block;padding:1px 8px;border-radius:2px;font-size:.63rem;font-weight:600;border:1px solid var(--border);color:#fff;background:var(--bg2)}
+.log-panel{background:var(--bg3);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:22px}
+.log-head{padding:8px 14px;background:var(--bg2);border-bottom:1px solid var(--border2);font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
+#log-body{padding:10px 14px;font-size:.67rem;line-height:1.9;max-height:130px;overflow-y:auto;color:#ccc}
+#log-body::-webkit-scrollbar{width:3px}
+#log-body::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+.log-line{display:flex;gap:10px}
+.log-ts{color:var(--dim);flex-shrink:0}
+.log-msg{color:#ccc}
+.log-msg.dim{color:var(--dim)}
+footer{border-top:1px solid var(--border2);padding:8px 28px;display:flex;justify-content:space-between;font-size:.58rem;color:var(--dim);letter-spacing:.06em}
+</style>
+</head>
+<body>
+<header>
+  <div style="display:flex;align-items:baseline">
+    <div class="logo">FedGB</div>
+    <span class="logo-sub">// Simulation Dashboard</span>
+  </div>
+  <div class="header-right">
+    <div class="clock" id="clock">--:--:--</div>
+    <div id="status-badge" class="badge-waiting">Waiting</div>
+  </div>
+</header>
+<div class="page">
+  <div class="kpi-row">
+    <div class="kpi"><div class="kpi-label">Rounds</div><div class="kpi-value" id="kpi-rounds">0<span style="font-size:1rem;color:var(--muted)">/10</span></div><div class="kpi-sub" id="kpi-strategy">Strategy: --</div></div>
+    <div class="kpi"><div class="kpi-label">Global Accuracy</div><div class="kpi-value" id="kpi-acc">--</div><div class="kpi-sub">validation set</div></div>
+    <div class="kpi"><div class="kpi-label">Elapsed</div><div class="kpi-value" id="kpi-elapsed">0m 00s</div><div class="kpi-sub" id="kpi-eta">ETA: --</div></div>
+    <div class="kpi"><div class="kpi-label">Active Client</div><div class="kpi-value" id="kpi-client">--</div><div class="kpi-sub">training in progress</div></div>
+    <div class="kpi"><div class="kpi-label">Best Accuracy</div><div class="kpi-value" id="kpi-best">--</div><div class="kpi-sub" id="kpi-best-round">round --</div></div>
+  </div>
+  <div class="progress-section">
+    <div class="progress-header">
+      <div class="section-title" style="margin:0">Round Progress</div>
+      <div style="font-size:.6rem;color:var(--muted)" id="progress-label">0 / 10</div>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill" id="progress-fill" style="width:0%"></div>
+      <div class="progress-text" id="progress-text">0%</div>
+    </div>
+  </div>
+  <div class="charts-pair">
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-title">Global Accuracy</div>
+        <div class="panel-dot" style="background:var(--c-acc)"></div>
+      </div>
+      <div class="panel-body"><div class="chart-wrap"><canvas id="acc-chart"></canvas></div></div>
+    </div>
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-title">Global Loss</div>
+        <div class="panel-dot" style="background:var(--c-loss)"></div>
+      </div>
+      <div class="panel-body"><div class="chart-wrap"><canvas id="loss-chart"></canvas></div></div>
+    </div>
+  </div>
+  <div class="section-title">Client Nodes</div>
+  <div class="clients-grid" id="clients-grid">
+    <div class="client-panel" id="cp-0">
+      <div class="client-head"><div class="client-name">Hospital A - Client 0</div><div class="tag">Idle</div></div>
+      <div class="client-body"><div class="ml-val dim">Waiting...</div></div>
+    </div>
+    <div class="client-panel" id="cp-1">
+      <div class="client-head"><div class="client-name">Hospital B - Client 1</div><div class="tag">Idle</div></div>
+      <div class="client-body"><div class="ml-val dim">Waiting...</div></div>
+    </div>
+    <div class="client-panel" id="cp-2">
+      <div class="client-head"><div class="client-name">Hospital C - Client 2</div><div class="tag">Idle</div></div>
+      <div class="client-body"><div class="ml-val dim">Waiting...</div></div>
+    </div>
+  </div>
+  <div class="table-wrap">
+    <div class="table-head"><div class="section-title" style="margin:0">Round History</div></div>
+    <table>
+      <thead><tr><th>#</th><th>Global Acc</th><th>Global Loss</th><th>C0 Train</th><th>C0 Val</th><th>C1 Train</th><th>C1 Val</th><th>C2 Train</th><th>C2 Val</th><th>Duration</th></tr></thead>
+      <tbody id="history-tbody"><tr><td colspan="10" style="color:var(--dim);padding:18px;text-align:center">Awaiting first round...</td></tr></tbody>
+    </table>
+  </div>
+  <div class="log-panel">
+    <div class="log-head">
+      <span>System Log</span>
+      <span id="log-count" style="font-size:.55rem">0 entries</span>
+    </div>
+    <div id="log-body">
+      <div class="log-line"><span class="log-ts">--:--:--</span><span class="log-msg dim">Waiting for simulation to start...</span></div>
+    </div>
+  </div>
+</div>
+<footer>
+  <span>FedGB - Federated Gallbladder Classification - ResNet-50 + FedProx</span>
+  <span id="last-update">Last sync: never</span>
+</footer>
+<script>
+const C_ACC = '#00e5ff', C_LOSS = '#ff4d6d', C_C0 = '#a78bfa', C_C1 = '#34d399', C_C2 = '#fbbf24';
+const CLIENT_COLORS = [C_C0, C_C1, C_C2];
+const BIAS = ['Heavy: Normal', 'Heavy: Stones+BMT', 'Heavy: Malignant'];
+const SAMPLES = [488, 552, 565];
+let logEntries = [], lastStatus = null, lastRound = 0, lastClient = null;
+let lastSyncTime = null, lastSyncElapsed = 0;
+
+function updateClock() {
+  document.getElementById('clock').textContent = new Date().toLocaleTimeString('en-GB');
+  if (lastSyncTime != null && lastStatus === 'running') {
+    const live = lastSyncElapsed + Math.round((Date.now() - lastSyncTime) / 1000);
+    document.getElementById('kpi-elapsed').textContent = fmtTime(live);
+  }
+}
+setInterval(updateClock, 1000); updateClock();
+
+const monoFont = { family: 'JetBrains Mono, monospace', size: 10 };
+function makeChart(id, label, color) {
+  return new Chart(document.getElementById(id).getContext('2d'), {
+    type: 'line',
+    data: { labels: [], datasets: [{ label, data: [], borderColor: color, backgroundColor: color + '14', borderWidth: 2, fill: true, tension: 0.4, pointBackgroundColor: color, pointBorderColor: '#080808', pointBorderWidth: 1, pointRadius: 4, pointHoverRadius: 7 }] },
+    options: {
+      responsive: true, maintainAspectRatio: false, animation: { duration: 500 },
+      plugins: { legend: { labels: { color: '#555', font: monoFont } }, tooltip: { backgroundColor: '#111', borderColor: '#333', borderWidth: 1, titleColor: '#fff', bodyColor: '#aaa', titleFont: monoFont, bodyFont: monoFont } },
+      scales: { x: { ticks: { color: '#444', font: monoFont }, grid: { color: '#161616' } }, y: { ticks: { color: '#444', font: monoFont }, grid: { color: '#161616' }, min: 0 } }
+    }
+  });
+}
+const accChart = makeChart('acc-chart', 'Global Accuracy', C_ACC);
+const lossChart = makeChart('loss-chart', 'Global Loss', C_LOSS);
+
+function fmtTime(s) { if (s == null || s < 0) return '--'; const m = Math.floor(s / 60), sec = s % 60; return m + 'm ' + String(sec).padStart(2, '0') + 's'; }
+function pct(v) { return (v * 100).toFixed(1) + '%'; }
+function addLog(msg, dim = false) {
+  const ts = new Date().toLocaleTimeString('en-GB');
+  logEntries.unshift({ ts, msg, dim });
+  if (logEntries.length > 40) logEntries.pop();
+  document.getElementById('log-body').innerHTML = logEntries.map(e =>
+    '<div class="log-line"><span class="log-ts">' + e.ts + '</span><span class="log-msg' + (e.dim ? ' dim' : '') + '">' + e.msg + '</span></div>'
+  ).join('');
+  document.getElementById('log-count').textContent = logEntries.length + ' entries';
+}
+
+function refresh() {
+  fetch('progress.json?' + Date.now())
+    .then(r => { if (!r.ok) throw new Error(); return r.json(); })
+    .then(d => {
+      const badge = document.getElementById('status-badge');
+      if (d.status !== lastStatus) {
+        if (d.status === 'running') addLog('Simulation started: ' + d.strategy.toUpperCase() + ' / ' + d.total_rounds + ' rounds');
+        if (d.status === 'done') addLog('Simulation complete');
+        lastStatus = d.status;
+      }
+      if (d.completed_rounds > lastRound) {
+        const r = d.round_history[d.round_history.length - 1];
+        if (r) addLog('Round ' + r.round + ' done - acc=' + pct(r.global_acc) + ' loss=' + r.global_loss.toFixed(4) + ' ' + fmtTime(Math.round(r.duration_s)));
+        lastRound = d.completed_rounds;
+      }
+      if (d.current_client != null && d.status === 'running' && d.current_client !== lastClient) {
+        addLog('Client ' + d.current_client + ' (Hospital ' + 'ABC'[d.current_client] + ') started training');
+        lastClient = d.current_client;
+      }
+      lastSyncElapsed = d.elapsed_seconds;
+      lastSyncTime = Date.now();
+      badge.textContent = d.status === 'done' ? 'Done' : d.status === 'running' ? 'Running' : 'Waiting';
+      badge.className = d.status === 'done' ? 'badge-done' : d.status === 'running' ? 'badge-running' : 'badge-waiting';
+      const tot = d.total_rounds || 10;
+      document.getElementById('kpi-rounds').innerHTML = d.completed_rounds + '<span style="font-size:1rem;color:var(--muted)">/' + tot + '</span>';
+      document.getElementById('kpi-strategy').textContent = 'Strategy: ' + d.strategy.toUpperCase();
+      const last = d.round_history[d.round_history.length - 1];
+      document.getElementById('kpi-acc').textContent = last ? pct(last.global_acc) : '--';
+      document.getElementById('kpi-elapsed').textContent = fmtTime(d.elapsed_seconds);
+      document.getElementById('kpi-eta').textContent = d.status === 'done' ? 'Complete' : 'ETA: ' + fmtTime(d.eta_seconds);
+      const cc = d.current_client;
+      document.getElementById('kpi-client').textContent = cc != null ? 'C' + cc + ' Hosp-' + 'ABC'[cc] : (d.status === 'done' ? 'Done' : '--');
+      if (d.round_history.length > 0) {
+        const best = d.round_history.reduce((b, r) => r.global_acc > b.global_acc ? r : b);
+        document.getElementById('kpi-best').textContent = pct(best.global_acc);
+        document.getElementById('kpi-best-round').textContent = 'round ' + best.round;
+      }
+      const p = tot > 0 ? Math.round((d.completed_rounds / tot) * 100) : 0;
+      document.getElementById('progress-fill').style.width = p + '%';
+      document.getElementById('progress-text').textContent = p + '%';
+      document.getElementById('progress-label').textContent = d.completed_rounds + ' / ' + tot;
+      accChart.data.labels = d.round_history.map(r => 'R' + r.round);
+      accChart.data.datasets[0].data = d.round_history.map(r => r.global_acc);
+      lossChart.data.labels = d.round_history.map(r => 'R' + r.round);
+      lossChart.data.datasets[0].data = d.round_history.map(r => r.global_loss);
+      accChart.update('none'); lossChart.update('none');
+      const clients = d.current_round_clients || [];
+      [0, 1, 2].forEach(i => {
+        const panel = document.getElementById('cp-' + i);
+        const c = clients.find(x => x.id === i);
+        const isActive = d.current_client === i && d.status === 'running';
+        const isDone = c != null;
+        panel.className = 'client-panel' + (isActive ? ' active' : isDone ? ' done' : '');
+        const C = CLIENT_COLORS[i];
+        const tag = isActive ? '<div class="tag tag-active">Training</div>' : isDone ? '<div class="tag tag-done">Done</div>' : '<div class="tag">Idle</div>';
+        let body = '';
+        if (c) {
+          body = '<div class="metric-line"><span class="ml-key">Train Loss</span><span class="ml-val">' + c.train_loss.toFixed(4) + '</span></div>' +
+            '<div class="metric-line"><span class="ml-key">Train Acc</span><div class="acc-bar-wrap"><div class="acc-bar-track"><div class="acc-bar-fill" style="width:' + Math.round(c.train_acc * 100) + '%;background:' + C + '"></div></div><span class="ml-val">' + pct(c.train_acc) + '</span></div></div>' +
+            '<div class="metric-line"><span class="ml-key">Val Loss</span><span class="ml-val">' + c.val_loss.toFixed(4) + '</span></div>' +
+            '<div class="metric-line"><span class="ml-key">Val Acc</span><div class="acc-bar-wrap"><div class="acc-bar-track"><div class="acc-bar-fill" style="width:' + Math.round(c.val_acc * 100) + '%;background:' + C + '"></div></div><span class="ml-val">' + pct(c.val_acc) + '</span></div></div>' +
+            '<div class="metric-line" style="border:none;padding-top:6px"><span class="ml-key" style="font-size:.58rem">' + BIAS[i] + '</span><span class="ml-val dim" style="font-size:.6rem">' + SAMPLES[i] + ' samples</span></div>';
+        } else if (isActive) {
+          const bp = (d.batch_progress && d.batch_progress.client_id === i) ? d.batch_progress : null;
+          if (bp) {
+            const bpct = bp.total_batches > 0 ? Math.round(bp.batch / bp.total_batches * 100) : 0;
+            body =
+              '<div class="metric-line"><span class="ml-key">Epoch</span><span class="ml-val">' + bp.epoch + ' / ' + bp.total_epochs + '</span></div>' +
+              '<div class="metric-line"><span class="ml-key">Batch</span><div class="acc-bar-wrap"><div class="acc-bar-track"><div class="acc-bar-fill" style="width:' + bpct + '%;background:' + C + '"></div></div><span class="ml-val">' + bp.batch + ' / ' + bp.total_batches + '</span></div></div>' +
+              '<div class="metric-line"><span class="ml-key">Live Loss</span><span class="ml-val">' + bp.loss.toFixed(4) + '</span></div>' +
+              '<div class="metric-line" style="border:none"><span class="ml-key">Live Acc</span><div class="acc-bar-wrap"><div class="acc-bar-track"><div class="acc-bar-fill" style="width:' + Math.round(bp.acc * 100) + '%;background:' + C + '"></div></div><span class="ml-val">' + pct(bp.acc) + '</span></div></div>';
+          } else {
+            body = '<div class="ml-val" style="color:var(--muted)">Initializing...</div>';
+          }
+        } else {
+          body = '<div class="ml-val dim">Awaiting turn...</div>';
+        }
+        panel.innerHTML = '<div class="client-head"><div class="client-name">Hospital ' + 'ABC'[i] + ' - Client ' + i + '</div>' + tag + '</div><div class="client-body">' + body + '</div>';
+      });
+      const tbody = document.getElementById('history-tbody');
+      if (d.round_history.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="10" style="color:var(--dim);padding:18px;text-align:center">Awaiting first round...</td></tr>';
+      } else {
+        const cf = (arr, id) => arr && arr.find(x => x.id === id);
+        const chip = v => '<span class="chip">' + pct(v) + '</span>';
+        tbody.innerHTML = [...d.round_history].reverse().map(r =>
+          '<tr>' +
+          '<td style="color:var(--muted)">R' + String(r.round).padStart(2, '0') + '</td>' +
+          '<td style="color:' + C_ACC + ';font-weight:600">' + pct(r.global_acc) + '</td>' +
+          '<td style="color:' + C_LOSS + ';font-weight:600">' + r.global_loss.toFixed(4) + '</td>' +
+          '<td>' + (cf(r.clients, 0) ? chip(cf(r.clients, 0).train_acc) : '--') + '</td>' +
+          '<td style="color:' + C_C0 + '">' + (cf(r.clients, 0) ? pct(cf(r.clients, 0).val_acc) : '--') + '</td>' +
+          '<td>' + (cf(r.clients, 1) ? chip(cf(r.clients, 1).train_acc) : '--') + '</td>' +
+          '<td style="color:' + C_C1 + '">' + (cf(r.clients, 1) ? pct(cf(r.clients, 1).val_acc) : '--') + '</td>' +
+          '<td>' + (cf(r.clients, 2) ? chip(cf(r.clients, 2).train_acc) : '--') + '</td>' +
+          '<td style="color:' + C_C2 + '">' + (cf(r.clients, 2) ? pct(cf(r.clients, 2).val_acc) : '--') + '</td>' +
+          '<td style="color:var(--muted)">' + fmtTime(Math.round(r.duration_s)) + '</td>' +
+          '</tr>'
+        ).join('');
+      }
+      document.getElementById('last-update').textContent = 'Last sync: ' + new Date().toLocaleTimeString('en-GB');
+    })
+    .catch(() => {
+      document.getElementById('status-badge').textContent = 'Waiting';
+      document.getElementById('status-badge').className = 'badge-waiting';
+      document.getElementById('last-update').textContent = 'Waiting for simulation... ' + new Date().toLocaleTimeString('en-GB');
+    });
+}
+refresh();
+setInterval(refresh, 1000);
+</script>
+</body>
+</html>

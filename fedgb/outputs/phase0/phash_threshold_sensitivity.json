@@ -1,0 +1,70 @@
+{
+  "n_images": 10692,
+  "thresholds_swept": [
+    4,
+    6,
+    8,
+    10,
+    12
+  ],
+  "max_classes_per_cluster_backstop": 2,
+  "max_cluster_size_backstop": 30,
+  "results_by_threshold": {
+    "4": {
+      "n_raw_connected_components": 1570,
+      "n_vetoed_raw_components": 0,
+      "n_vetoed_member_images": 0,
+      "n_final_clusters": 1570,
+      "n_mixed_class_clusters_post_veto": 4,
+      "max_cluster_size": 24,
+      "median_cluster_size": 6,
+      "n_singleton_clusters": 1,
+      "wall_time_seconds": 271.5
+    },
+    "6": {
+      "n_raw_connected_components": 1514,
+      "n_vetoed_raw_components": 1,
+      "n_vetoed_member_images": 60,
+      "n_final_clusters": 1573,
+      "n_mixed_class_clusters_post_veto": 14,
+      "max_cluster_size": 24,
+      "median_cluster_size": 6,
+      "n_singleton_clusters": 60,
+      "wall_time_seconds": 272.4
+    },
+    "8": {
+      "n_raw_connected_components": 1357,
+      "n_vetoed_raw_components": 11,
+      "n_vetoed_member_images": 906,
+      "n_final_clusters": 2252,
+      "n_mixed_class_clusters_post_veto": 26,
+      "max_cluster_size": 30,
+      "median_cluster_size": 6,
+      "n_singleton_clusters": 906,
+      "wall_time_seconds": 244.3
+    },
+    "10": {
+      "n_raw_connected_components": 886,
+      "n_vetoed_raw_components": 14,
+      "n_vetoed_member_images": 4249,
+      "n_final_clusters": 5121,
+      "n_mixed_class_clusters_post_veto": 32,
+      "max_cluster_size": 30,
+      "median_cluster_size": 1,
+      "n_singleton_clusters": 4249,
+      "wall_time_seconds": 221.4
+    },
+    "12": {
+      "n_raw_connected_components": 225,
+      "n_vetoed_raw_components": 2,
+      "n_vetoed_member_images": 9076,
+      "n_final_clusters": 9299,
+      "n_mixed_class_clusters_post_veto": 12,
+      "max_cluster_size": 30,
+      "median_cluster_size": 1,
+      "n_singleton_clusters": 9076,
+      "wall_time_seconds": 251.8
+    }
+  },
+  "note": "This sweep answers the cluster-count and mixed-class (proxy for false-positive) half of Review 9's ask. It does NOT retrain a classifier at each threshold to report Stage 1/2 accuracy per threshold -- that remains a separate, more expensive follow-up requiring up to 5 full training runs, one per threshold, and is not attempted here."
+}

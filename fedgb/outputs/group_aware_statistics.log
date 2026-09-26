@@ -1,0 +1,9 @@
+[group-stats] reconstructed 3193 validation group IDs (209 distinct filename-prefix groups)
+[group-stats] seed=7: balanced_accuracy=0.9284  macro_pr_auc=0.9797
+[group-stats] seed=7 accuracy CI width: image-level=0.0179  group-aware=0.0513 (n_groups=209)
+[group-stats] seed=42: balanced_accuracy=0.9295  macro_pr_auc=0.9805
+[group-stats] seed=42 accuracy CI width: image-level=0.0169  group-aware=0.0456 (n_groups=209)
+[group-stats] seed=123: balanced_accuracy=0.9086  macro_pr_auc=0.9685
+[group-stats] seed=123 accuracy CI width: image-level=0.0200  group-aware=0.0537 (n_groups=209)
+
+[group-stats] wrote C:\Users\HomePC\Documents\resarch - Copy\resarch - Copy\fedgb\outputs\phase0\group_aware_statistics.json

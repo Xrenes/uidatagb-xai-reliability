@@ -1,0 +1,2363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=794"/>
+<title>Quantitative Evaluation of Explainable AI Methods for Gallbladder Diseases through Ultrasound Images</title>
+
+<!-- MathJax 3 -->
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$','$']],
+    displayMath: [['$$','$$']],
+    tags: 'ams'
+  },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] },
+  chtml: { scale: 0.93 }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+<style>
+/* ============================================================
+   RESET
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ============================================================
+  BODY - grey surround (matches printed IEEE look)
+   ============================================================ */
+body {
+  background: #808080;
+  font-family: "Times New Roman", Times, "Nimbus Roman No9 L", serif;
+}
+
+/* ============================================================
+   PAPER SHEET  (A4 = 210 x 297 mm = 794 x 1123 px at 96 dpi)
+  IEEEtran-style margins: ~18 mm each side approx. 68 px
+   ============================================================ */
+.paper {
+  width: 794px;
+  background: #fff;
+  margin: 20px auto 40px;
+  padding: 54px 50px 72px 50px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.45);
+  color: #000;
+  font-size: 10pt;
+  line-height: 1.22;
+}
+
+/* ============================================================
+   ARXIV STAMP
+   ============================================================ */
+.arxiv-stamp {
+  font-size: 8pt;
+  color: #222;
+  margin-bottom: 8pt;
+}
+
+/* ============================================================
+   TITLE BLOCK  (full-width, centred)
+   ============================================================ */
+.title-block {
+  text-align: center;
+  margin-bottom: 10pt;
+}
+
+.paper-title {
+  font-size: 24pt;
+  font-weight: normal;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin-bottom: 10pt;
+}
+
+.authors-line {
+  font-size: 11pt;
+  line-height: 1.3;
+  margin-bottom: 3pt;
+}
+.authors-line sup { font-size: 7pt; vertical-align: super; }
+
+.affil-line {
+  font-size: 10pt;
+  font-style: italic;
+  line-height: 1.3;
+  margin-bottom: 2pt;
+}
+
+.email-line {
+  font-size: 10pt;
+  line-height: 1.3;
+}
+
+/* ============================================================
+  ABSTRACT  (full-width, 9 pt - IEEE style)
+   ============================================================ */
+.abstract-block {
+  margin: 10pt 0 6pt;
+  font-size: 9pt;
+  line-height: 1.3;
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
+.abstract-block .abs-label {
+  font-weight: bold;
+  font-style: italic;
+}
+
+.index-terms {
+  font-size: 9pt;
+  line-height: 1.3;
+  margin-top: 4pt;
+}
+.index-terms .it-label {
+  font-style: italic;
+  font-weight: bold;
+}
+
+/* ============================================================
+   HORIZONTAL RULE
+   ============================================================ */
+.rule { border: none; border-top: 0.75pt solid #000; margin: 6pt 0; }
+
+/* ============================================================
+   TWO-COLUMN BODY
+   ============================================================ */
+.body-cols {
+  column-count: 2;
+  column-gap: 7px;
+  column-fill: balance;
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  orphans: 2;
+  widows: 2;
+}
+
+/* ============================================================
+  SECTION HEADINGS - Roman numerals, IEEE-style uppercase, 10 pt, centred
+  (uses text-transform: uppercase instead of font-variant: small-caps so
+   the title text renders reliably on systems whose default serif font
+   lacks small-caps glyphs.)
+   ============================================================ */
+.sec-head {
+  font-size: 10.5pt;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  text-align: center;
+  margin: 9pt 0 4pt;
+  break-after: avoid;
+  -webkit-column-break-after: avoid;
+}
+.sec-head .roman { text-transform: none; }
+
+/* ============================================================
+  SUBSECTION HEADINGS   A. Title - 10 pt italic, left
+   ============================================================ */
+.subsec-head {
+  font-size: 10.5pt;
+  font-style: italic;
+  font-weight: normal;
+  text-align: left;
+  margin: 6pt 0 3pt;
+  break-after: avoid;
+  -webkit-column-break-after: avoid;
+}
+.subsubsec-head {
+  font-size: 10pt;
+  font-style: italic;
+  font-weight: normal;
+  text-align: left;
+  margin: 4pt 0 2pt;
+  break-after: avoid;
+  -webkit-column-break-after: avoid;
+}
+.data-table {
+  border-collapse: collapse;
+  margin: 6pt auto;
+}
+.data-table caption {
+  font-size: 9.5pt;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 4pt;
+}
+.data-table th, .data-table td {
+  border: 1px solid #aaa;
+  padding: 3pt 6pt;
+  font-size: 9.5pt;
+}
+.data-table thead tr { background: #e8e8e8; }
+
+/* ============================================================
+   PARAGRAPHS
+   ============================================================ */
+p {
+  font-size: 10.5pt;
+  line-height: 1.32;
+  text-indent: 1em;
+  margin: 0;
+}
+p.no-indent { text-indent: 0; }
+
+.label-bold  { font-weight: bold; }
+.label-italic{ font-style: italic; }
+.label-bi    { font-weight: bold; font-style: italic; }
+
+/* ============================================================
+   LISTS
+   ============================================================ */
+ul.body-list, ol.body-list {
+  font-size: 10.5pt;
+  line-height: 1.32;
+  margin: 3pt 0 3pt 14pt;
+}
+ul.body-list { list-style: disc; }
+ol.body-list { list-style: decimal; }
+ul.body-list li, ol.body-list li { margin: 1.5pt 0; }
+
+/* ============================================================
+   EQUATIONS
+   ============================================================ */
+.eq-block {
+  text-align: center;
+  margin: 5pt 0;
+  font-size: 10.5pt;
+}
+
+/* ============================================================
+   ALGORITHM BOX
+   ============================================================ */
+.algorithm {
+  border: 0.75pt solid #000;
+  padding: 6pt 8pt;
+  margin: 7pt 0;
+  font-size: 9pt;
+  line-height: 1.4;
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+}
+.algorithm .alg-head {
+  text-align: center;
+  font-weight: bold;
+  font-size: 10pt;
+  border-bottom: 0.5pt solid #000;
+  padding-bottom: 3pt;
+  margin-bottom: 4pt;
+}
+.algorithm .alg-io {
+  font-style: italic;
+  margin-bottom: 3pt;
+  font-size: 9pt;
+}
+.alg-line  { display: block; line-height: 1.4; }
+.alg-i1    { padding-left: 10pt; }
+.alg-i2    { padding-left: 20pt; }
+.alg-i3    { padding-left: 30pt; }
+.alg-rule  { border-top: 0.4pt solid #555; margin: 3pt 0; }
+
+/* ============================================================
+   FIGURES
+   ============================================================ */
+figure {
+  margin: 6pt 0;
+  text-align: center;
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+}
+figure img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+figure.span-cols { column-span: all; }
+figure.fig-wide {
+  column-span: all;
+  margin: 8pt auto;
+  text-align: center;
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+}
+figure.fig-wide img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+figcaption {
+  font-size: 9.5pt;
+  line-height: 1.35;
+  text-align: justify;
+  margin-top: 3pt;
+}
+figcaption .fig-label { font-weight: bold; }
+/* ============================================================
+  FIGURE PAIRS  (side-by-side half-width each, NIID-Bench style)
+   ============================================================ */
+figure.fig-pair {
+  column-span: all;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10pt;
+  align-items: flex-start;
+  margin: 8pt 0;
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  width: 100%;
+}
+figure.fig-pair > figure {
+  flex: 0 0 calc(50% - 5pt);
+  min-width: 0;
+  max-width: calc(50% - 5pt);
+  margin: 0;
+  text-align: center;
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  overflow: hidden;
+}
+figure.fig-pair > figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+figure.fig-pair > figure figcaption {
+  font-size: 9pt;
+  line-height: 1.3;
+  text-align: justify;
+  margin-top: 2pt;
+}
+/* Appendix heading */
+.app-head {
+  font-size: 11pt;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  text-align: center;
+  margin: 9pt 0 4pt;
+  column-span: all;
+}
+.app-head .roman { text-transform: none; }
+.app-sub {
+  font-size: 10.5pt;
+  font-style: italic;
+  text-align: left;
+  margin: 6pt 0 3pt;
+  column-span: all;
+}
+
+/* Inline appendix thumbnail gallery (Supplementary A).
+   The paper's page card is a fixed 794px, giving ~658px of content width --
+   too narrow for 6 genuinely large images per row. Break this section out
+   of that fixed width so each row's 6 images can be large. */
+.supp-gallery {
+  column-span: all;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 96vw;
+  max-width: 1700px;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 12pt;
+  margin: 10pt 0 6pt;
+}
+.supp-gallery figure {
+  min-width: 0;
+  overflow: hidden;
+  margin: 0;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  padding: 5pt;
+  text-align: center;
+}
+.supp-gallery figure img {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0;
+}
+.supp-gallery figcaption {
+  font-size: 9.5pt;
+  line-height: 1.3;
+  text-align: center;
+  margin-top: 4pt;
+}
+@media (max-width: 900px) {
+  .supp-gallery { grid-template-columns: repeat(3, 1fr); width: 98vw; }
+}
+.supp-note {
+  font-size: 9pt;
+  column-span: all;
+  margin: 4pt 0 6pt;
+  text-align: left;
+}
+
+
+/* ============================================================
+  TABLES - Caption ABOVE, all-caps bold 8.4 pt (IEEE standard)
+   ============================================================ */
+.tbl-wrap {
+  margin: 6pt 0;
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+}
+.tbl-wrap.span-cols { column-span: all; }
+
+.tbl-caption {
+  font-size: 9.5pt;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  text-align: center;
+  margin-bottom: 3pt;
+}
+.tbl-sub {
+  font-size: 8.4pt;
+  font-weight: normal;
+  text-transform: none;
+  letter-spacing: 0;
+  font-style: italic;
+  display: block;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 8.4pt;
+  line-height: 1.25;
+}
+thead th {
+  border-top: 1pt solid #000;
+  border-bottom: 0.5pt solid #000;
+  padding: 2pt 4pt;
+  font-weight: bold;
+  text-align: center;
+}
+tbody td {
+  padding: 1.5pt 4pt;
+  text-align: center;
+}
+tbody tr:last-child td { border-bottom: 1pt solid #000; }
+td.tal  { text-align: left; }
+td.bold { font-weight: bold; }
+
+/* ============================================================
+   FINDING BOXES
+   ============================================================ */
+.finding-box {
+  margin: 4pt 0;
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+}
+.finding-label {
+  font-weight: bold;
+  font-style: italic;
+}
+
+/* ============================================================
+   FOOTNOTES
+   ============================================================ */
+.footnote-area {
+  border-top: 0.5pt solid #000;
+  margin-top: 6pt;
+  padding-top: 3pt;
+  font-size: 8pt;
+  line-height: 1.3;
+}
+.fn-sym { font-size: 6pt; vertical-align: super; }
+.title-footnote { font-size: 8pt; margin-top: 5pt; color: #000; }
+
+/* ============================================================
+  REFERENCES - 8.4 pt, [N] numbered, run-in
+   ============================================================ */
+.sec-refs {
+  font-size: 8.4pt;
+  line-height: 1.3;
+}
+.ref-entry {
+  display: flex;
+  gap: 3pt;
+  margin: 1.5pt 0;
+  text-align: left;
+}
+.ref-num { flex-shrink: 0; min-width: 20pt; text-align: right; }
+.ref-txt { flex: 1; }
+
+/* ============================================================
+   DOWNLOAD BUTTON  (screen only)
+   ============================================================ */
+.download-btn {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 9999;
+  background: #1a0dab;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 22px;
+  font-size: 13px;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.35);
+  letter-spacing: 0.02em;
+}
+.download-btn:hover { background: #0d0790; }
+
+/* ============================================================
+   CROSS-REFERENCE LINKS  (cite, fig, table, algorithm)
+   ============================================================ */
+a.xref {
+  color: #1a0dab;
+  text-decoration: none;
+}
+a.xref:hover { text-decoration: underline; }
+
+/* ============================================================
+  PRINT / PDF EXPORT  -  A4 portrait
+   ============================================================ */
+@page {
+  size: A4 portrait;
+  margin: 18mm 18mm 22mm 18mm;
+}
+/* ============================================================
+   MULTI-PANEL FIGURE GRIDS
+   ============================================================ */
+.fig-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3pt;
+  justify-content: center;
+  margin: 3pt 0;
+}
+.fig-row .subfig {
+  flex: 0 0 auto;
+  text-align: center;
+}
+.fig-row .subfig img { display: block; height: auto; }
+.subfig-cap {
+  font-size: 7pt;
+  text-align: center;
+  margin-top: 1.5pt;
+}
+.fig-gallery-cap {
+  font-size: 8.4pt;
+  line-height: 1.3;
+  text-align: justify;
+  margin-top: 3pt;
+}
+.fig-gallery-cap .fig-label { font-weight: bold; }
+
+@media print {
+  @page {
+    size: A4;
+    margin: 14mm 13mm;
+  }
+  html, body {
+    background: #fff;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  .paper {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+  }
+  /* Two-column in print, matching the on-screen layout and Array's own
+     printed format. Wide figures/tables span both columns rather than
+     being forced into one, which is what allows them to render at full
+     width instead of being clipped. */
+  /* column-fill:auto packs each column to full page height before
+     starting the next, instead of balancing both columns to a shorter
+     equal height and leaving matching dead space at the foot of each.
+     orphans/widows of 1 let a paragraph split closer to the column
+     boundary rather than pushing 2 lines forward and leaving a gap. */
+  .body-cols {
+    column-count: 2 !important;
+    column-gap: 7px !important;
+    column-fill: auto !important;
+    orphans: 1 !important;
+    widows: 1 !important;
+  }
+  figure.span-cols, .tbl-wrap.span-cols, figure.fig-pair,
+  figure.fig-wide, .fig-row, .app-head, .app-sub, .supp-gallery,
+  .wide3panel-gallery, .supp-note { column-span: all !important; }
+  /* Figures narrow enough to fit one print column (e.g. an explicit
+     max-width around 360px) don't need to span both -- forcing them to
+     span wastes the entire other column for the height of the figure.
+     Selector must match figure.span-cols's specificity (element+class)
+     or higher, since source order alone does not win over !important
+     rules of equal or lower specificity. */
+  figure.span-cols.single-col-print { column-span: none !important; }
+  .download-btn { display: none !important; }
+  .arxiv-stamp { display: none !important; }
+  a.xref { color: #000; text-decoration: none; }
+  figure, .algorithm, .tbl-wrap {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .sec-head, .subsec-head {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+  /* Tightened print-only spacing: CSS multi-column layout cannot reflow
+     text around a column-span figure/table that doesn't fit at the
+     bottom of a page -- it pushes the whole block to the next page,
+     leaving a gap. Shrinking every fixed margin/gap and each figure's
+     own footprint reduces how often that threshold is crossed. */
+  p, p.no-indent { margin: 0 0 4pt; line-height: 1.32; }
+  .sec-head { margin: 6pt 0 3pt; }
+  .subsec-head { margin: 4pt 0 2pt; }
+  .subsubsec-head { margin: 3pt 0 1pt; }
+  figure, figure.fig-wide, figure.fig-pair { margin: 4pt 0; }
+  figure img, figure.fig-wide img { max-width: 92%; }
+  figure.fig-pair > figure img { max-width: 78%; }
+  .tbl-wrap { margin: 4pt 0; }
+  .tbl-caption { margin-bottom: 2pt; }
+  figcaption { margin-top: 2pt; font-size: 9pt; }
+  .finding-box { margin: 3pt 0; }
+  table { font-size: 8pt; }
+  thead th { padding: 1.5pt 3pt; }
+  tbody td { padding: 1pt 3pt; }
+  /* The gallery breaks out to 96vw on screen; in print there is no viewport
+     to break out to, so pin it back inside the page box to avoid overflow.
+     Allow the grid itself to break across a page boundary (each thumbnail is
+     independent) so it fills the bottom of its starting page instead of
+     jumping wholesale to the next one and leaving a gap. */
+  .supp-gallery {
+    position: static;
+    left: auto;
+    transform: none;
+    width: 100%;
+    max-width: 100%;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 5pt;
+  }
+  .supp-gallery figure { break-inside: avoid; page-break-inside: avoid; }
+  .supp-gallery img { max-width: 100%; height: auto; }
+  .wide3panel-gallery {
+    position: static;
+    left: auto;
+    transform: none;
+    width: 100%;
+    max-width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 5pt;
+  }
+  .wide3panel-gallery figure { break-inside: avoid; page-break-inside: avoid; }
+  .wide3panel-gallery img { max-width: 100%; height: auto; }
+  img { max-width: 100%; height: auto; }
+  /* Cap figure HEIGHT (not width) so a tall figure cannot consume a
+     whole page and force the preceding text to stop half-way, leaving
+     both columns short. width:auto + max-width:100% + max-height lets
+     the browser scale proportionally to satisfy both bounds, so the
+     aspect ratio is preserved -- unlike a max-height combined with a
+     fixed width:100%, which distorts. The !important is required to
+     override the inline width:100% on these img elements.
+     A4 text height is ~269mm; 150mm leaves room for text alongside. */
+  figure.span-cols img, figure.fig-wide img {
+    max-height: 175mm;
+    width: auto !important;
+    max-width: 100%;
+  }
+}
+
+.wide3panel-gallery {
+  column-span: all;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 96vw;
+  max-width: 1300px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10pt;
+  margin: 10pt 0 6pt;
+}
+@media (max-width: 700px) {
+  .wide3panel-gallery { grid-template-columns: 1fr; }
+}
+.wide3panel-gallery figure {
+  min-width: 0;
+  overflow: hidden;
+  margin: 0;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  padding: 5pt;
+  text-align: center;
+}
+.wide3panel-gallery figure img {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0;
+}
+.wide3panel-gallery figcaption {
+  font-size: 9.5pt;
+  line-height: 1.3;
+  text-align: center;
+  margin-top: 4pt;
+}
+</style>
+</head>
+<body>
+
+<button class="download-btn" onclick="window.print()">&#8659;&nbsp;Download&nbsp;PDF</button>
+
+<div class="paper">
+
+  <!-- PREPRINT STAMP -->
+  <div class="arxiv-stamp">
+    Preprint&nbsp;&mdash;&nbsp;under review&nbsp;&nbsp;[eess.IV]&nbsp;&nbsp;July 2026
+  </div>
+
+  <!-- TITLE BLOCK -->
+  <div class="title-block">
+    <h1 class="paper-title">
+      Quantitative Evaluation of Explainable AI Methods<br>
+      for Gallbladder Diseases through Ultrasound Images
+    </h1>
+    <div class="authors-line">
+      Sayed Ifti Ahmed<sup>*</sup>
+      &emsp;&emsp;
+      Mst Khadiza Akter Sammi<sup>*</sup>
+    </div>
+    <div class="affil-line">
+      Department of Computer Science and Engineering,
+      Daffodil International University (DIU), Dhaka, Bangladesh
+    </div>
+    <div class="email-line">
+      ifti241-15-227@diu.edu.bd
+      &emsp;&emsp;
+      akter241-15-704@diu.edu.bd
+    </div>
+    <div class="title-footnote"><span class="fn-sym">*</span>Equal contribution.</div>
+  </div>
+
+  <!-- ARTICLE INFO (Array places Keywords before the Abstract, in an
+       article-info box, rather than after it as IEEE's "Index Terms"
+       convention does) -->
+  <div class="index-terms">
+    <span class="it-label">Keywords:</span>&nbsp;Explainable AI,
+    Grad-CAM, Grad-CAM++, Saliency Maps, Eigen-CAM, Score-CAM,
+    Gallbladder Cancer, Ultrasound Imaging, Deep Learning,
+    Cosine Similarity, Clinical Interpretability, Internal Validation
+  </div>
+
+  <!-- ABSTRACT -->
+  <div class="abstract-block">
+    <span class="abs-label">Abstract&mdash;</span>Deep-learning studies
+    on gallbladder ultrasound often report classification performance
+    alongside a few heatmaps as evidence of interpretability. These
+    studies rarely test, quantitatively, whether the explanations are
+    reproducible, faithful, or stable. This paper reports a quantitative
+    explainable-AI (XAI) evaluation of a ResNet-50 classifier for
+    nine-class gallbladder ultrasound classification on the public
+    UIdataGB dataset. Five XAI methods are compared&mdash;Grad-CAM,
+    Grad-CAM++, Saliency Maps, Eigen-CAM, and Score-CAM&mdash;using a
+    cosine-based consistency score and a full reliability battery
+    (faithfulness, stability, sanity check, calibration, shortcut audit).
+    The primary model reaches <b>93.05%</b> accuracy (macro-F1 0.9303,
+    macro-AUC 0.9965), confirmed by a three-seed replication
+    ($0.9210\pm0.0131$). The XAI evaluation
+    itself is the paper's central result: Grad-CAM++
+    and Score-CAM are consistently the most reproducible and faithful
+    methods, with the highest cross-replicate consistency
+    ($\bar{O}^c=0.944$ and $0.937$ versus 0.769, 0.242, and 0.681 for
+    Grad-CAM, Eigen-CAM, and Saliency Maps) and the widest faithfulness
+    margin over a random-attribution control. A margin-crop shortcut
+    audit finds no evidence the model relies on image-border artefacts;
+    a model-parameter randomization sanity check confirms the
+    explanations depend on learned weights rather than architecture
+    alone; and temperature scaling substantially improves probability
+    calibration (ECE 0.034&nbsp;$\rightarrow$&nbsp;0.009). The
+    explanations describe the classifier's behaviour faithfully; that is
+    not, on its own, evidence the classifier's behaviour is clinically
+    trustworthy. The study is internal-validation only. It does not
+    establish multicentre, patient-level, or clinician-annotated
+    localization validity.
+  </div>
+
+  <hr class="rule"/>
+
+  <!-- TWO-COLUMN BODY -->
+  <div class="body-cols">
+
+    <!-- 1. INTRODUCTION -->
+    <h2 class="sec-head"><span class="roman">1.</span>&nbsp;Introduction</h2>
+
+    <p class="no-indent">Gallbladder diseases&mdash;including
+    cholelithiasis, cholecystitis, polyps, adenomyomatosis, and
+    carcinoma (GBC)&mdash;affect hundreds of millions of people
+    worldwide. GBC is highly lethal once diagnosed at advanced
+    stage, with a five-year survival rate below 20%
+    <a class="xref" href="#ref-1">[1]</a>,&nbsp;<a class="xref" href="#ref-2">[2]</a>.
+    Ultrasound remains the primary first-line imaging modality for
+    gallbladder evaluation. However, a systematic review reports pooled
+    sensitivity of only 81% and specificity of 83% for acute
+    cholecystitis, a spread wide enough to reflect substantial operator
+    and protocol variability <a class="xref" href="#ref-3">[3]</a>. That
+    motivates computer-aided classification as a decision-support aid,
+    set against the broader promise of, and caution about premature trust
+    in, artificial intelligence in medicine
+    <a class="xref" href="#ref-4">[4]</a>,&nbsp;<a class="xref" href="#ref-5">[5]</a>,&nbsp;<a class="xref" href="#ref-6">[6]</a>.
+    Deep convolutional neural networks (CNNs) now match or exceed prior
+    gallbladder-ultrasound classifiers
+    <a class="xref" href="#ref-7">[7]</a>, but clinical adoption is
+    limited by opacity. CNNs are widely regarded as
+    &ldquo;black-box&rdquo; models that predict without revealing the
+    anatomical reasoning behind the prediction
+    <a class="xref" href="#ref-8">[8]</a>. In high-stakes clinical
+    settings this is untenable. Radiologists require visual confirmation
+    that a model attends to genuine anatomical evidence rather than
+    imaging artefacts
+    <a class="xref" href="#ref-9">[9]</a>,&nbsp;<a class="xref" href="#ref-10">[10]</a>.</p>
+
+    <p class="no-indent">Explainable AI (XAI) methods such as Grad-CAM
+    <a class="xref" href="#ref-11">[11]</a>, Grad-CAM++
+    <a class="xref" href="#ref-12">[12]</a>, and gradient saliency maps
+    address this by producing class-discriminative heatmaps. But a
+    heatmap that <em>looks</em> anatomically plausible is not the same
+    as one shown to be reliable. Ghassemi et&nbsp;al.
+    <a class="xref" href="#ref-9">[9]</a> and Rudin
+    <a class="xref" href="#ref-8">[8]</a> both argue that most clinical
+    XAI evidence stops at qualitative visualisation. It does not test
+    whether the explanation localises correctly, survives small
+    perturbations, is faithful to what drives the prediction, or is
+    reproducible across training runs. Sanity-check studies
+    <a class="xref" href="#ref-13">[13]</a> and interpretability
+    benchmarks <a class="xref" href="#ref-14">[14]</a> show that popular
+    saliency methods fail exactly these tests while still looking
+    convincing. Reliability must therefore be measured, not assumed from
+    appearance.</p>
+
+    <p class="no-indent">For gallbladder ultrasound specifically,
+    published work applies at most one CAM variant and reports it
+    qualitatively (Section&nbsp;2). No prior study compares multiple XAI
+    methods quantitatively for this task or asks whether the resulting
+    explanations are reproducible across independent training runs. This paper's central
+    question is therefore: <em>how much does
+    the choice of XAI method matter for a nine-class gallbladder
+    ultrasound classifier, and are the resulting explanations a
+    reproducible property of the model rather than an artifact of one
+    training run?</em> The scope is stated explicitly throughout. This is
+    an internal-validation study on an unlabelled-provenance dataset,
+    evaluated at the image level. It is not an externally validated
+    multicentre generalizability claim or a clinical deployment claim.
+    Those broader questions define the validation programme this paper
+    initiates (Section&nbsp;5.5).</p>
+
+    <p class="no-indent">The contributions of this work are as follows.
+    (1)&nbsp;A <span class="label-bold">five-method quantitative XAI
+    benchmark</span> (Grad-CAM, Grad-CAM++, Saliency Maps, Eigen-CAM,
+    Score-CAM) on a ResNet-50 gallbladder-ultrasound classifier. It compares more methods
+    simultaneously, and covers more classes, than any prior
+    gallbladder-ultrasound study identified (Table&nbsp;9).
+    (2)&nbsp;A <span class="label-bold">quantitative XAI-reliability
+    battery</span>: a cosine-based cross-replicate
+    consistency score $O^c$, deletion/insertion faithfulness against a
+    random control, stability under clinically-invariant transforms, a
+    model-randomisation sanity check, temperature-scaling calibration,
+    and a shortcut audit. This moves the evaluation from
+    &ldquo;heatmaps that look right&rdquo; to explanations measured to be
+    reliable. Together with the benchmark above, it is this paper's
+    primary contribution. (3)&nbsp;<span class="label-bold">Grounded
+    failure-case analysis</span>, examining specific
+    high-confidence misclassifications rather than aggregate accuracy.
+    (4)&nbsp;An <span class="label-bold">honest validation roadmap</span>
+    naming what this paper does not establish, namely
+    clinician-annotated localization
+    (Section&nbsp;5.5). (5)&nbsp;<span class="label-bold">Open
+    reproducibility</span>: all code, trained checkpoints, and generated
+    figures are publicly released.</p>
+
+    <p>Section&nbsp;2 reviews background and related work. Section&nbsp;3
+    describes the materials and methodology. Section&nbsp;4 presents
+    classification and XAI results. Section&nbsp;5 discusses
+    their interpretation, clinical relevance, reliability, relation to
+    prior work, limitations, and future directions. Section&nbsp;6
+    concludes.</p>
+
+
+    <!-- 2. BACKGROUND AND RELATED WORK -->
+    <h2 class="sec-head"><span class="roman">2.</span>&nbsp;Background and related work</h2>
+
+    <p class="no-indent">The literature reviewed below was identified
+    through a structured, non-systematic search of gallbladder-ultrasound
+    AI and medical-XAI publications (2016&ndash;2026), following the
+    spirit of search-transparency practice recommended for systematic
+    reviews <a class="xref" href="#ref-15">[15]</a>; this section is a
+    narrative review rather than a formal systematic one.</p>
+
+    <p class="no-indent">Conventional CAD systems for gallbladder imaging
+    relied on hand-crafted texture features and classical classifiers
+    <a class="xref" href="#ref-16">[16]</a>, and deep learning has since
+    substantially improved performance. Turki et&nbsp;al.
+    <a class="xref" href="#ref-17">[17]</a> released the multi-class
+    UIdataGB dataset used here, drawn in part from ultrasound video
+    sequences. Its release publication reports collection across
+    three-to-four hospitals in Baghdad, Iraq over four years on four
+    scanner models, but the public release carries no hospital, patient,
+    or scanner identifier, so that provenance cannot be recovered from
+    the released files (Section&nbsp;3.1). On the same collection, Obaid
+    et&nbsp;al. <a class="xref" href="#ref-18">[18]</a> reported 98.35%
+    accuracy with MobileNet, evaluated with a single CAM variant
+    reported qualitatively rather than a quantitative, multi-method XAI
+    comparison.</p>
+
+    <p class="no-indent">A parallel body of work targets the separate,
+    five-class GBCU dataset. Basu et&nbsp;al.
+    <a class="xref" href="#ref-7">[7]</a> released GBCU with
+    curriculum-learning ResNet classification, and RadFormer
+    <a class="xref" href="#ref-19">[19]</a> added global-local transformer
+    attention for interpretable GBC detection. Gupta et&nbsp;al.
+    prospectively evaluated deep learning for GBC detection
+    <a class="xref" href="#ref-20">[20]</a> and a
+    multiple-instance-learning approach across explicitly identified
+    centres <a class="xref" href="#ref-21">[21]</a>, the kind of
+    site-stratified evaluation this paper's site-unlabelled release
+    cannot support. Recent work has pushed accuracy further with
+    anatomy-aware architectures <a class="xref" href="#ref-22">[22]</a>
+    and video-based masked autoencoder detection
+    <a class="xref" href="#ref-23">[23]</a>, building on an earlier
+    weakly-supervised variant <a class="xref" href="#ref-24">[24]</a>.
+    Other work addresses gallbladder polyps specifically
+    <a class="xref" href="#ref-16">[16]</a>,&nbsp;<a class="xref" href="#ref-25">[25]</a>,&nbsp;<a class="xref" href="#ref-26">[26]</a>.
+    With the partial exception of RadFormer's attention maps, none of
+    these works compares multiple XAI methods quantitatively or tests
+    reproducibility across independent training runs.</p>
+
+    <p class="no-indent">Deep convolutional networks are now the dominant
+    approach across medical-imaging classification generally. Transfer
+    learning from ImageNet-pretrained backbones such as ResNet
+    <a class="xref" href="#ref-27">[27]</a>, DenseNet
+    <a class="xref" href="#ref-28">[28]</a>, and EfficientNet
+    <a class="xref" href="#ref-29">[29]</a> is standard practice for
+    small medical datasets <a class="xref" href="#ref-30">[30]</a>. However,
+    this performance gain carries a well-documented cost: such models
+    are widely regarded as &ldquo;black boxes,&rdquo; and clinical
+    adoption depends on being able to inspect, not merely trust, the
+    reasoning behind a prediction <a class="xref" href="#ref-8">[8]</a>.
+    Surveys by Tjoa and Guan <a class="xref" href="#ref-31">[31]</a>,
+    van der Velden et&nbsp;al. <a class="xref" href="#ref-10">[10]</a>,
+    and the edited volume of Samek et&nbsp;al.
+    <a class="xref" href="#ref-32">[32]</a> converge on the same caution:
+    qualitative heatmap visualisation is the most common form of
+    &ldquo;explanation&rdquo; reported in clinical deep learning. It is
+    routinely presented as sufficient evidence of interpretability on
+    its own, without further testing
+    <a class="xref" href="#ref-8">[8]</a>,&nbsp;<a class="xref" href="#ref-9">[9]</a>.</p>
+
+    <p class="no-indent">The five methods evaluated here span the main
+    families of CAM-based attribution: gradient-weighted Grad-CAM
+    <a class="xref" href="#ref-11">[11]</a>, its second-order refinement
+    Grad-CAM++ <a class="xref" href="#ref-12">[12]</a>, pixel-space
+    gradient saliency <a class="xref" href="#ref-33">[33]</a>, the
+    class-agnostic gradient-free Eigen-CAM
+    <a class="xref" href="#ref-34">[34]</a>, and the gradient-free
+    Score-CAM <a class="xref" href="#ref-35">[35]</a>. Each is formally
+    defined in Section&nbsp;3.3. Model-agnostic methods such as SHAP
+    <a class="xref" href="#ref-36">[36]</a> and LIME
+    <a class="xref" href="#ref-37">[37]</a>, and gradient-based variants
+    such as Integrated Gradients <a class="xref" href="#ref-38">[38]</a>
+    and LayerCAM <a class="xref" href="#ref-39">[39]</a>, extend the
+    broader attribution landscape but fall outside this paper's scope.</p>
+
+    <p class="no-indent">A growing body of work argues that visual
+    plausibility is an insufficient standard for medical XAI. Adebayo
+    et&nbsp;al. <a class="xref" href="#ref-13">[13]</a> showed that
+    several popular saliency methods are insensitive to model or label
+    randomisation&mdash;a sanity check any trustworthy method should
+    fail loudly. Hooker et&nbsp;al.
+    <a class="xref" href="#ref-14">[14]</a> proposed the ROAR benchmark
+    for quantitatively comparing methods by feature-removal
+    faithfulness. Ghassemi et&nbsp;al. <a class="xref" href="#ref-9">[9]</a>
+    and Rudin <a class="xref" href="#ref-8">[8]</a> separately argue
+    that post-hoc explanation methods are routinely over-trusted in
+    healthcare without this kind of quantitative scrutiny. Geirhos
+    et&nbsp;al. <a class="xref" href="#ref-40">[40]</a> formalised
+    shortcut learning. Zech et&nbsp;al.
+    <a class="xref" href="#ref-41">[41]</a> demonstrated a concrete
+    medical-imaging case in which a pneumonia classifier partly learned
+    hospital-specific image artefacts rather than pathology&mdash;precisely
+    the failure mode the shortcut audit (Section&nbsp;4.4) is designed to
+    catch. Guo et&nbsp;al. <a class="xref" href="#ref-42">[42]</a> showed
+    that modern deep networks are frequently miscalibrated despite high
+    accuracy, motivating the calibration analysis of Section&nbsp;4.4.
+    Rather than only citing this tradition, this paper instantiates it
+    for gallbladder ultrasound: the Adebayo sanity check, a
+    deletion/insertion faithfulness test in the spirit of ROAR, a
+    shortcut audit (all Section&nbsp;4.4), and a cross-replicate
+    consistency score $O^c$ are all run directly.</p>
+
+    <p class="no-indent">Three gaps emerge from the literature above.
+    First, published gallbladder-ultrasound classifiers apply at most one
+    CAM variant qualitatively. None is known to compare Grad-CAM,
+    Grad-CAM++, Saliency Maps, Eigen-CAM, and Score-CAM quantitatively for
+    this task. Second, none of this literature tests whether its
+    explanations are <em>reproducible</em> across independently trained
+    models, as opposed to an artifact of one training run. Third, the
+    quantitative-XAI-reliability tradition above&mdash;sanity checks,
+    faithfulness testing, shortcut audits, calibration&mdash;has not, to
+    the best of available knowledge, been brought together for
+    gallbladder ultrasound specifically. This paper addresses all three
+    gaps (Table&nbsp;9, Section&nbsp;5.3).</p>
+
+    <!-- 3. MATERIALS AND METHODS -->
+    <h2 class="sec-head"><span class="roman">3.</span>&nbsp;Materials and methods</h2>
+
+    <p class="no-indent">This section describes the research framework:
+    dataset, preprocessing, classification model, training configuration,
+    the five XAI methods and the proposed consistency metric, the
+    evaluation protocol, and implementation details.
+    <a class="xref" href="#fig-1">Fig.&nbsp;1</a> summarises the
+    pipeline: a site-unlabelled dataset release is used (Section&nbsp;3.1), a ResNet-50
+    <a class="xref" href="#ref-27">[27]</a> classifier is trained on the
+    dataset, all five XAI methods of Section&nbsp;3.3 are applied
+    to that model, and quantitative evaluation follows.</p>
+
+    <figure class="fig-pair span-cols" id="fig-1">
+      <figure id="fig-1a" style="flex:1;min-width:0;margin:0;text-align:center;">
+        <img src="fedgb/outputs/figures/xai_pipeline_diagram.png" alt="Classification and XAI pipeline: site-unlabelled dataset, ResNet-50 classifier, five-method XAI module, failure-case grounding and cross-replicate consistency, feeding a next-stage validation roadmap"/>
+      </figure>
+      <figure id="fig-1b" style="flex:1;min-width:0;margin:0;text-align:center;">
+        <img src="fedgb/outputs/figures/resnet_backbone.png" alt="ResNet-50 feature extraction stages with the Grad-CAM tap point at the final convolutional stage"/>
+      </figure>
+    </figure>
+    <p style="font-size:8pt;margin:2pt 0 0;"><span class="fig-label">Fig.&nbsp;1.</span>&nbsp;(a)&nbsp;End-to-end
+    classification and XAI pipeline used in this paper, run on a
+    site-unlabelled public dataset release.
+    (b)&nbsp;ResNet-50 backbone: all four CAM-family methods tap the
+    Stage&nbsp;4 (<code>layer4</code>) activations, the highest-level
+    convolutional features before global average pooling.</p>
+
+    <h3 class="subsec-head">3.1.&nbsp;Dataset description</h3>
+
+    <p class="no-indent">This
+    study uses the publicly available UIdataGB dataset
+    <a class="xref" href="#ref-17">[17]</a>, a multi-class gallbladder
+    ultrasound image collection spanning the nine disease classes of Table&nbsp;1. Because
+    part of the collection was assembled from video-cine sequences,
+    which can produce near-identical consecutive frames, the released
+    train/validation split was de-duplicated at the image-cluster level
+    using perceptual hashing (64-bit pHash, Hamming distance&nbsp;$\le 8$
+    treated as a near-duplicate) before any classification or XAI result
+    was computed, so that reported performance reflects genuine
+    generalisation rather than memorised near-duplicates.</p>
+
+    <p class="no-indent"><span class="label-bold">Final dataset
+    statistics.</span> The de-duplicated split comprises 7,499
+    training and 3,193 validation images (Table&nbsp;1,
+    <a class="xref" href="#fig-2">Fig.&nbsp;2</a>). Carcinoma is the largest class (1,590 images total) and Wall
+    Thickening the smallest (990). As Section&nbsp;4.1 shows, the
+    weakest-performing classes (Perforation,
+    Gallstones) are not simply the smallest ones. Class size alone
+    does not explain the per-class performance profile.</p>
+
+    <!-- TABLE I: Dataset Statistics -->
+    <div id="tbl-1" class="tbl-wrap">
+      <div class="tbl-caption">Table 1
+        <span class="tbl-sub">UIdataGB Dataset Statistics: Class Distribution across Train / Validation Splits.</span>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th class="tal">Class</th>
+            <th>Train</th>
+            <th>Validation</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="tal">Gallstones (GS)</td><td>927</td><td>399</td><td>1326</td></tr>
+          <tr><td class="tal">Abdomen &amp; Retroperitoneum (ART)</td><td>807</td><td>363</td><td>1170</td></tr>
+          <tr><td class="tal">Cholecystitis (CHOL)</td><td>795</td><td>351</td><td>1146</td></tr>
+          <tr><td class="tal">Membranous/Gangrenous Cholecystitis (MGC)</td><td>868</td><td>356</td><td>1224</td></tr>
+          <tr><td class="tal">Perforation (PERF)</td><td>742</td><td>320</td><td>1062</td></tr>
+          <tr><td class="tal">Polyps &amp; Cholesterol Crystals (PCC)</td><td>734</td><td>286</td><td>1020</td></tr>
+          <tr><td class="tal">Adenomyomatosis (ADNM)</td><td>813</td><td>351</td><td>1164</td></tr>
+          <tr><td class="tal">Carcinoma (CARC)</td><td>1120</td><td>470</td><td>1590</td></tr>
+          <tr><td class="tal">Wall Thickening, various causes (WT)</td><td>693</td><td>297</td><td>990</td></tr>
+          <tr><td class="tal"><b>Total</b></td><td><b>7499</b></td><td><b>3193</b></td><td><b>10692</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <figure id="fig-2" class="span-cols">
+      <img src="fedgb/outputs/figures/dataset_statistics.png" alt="Per-class training and validation sample counts for the UIdataGB dataset" style="width:100%;max-width:600px;height:auto;display:block;margin:0 auto;"/>
+      <figcaption><span class="fig-label">Fig.&nbsp;2.</span>&nbsp;Per-class
+      training and validation sample counts
+      (Table&nbsp;1). Carcinoma is the largest class (1,590 images); Wall
+      Thickening is the smallest (990).</figcaption>
+    </figure>
+
+    <h3 class="subsec-head">3.2.&nbsp;Classification model and training configuration</h3>
+
+    <p class="no-indent">Images are resized to $224\times224$ and
+    normalized using ImageNet statistics. Standard augmentations (random
+    horizontal flip, $\pm15^\circ$ rotation, brightness/contrast jitter)
+    <a class="xref" href="#ref-43">[43]</a> are applied during training
+    only, not at validation time, and standard cross-entropy is used
+    (Table&nbsp;2) rather than a class-imbalance-aware loss such as focal
+    loss <a class="xref" href="#ref-44">[44]</a>. Given the class
+    imbalance in Table&nbsp;1, a weighted or focal-loss ablation is a
+    natural next step, left for future work.</p>
+
+    <p class="no-indent">ResNet-50 <a class="xref" href="#ref-27">[27]</a>
+    pretrained on ImageNet <a class="xref" href="#ref-30">[30]</a> is
+    adopted as the feature extractor, with the final fully-connected
+    layer replaced by a nine-class classification head:
+    Dropout($p=0.4$)&nbsp;&rarr;&nbsp;Dense(256,
+    ReLU)&nbsp;&rarr;&nbsp;Dropout($p=0.3$)&nbsp;&rarr;&nbsp;Softmax over
+    the nine classes of Table&nbsp;1. ResNet-50's residual structure and
+    deep feature hierarchy make it well suited to CAM-family explanation
+    methods, since the <code>layer4</code> output encodes rich semantic
+    features prior to global average pooling. ResNet-50 is used rather
+    than deeper or more parameter-efficient alternatives such as
+    DenseNet-121 <a class="xref" href="#ref-28">[28]</a> or EfficientNet
+    <a class="xref" href="#ref-29">[29]</a> for comparability with prior
+    gallbladder-ultrasound baselines <a class="xref" href="#ref-7">[7]</a>,
+    which are themselves ResNet-based. Comparing backbones is not this
+    paper's focus.</p>
+
+    <!-- TABLE II -->
+    <div id="tbl-2" class="tbl-wrap">
+      <div class="tbl-caption">Table 2
+        <span class="tbl-sub">Hyperparameter and Training Configuration.</span>
+      </div>
+      <table>
+        <thead>
+          <tr><th class="tal">Hyperparameter</th><th>Value</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="tal">Backbone</td><td>ResNet-50 (ImageNet)</td></tr>
+          <tr><td class="tal">Optimizer</td><td>Adam, $\beta_1{=}0.9$</td></tr>
+          <tr><td class="tal">Learning rate</td><td>$1\times10^{-4}$</td></tr>
+          <tr><td class="tal">Weight decay</td><td>$1\times10^{-4}$</td></tr>
+          <tr><td class="tal">Loss function</td><td>Cross-entropy</td></tr>
+          <tr><td class="tal">Batch size</td><td>32</td></tr>
+          <tr><td class="tal">Training epochs</td><td>10</td></tr>
+          <tr><td class="tal">Replicate models $R$</td><td>3</td></tr>
+          <tr><td class="tal">Train / Val split</td><td>70% / 30% (cluster-level, Section&nbsp;3.1)</td></tr>
+          <tr><td class="tal">Framework</td><td>PyTorch&nbsp;2.x, torchvision&nbsp;0.15</td></tr>
+          <tr><td class="tal">Model parameters</td><td>24.03M (all trainable)</td></tr>
+          <tr><td class="tal">Checkpoint size</td><td>96&nbsp;MB (fp32)</td></tr>
+          <tr><td class="tal">Inference latency</td><td>187&nbsp;ms/image (CPU, 4 threads); ~44&nbsp;ms (GTX&nbsp;1050)</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:8pt;margin:2pt 0 0;">Latency is architecture-bound, not class-count-bound (a 9-way vs. 5-way softmax head differs by a negligible 2,048&times;4 parameters), so the measured value from the identical ResNet-50/GTX&nbsp;1050 setup is unchanged.</p>
+    </div>
+
+    <h3 class="subsec-head">3.3.&nbsp;Explainability methods and consistency metric</h3>
+
+    <p class="no-indent">Five complementary visual-explanation methods
+    are applied to the trained ResNet-50 model: four target the final
+    convolutional layer (<code>layer4</code>), which encodes the
+    highest-level semantic features before global average pooling, while
+    one (Saliency) operates directly in pixel space. Let
+    $A^k \in \mathbb{R}^{H \times W}$ denote the $k$-th feature map of
+    the target layer, and let $y^c$ be the class score for class $c$
+    before softmax.</p>
+
+    <p class="no-indent"><span class="label-bold">1)&nbsp;Grad-CAM:</span>&nbsp;Grad-CAM <a class="xref" href="#ref-11">[11]</a> computes a
+    class-discriminative localization map by weighting each feature map
+    $A^k$ with the global-average-pooled gradient of $y^c$ with respect
+    to that map:</p>
+    <div class="eq-block">
+      $$\alpha_k^c = \frac{1}{Z}\sum_i\sum_j
+        \frac{\partial y^c}{\partial A^k_{ij}},$$
+    </div>
+    <div class="eq-block">
+      $$L^c_{\text{GradCAM}} = \mathrm{ReLU}\!\left(\sum_k \alpha_k^c A^k\right).$$
+    </div>
+    <p class="no-indent">The ReLU retains only positive evidence. The
+    heatmap is upsampled to $224\times224$ and overlaid on the input.</p>
+
+    <p class="no-indent"><span class="label-bold">2)&nbsp;Grad-CAM++:</span>&nbsp;Grad-CAM++ <a class="xref" href="#ref-12">[12]</a>
+    extends Grad-CAM using a pixel-wise weighted average of second-order
+    partial derivatives, giving more weight to pixels where the gradient
+    is strong and locally peaked, producing sharper localization for
+    small or multiple lesions:</p>
+    <div class="eq-block">
+      $$\alpha_k^{c,++} = \sum_{i,j}
+        \frac{(\partial^2 y^c / \partial (A^k_{ij})^2)}
+        {2(\partial^2 y^c / \partial (A^k_{ij})^2)
+        + \sum_{a,b} A^k_{ab}\,(\partial^3 y^c / \partial (A^k_{ij})^3)},$$
+    </div>
+    <div class="eq-block">
+      $$L^c_{\text{GradCAM++}} = \mathrm{ReLU}\!\left(\sum_k \alpha_k^{c,++} A^k\right).$$
+    </div>
+
+    <p class="no-indent"><span class="label-bold">3)&nbsp;Saliency Maps:</span>&nbsp;Gradient saliency <a class="xref" href="#ref-33">[33]</a>
+    computes the gradient of the class score $y^c$ with respect to the
+    input image pixels $\mathbf{x} \in \mathbb{R}^{3 \times H \times W}$:</p>
+    <div class="eq-block">
+      $$S^c = \left|\frac{\partial y^c}{\partial \mathbf{x}}\right|.$$
+    </div>
+    <p class="no-indent">For visualisation the maximum over colour
+    channels is taken and Gaussian smoothing applied ($\sigma=1$).</p>
+
+    <p class="no-indent"><span class="label-bold">4)&nbsp;Eigen-CAM:</span>&nbsp;Eigen-CAM <a class="xref" href="#ref-34">[34]</a>
+    is class-agnostic: it reshapes the target-layer activation tensor
+    $A \in \mathbb{R}^{K \times HW}$ and computes its first principal
+    component via singular value decomposition, $A = U\Sigma V^{\!\top}$,
+    projecting onto the dominant activation direction:</p>
+    <div class="eq-block">
+      $$L_{\text{EigenCAM}} = A^{\top} v_1,$$
+    </div>
+    <p class="no-indent">where $v_1$ is the first right-singular vector.
+    Because Eigen-CAM does not condition on class $c$, it highlights the
+    single dominant activation pattern regardless of predicted class.</p>
+
+    <p class="no-indent"><span class="label-bold">5)&nbsp;Score-CAM:</span>&nbsp;Score-CAM <a class="xref" href="#ref-35">[35]</a>
+    is gradient-free: each channel's importance weight is obtained by
+    masking the input image with that channel's (upsampled, normalised)
+    activation map and measuring the resulting change in the model's
+    own softmax score for class $c$,</p>
+    <div class="eq-block">
+      $$\alpha_k^{c,\text{score}} = f^c\big(\mathbf{x}\odot
+        \text{Up}(A^k)\big) - f^c(\mathbf{x}_b),$$
+    </div>
+    <div class="eq-block">
+      $$L^c_{\text{ScoreCAM}} = \mathrm{ReLU}\!\left(\sum_k \alpha_k^{c,\text{score}} A^k\right),$$
+    </div>
+    <p class="no-indent">where $f^c(\cdot)$ is the softmax score for
+    class $c$ and $\mathbf{x}_b$ a baseline (blank) input. The cost is
+    one forward pass per channel, computed here on GPU.</p>
+
+    <p class="no-indent">All five methods are applied to the primary
+    model $M_0$ and to each replicate $\{M_1,M_2,M_3\}$ on the same
+    input images, so consistency scores can be computed for every class
+    and method. Algorithm&nbsp;1 formalises the pipeline.</p>
+
+    <!-- Algorithm 1 -->
+    <div id="alg-1" class="algorithm">
+      <div class="alg-head">Algorithm 1: XAI Pipeline with Consistency Scoring</div>
+      <div class="alg-io">
+        <b>Input:</b> primary model $M_0$, replicate models $\{M_r\}_{r=1}^{3}$,
+        test image $\mathbf{x}$, class set $\mathcal{C}$,
+        target conv layer $\ell^*$, threshold $\theta$<br>
+        <b>Output:</b> heatmaps per method and model, consistency scores $O_r^c$
+      </div>
+      <div class="alg-rule"></div>
+      <span class="alg-line">1 &nbsp;<b>for</b> method $m \in$ \{GradCAM, GradCAM++, Saliency, EigenCAM, ScoreCAM\} <b>do</b></span>
+      <span class="alg-line alg-i1">2 &nbsp;<b>for</b> $c \in \mathcal{C}$ = \{GS, ART, CHOL, MGC, PERF, PCC, ADNM, CARC, WT\} <b>do</b></span>
+      <span class="alg-line alg-i2">3 &nbsp;$L^c_{\text{primary}} \leftarrow \text{XAI}_m(\mathbf{x};\,M_0,\,c,\,\ell^*)$</span>
+      <span class="alg-line alg-i2">4 &nbsp;Upsample $L^c_{\text{primary}}$ to $224{\times}224$; overlay on $\mathbf{x}$</span>
+      <span class="alg-line alg-i2">5 &nbsp;<b>for each</b> replicate $r \in \{1,2,3\}$ <b>do</b></span>
+      <span class="alg-line alg-i3">6 &nbsp;$L^c_r \leftarrow \text{XAI}_m(\mathbf{x};\,M_r,\,c,\,\ell^*)$</span>
+      <span class="alg-line alg-i3">7 &nbsp;$O_r^c \leftarrow \dfrac{\langle L^c_{\text{primary}},\,L^c_r\rangle}{\|L^c_{\text{primary}}\|\cdot\|L^c_r\|}$</span>
+      <span class="alg-line alg-i3">8 &nbsp;<b>if</b> $O_r^c &lt; \theta$ <b>then</b> flag as explanation-divergent</span>
+      <span class="alg-line">9 &nbsp;<b>return</b> all heatmaps, $\{O_r^c\}$ per method</span>
+    </div>
+
+    <p class="no-indent">A heatmap that looks anatomically plausible for
+    one trained model is not, by itself, evidence that the explanation
+    reflects a stable property of the learned decision boundary rather
+    than an artifact of that specific training run. To test this, a
+    cosine-consistency score is defined between the primary model's
+    heatmap and each of $R{=}3$ independently trained replicate
+    models' heatmaps, for the same class and image:</p>
+    <div class="eq-block">
+      $$O_r^c = \frac{\langle L^c_{\text{primary}},\, L^c_r \rangle}
+        {\|L^c_{\text{primary}}\| \cdot \|L^c_r\|},\qquad r=1,\dots,R,$$
+    </div>
+    <p class="no-indent">where both heatmaps are flattened and
+    normalised to $[0,1]$ before computing cosine similarity. Because
+    $O_r^c \in [0,1]$, a value near 1 indicates that the two
+    independently trained models produce essentially the same
+    explanation for class $c$. A value near 0 indicates that the
+    explanation is training-run dependent rather than a robust model
+    property. A threshold of $\theta = 0.70$ is used to flag
+    class/replicate pairs whose explanations diverge substantially,
+    following common practice for cosine-based agreement thresholds in
+    the representation-similarity literature.</p>
+
+    <p class="no-indent">All classification results in Section&nbsp;4.1
+    come from one primary model, $M_0$, trained on the full 7,499-image
+    corrected training set with no resampling. To compute $O^c$, three
+    additional replicate models $\{M_1,M_2,M_3\}$ are trained on three
+    disjoint subsets of the <em>same</em> corrected training set (2,749,
+    2,089, and 2,661 images respectively). These are training-resampling
+    replicates, not independent clinical sites. Each subset has a
+    different per-class composition by construction, so $O^c$ jointly
+    probes robustness to both re-initialisation and moderate
+    class-distribution shift. Running all five XAI methods on
+    four models over the full 3,193-image validation set is
+    computationally expensive, so $O^c$ is computed on a stratified subset
+    of 8 images per class (72 total). The faithfulness, stability, and
+    sanity-check batteries of Section&nbsp;4.4 use larger stratified
+    samples of 144, 216, and 108 images respectively. This is a
+    reproducibility check on the explanation, not a multicentre or
+    domain-shift experiment. Genuine cross-site validation instead
+    requires images with known, traceable hospital or scanner identity,
+    which this dataset's public release does not provide
+    (Section&nbsp;5.4, Section&nbsp;5.5).</p>
+
+    <h3 class="subsec-head">3.4.&nbsp;Evaluation protocol</h3>
+
+    <p class="no-indent"><span class="label-bold">1)&nbsp;Classification Metrics:</span>&nbsp;Classification performance is reported as
+    Accuracy, Macro-F1, AUC-ROC (one-vs-rest)
+    <a class="xref" href="#ref-45">[45]</a>, and per-class Sensitivity
+    and Specificity. Given the class imbalance in Table&nbsp;1, ROC-AUC
+    should be read alongside per-class sensitivity rather than in
+    isolation, since precision-recall curves can be more informative for
+    rarer classes under imbalance <a class="xref" href="#ref-46">[46]</a>.
+    It is retained mainly for continuity with prior gallbladder-ultrasound
+    baselines <a class="xref" href="#ref-7">[7]</a>,&nbsp;<a class="xref" href="#ref-19">[19]</a>,&nbsp;<a class="xref" href="#ref-20">[20]</a>,&nbsp;<a class="xref" href="#ref-21">[21]</a>.
+    Per-class F1 and AUC (Table&nbsp;4) provide the classification
+    context within which XAI results should be interpreted. Classes
+    with low F1 (Perforation, Gallstones) are the primary targets for
+    XAI investigation.</p>
+
+    <p class="no-indent"><span class="label-bold">2)&nbsp;XAI Evaluation Metrics:</span>&nbsp;XAI quality is evaluated along seven dimensions.
+    (1)&nbsp;<span class="label-bold">Anatomical plausibility</span>&mdash;visual
+    inspection of whether heatmaps concentrate on gallbladder wall, lumen,
+    and adjacent tissue rather than artefacts (Section&nbsp;4.3).
+    (2)&nbsp;<span class="label-bold">Cross-method comparison</span>&mdash;qualitative
+    and quantitative comparison of all five methods (Section&nbsp;4.3).
+    (3)&nbsp;<span class="label-bold">Cross-replicate consistency</span>&mdash;the
+    $O^c$ score of Section&nbsp;3.3, with $\theta=0.70$ as the divergence
+    threshold (Section&nbsp;4.3). (4)&nbsp;<span class="label-bold">Faithfulness</span>&mdash;deletion/insertion
+    curves against a random control (Section&nbsp;4.4).
+    (5)&nbsp;<span class="label-bold">Stability</span>&mdash;agreement of
+    the explanation under clinically-invariant transforms
+    (Section&nbsp;4.4). (6)&nbsp;a <span class="label-bold">model-randomization
+    sanity check</span> (Section&nbsp;4.4). (7)&nbsp;a
+    <span class="label-bold">shortcut-learning audit</span>
+    (Section&nbsp;4.4). SSIM, Pearson correlation, and top-decile IoU
+    quantify agreement in (5); deletion/insertion AUC quantifies (4). The
+    one dimension this paper does <em>not</em>
+    establish is localization of the explanation against
+    clinician-annotated regions of interest, which requires expert
+    annotation and is scoped as the immediate next step
+    (Section&nbsp;5.5).</p>
+
+    <p class="no-indent">A classifier can be accurate yet miscalibrated,
+    since its softmax confidence need not match its true correctness rate
+    <a class="xref" href="#ref-42">[42]</a>. A single scalar temperature
+    $T>0$ is therefore fit post-hoc on a held-out calibration split,
+    dividing the model's pre-softmax logits $\mathbf{z}$ by $T$ before
+    the softmax, $\hat{p} = \mathrm{softmax}(\mathbf{z}/T)$. $T$ is chosen to
+    minimise negative log-likelihood without altering predictions (argmax
+    is invariant to $T$). Expected Calibration Error (ECE, 15 bins) and
+    Brier score are reported before and after temperature scaling
+    (Section&nbsp;4.4).</p>
+
+    <p class="no-indent">All experiments and XAI analyses were run with a
+    fixed random seed (seed&nbsp;=&nbsp;42 for the primary model,
+    seeds&nbsp;7 and 123 for the multi-seed replication of Table&nbsp;3)
+    for reproducibility, in a software environment of Python&nbsp;3.10,
+    PyTorch&nbsp;2.x, and torchvision&nbsp;0.15. The
+    de-duplication split correction (Section&nbsp;3.1)
+    uses 64-bit perceptual hashing via the <code>imagehash</code> library
+    and a union-find connected-components implementation, included
+    in <code>fedgb/dedupe_split_uidatagb.py</code>. XAI heatmaps are
+    generated post-training using the saved model checkpoints, with full
+    code&mdash;including all five XAI methods and the consistency-scoring
+    module&mdash;included in <code>fedgb/gradcam.py</code>. The UIdataGB
+    dataset is publicly available via its Data in Brief release
+    <a class="xref" href="#ref-17">[17]</a>.</p>
+
+    <!-- 4. RESULTS AND ANALYSIS -->
+    <h2 class="sec-head"><span class="roman">4.</span>&nbsp;Results and analysis</h2>
+
+    <h3 class="subsec-head">4.1.&nbsp;Classification performance</h3>
+
+    <p class="no-indent">Table&nbsp;3 reports the primary-model
+    configuration (Table&nbsp;2) on the held-out validation split of Section&nbsp;3.1.</p>
+
+    <!-- TABLE III -->
+    <div id="tbl-3" class="tbl-wrap">
+      <div class="tbl-caption">Table 3
+        <span class="tbl-sub">Overall Classification Performance, Primary-Model Configuration (seed&nbsp;=&nbsp;42).</span>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th class="tal">Metric</th>
+            <th>Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="tal">Accuracy</td><td><b>0.9305</b></td></tr>
+          <tr><td class="tal">Macro-F1</td><td><b>0.9303</b></td></tr>
+          <tr><td class="tal">Macro AUC-ROC</td><td><b>0.9965</b></td></tr>
+          <tr><td class="tal">Validation $n$</td><td>3193</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:8pt;margin:2pt 0 0;">A three-seed replication (seeds&nbsp;7, 42, 123; identical architecture, optimizer, and epoch budget) gives accuracy&nbsp;$0.9210\pm0.0131$, macro-F1&nbsp;$0.9207\pm0.0131$, macro AUC-ROC&nbsp;$0.9948\pm0.0023$ (mean&nbsp;$\pm$&nbsp;std, $n=3$).</p>
+    </div>
+
+    <p class="no-indent"><span class="label-bold">Paired statistical
+    significance, three-seed replication.</span> DeLong's
+    test <a class="xref" href="#ref-47">[47]</a> on per-class,
+    one-vs-rest AUC finds only 1 of 9 classes differs significantly
+    between seed&nbsp;7 and seed&nbsp;42. Five of 9 differ for each
+    comparison involving seed&nbsp;123. Bootstrap 95% confidence
+    intervals <a class="xref" href="#ref-48">[48]</a> (2,000 resamples)
+    place seed&nbsp;123 at $[0.895,\,0.915]$, not overlapping
+    seed&nbsp;7 $[0.917,\,0.935]$ or seed&nbsp;42 $[0.922,\,0.939]$.
+    McNemar's exact test <a class="xref" href="#ref-49">[49]</a> agrees:
+    the seed&nbsp;7-vs-seed&nbsp;42 difference is <em>not</em>
+    significant ($p=0.451$), while both seed&nbsp;123 comparisons are
+    ($p&lt;0.001$). Seed&nbsp;123 is therefore a genuinely weaker run
+    rather than noise, and it pulls the three-seed mean (92.10%) below
+    the seed&nbsp;42 headline. Because images sharing a filename-prefix
+    group are correlated, a group bootstrap (resampling whole groups,
+    $n=209$ groups over 3,193 validation images, 2,000 resamples) was
+    also run: the resulting 95% accuracy intervals are 2.7&ndash;2.9&times;
+    wider than the image-level intervals at every seed, confirming the
+    image-level CIs above understate true uncertainty. The same run adds
+    macro PR-AUC (0.968&ndash;0.981) and balanced accuracy
+    (0.909&ndash;0.929) per seed.</p>
+
+    <p class="no-indent"><a class="xref" href="#tbl-4">Table&nbsp;4</a>
+    gives the per-class breakdown (seed&nbsp;=&nbsp;42). Per-class F1 does
+    not track training-set size. The two weakest classes, Perforation
+    (0.8944) and Gallstones (0.9001), are mid-sized, while the smallest
+    class, Wall Thickening (990 images), reaches 0.9406. These two
+    weakest classes are the targets of the failure-case and XAI analysis
+    below.</p>
+
+    <!-- TABLE IV: Per-Class Performance -->
+    <div id="tbl-4" class="tbl-wrap span-cols">
+      <div class="tbl-caption">Table 4
+        <span class="tbl-sub">Per-Class Performance of the Primary Model (9-Class UIdataGB). Classes with low F1 are the primary XAI targets. Best F1/AUC in bold.</span>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th class="tal">Class</th>
+            <th>F1</th>
+            <th>AUC-ROC</th>
+            <th>Sensitivity</th>
+            <th>Specificity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="tal">Gallstones (GS)</td><td>0.9001</td><td>0.9955</td><td>0.9373</td><td>0.9792</td></tr>
+          <tr><td class="tal">Abdomen &amp; Retroperitoneum (ART)</td><td>0.9161</td><td>0.9911</td><td>0.8871</td><td>0.9936</td></tr>
+          <tr><td class="tal">Cholecystitis (CHOL)</td><td><b>0.9601</b></td><td>0.9985</td><td>0.9259</td><td>0.9996</td></tr>
+          <tr><td class="tal">Membranous/Gangrenous Cholecystitis (MGC)</td><td>0.9428</td><td>0.9984</td><td>0.9494</td><td>0.9919</td></tr>
+          <tr><td class="tal">Perforation (PERF)</td><td>0.8944</td><td>0.9952</td><td>0.8469</td><td>0.9948</td></tr>
+          <tr><td class="tal">Polyps &amp; Cholesterol Crystals (PCC)</td><td>0.9375</td><td>0.9958</td><td>0.8916</td><td>0.9990</td></tr>
+          <tr><td class="tal">Adenomyomatosis (ADNM)</td><td>0.9360</td><td>0.9990</td><td><b>1.0000</b></td><td>0.9831</td></tr>
+          <tr><td class="tal">Carcinoma (CARC)</td><td>0.9455</td><td>0.9956</td><td>0.9404</td><td>0.9916</td></tr>
+          <tr><td class="tal">Wall Thickening (WT)</td><td>0.9406</td><td><b>0.9996</b></td><td>0.9865</td><td>0.9886</td></tr>
+          <tr><td class="tal bold"><b>Macro Avg</b></td><td><b>0.9303</b></td><td><b>0.9965</b></td><td>0.9295</td><td>0.9913</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <figure id="fig-3" class="span-cols">
+      <img src="fedgb/outputs/figures/per_class_metrics.png"
+           alt="Per-class F1, AUC, sensitivity and specificity" style="width:100%;height:auto;"/>
+      <figcaption><span class="fig-label">Fig.&nbsp;3.</span>&nbsp;Per-class F1, AUC-ROC, Sensitivity, and Specificity for the primary model. All nine classes exceed F1&nbsp;0.89; Perforation and Gallstones are the most challenging by F1, driven by specific confusion pairs (Section&nbsp;4.2) rather than small class size.</figcaption>
+    </figure>
+
+    <div class="finding-box">
+      <span class="finding-label">XAI Finding (1):</span> The per-class profile sets the XAI priorities. Cholecystitis and Wall Thickening are the strongest classes and serve as positive controls for anatomical plausibility. Perforation and Gallstones are the weakest, so their heatmaps are examined below for whether errors coincide with attention on the wrong anatomy.
+    </div>
+
+    <figure class="fig-pair span-cols">
+      <figure id="fig-4a" style="flex:1;min-width:0;margin:0;text-align:center;">
+        <img src="fedgb/outputs/figures/confusion_normalized.png" alt="Normalised confusion matrix" />
+        <figcaption><span class="fig-label">Fig.&nbsp;4(a).</span>&nbsp;Normalised confusion matrix. Row-normalised values show per-class recall. The largest single confusion is Polyps &amp; Cholesterol Crystals&nbsp;&rarr;&nbsp;Adenomyomatosis.</figcaption>
+      </figure>
+      <figure id="fig-4b" style="flex:1;min-width:0;margin:0;text-align:center;">
+        <img src="fedgb/outputs/figures/confusion_absolute.png" alt="Absolute confusion matrix" />
+        <figcaption><span class="fig-label">Fig.&nbsp;4(b).</span>&nbsp;Absolute confusion matrix. Raw sample counts on the 3,193-image corrected validation set.</figcaption>
+      </figure>
+    </figure>
+
+    <figure class="span-cols" id="fig-5" style="margin:8pt 0;">
+      <img src="fedgb/outputs/figures/roc_curves.png" alt="ROC curves per class" style="width:100%;height:auto;"/>
+      <figcaption><span class="fig-label">Fig.&nbsp;5.</span>&nbsp;One-vs-rest ROC curves for all nine classes. Macro AUC&nbsp;=&nbsp;0.9965. Wall Thickening and Adenomyomatosis achieve AUC&nbsp;&gt;&nbsp;0.999; Abdomen &amp; Retroperitoneum is lowest at 0.9911, still far above chance.</figcaption>
+    </figure>
+
+    <h3 class="subsec-head">4.2.&nbsp;Failure-case analysis</h3>
+    <p class="no-indent">Of the 3,193 corrected validation images, the
+    model misclassifies 222 (6.95%). Eight confusion pairs account for
+    just over half of all errors (113 of 222, 50.9%); the full matrix is
+    given in Fig.&nbsp;4. Three patterns stand out. First, the single
+    largest error, Polyps&nbsp;&amp;&nbsp;Cholesterol
+    Crystals&nbsp;&rarr;&nbsp;Adenomyomatosis (25 images), links two
+    benign entities that both present as echogenic mural foci. Second,
+    Perforation is confused with Gallstones (17) and
+    Membranous/Gangrenous Cholecystitis (11), together 28 of its errors.
+    This is consistent with perforation radiologically overlapping both
+    stone disease and severe gangrenous wall change. Third,
+    Cholecystitis&nbsp;&rarr;&nbsp;Membranous/Gangrenous Cholecystitis
+    (12) and Membranous/Gangrenous Cholecystitis&nbsp;&rarr;&nbsp;Wall
+    Thickening (12) form a severity-spectrum chain. That is the
+    clinically least dangerous direction among the top pairs, since all
+    three classes prompt continued attention. By contrast,
+    Carcinoma&nbsp;&rarr;&nbsp;Gallstones (12) is a missed-malignancy
+    error read as benign.</p>
+
+    <p class="no-indent">Fig.&nbsp;6 grounds this in two high-confidence
+    errors from the two weakest classes. A true-Perforation image is
+    classified Gallstones at 99.6% confidence, with its Grad-CAM++
+    heatmap on a bright, shadow-adjacent structure. A true-Gallstones
+    image is classified Abdomen&nbsp;&amp;&nbsp;Retroperitoneum at 93.6%.
+    In both cases the model is highly confident yet wrong, and the
+    heatmap looks anatomically plausible rather than off-target. Heatmap
+    plausibility alone would not have flagged either error
+    (Section&nbsp;5.2).</p>
+
+    <div class="fig-row span-cols">
+      <div class="subfig"><img src="fedgb/outputs/figures/failure_case_perforation.png" alt="Failure case: true Perforation classified as Gallstones with 99.6% confidence" style="width:340px;height:auto;"/></div>
+      <div class="subfig"><img src="fedgb/outputs/figures/failure_case_gallstones.png" alt="Failure case: true Gallstones classified as Abdomen &amp; Retroperitoneum with 93.6% confidence" style="width:340px;height:auto;"/></div>
+    </div>
+    <p style="font-size:8pt;margin:2pt 0 0;"><span class="fig-label">Fig.&nbsp;6.</span>&nbsp;Two representative high-confidence misclassifications, one from each of the two weakest classes (Table&nbsp;4). Left: true Perforation predicted Gallstones (99.6%) &mdash; the single largest confusion-pair direction for Perforation (Pattern&nbsp;2). Right: true Gallstones predicted Abdomen&nbsp;&amp;&nbsp;Retroperitoneum (93.6%). Each panel shows the original ultrasound, the Grad-CAM++ heatmap, and the overlay. Both heatmaps are anatomically plausible-looking despite the wrong label, illustrating that heatmap plausibility alone does not reliably flag classification errors.</p>
+
+    <p class="no-indent"><span class="label-bold">Confidence and
+    calibration signal (uncalibrated).</span>&nbsp;Mean softmax
+    confidence is 0.974 on correctly classified images but 0.771 on
+    misclassified ones, suggesting that a confidence-threshold triage
+    could surface many mistakes for review. This is only a raw-softmax
+    observation, however. Raw softmax confidence is known to be an
+    unreliable proxy for true probability
+    <a class="xref" href="#ref-42">[42]</a>. This miscalibration is
+    quantified and formally corrected (ECE, Brier score, temperature
+    scaling) in Section&nbsp;4.4.</p>
+
+    <h3 class="subsec-head">4.3.&nbsp;Qualitative and quantitative comparison of XAI methods</h3>
+
+    <p class="no-indent">All five XAI methods are applied to the primary
+    model across all nine disease classes.
+    <span class="label-bold">Grad-CAM</span> produces smooth, region-level
+    heatmaps, while <span class="label-bold">Grad-CAM++</span>
+    consistently generates sharper, more focused activation patches,
+    particularly for Carcinoma and Membranous/Gangrenous Cholecystitis,
+    where the discriminative feature is a localised wall irregularity
+    rather than a diffuse region. <span class="label-bold">Saliency
+    Maps</span> highlight fine-grained pixel-level evidence but carry more
+    background noise. <span class="label-bold">Eigen-CAM</span>,
+    being class-agnostic, highlights the single dominant activation
+    pattern regardless of predicted class. This makes it informative as a sanity
+    baseline but weaker for per-class discrimination.
+    <span class="label-bold">Score-CAM</span> produces heatmaps similar in
+    character to Grad-CAM++, since both explicitly condition on the
+    target class's evidence, one via second-order gradients and the
+    other via masked-input forward passes.</p>
+
+    <div class="finding-box">
+      <span class="finding-label">XAI Finding (2):</span> Grad-CAM++ and Score-CAM produce noticeably sharper, more class-discriminative localization than Grad-CAM, Saliency, or Eigen-CAM for Carcinoma and Membranous/Gangrenous Cholecystitis, where the discriminative feature is a localised wall structure rather than a broad region. This supports Grad-CAM++ as the preferred visualisation for malignancy in gallbladder ultrasound. For Cholecystitis and Wall Thickening, all CAM-family methods produce similar heatmaps, consistent with those classes having larger, more uniformly distributed discriminative features.
+    </div>
+
+    <div class="finding-box">
+      <span class="finding-label">XAI Finding (3):</span> The primary model attends to the gallbladder region in representative examples across all nine classes: acoustic shadow for Gallstones, focal wall attention for Carcinoma, diffuse wall-adjacent change for the mutually-confusable MGC/Perforation pair, small mural foci for the mutually-confusable Adenomyomatosis/PCC pair, and broader body-wide attention for ART and Wall Thickening.
+    </div>
+
+    <p class="no-indent"><a class="xref" href="#fig-7">Fig.&nbsp;7</a>
+    shows one representative image per class across all five methods
+    side by side. Saliency Maps consistently highlight gallbladder
+    boundary pixels. Eigen-CAM's class-agnostic pattern is visibly less
+    anatomically focused than the other four methods across every row.</p>
+
+    <!-- Figure 7 - cross-method comparison grid, all 9 classes x 5 methods -->
+    <figure id="fig-7" class="span-cols">
+      <img src="fedgb/outputs/figures/xai_cross_method_grid.png" alt="Cross-method XAI comparison grid: one representative image per class (rows) against the original image and each of the five XAI methods' overlay (columns)" style="width:100%;height:auto;"/>
+      <figcaption><span class="fig-label">Fig.&nbsp;7.</span>&nbsp;Cross-method
+      comparison grid: one representative validation image per class
+      (rows, top to bottom: Gallstones, Abdomen &amp; Retroperitoneum,
+      Cholecystitis, Membranous/Gangrenous Cholecystitis, Perforation,
+      Polyps &amp; Cholesterol Crystals, Adenomyomatosis, Carcinoma, Wall
+      Thickening) against the original image and each of the five XAI
+      methods' image&ndash;heatmap overlay (columns).</figcaption>
+    </figure>
+
+    <p class="no-indent">A second, independent sample per class is shown
+    in <a class="xref" href="#fig-8">Fig.&nbsp;8</a>, confirming these
+    patterns are not an artefact of one cherry-picked image per class.
+    The full 54-image gallery is in
+    <a class="xref" href="#supp-a">Supplementary Material A</a>.</p>
+
+    <div id="fig-8" class="wide3panel-gallery span-cols">
+      <figure><img src="fedgb/outputs/figures/fig10_individual/01_gallstones.png" alt="Gallstones (GS): original, raw Grad-CAM++ heatmap, overlay"/><figcaption>Gallstones (GS)</figcaption></figure>
+      <figure><img src="fedgb/outputs/figures/fig10_individual/02_abdomen_and_retroperitoneum.png" alt="Abdomen and Retroperitoneum (ART): original, raw Grad-CAM++ heatmap, overlay"/><figcaption>Abdomen &amp; Retroperitoneum (ART)</figcaption></figure>
+      <figure><img src="fedgb/outputs/figures/fig10_individual/03_cholecystitis.png" alt="Cholecystitis (CHOL): original, raw Grad-CAM++ heatmap, overlay"/><figcaption>Cholecystitis (CHOL)</figcaption></figure>
+      <figure><img src="fedgb/outputs/figures/fig10_individual/04_membranous_and_gangrenous_cholecystitis.png" alt="Membranous/Gangrenous Cholecystitis (MGC): original, raw Grad-CAM++ heatmap, overlay"/><figcaption>Membranous/Gangrenous Cholecystitis (MGC)</figcaption></figure>
+      <figure><img src="fedgb/outputs/figures/fig10_individual/05_perforation.png" alt="Perforation (PERF): original, raw Grad-CAM++ heatmap, overlay"/><figcaption>Perforation (PERF)</figcaption></figure>
+      <figure><img src="fedgb/outputs/figures/fig10_individual/06_polyps_and_cholesterol_crystals.png" alt="Polyps and Cholesterol Crystals (PCC): original, raw Grad-CAM++ heatmap, overlay"/><figcaption>Polyps &amp; Cholesterol Crystals (PCC)</figcaption></figure>
+      <figure><img src="fedgb/outputs/figures/fig10_individual/07_adenomyomatosis.png" alt="Adenomyomatosis (ADNM): original, raw Grad-CAM++ heatmap, overlay"/><figcaption>Adenomyomatosis (ADNM)</figcaption></figure>
+      <figure><img src="fedgb/outputs/figures/fig10_individual/08_carcinoma.png" alt="Carcinoma (CARC): original, raw Grad-CAM++ heatmap, overlay"/><figcaption>Carcinoma (CARC)</figcaption></figure>
+      <figure><img src="fedgb/outputs/figures/fig10_individual/09_various_causes_of_gallbladder_wall_thickening.png" alt="Wall Thickening (WT): original, raw Grad-CAM++ heatmap, overlay"/><figcaption>Wall Thickening (WT)</figcaption></figure>
+    </div>
+    <p style="font-size:8pt;margin:2pt 0 0;"><span class="fig-label">Fig.&nbsp;8.</span>&nbsp;Original
+    image, raw Grad-CAM++ heatmap, and overlay for a second, independent
+    representative image per class (distinct from Fig.&nbsp;7's sample).
+    Attention concentrates on central gallbladder-wall and lumen content
+    across all nine classes, consistent with the class-specific patterns
+    described in Section&nbsp;4.3.</p>
+
+    </div><!-- end first .body-cols segment -->
+    <div class="body-cols">
+
+    <div class="finding-box">
+      <span class="finding-label">XAI Finding (4):</span> Quantitatively, the mean cosine consistency $O_r^c$ between the primary and replicate-model Grad-CAM heatmaps across all classes and replicates is <b>0.769</b> (72 stratified validation images &times; 3 replicates, Section&nbsp;3.3), with wide variance across replicates (0.898, 0.629, 0.781). Grad-CAM++ and Score-CAM are both far higher and far more stable (macro mean 0.944 and 0.937 respectively). This indicates those two methods' explanations are the most reproducible property of the learned decision boundary across independently trained models.
+    </div>
+
+    <!-- TABLE V: Cosine Consistency per method, per replicate -->
+    <div id="tbl-5" class="tbl-wrap span-cols">
+      <div class="tbl-caption">Table 5
+        <span class="tbl-sub">Cosine-Consistency Scores $O_r^c$ per XAI Method, Primary Model vs. Each of Three Replicates, over a Stratified 72-Image Evaluation Set (8/class&nbsp;&times;&nbsp;9 classes, seed&nbsp;=&nbsp;42). Threshold $\theta=0.70$ flags divergent cases; best macro mean in bold.</span>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th class="tal">Method</th>
+            <th>$R_1$ $O_1^c$</th>
+            <th>$R_2$ $O_2^c$</th>
+            <th>$R_3$ $O_3^c$</th>
+            <th>Macro Mean&nbsp;&plusmn;&nbsp;Std</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="tal">Grad-CAM</td><td>0.898</td><td>0.629</td><td>0.781</td><td>0.769&nbsp;&plusmn;&nbsp;0.314</td></tr>
+          <tr><td class="tal">Grad-CAM++</td><td>0.948</td><td>0.935</td><td>0.948</td><td><b>0.944&nbsp;&plusmn;&nbsp;0.044</b></td></tr>
+          <tr><td class="tal">Saliency Map</td><td>0.686</td><td>0.669</td><td>0.689</td><td>0.681&nbsp;&plusmn;&nbsp;0.037</td></tr>
+          <tr><td class="tal">Eigen-CAM</td><td>0.280</td><td>0.227</td><td>0.220</td><td>0.242&nbsp;&plusmn;&nbsp;0.343</td></tr>
+          <tr><td class="tal">Score-CAM</td><td>0.939</td><td>0.934</td><td>0.937</td><td>0.937&nbsp;&plusmn;&nbsp;0.051</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:8pt;margin:2pt 0 0;">Computed between the primary model and each of three independently trained replicate models (Section&nbsp;3.3) over the same stratified 72-image set for every method. This quantifies explanation reproducibility only; it is not a measure of diagnostic or localization correctness, which requires clinician-annotated regions of interest (Section&nbsp;5.5).</p>
+    </div>
+
+    <!-- TABLE VI: Per-class consistency across methods -->
+    <div id="tbl-6" class="tbl-wrap span-cols">
+      <div class="tbl-caption">Table 6
+        <span class="tbl-sub">Cosine-Consistency Mean $\bar{O}^c$ per Class, Compared Across All Five XAI Methods (Averaged over $R_1$, $R_2$, $R_3$; Stratified 72-Image Evaluation Set, seed&nbsp;=&nbsp;42). Best method per class in bold.</span>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th class="tal">Class</th>
+            <th>Grad-CAM</th>
+            <th>Grad-CAM++</th>
+            <th>Saliency Map</th>
+            <th>Eigen-CAM</th>
+            <th>Score-CAM</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="tal">Gallstones (GS)</td><td>0.595</td><td><b>0.932</b></td><td>0.651</td><td>0.271</td><td>0.928</td></tr>
+          <tr><td class="tal">Abdomen &amp; Retroperitoneum (ART)</td><td>0.850</td><td>0.941</td><td>0.702</td><td>0.255</td><td><b>0.934</b></td></tr>
+          <tr><td class="tal">Cholecystitis (CHOL)</td><td>0.860</td><td><b>0.943</b></td><td>0.670</td><td>0.333</td><td>0.943</td></tr>
+          <tr><td class="tal">Membranous/Gangrenous Cholecystitis (MGC)</td><td>0.727</td><td><b>0.959</b></td><td>0.681</td><td>0.073</td><td>0.931</td></tr>
+          <tr><td class="tal">Perforation (PERF)</td><td>0.749</td><td><b>0.941</b></td><td>0.678</td><td>0.379</td><td>0.932</td></tr>
+          <tr><td class="tal">Polyps &amp; Cholesterol Crystals (PCC)</td><td>0.873</td><td><b>0.959</b></td><td>0.697</td><td>0.526</td><td>0.956</td></tr>
+          <tr><td class="tal">Adenomyomatosis (ADNM)</td><td>0.895</td><td>0.939</td><td>0.688</td><td>0.085</td><td><b>0.943</b></td></tr>
+          <tr><td class="tal">Carcinoma (CARC)</td><td>0.742</td><td><b>0.917</b></td><td>0.686</td><td>0.192</td><td>0.911</td></tr>
+          <tr><td class="tal">Wall Thickening (WT)</td><td>0.630</td><td>0.962</td><td>0.680</td><td>0.066</td><td><b>0.953</b></td></tr>
+          <tr><td class="tal bold"><b>Macro Mean</b></td><td>0.769</td><td><b>0.944</b></td><td>0.681</td><td>0.242</td><td>0.937</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:8pt;margin:2pt 0 0;">Grad-CAM++ achieves the highest macro-mean consistency overall ($\bar{O}^c=0.944$) and wins six of nine classes; Score-CAM is a close second overall ($\bar{O}^c=0.937$) and wins the remaining three. Both anchor their weighting to the target class's evidence&mdash;Grad-CAM++ via second-order gradient weighting, Score-CAM via each channel's actual effect on the softmax score&mdash;avoiding the gradient saturation/noise that can affect plain Grad-CAM, which is far more volatile ($\bar{O}^c=0.769\pm0.314$) and collapses for Gallstones and Wall Thickening (0.595, 0.630). Saliency Maps and Eigen-CAM show the lowest consistency ($\bar{O}^c=0.681$ and $0.242$), with Eigen-CAM the most volatile of all five (std&nbsp;0.343), falling below 0.10 for three classes (MGC, ADNM, WT): Saliency's finer pixel-space granularity makes small per-model differences contribute disproportionately to cosine divergence, while Eigen-CAM's unsupervised, class-agnostic activations are highly sensitive to differences between differently composed training subsets. Neither pattern should be read as evidence these explanations are less clinically meaningful, only less reproducible across retraining under this design.</p>
+    </div>
+
+    <figure id="fig-9" class="span-cols" style="max-width:560px;margin:8pt auto;">
+      <img src="fedgb/outputs/figures/consistency.png" alt="Bar chart of macro cosine-consistency mean plus/minus standard deviation for all five XAI methods" style="width:100%;height:auto;display:block;margin:0 auto;"/>
+      <figcaption><span class="fig-label">Fig.&nbsp;9.</span>&nbsp;Visual companion to Table&nbsp;5: macro cosine-consistency mean&nbsp;&plusmn;&nbsp;std for each of the five XAI methods (72-image stratified set, three replicates). Grad-CAM++ and Score-CAM cluster tightly near 0.94; Grad-CAM shows the widest error bar of the three CAM-family methods; Eigen-CAM is both lowest and most volatile.</figcaption>
+    </figure>
+
+    <p class="no-indent">Table&nbsp;6 reveals three consistent patterns.
+    <span class="label-bi">Pattern (1):</span>&nbsp;Grad-CAM++ and
+    Score-CAM stay above $\theta=0.70$ for all nine classes, while plain
+    Grad-CAM drops below threshold for two classes it would otherwise be
+    expected to handle well (Gallstones 0.595, Wall Thickening 0.630).
+    This suggests Grad-CAM's coarser, unweighted feature-map averaging,
+    rather than class difficulty, is the limiting factor.
+    <span class="label-bi">Pattern (2):</span>&nbsp;Eigen-CAM collapses
+    almost completely for Membranous/Gangrenous Cholecystitis,
+    Adenomyomatosis, and Wall Thickening ($\bar{O}^c=0.073$, $0.085$,
+    $0.066$). This is consistent with these three classes having the most
+    diffuse, least focal discriminative regions (Section&nbsp;4.3), which
+    gives Eigen-CAM's unsupervised principal component the least
+    consistent direction to lock onto across training subsets.
+    <span class="label-bi">Pattern (3):</span>&nbsp;Grad-CAM's
+    per-replicate breakdown (Table&nbsp;5: 0.898, 0.629, 0.781) shows
+    replicate $R_2$&mdash;trained on the smallest subset
+    (2,089&nbsp;images)&mdash;diverges most from the primary model.
+    Grad-CAM++ and Score-CAM, by contrast, stay tightly clustered regardless of
+    subset size, indicating the two best methods are also the most robust
+    to training-data volume.</p>
+
+    <h3 class="subsec-head">4.4.&nbsp;Quantitative reliability battery</h3>
+
+    <p class="no-indent"><span class="label-bold">Faithfulness.</span>&nbsp;Consistency
+    (Section&nbsp;4.3) establishes that explanations are reproducible,
+    not that they are <em>faithful</em> to the pixels the model actually
+    relies on. Faithfulness is tested with deletion and insertion curves
+    <a class="xref" href="#ref-14">[14]</a>. Most-attributed pixels are
+    progressively replaced with a blurred baseline (deletion; lower AUC
+    is better), then separately restored onto that baseline (insertion;
+    higher AUC is better). Each method is compared against a random
+    pixel-ordering control on the same 144 stratified images (20 steps).</p>
+
+    <div id="tbl-8" class="tbl-wrap">
+      <div class="tbl-caption">Table 7
+        <span class="tbl-sub">Deletion / Insertion Faithfulness (144 stratified validation images, 20 steps). Lower deletion AUC and higher insertion AUC are better; the gap (insertion&nbsp;&minus;&nbsp;deletion) is a single faithfulness score. All three CAM methods beat the random control by a wide margin.</span>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th class="tal">Method</th>
+            <th>Deletion AUC&nbsp;&darr;</th>
+            <th>Insertion AUC&nbsp;&uarr;</th>
+            <th>Gap&nbsp;&uarr;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="tal">Grad-CAM</td><td>0.307</td><td><b>0.787</b></td><td><b>0.480</b></td></tr>
+          <tr><td class="tal">Grad-CAM++</td><td><b>0.312</b></td><td>0.785</td><td>0.473</td></tr>
+          <tr><td class="tal">Score-CAM</td><td>0.323</td><td>0.778</td><td>0.456</td></tr>
+          <tr><td class="tal">Random control</td><td>0.610</td><td>0.597</td><td>&minus;0.013</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <figure id="fig-10" class="span-cols">
+      <img src="fedgb/outputs/figures/faithfulness.png" alt="Mean deletion and insertion faithfulness curves for Grad-CAM, Grad-CAM++, Score-CAM, and a random-ordering control" style="width:100%;max-width:760px;height:auto;display:block;margin:0 auto;"/>
+      <figcaption><span class="fig-label">Fig.&nbsp;10.</span>&nbsp;Mean deletion (left) and insertion (right) curves. All three CAM methods sit far below the random control under deletion and far above it under insertion, confirming their heatmaps are faithful to the model's decision rather than merely plausible. The random control's near-zero gap (Table&nbsp;7) is the expected null result.</figcaption>
+    </figure>
+
+    <div class="finding-box">
+      <span class="finding-label">XAI Finding (5):</span> All three CAM-family methods are faithful by the deletion/insertion criterion, each beating the random control by a wide margin (Table&nbsp;7). The three-way ranking among them is too close to over-interpret. This quantitative result, not the visual plausibility of the Section&nbsp;4.2 heatmaps, is what licenses trusting the explanations.
+    </div>
+
+    <p class="no-indent"><span class="label-bold">Stability.</span>&nbsp;A
+    reliable explanation should not shift substantially under image
+    perturbations that leave the diagnosis unchanged. Three such
+    transforms are applied to 216 stratified validation
+    images&mdash;a $\times1.15$ brightness shift, a 10-pixel diagonal
+    translation (heatmap realigned before comparison), and additive
+    Gaussian noise ($\sigma=0.03$). For each, Grad-CAM++ is recomputed
+    for the originally predicted class, and agreement with the
+    unperturbed heatmap is measured via SSIM, Pearson correlation, and
+    top-10% pixel overlap (IoU), together with the fraction of images
+    whose predicted class is unchanged.</p>
+
+    <div id="tbl-9" class="tbl-wrap">
+      <div class="tbl-caption">Table 8
+        <span class="tbl-sub">Grad-CAM++ Stability Under Clinically-Invariant Transforms (216 stratified validation images).</span>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th class="tal">Transform</th>
+            <th>SSIM</th>
+            <th>Pearson</th>
+            <th>Top-10% IoU</th>
+            <th>Pred. kept</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="tal">Brightness ($\times1.15$)</td><td><b>0.995</b></td><td><b>0.998</b></td><td><b>0.907</b></td><td><b>98.6%</b></td></tr>
+          <tr><td class="tal">Translation (10&nbsp;px)</td><td>0.848</td><td>0.931</td><td>0.681</td><td>93.5%</td></tr>
+          <tr><td class="tal">Gaussian noise ($\sigma=0.03$)</td><td>0.931</td><td>0.950</td><td>0.652</td><td>70.8%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <figure id="fig-11" class="span-cols">
+      <img src="fedgb/outputs/figures/stability.png" alt="Grad-CAM++ stability metrics under brightness, translation, and noise transforms" style="width:100%;max-width:640px;height:auto;display:block;margin:0 auto;"/>
+      <figcaption><span class="fig-label">Fig.&nbsp;11.</span>&nbsp;Grad-CAM++ explanation stability under the three transforms. Brightness is near-perfectly stable on every axis; translation and noise diverge&mdash;translation disturbs the heatmap's pixel-level structure (lowest SSIM) more than noise does, while noise disturbs the model's actual prediction (lowest prediction-kept rate) far more than translation does.</figcaption>
+    </figure>
+
+    <div class="finding-box">
+      <span class="finding-label">XAI Finding (6):</span> Grad-CAM++ is highly stable under brightness change, but translation and noise disrupt different things (Table&nbsp;8). Translation degrades the heatmap most while leaving the prediction largely intact. Noise leaves the heatmap more intact but flips the predicted class nearly 30% of the time. Noise therefore changes what the model outputs, not merely how it explains that output. Classifier-level noise robustness, not explanation robustness, is the more urgent target for future training.
+    </div>
+
+    <p class="no-indent"><span class="label-bold">Model-parameter
+    randomization sanity check.</span>&nbsp;A trustworthy saliency method
+    must depend on the model's learned weights; some popular methods
+    notoriously do not <a class="xref" href="#ref-13">[13]</a>. Following
+    the Adebayo et&nbsp;al. protocol, ResNet-50's parameters are
+    cascade-randomized from the output layer back toward the input
+    (fc&nbsp;&rarr;&nbsp;layer4&nbsp;&rarr;&nbsp;$\dots$&nbsp;&rarr;&nbsp;conv1).
+    Grad-CAM++ is recomputed for the same explained class at each stage,
+    and similarity to the fully-trained-model heatmap is measured (108
+    images). Similarity is highest when only <code>fc</code> is
+    randomized ($|\rho|=0.95$), as expected, since Grad-CAM++ taps
+    <code>layer4</code> and <code>fc</code> lies downstream of that tap.
+    It drops sharply once <code>layer4</code> is randomized
+    ($|\rho|=0.52$) and reaches its minimum at <code>layer1</code>
+    ($|\rho|=0.20$), as Fig.&nbsp;12 shows. The heatmap therefore depends
+    on the learned convolutional features rather than acting as an
+    input-edge detector, and the method passes the sanity check.</p>
+
+    <figure id="fig-12" class="span-cols">
+      <img src="fedgb/outputs/figures/sanity_checks.png" alt="Grad-CAM++ heatmap similarity collapses as ResNet-50 parameters are cascade-randomized from fc toward conv1" style="width:100%;max-width:640px;height:auto;display:block;margin:0 auto;"/>
+      <figcaption><span class="fig-label">Fig.&nbsp;12.</span>&nbsp;Model-randomization sanity check. Grad-CAM++ heatmap similarity to the trained model (absolute Spearman correlation and SSIM) drops sharply once <code>layer4</code>&mdash;the Grad-CAM++ tap point&mdash;is randomized and continues declining through the remaining convolutional stages, confirming the explanation reflects learned weights rather than acting as an input-edge detector.</figcaption>
+    </figure>
+
+    <p class="no-indent"><span class="label-bold">Probability
+    calibration.</span>&nbsp;Section&nbsp;4.2 noted that the model's raw
+    softmax confidence separates correct from incorrect predictions but
+    is not a calibrated probability. This is now quantified and
+    corrected. A single temperature parameter
+    <a class="xref" href="#ref-42">[42]</a> is fit on a stratified calibration
+    half of the validation set (1,594 images) and evaluated on the
+    held-out half (1,599 images, accuracy&nbsp;0.9318). Temperature
+    scaling ($T=1.468$) reduces Expected Calibration Error from 0.034 to
+    0.009 and the Brier score from 0.109 to 0.106, without altering
+    discrimination (accuracy is unchanged by construction). Fig.&nbsp;13
+    shows the model is mildly over-confident before scaling, with its
+    reliability curve sitting slightly below the diagonal at high
+    confidence, and closely calibrated afterward.</p>
+
+    <figure id="fig-13" class="span-cols single-col-print" style="max-width:360px;margin:8pt auto;">
+      <img src="fedgb/outputs/figures/calibration.png" alt="Reliability diagram before and after temperature scaling" style="width:100%;height:auto;display:block;margin:0 auto;"/>
+      <figcaption><span class="fig-label">Fig.&nbsp;13.</span>&nbsp;Reliability diagram on the held-out validation half. Temperature scaling ($T=1.468$) moves the confidence&ndash;accuracy curve toward the diagonal, cutting ECE by 73% (0.034&nbsp;&rarr;&nbsp;0.009).</figcaption>
+    </figure>
+
+    <p class="no-indent"><span class="label-bold">Shortcut-learning
+    audit.</span>&nbsp;Finally, this section tests whether the model
+    exploits non-clinical cues at the image margin (burned-in text,
+    calipers, borders) rather than anatomy
+    <a class="xref" href="#ref-40">[40]</a>,&nbsp;<a class="xref" href="#ref-41">[41]</a>,
+    via two measurements on 216 stratified images (Fig.&nbsp;14).
+    (i)&nbsp;Cropping away the outer 12% margin drops accuracy from
+    0.9305 to 0.7122 and macro-F1 from 0.9303 to 0.7039.
+    (ii)&nbsp;Only 21.8% ($\pm$&nbsp;4.9%) of Grad-CAM++ attribution mass
+    falls in that margin ring, though the ring covers 41.0% of the frame.
+    These two measurements point in different directions and both are
+    reported. Result (ii) is the cleaner shortcut signal: the model
+    concentrates its explanation on central anatomy, not the margin.
+    Result (i) is not on its own evidence of margin-shortcut reliance,
+    because a 12% crop also removes genuine peripheral gallbladder and
+    adjacent-organ anatomy. For a nine-class task with several visually
+    similar classes, losing that anatomy plausibly costs real
+    discriminative signal independent of any shortcut. The crop drop is
+    therefore treated as a robustness finding, and the border-energy
+    result as the actual shortcut audit.</p>
+
+    <figure id="fig-14" class="span-cols">
+      <img src="fedgb/outputs/figures/shortcut_audit.png" alt="Margin-crop ablation accuracy and Grad-CAM++ border-energy" style="width:100%;max-width:720px;height:auto;display:block;margin:0 auto;"/>
+      <figcaption><span class="fig-label">Fig.&nbsp;14.</span>&nbsp;Shortcut audit. Left: classification accuracy and macro-F1 both drop substantially under the outer-12%-margin crop. Right: Grad-CAM++ places only 21.8% of its attribution mass in that margin ring (which covers 41.0% of the frame), indicating central-anatomy focus in the explanation even though the crop itself is costly to accuracy.</figcaption>
+    </figure>
+
+    <div class="finding-box">
+      <span class="finding-label">XAI Finding (7):</span> Attribution mass is markedly under-represented at the frame margin, which is evidence against margin-shortcut reliance. The larger crop-ablation accuracy drop is interpreted as genuine peripheral-anatomy dependence rather than a shortcut the border-energy measurement missed. This is the one reliability result in the paper that is not fully clean (Section&nbsp;5.5).
+    </div>
+
+    <h3 class="subsec-head">4.5.&nbsp;Summary of key findings</h3>
+
+    <p class="no-indent">Three findings carry across Sections&nbsp;4.1&ndash;4.4.
+    Grad-CAM++ and Score-CAM lead every reliability axis measured.
+    The explanations are
+    quantitatively faithful to the model's decision, yet heatmap
+    plausibility alone flags neither high-confidence errors
+    (Section&nbsp;4.2) nor subtler failure modes in general;
+    reliability therefore has to be measured, not inferred from
+    appearance. Of the reliability axes, only the shortcut audit is
+    inconclusive, for the crop-versus-anatomy reason given in
+    Section&nbsp;4.4.</p>
+
+    <!-- 5. DISCUSSION -->
+    <h2 class="sec-head"><span class="roman">5.</span>&nbsp;Discussion</h2>
+
+    <p class="no-indent">This section interprets the classification and
+    XAI findings of Section&nbsp;4, situates them relative to prior
+    work, and states plainly what this study does and does not
+    establish.</p>
+
+    <h3 class="subsec-head">5.1.&nbsp;Interpretation of results</h3>
+
+    <p class="no-indent">The primary
+    model reaches 93.05% accuracy and 0.9965 macro-AUC
+    (Table&nbsp;3), confirmed by a three-seed
+    replication ($0.9210\pm0.0131$).</p>
+
+    <p class="no-indent">Per-class F1 does not
+    track training-set size. It tracks pairwise visual overlap
+    (Section&nbsp;4.2). The largest error mode is a benign-to-benign
+    pair, while the clinically urgent
+    Carcinoma&nbsp;&rarr;&nbsp;Gallstones direction is a smaller but real
+    minority.</p>
+
+    <p class="no-indent">Across every quantitative axis in
+    Section&nbsp;4, Grad-CAM++ and Score-CAM outperform Grad-CAM,
+    Saliency Maps, and Eigen-CAM. They give the sharpest, most
+    class-discriminative heatmaps, the highest and most stable
+    cross-replicate consistency, and&mdash;with plain Grad-CAM&mdash;beat
+    the random faithfulness control by a wide margin. Sharpness,
+    reproducibility, and faithfulness are measured independently, and all
+    three agree. That convergence is itself evidence the ranking reflects
+    a real property of the methods rather than an artefact of one metric.
+    Eigen-CAM's weak, high-variance consistency is expected, given it is
+    class-agnostic by construction; it is retained as a cheap
+    gradient-free baseline, not a deployment candidate.</p>
+
+    <p class="no-indent"><span class="label-bold">Per-class attention
+    corresponds to recognised ultrasonographic signs.</span> Gallstones
+    maps highlight the posterior acoustic shadow, the canonical sign of
+    cholelithiasis. Cholecystitis and Membranous/Gangrenous
+    Cholecystitis maps both concentrate on the wall itself, the latter
+    more diffusely across the wall circumference, matching the more
+    extensive mural involvement of the gangrenous stage. Perforation maps
+    attend to wall-defect and pericholecystic regions. Carcinoma maps
+    show focal wall attention consistent with the irregular mural
+    thickening and mass-like lesions that characterise GBC, with Saliency
+    additionally marking the wall&ndash;lumen interface. Polyps &amp;
+    Cholesterol Crystals and Adenomyomatosis both concentrate on small
+    mural foci, consistent with both presenting as discrete echogenic
+    structures projecting into the lumen. Abdomen &amp; Retroperitoneum
+    and Wall Thickening show more dispersed attention, reflecting their
+    less focal imaging definition. These attention patterns align with
+    the confusion structure of Section&nbsp;4.2: the classes that share
+    an imaging sign are the classes the model confuses. None of this
+    qualitative plausibility has been checked against an independent
+    clinician's region-of-interest annotation, which is the logical next
+    step (Section&nbsp;5.5).</p>
+
+    <h3 class="subsec-head">5.2.&nbsp;Reliability and trustworthiness of explanations</h3>
+
+    <p class="no-indent">Sections&nbsp;4.3 and 4.4 build a cumulative
+    case for trustworthiness along five axes. The explanations are
+    <em>reproducible</em> across independently trained replicates,
+    <em>faithful</em> to what the model actually uses, <em>stable</em>
+    under transforms a diagnosis should be invariant to, and genuinely
+    <em>dependent on learned weights</em>. On margin-based attribution
+    specifically, they are not obviously driven by that kind of shortcut,
+    though the crop-ablation leg of that test is inconclusive
+    (Section&nbsp;4.4). Passing the five axes is evidence that the explanations
+    describe <em>what the model actually does</em>. It is not, on its own,
+    strong evidence
+    that what the model does is clinically trustworthy: a classifier can be
+    internally consistent, well-calibrated, and give faithful explanations
+    for a decision process that has not been independently validated
+    against clinician ground truth. The margin-based shortcut audit
+    tests only for shortcuts tied to the image margin; it does not rule
+    out other, unmeasured shortcuts. The combined picture is that this
+    paper's XAI-method comparison is measured and reproducible, while its
+    classifier's explanations of <em>disease</em> have not yet been
+    validated against an independent clinician's judgement
+    (Section&nbsp;5.5).</p>
+
+    <h3 class="subsec-head">5.3.&nbsp;Comparison with previous studies and practical implications</h3>
+
+    <p class="no-indent">Table&nbsp;9 makes the comparison with prior
+    work concrete. Prior gallbladder-ultrasound classifiers
+    <a class="xref" href="#ref-7">[7]</a>,&nbsp;<a class="xref" href="#ref-17">[17]</a>,&nbsp;<a class="xref" href="#ref-18">[18]</a>,&nbsp;<a class="xref" href="#ref-19">[19]</a>,&nbsp;<a class="xref" href="#ref-22">[22]</a>
+    and the foundational XAI-method papers
+    <a class="xref" href="#ref-11">[11]</a>,&nbsp;<a class="xref" href="#ref-12">[12]</a>,&nbsp;<a class="xref" href="#ref-35">[35]</a>
+    each contribute one piece: a classifier, a dataset, or a method. None
+    combines &ge;3 XAI methods, a quantitative consistency metric,
+    and grounded failure-case analysis. This
+    is a narrower, more instrumented claim than the accuracy gains of
+    concurrent anatomy-aware architectures on GBCU
+    <a class="xref" href="#ref-22">[22]</a>,&nbsp;<a class="xref" href="#ref-23">[23]</a>.
+    No claim is made to advance classification accuracy. The goal is to
+    establish whether the explanations of a standard architecture can be
+    trusted.</p>
+
+    <!-- TABLE IX: Comparison with Prior Work -->
+    <div id="tbl-7" class="tbl-wrap span-cols">
+      <div class="tbl-caption">Table 9
+        <span class="tbl-sub">Comparison with Prior Gallbladder-Ultrasound AI Work and Foundational XAI-Method Papers.</span>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th class="tal" style="min-width:110pt">Reference</th>
+            <th>Gallbladder US</th>
+            <th>&ge;3 XAI Methods</th>
+            <th>Quantitative Consistency Metric</th>
+            <th>Grounded Failure-Case Analysis</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="tal">Basu et al.&nbsp;<a class="xref" href="#ref-7">[7]</a></td><td>&#x2713;</td><td>&#x2717;</td><td>&#x2717;</td><td>&#x2717;</td></tr>
+          <tr><td class="tal">RadFormer&nbsp;<a class="xref" href="#ref-19">[19]</a></td><td>&#x2713;</td><td>&#x2717;</td><td>&#x2717;</td><td>&#x2717;</td></tr>
+          <tr><td class="tal">Hasan et al.&nbsp;<a class="xref" href="#ref-22">[22]</a></td><td>&#x2713;</td><td>&#x2717;</td><td>&#x2717;</td><td>&#x2717;</td></tr>
+          <tr><td class="tal">Turki et al.&nbsp;<a class="xref" href="#ref-17">[17]</a></td><td>&#x2713;</td><td>&#x2717;</td><td>&#x2717;</td><td>&#x2717;</td></tr>
+          <tr><td class="tal">Obaid et al.&nbsp;<a class="xref" href="#ref-18">[18]</a></td><td>&#x2713;</td><td>&#x2717;</td><td>&#x2717;</td><td>&#x2717;</td></tr>
+          <tr><td class="tal">Selvaraju et al.&nbsp;<a class="xref" href="#ref-11">[11]</a></td><td>&#x2717;</td><td>&#x2717;</td><td>&#x2717;</td><td>&#x2717;</td></tr>
+          <tr><td class="tal">Chattopadhay et al.&nbsp;<a class="xref" href="#ref-12">[12]</a></td><td>&#x2717;</td><td>&#x2717;</td><td>&#x2717;</td><td>&#x2717;</td></tr>
+          <tr><td class="tal">Wang et al.&nbsp;<a class="xref" href="#ref-35">[35]</a></td><td>&#x2717;</td><td>&#x2717;</td><td>&#x2717;</td><td>&#x2717;</td></tr>
+          <tr><td class="tal"><b>Ours</b></td><td><b>&#x2713;</b></td><td><b>&#x2713;</b>&nbsp;(5)</td><td><b>&#x2713;</b></td><td><b>&#x2713;</b></td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:8pt;margin:2pt 0 0;">Turki et al. is the UIdataGB dataset-release paper used in this study; Obaid et al. is the closest prior classifier, trained on the same raw 10,692-image release. These, and the GBCU studies above, provide a classifier or dataset release but no XAI evaluation. Rows for Selvaraju et al., Chattopadhay et al., and Wang et al. are the foundational general-purpose method papers, not gallbladder-specific studies; they are included to show that this paper is the first to bring &ge;3 of these methods together with a quantitative agreement metric for gallbladder ultrasound.</p>
+    </div>
+
+    <p class="no-indent"><span class="label-bold">What this paper does
+    and does not support.</span> Sections&nbsp;4.3 and 4.4 give evidence
+    that the model's explanations are reproducible, faithful, stable,
+    weight-dependent, and free of obvious margin shortcuts, and that its
+    probabilities can be calibrated. They are <em>not</em> evidence that
+    the model is ready for decision support. That additionally requires
+    quantitative localization against clinician-defined regions of
+    interest and formal clinician review, neither of which can be
+    produced without expert annotation (Section&nbsp;5.5).</p>
+
+    <p><span class="label-bold">Monitoring explanation
+    reproducibility.</span> The consistency score $O_r^c$ could serve as
+    an ongoing quality check when a model is retrained on updated data.
+    If $O_r^c$ falls below $\theta=0.70$ for a class after retraining,
+    that flags a material change in what the model attends to for that
+    class, and triggers targeted review before the updated model is
+    deployed. The 54-image per-class gallery already generated here
+    (Supplementary Material&nbsp;A) is a natural starting panel for the
+    clinician rating protocol of Section&nbsp;5.5.</p>
+
+    <h3 class="subsec-head">5.4.&nbsp;Limitations</h3>
+
+    <p class="no-indent">This paper is deliberately scoped as an
+    image-level, internal development study on one site-unlabelled
+    public dataset release, and the limitations below follow directly
+    from that scope.
+    <span class="label-bi">(1)&nbsp;No clinician-annotated localization
+    evidence.</span> All anatomical plausibility judgments in
+    Section&nbsp;5.1 are the authors', not an independent radiologist's.
+    A rating protocol is planned but awaits clinician participation.
+    <span class="label-bi">(2)&nbsp;Single seed for per-class and
+    XAI-battery results.</span> Top-line accuracy is three-seed
+    replicated, but the per-class breakdown, consistency
+    results, and remaining battery come from one seed.
+    <span class="label-bi">(3)&nbsp;Bounded perturbation set.</span> The
+    faithfulness and stability tests use one baseline and transform set.
+    Other choices could shift absolute numbers, though the ranking
+    against the random control is robust.
+    <span class="label-bi">(4)&nbsp;The margin-based shortcut audit is
+    inconclusive.</span> Its
+    crop-ablation leg is confounded with genuine anatomy loss
+    (Section&nbsp;4.4), and it tests only for margin-tied shortcuts; it
+    does not rule out other, unmeasured shortcuts.
+    <span class="label-bi">(5)&nbsp;Site and scanner provenance is
+    unlabelled rather than absent.</span> The source publication reports
+    collection across three-to-four hospitals in Baghdad, Iraq on four
+    scanner models, but the public release carries no hospital, patient,
+    or scanner identifier. This paper can therefore
+    neither verify the split is balanced across sites, nor stratify
+    results by site. No claim of
+    externally validated multicentre or cross-scanner generalizability is
+    made or implied.</p>
+
+    <h3 class="subsec-head">5.5.&nbsp;Future research directions</h3>
+
+    <p class="no-indent">The remaining steps, in priority order, are as
+    follows. (1)&nbsp;Collect clinician
+    region-of-interest annotations and compute IoU, Dice, pointing-game
+    accuracy, and energy-in-ROI per method. (2)&nbsp;Run the planned radiologist
+    Likert-rating study and report Cohen&rsquo;s $\kappa$.
+    (3)&nbsp;Extend the per-class and consistency results to multiple
+    seeds (Limitation&nbsp;2). (4)&nbsp;Obtain hospital-,
+    scanner-, and patient-level metadata for the
+    existing release, or prospectively collect site- and
+    patient-labelled data, to enable cross-site and cross-scanner
+    stratification (Limitation&nbsp;5). Only once data with verified site-labelled multicentre
+    provenance become available <a class="xref" href="#ref-50">[50]</a>,
+    would a cross-scanner validation study be an appropriate next paper.
+    Throughout, this work follows the FUTURE-AI
+    <a class="xref" href="#ref-51">[51]</a>, CLAIM
+    <a class="xref" href="#ref-52">[52]</a>,&nbsp;<a class="xref" href="#ref-53">[53]</a>,
+    and TRIPOD+AI <a class="xref" href="#ref-54">[54]</a> reporting
+    guidelines, and explicitly audits the generalization
+    pitfalls documented elsewhere in medical-imaging machine learning
+    <a class="xref" href="#ref-55">[55]</a>,&nbsp;<a class="xref" href="#ref-56">[56]</a>.</p>
+
+    <!-- 6. CONCLUSION -->
+    <h2 class="sec-head"><span class="roman">6.</span>&nbsp;Conclusion</h2>
+
+    <p class="no-indent">This paper presented a quantitative
+    explainable-AI evaluation of a ResNet-50 model for nine-class
+    gallbladder ultrasound classification on the public UIdataGB dataset.
+    Five XAI methods were compared using a cosine-based consistency score
+    $O^c$ and a full reliability battery. Grad-CAM++ and Score-CAM
+    produced sharper, more class-discriminative, and substantially more
+    cross-replicate-consistent maps than Grad-CAM, Saliency, or
+    Eigen-CAM. The battery found the explanations faithful to the model's
+    decision, stable under brightness change, dependent on learned
+    weights, and not driven by margin-based shortcuts. Failure-case
+    analysis showed that heatmap plausibility alone does not reliably
+    flag high-confidence errors. This evaluation is the paper's central
+    result.</p>
+
+    <p class="no-indent">Such an evaluation is only meaningful on
+    genuinely held-out data. The dataset's train/validation split was
+    therefore de-duplicated at the image-cluster level using perceptual
+    hashing before any classification or XAI result was computed
+    (Section&nbsp;3.1).</p>
+
+    <p class="no-indent">The principal limitations are set out in
+    Section&nbsp;5.4: the absence of
+    clinician-annotated localization evidence, the single-seed basis of
+    the per-class and XAI-battery results, the bounded perturbation set
+    used for faithfulness and stability testing, the fact that the
+    margin-based shortcut audit tests only for shortcuts tied to the
+    image margin, and the dataset's unlabelled multi-hospital,
+    multi-scanner provenance (Section&nbsp;5.5).</p>
+
+    <!-- END MATTER, ordered to match Array's house sequence (CRediT ->
+         competing interest -> funding/acknowledgments -> data
+         availability -> [ethics, not present in the reference paper but
+         retained here as substantively necessary] -> references) -->
+    <h3 class="subsec-head">CRediT authorship contribution statement</h3>
+    <p class="no-indent"><b>Sayed Ifti Ahmed:</b> Conceptualization,
+    Methodology, Software, Investigation, Formal analysis, Visualization,
+    Writing&nbsp;&ndash; original draft. <b>Mst Khadiza Akter Sammi:</b>
+    Methodology, Validation, Data curation, Writing&nbsp;&ndash; review
+    &amp; editing.</p>
+
+    <h3 class="subsec-head">Declaration of competing interest</h3>
+    <p class="no-indent">The authors declare that they have no known
+    competing financial interests or personal relationships that could
+    have appeared to influence the work reported in this paper.</p>
+
+    <h3 class="subsec-head">Funding</h3>
+    <p class="no-indent">This research received no specific grant from
+    any funding agency in the public, commercial, or not-for-profit
+    sectors.</p>
+
+    <h3 class="subsec-head">Code and data availability</h3>
+
+    <p class="no-indent">All
+    XAI code required to
+    reproduce the analysis is included in this repository under the
+    <code>fedgb/</code> directory. The principal entry points are:</p>
+    <ul class="body-list">
+      <li><code>fedgb/dedupe_split_uidatagb.py</code>&nbsp;&mdash; the
+      image-cluster de-duplication split
+      correction of Section&nbsp;3.1; emits
+      <code>outputs/phase0/leakage_check.json</code> and
+      <code>outputs/phase0/dedupe_split_report.json</code>.</li>
+      <li><code>fedgb/gradcam.py</code>&nbsp;&mdash; Grad-CAM, Grad-CAM++,
+      Saliency, Eigen-CAM, and Score-CAM classes.</li>
+      <li><code>fedgb/compute_consistency.py</code>&nbsp;&mdash; computes
+      cross-replicate cosine consistency $O_r^c$ across the stratified
+      evaluation set for all five methods; emits
+      <code>outputs/phase0/consistency.json</code> and flags images with
+      $O_r^c &lt; \theta = 0.70$.</li>
+      <li><code>fedgb/analyze_failure_cases_uidatagb.py</code>&nbsp;&mdash; regenerates
+      the confusion matrix and the failure-case figures of
+      Section&nbsp;4.2 from the saved checkpoint.</li>
+      <li><code>fedgb/compute_faithfulness.py</code>, <code>compute_stability.py</code>,
+      <code>sanity_checks.py</code>, <code>compute_calibration.py</code>, and
+      <code>shortcut_audit.py</code>&nbsp;&mdash; the quantitative
+      XAI-reliability battery of Section&nbsp;4.4; each emits a
+      JSON result to <code>outputs/phase0/</code> and its figure to
+      <code>outputs/figures/</code>.</li>
+      <li><code>fedgb/generate_uidatagb_figures.py</code>,
+      <code>fedgb/generate_xai_galleries.py</code>&nbsp;&mdash; regenerate
+      all classification and XAI paper figures from saved checkpoints and
+      result JSON files.</li>
+    </ul>
+    <p>The dataset is the publicly released UIdataGB collection
+    <a class="xref" href="#ref-17">[17]</a>. Trained model checkpoints and
+    XAI outputs will be deposited to a permanent archive (Zenodo DOI to be
+    assigned upon acceptance). Source code is licensed MIT.</p>
+
+    <h3 class="subsec-head">Ethics statement</h3>
+    <p class="no-indent">This study uses the publicly released, fully
+    anonymized UIdataGB ultrasound dataset
+    <a class="xref" href="#ref-17">[17]</a>, collected and released for
+    public research use by the original data providers. No new patient
+    data were collected, and no identifiable patient information was
+    accessed at any stage of this work. Since the public
+    release contains no patient- or study-level identifiers, full
+    patient-level split independence
+    could not be independently verified in this analysis
+    (Section&nbsp;5.4, Limitations). Separate institutional ethics board
+    approval was not required for this secondary, fully-anonymized
+    analysis.</p>
+
+    <!-- REFERENCES -->
+    <h2 class="sec-head"><span class="roman">References</span></h2>
+
+    <div class="sec-refs">
+      <div id="ref-1" class="ref-entry"><span class="ref-num">[1]</span><span class="ref-txt">M. Hundal and E. A. Shaffer, &ldquo;Gallbladder cancer: epidemiology and outcome,&rdquo; <i>Clinical Epidemiology</i>, vol.&nbsp;6, pp.&nbsp;99&ndash;109, 2014.</span></div>
+      <div id="ref-2" class="ref-entry"><span class="ref-num">[2]</span><span class="ref-txt">V. K. Kapoor and A. J. McMichael, &ldquo;Gallbladder cancer: an &lsquo;Indian&rsquo; disease,&rdquo; <i>National Medical Journal of India</i>, vol.&nbsp;16, no.&nbsp;4, pp.&nbsp;209&ndash;213, 2003.</span></div>
+      <div id="ref-3" class="ref-entry"><span class="ref-num">[3]</span><span class="ref-txt">J. J. S. Kiewiet, M. M. N. Leeuwenburgh, S. Bipat, P. M. M. Bossuyt, J. Stoker, and M. A. Boermeester, &ldquo;A systematic review and meta-analysis of diagnostic performance of imaging in acute cholecystitis,&rdquo; <i>Radiology</i>, vol.&nbsp;264, no.&nbsp;3, pp.&nbsp;708&ndash;720, 2012.</span></div>
+      <div id="ref-4" class="ref-entry"><span class="ref-num">[4]</span><span class="ref-txt">C. J. Kelly et al., &ldquo;Key challenges for delivering clinical impact with artificial intelligence,&rdquo; <i>BMC Medicine</i>, 2019.</span></div>
+      <div id="ref-5" class="ref-entry"><span class="ref-num">[5]</span><span class="ref-txt">J. Wiens et al., &ldquo;Do no harm: A roadmap for responsible machine learning for health care,&rdquo; <i>Nature Medicine</i>, 2019.</span></div>
+      <div id="ref-6" class="ref-entry"><span class="ref-num">[6]</span><span class="ref-txt">E. J. Topol, &ldquo;High-performance medicine: The convergence of human and artificial intelligence,&rdquo; <i>Nature Medicine</i>, 2019.</span></div>
+      <div id="ref-7" class="ref-entry"><span class="ref-num">[7]</span><span class="ref-txt">S. Basu et al., &ldquo;Surpassing the human accuracy: Detecting gallbladder cancer from USG images with curriculum learning,&rdquo; in <i>Proc. IEEE/CVF CVPR</i>, 2022.</span></div>
+      <div id="ref-8" class="ref-entry"><span class="ref-num">[8]</span><span class="ref-txt">C. Rudin, &ldquo;Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead,&rdquo; <i>Nature Machine Intelligence</i>, vol.&nbsp;1, pp.&nbsp;206&ndash;215, 2019.</span></div>
+      <div id="ref-9" class="ref-entry"><span class="ref-num">[9]</span><span class="ref-txt">M. Ghassemi, L. Oakden-Rayner, and A. L. Beam, &ldquo;The false hope of current approaches to explainable artificial intelligence in health care,&rdquo; <i>The Lancet Digital Health</i>, vol.&nbsp;3, no.&nbsp;11, pp.&nbsp;e745&ndash;e750, 2021.</span></div>
+      <div id="ref-10" class="ref-entry"><span class="ref-num">[10]</span><span class="ref-txt">B. H. M. van der Velden et al., &ldquo;Explainable artificial intelligence (XAI) in deep learning-based medical image analysis,&rdquo; <i>Medical Image Analysis</i>, vol.&nbsp;79, 102470, 2022.</span></div>
+      <div id="ref-11" class="ref-entry"><span class="ref-num">[11]</span><span class="ref-txt">R. R. Selvaraju et al., &ldquo;Grad-CAM: Visual explanations from deep networks via gradient-based localization,&rdquo; in <i>Proc. IEEE ICCV</i>, 2017.</span></div>
+      <div id="ref-12" class="ref-entry"><span class="ref-num">[12]</span><span class="ref-txt">A. Chattopadhay et al., &ldquo;Grad-CAM++: Generalized gradient-based visual explanations for deep convolutional networks,&rdquo; in <i>Proc. IEEE WACV</i>, 2018.</span></div>
+      <div id="ref-13" class="ref-entry"><span class="ref-num">[13]</span><span class="ref-txt">J. Adebayo et al., &ldquo;Sanity checks for saliency maps,&rdquo; in <i>NeurIPS</i>, 2018.</span></div>
+      <div id="ref-14" class="ref-entry"><span class="ref-num">[14]</span><span class="ref-txt">S. Hooker et al., &ldquo;A benchmark for interpretability methods in deep neural networks,&rdquo; in <i>NeurIPS</i>, 2019.</span></div>
+      <div id="ref-15" class="ref-entry"><span class="ref-num">[15]</span><span class="ref-txt">M. J. Page et al., &ldquo;The PRISMA 2020 statement: An updated guideline for reporting systematic reviews,&rdquo; <i>BMJ</i>, 2021.</span></div>
+      <div id="ref-16" class="ref-entry"><span class="ref-num">[16]</span><span class="ref-txt">H. Yuan, Q. Yu, Y. Zhang, et al., &ldquo;Ultrasound radiomics effective for preoperative identification of true and pseudo gallbladder polyps based on spatial and morphological features,&rdquo; <i>Frontiers in Oncology</i>, vol.&nbsp;10, art.&nbsp;1719, 2020.</span></div>
+      <div id="ref-17" class="ref-entry"><span class="ref-num">[17]</span><span class="ref-txt">T. Turki et al., &ldquo;Multi-class gallbladder ultrasound image dataset,&rdquo; <i>Data in Brief</i>, 2024.</span></div>
+      <div id="ref-18" class="ref-entry"><span class="ref-num">[18]</span><span class="ref-txt">A. M. Obaid, A. Turki, H. Bellaaj, M. Ksantini, A. AlTaee, and A. Alaerjan, &ldquo;Detection of gallbladder disease types using deep learning: An informative medical method,&rdquo; <i>Diagnostics</i>, vol.&nbsp;13, no.&nbsp;10, art.&nbsp;1744, 2023.</span></div>
+      <div id="ref-19" class="ref-entry"><span class="ref-num">[19]</span><span class="ref-txt">S. Basu, M. Gupta, P. Rana, P. Gupta, and C. Arora, &ldquo;RadFormer: Transformers with global-local attention for interpretable and accurate Gallbladder Cancer detection,&rdquo; <i>Medical Image Analysis</i>, vol.&nbsp;83, art.&nbsp;102676, 2023.</span></div>
+      <div id="ref-20" class="ref-entry"><span class="ref-num">[20]</span><span class="ref-txt">P. Gupta et al., &ldquo;Deep-learning enabled ultrasound based detection of gallbladder cancer in northern India: a prospective diagnostic study,&rdquo; <i>The Lancet Regional Health &ndash; Southeast Asia</i>, 2024.</span></div>
+      <div id="ref-21" class="ref-entry"><span class="ref-num">[21]</span><span class="ref-txt">P. Gupta et al., &ldquo;Multiple instance learning approach for automated gallbladder cancer detection using ultrasound imaging: multi-center validation of a deep learning model,&rdquo; <i>The Lancet Regional Health &ndash; Southeast Asia</i>, 2026.</span></div>
+      <div id="ref-22" class="ref-entry"><span class="ref-num">[22]</span><span class="ref-txt">M. Z. Hasan, M. A. H. Rony, S. S. Chowa, M. R. I. Bhuiyan, and A. A. Moustafa, &ldquo;GBCHV: An advanced deep learning anatomy-aware model for accurate classification of gallbladder cancer utilizing ultrasound images,&rdquo; <i>Scientific Reports</i>, vol.&nbsp;15, art.&nbsp;7120, 2025.</span></div>
+      <div id="ref-23" class="ref-entry"><span class="ref-num">[23]</span><span class="ref-txt">S. Basu, M. Gupta, C. Madan, P. Gupta, and C. Arora, &ldquo;FocusMAE: Gallbladder cancer detection from ultrasound videos with focused masked autoencoders,&rdquo; in <i>Proc. IEEE/CVF CVPR</i>, 2024.</span></div>
+      <div id="ref-24" class="ref-entry"><span class="ref-num">[24]</span><span class="ref-txt">S. Basu et al., &ldquo;Gallbladder cancer detection from ultrasound images with only image-level labels,&rdquo; in <i>Proc. MICCAI</i>, 2023.</span></div>
+      <div id="ref-25" class="ref-entry"><span class="ref-num">[25]</span><span class="ref-txt">T. Kim et al., &ldquo;Gallbladder polyp classification in ultrasound images using an ensemble convolutional neural network model,&rdquo; <i>J. Clinical Medicine</i>, vol.&nbsp;10, art.&nbsp;3585, 2021.</span></div>
+      <div id="ref-26" class="ref-entry"><span class="ref-num">[26]</span><span class="ref-txt">Y. J. Jeong et al., &ldquo;Deep learning-based decision support system for the diagnosis of neoplastic gallbladder polyps on ultrasonography: Preliminary results,&rdquo; <i>Scientific Reports</i>, vol.&nbsp;10, art.&nbsp;7700, 2020.</span></div>
+      <div id="ref-27" class="ref-entry"><span class="ref-num">[27]</span><span class="ref-txt">K. He, X. Zhang, S. Ren, and J. Sun, &ldquo;Deep residual learning for image recognition,&rdquo; in <i>Proc. IEEE CVPR</i>, 2016.</span></div>
+      <div id="ref-28" class="ref-entry"><span class="ref-num">[28]</span><span class="ref-txt">G. Huang, Z. Liu, L. van der Maaten, and K. Q. Weinberger, &ldquo;Densely connected convolutional networks,&rdquo; in <i>Proc. IEEE CVPR</i>, 2017.</span></div>
+      <div id="ref-29" class="ref-entry"><span class="ref-num">[29]</span><span class="ref-txt">M. Tan and Q. V. Le, &ldquo;EfficientNet: Rethinking model scaling for convolutional neural networks,&rdquo; in <i>Proc. ICML</i>, 2019.</span></div>
+      <div id="ref-30" class="ref-entry"><span class="ref-num">[30]</span><span class="ref-txt">J. Deng, W. Dong, R. Socher, L.-J. Li, K. Li, and L. Fei-Fei, &ldquo;ImageNet: A large-scale hierarchical image database,&rdquo; in <i>Proc. IEEE CVPR</i>, 2009.</span></div>
+      <div id="ref-31" class="ref-entry"><span class="ref-num">[31]</span><span class="ref-txt">E. Tjoa and C. Guan, &ldquo;A survey on explainable AI (XAI): Toward medical XAI,&rdquo; <i>IEEE Transactions on Neural Networks and Learning Systems</i>, vol.&nbsp;32, no.&nbsp;11, pp.&nbsp;4793&ndash;4813, 2021.</span></div>
+      <div id="ref-32" class="ref-entry"><span class="ref-num">[32]</span><span class="ref-txt">W. Samek, G. Montavon, A. Vedaldi, L. K. Hansen, and K.-R. M&uuml;ller, Eds., <i>Explainable AI: Interpreting, Explaining and Visualizing Deep Learning</i>. Springer, 2019.</span></div>
+      <div id="ref-33" class="ref-entry"><span class="ref-num">[33]</span><span class="ref-txt">K. Simonyan, A. Vedaldi, and A. Zisserman, &ldquo;Deep inside convolutional networks: Visualising image classification models and saliency maps,&rdquo; in <i>Proc. ICLR Workshop</i>, 2014.</span></div>
+      <div id="ref-34" class="ref-entry"><span class="ref-num">[34]</span><span class="ref-txt">M. B. Muhammad and M. Yeasin, &ldquo;Eigen-CAM: Class activation map using principal components,&rdquo; in <i>Proc. IJCNN</i>, 2020.</span></div>
+      <div id="ref-35" class="ref-entry"><span class="ref-num">[35]</span><span class="ref-txt">H. Wang et al., &ldquo;Score-CAM: Score-weighted visual explanations for convolutional neural networks,&rdquo; in <i>Proc. IEEE/CVF CVPR Workshops</i>, 2020.</span></div>
+      <div id="ref-36" class="ref-entry"><span class="ref-num">[36]</span><span class="ref-txt">S. M. Lundberg and S.-I. Lee, &ldquo;A unified approach to interpreting model predictions,&rdquo; in <i>NeurIPS</i>, 2017.</span></div>
+      <div id="ref-37" class="ref-entry"><span class="ref-num">[37]</span><span class="ref-txt">M. T. Ribeiro, S. Singh, and C. Guestrin, &ldquo;Why should I trust you? Explaining the predictions of any classifier,&rdquo; in <i>Proc. ACM SIGKDD</i>, 2016.</span></div>
+      <div id="ref-38" class="ref-entry"><span class="ref-num">[38]</span><span class="ref-txt">M. Sundararajan, A. Taly, and Q. Yan, &ldquo;Axiomatic attribution for deep networks,&rdquo; in <i>Proc. ICML</i>, 2017.</span></div>
+      <div id="ref-39" class="ref-entry"><span class="ref-num">[39]</span><span class="ref-txt">P. Jiang et al., &ldquo;LayerCAM: Exploring hierarchical class activation maps for localization,&rdquo; <i>IEEE Transactions on Image Processing</i>, 2021.</span></div>
+      <div id="ref-40" class="ref-entry"><span class="ref-num">[40]</span><span class="ref-txt">R. Geirhos et al., &ldquo;Shortcut learning in deep neural networks,&rdquo; <i>Nature Machine Intelligence</i>, 2020.</span></div>
+      <div id="ref-41" class="ref-entry"><span class="ref-num">[41]</span><span class="ref-txt">J. R. Zech et al., &ldquo;Variable generalization performance of a deep learning model to detect pneumonia in chest radiographs,&rdquo; <i>PLOS Medicine</i>, 2018.</span></div>
+      <div id="ref-42" class="ref-entry"><span class="ref-num">[42]</span><span class="ref-txt">C. Guo, G. Pleiss, Y. Sun, and K. Q. Weinberger, &ldquo;On calibration of modern neural networks,&rdquo; in <i>Proc. ICML</i>, 2017.</span></div>
+      <div id="ref-43" class="ref-entry"><span class="ref-num">[43]</span><span class="ref-txt">C. Shorten and T. M. Khoshgoftaar, &ldquo;A survey on image data augmentation for deep learning,&rdquo; <i>Journal of Big Data</i>, 2019.</span></div>
+      <div id="ref-44" class="ref-entry"><span class="ref-num">[44]</span><span class="ref-txt">T. Y. Lin et al., &ldquo;Focal loss for dense object detection,&rdquo; in <i>Proc. IEEE ICCV</i>, 2017.</span></div>
+      <div id="ref-45" class="ref-entry"><span class="ref-num">[45]</span><span class="ref-txt">T. Fawcett, &ldquo;An introduction to ROC analysis,&rdquo; <i>Pattern Recognition Letters</i>, 2006.</span></div>
+      <div id="ref-46" class="ref-entry"><span class="ref-num">[46]</span><span class="ref-txt">T. Saito and M. Rehmsmeier, &ldquo;The precision-recall plot is more informative than the ROC plot when evaluating binary classifiers on imbalanced datasets,&rdquo; <i>PLOS ONE</i>, 2015.</span></div>
+      <div id="ref-47" class="ref-entry"><span class="ref-num">[47]</span><span class="ref-txt">E. R. DeLong, D. M. DeLong, and D. L. Clarke-Pearson, &ldquo;Comparing the areas under two or more correlated receiver operating characteristic curves,&rdquo; <i>Biometrics</i>, 1988.</span></div>
+      <div id="ref-48" class="ref-entry"><span class="ref-num">[48]</span><span class="ref-txt">B. Efron and R. J. Tibshirani, <i>An Introduction to the Bootstrap</i>. Chapman &amp; Hall/CRC, 1993.</span></div>
+      <div id="ref-49" class="ref-entry"><span class="ref-num">[49]</span><span class="ref-txt">Q. McNemar, &ldquo;Note on the sampling error of the difference between correlated proportions or percentages,&rdquo; <i>Psychometrika</i>, 1947.</span></div>
+      <div id="ref-50" class="ref-entry"><span class="ref-num">[50]</span><span class="ref-txt">A. C. Yu, B. Mohajer, and J. Eng, &ldquo;External validation of deep learning algorithms for radiologic diagnosis: A systematic review,&rdquo; <i>Radiology: Artificial Intelligence</i>, vol.&nbsp;4, art.&nbsp;e210064, 2022.</span></div>
+      <div id="ref-51" class="ref-entry"><span class="ref-num">[51]</span><span class="ref-txt">K. Lekadir et al., &ldquo;FUTURE-AI: International consensus guideline for trustworthy and deployable artificial intelligence in healthcare,&rdquo; <i>BMJ</i>, art.&nbsp;e081554, 2025.</span></div>
+      <div id="ref-52" class="ref-entry"><span class="ref-num">[52]</span><span class="ref-txt">J. Mongan, L. Moy, and C. E. Kahn Jr., &ldquo;Checklist for Artificial Intelligence in Medical Imaging (CLAIM),&rdquo; <i>Radiology: Artificial Intelligence</i>, 2020.</span></div>
+      <div id="ref-53" class="ref-entry"><span class="ref-num">[53]</span><span class="ref-txt">A. S. Tejani et al., &ldquo;Checklist for Artificial Intelligence in Medical Imaging: 2024 update,&rdquo; <i>Radiology: Artificial Intelligence</i>, 2024.</span></div>
+      <div id="ref-54" class="ref-entry"><span class="ref-num">[54]</span><span class="ref-txt">G. S. Collins et al., &ldquo;TRIPOD+AI statement for clinical prediction models using regression or machine-learning methods,&rdquo; <i>BMJ</i>, 2024.</span></div>
+      <div id="ref-55" class="ref-entry"><span class="ref-num">[55]</span><span class="ref-txt">M. Roberts et al., &ldquo;Common pitfalls and recommendations for using machine learning to detect and prognosticate for COVID-19 using chest radiographs and CT scans,&rdquo; <i>Nature Machine Intelligence</i>, 2021.</span></div>
+      <div id="ref-56" class="ref-entry"><span class="ref-num">[56]</span><span class="ref-txt">P. Rouzrokh et al., &ldquo;Mitigating bias in radiology machine learning: 1. Data handling,&rdquo; <i>Radiology: Artificial Intelligence</i>, vol.&nbsp;4, no.&nbsp;5, art.&nbsp;e210290, 2022.</span></div>
+
+
+
+    <!-- APPENDIX: pointer to Supplementary Material -->
+    <h2 class="app-head"><span class="roman">Appendix</span>&nbsp;&mdash; Extended XAI Heatmap Galleries</h2>
+
+    <p class="no-indent">The full, non-cherry-picked per-class Grad-CAM++
+    gallery referenced in Sections&nbsp;4.2 and 4.3&mdash;six
+    validation samples per class across all nine classes, 54 figures in
+    total&mdash;is reproduced in full below rather than only as one
+    representative sample per class (Fig.&nbsp;7). These figures are
+    qualitative and confirmatory; the quantitative claims they support
+    are established in Tables&nbsp;5&ndash;VI and Fig.&nbsp;9 above.</p>
+
+    <h3 class="subsec-head" id="supp-a">Supplementary A.&nbsp;Full
+    Per-Class Grad-CAM++ Gallery (Primary Model)</h3>
+    <p class="supp-note">All primary-model Grad-CAM++ samples for each of
+    the nine disease classes (six per class, 54 total)&mdash;the
+    non-cherry-picked companion to Fig.&nbsp;7 above, which shows one
+    representative sample per class across all five XAI methods.</p>
+    <div class="supp-gallery">
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/01_gallstones_01.png" alt="Primary model, Gallstones (GS), sample 1"/><figcaption>Gallstones (GS) &mdash; sample 1</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/01_gallstones_02.png" alt="Primary model, Gallstones (GS), sample 2"/><figcaption>Gallstones (GS) &mdash; sample 2</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/01_gallstones_03.png" alt="Primary model, Gallstones (GS), sample 3"/><figcaption>Gallstones (GS) &mdash; sample 3</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/01_gallstones_04.png" alt="Primary model, Gallstones (GS), sample 4"/><figcaption>Gallstones (GS) &mdash; sample 4</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/01_gallstones_05.png" alt="Primary model, Gallstones (GS), sample 5"/><figcaption>Gallstones (GS) &mdash; sample 5</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/01_gallstones_06.png" alt="Primary model, Gallstones (GS), sample 6"/><figcaption>Gallstones (GS) &mdash; sample 6</figcaption></figure>
+
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/02_abdomen_and_retroperitoneum_01.png" alt="Primary model, Abdomen &amp; Retroperitoneum (ART), sample 1"/><figcaption>Abdomen &amp; Retroperitoneum (ART) &mdash; sample 1</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/02_abdomen_and_retroperitoneum_02.png" alt="Primary model, Abdomen &amp; Retroperitoneum (ART), sample 2"/><figcaption>Abdomen &amp; Retroperitoneum (ART) &mdash; sample 2</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/02_abdomen_and_retroperitoneum_03.png" alt="Primary model, Abdomen &amp; Retroperitoneum (ART), sample 3"/><figcaption>Abdomen &amp; Retroperitoneum (ART) &mdash; sample 3</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/02_abdomen_and_retroperitoneum_04.png" alt="Primary model, Abdomen &amp; Retroperitoneum (ART), sample 4"/><figcaption>Abdomen &amp; Retroperitoneum (ART) &mdash; sample 4</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/02_abdomen_and_retroperitoneum_05.png" alt="Primary model, Abdomen &amp; Retroperitoneum (ART), sample 5"/><figcaption>Abdomen &amp; Retroperitoneum (ART) &mdash; sample 5</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/02_abdomen_and_retroperitoneum_06.png" alt="Primary model, Abdomen &amp; Retroperitoneum (ART), sample 6"/><figcaption>Abdomen &amp; Retroperitoneum (ART) &mdash; sample 6</figcaption></figure>
+
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/03_cholecystitis_01.png" alt="Primary model, Cholecystitis (CHOL), sample 1"/><figcaption>Cholecystitis (CHOL) &mdash; sample 1</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/03_cholecystitis_02.png" alt="Primary model, Cholecystitis (CHOL), sample 2"/><figcaption>Cholecystitis (CHOL) &mdash; sample 2</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/03_cholecystitis_03.png" alt="Primary model, Cholecystitis (CHOL), sample 3"/><figcaption>Cholecystitis (CHOL) &mdash; sample 3</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/03_cholecystitis_04.png" alt="Primary model, Cholecystitis (CHOL), sample 4"/><figcaption>Cholecystitis (CHOL) &mdash; sample 4</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/03_cholecystitis_05.png" alt="Primary model, Cholecystitis (CHOL), sample 5"/><figcaption>Cholecystitis (CHOL) &mdash; sample 5</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/03_cholecystitis_06.png" alt="Primary model, Cholecystitis (CHOL), sample 6"/><figcaption>Cholecystitis (CHOL) &mdash; sample 6</figcaption></figure>
+
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/04_membranous_and_gangrenous_cholecystitis_01.png" alt="Primary model, Membranous/Gangrenous Cholecystitis (MGC), sample 1"/><figcaption>Membranous/Gangrenous Cholecystitis (MGC) &mdash; sample 1</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/04_membranous_and_gangrenous_cholecystitis_02.png" alt="Primary model, Membranous/Gangrenous Cholecystitis (MGC), sample 2"/><figcaption>Membranous/Gangrenous Cholecystitis (MGC) &mdash; sample 2</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/04_membranous_and_gangrenous_cholecystitis_03.png" alt="Primary model, Membranous/Gangrenous Cholecystitis (MGC), sample 3"/><figcaption>Membranous/Gangrenous Cholecystitis (MGC) &mdash; sample 3</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/04_membranous_and_gangrenous_cholecystitis_04.png" alt="Primary model, Membranous/Gangrenous Cholecystitis (MGC), sample 4"/><figcaption>Membranous/Gangrenous Cholecystitis (MGC) &mdash; sample 4</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/04_membranous_and_gangrenous_cholecystitis_05.png" alt="Primary model, Membranous/Gangrenous Cholecystitis (MGC), sample 5"/><figcaption>Membranous/Gangrenous Cholecystitis (MGC) &mdash; sample 5</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/04_membranous_and_gangrenous_cholecystitis_06.png" alt="Primary model, Membranous/Gangrenous Cholecystitis (MGC), sample 6"/><figcaption>Membranous/Gangrenous Cholecystitis (MGC) &mdash; sample 6</figcaption></figure>
+
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/05_perforation_01.png" alt="Primary model, Perforation (PERF), sample 1"/><figcaption>Perforation (PERF) &mdash; sample 1</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/05_perforation_02.png" alt="Primary model, Perforation (PERF), sample 2"/><figcaption>Perforation (PERF) &mdash; sample 2</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/05_perforation_03.png" alt="Primary model, Perforation (PERF), sample 3"/><figcaption>Perforation (PERF) &mdash; sample 3</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/05_perforation_04.png" alt="Primary model, Perforation (PERF), sample 4"/><figcaption>Perforation (PERF) &mdash; sample 4</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/05_perforation_05.png" alt="Primary model, Perforation (PERF), sample 5"/><figcaption>Perforation (PERF) &mdash; sample 5</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/05_perforation_06.png" alt="Primary model, Perforation (PERF), sample 6"/><figcaption>Perforation (PERF) &mdash; sample 6</figcaption></figure>
+
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/06_polyps_and_cholesterol_crystals_01.png" alt="Primary model, Polyps &amp; Cholesterol Crystals (PCC), sample 1"/><figcaption>Polyps &amp; Cholesterol Crystals (PCC) &mdash; sample 1</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/06_polyps_and_cholesterol_crystals_02.png" alt="Primary model, Polyps &amp; Cholesterol Crystals (PCC), sample 2"/><figcaption>Polyps &amp; Cholesterol Crystals (PCC) &mdash; sample 2</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/06_polyps_and_cholesterol_crystals_03.png" alt="Primary model, Polyps &amp; Cholesterol Crystals (PCC), sample 3"/><figcaption>Polyps &amp; Cholesterol Crystals (PCC) &mdash; sample 3</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/06_polyps_and_cholesterol_crystals_04.png" alt="Primary model, Polyps &amp; Cholesterol Crystals (PCC), sample 4"/><figcaption>Polyps &amp; Cholesterol Crystals (PCC) &mdash; sample 4</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/06_polyps_and_cholesterol_crystals_05.png" alt="Primary model, Polyps &amp; Cholesterol Crystals (PCC), sample 5"/><figcaption>Polyps &amp; Cholesterol Crystals (PCC) &mdash; sample 5</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/06_polyps_and_cholesterol_crystals_06.png" alt="Primary model, Polyps &amp; Cholesterol Crystals (PCC), sample 6"/><figcaption>Polyps &amp; Cholesterol Crystals (PCC) &mdash; sample 6</figcaption></figure>
+
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/07_adenomyomatosis_01.png" alt="Primary model, Adenomyomatosis (ADNM), sample 1"/><figcaption>Adenomyomatosis (ADNM) &mdash; sample 1</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/07_adenomyomatosis_02.png" alt="Primary model, Adenomyomatosis (ADNM), sample 2"/><figcaption>Adenomyomatosis (ADNM) &mdash; sample 2</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/07_adenomyomatosis_03.png" alt="Primary model, Adenomyomatosis (ADNM), sample 3"/><figcaption>Adenomyomatosis (ADNM) &mdash; sample 3</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/07_adenomyomatosis_04.png" alt="Primary model, Adenomyomatosis (ADNM), sample 4"/><figcaption>Adenomyomatosis (ADNM) &mdash; sample 4</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/07_adenomyomatosis_05.png" alt="Primary model, Adenomyomatosis (ADNM), sample 5"/><figcaption>Adenomyomatosis (ADNM) &mdash; sample 5</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/07_adenomyomatosis_06.png" alt="Primary model, Adenomyomatosis (ADNM), sample 6"/><figcaption>Adenomyomatosis (ADNM) &mdash; sample 6</figcaption></figure>
+
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/08_carcinoma_01.png" alt="Primary model, Carcinoma (CARC), sample 1"/><figcaption>Carcinoma (CARC) &mdash; sample 1</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/08_carcinoma_02.png" alt="Primary model, Carcinoma (CARC), sample 2"/><figcaption>Carcinoma (CARC) &mdash; sample 2</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/08_carcinoma_03.png" alt="Primary model, Carcinoma (CARC), sample 3"/><figcaption>Carcinoma (CARC) &mdash; sample 3</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/08_carcinoma_04.png" alt="Primary model, Carcinoma (CARC), sample 4"/><figcaption>Carcinoma (CARC) &mdash; sample 4</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/08_carcinoma_05.png" alt="Primary model, Carcinoma (CARC), sample 5"/><figcaption>Carcinoma (CARC) &mdash; sample 5</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/08_carcinoma_06.png" alt="Primary model, Carcinoma (CARC), sample 6"/><figcaption>Carcinoma (CARC) &mdash; sample 6</figcaption></figure>
+
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/09_various_causes_of_gallbladder_wall_thickening_01.png" alt="Primary model, Wall Thickening (WT), sample 1"/><figcaption>Wall Thickening (WT) &mdash; sample 1</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/09_various_causes_of_gallbladder_wall_thickening_02.png" alt="Primary model, Wall Thickening (WT), sample 2"/><figcaption>Wall Thickening (WT) &mdash; sample 2</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/09_various_causes_of_gallbladder_wall_thickening_03.png" alt="Primary model, Wall Thickening (WT), sample 3"/><figcaption>Wall Thickening (WT) &mdash; sample 3</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/09_various_causes_of_gallbladder_wall_thickening_04.png" alt="Primary model, Wall Thickening (WT), sample 4"/><figcaption>Wall Thickening (WT) &mdash; sample 4</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/09_various_causes_of_gallbladder_wall_thickening_05.png" alt="Primary model, Wall Thickening (WT), sample 5"/><figcaption>Wall Thickening (WT) &mdash; sample 5</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class/09_various_causes_of_gallbladder_wall_thickening_06.png" alt="Primary model, Wall Thickening (WT), sample 6"/><figcaption>Wall Thickening (WT) &mdash; sample 6</figcaption></figure>
+    </div>
+
+    <h3 class="subsec-head" id="supp-a2">Supplementary A2.&nbsp;Curated
+    Three-Panel Gallery (Original / Raw Heatmap / Overlay)</h3>
+    <p class="supp-note">A 20-image curated subset of the gallery above
+    (2&ndash;3 samples per class, all nine classes), each shown as three
+    panels&mdash;original ultrasound, raw (unblended) Grad-CAM++ heatmap,
+    and image&ndash;heatmap overlay&mdash;in the same format as the
+    main-text failure-case figure (Fig.&nbsp;6), so the heatmap can be
+    inspected on its own rather than only as a blended overlay.</p>
+    <div class="wide3panel-gallery">
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class_3panel/01_gallstones_01.png" alt="Primary model, Gallstones (GS), three-panel sample 1: original, raw Grad-CAM plus plus heatmap, overlay" style="width:100%;height:auto;"/><figcaption>Gallstones (GS) &mdash; sample 1 (original / heatmap / overlay)</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class_3panel/01_gallstones_02.png" alt="Primary model, Gallstones (GS), three-panel sample 2: original, raw Grad-CAM plus plus heatmap, overlay" style="width:100%;height:auto;"/><figcaption>Gallstones (GS) &mdash; sample 2 (original / heatmap / overlay)</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class_3panel/01_gallstones_03.png" alt="Primary model, Gallstones (GS), three-panel sample 3: original, raw Grad-CAM plus plus heatmap, overlay" style="width:100%;height:auto;"/><figcaption>Gallstones (GS) &mdash; sample 3 (original / heatmap / overlay)</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class_3panel/02_abdomen_and_retroperitoneum_01.png" alt="Primary model, Abdomen and Retroperitoneum (ART), three-panel sample 1: original, raw Grad-CAM plus plus heatmap, overlay" style="width:100%;height:auto;"/><figcaption>Abdomen &amp; Retroperitoneum (ART) &mdash; sample 1 (original / heatmap / overlay)</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class_3panel/02_abdomen_and_retroperitoneum_02.png" alt="Primary model, Abdomen and Retroperitoneum (ART), three-panel sample 2: original, raw Grad-CAM plus plus heatmap, overlay" style="width:100%;height:auto;"/><figcaption>Abdomen &amp; Retroperitoneum (ART) &mdash; sample 2 (original / heatmap / overlay)</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class_3panel/03_cholecystitis_01.png" alt="Primary model, Cholecystitis (CHOL), three-panel sample 1: original, raw Grad-CAM plus plus heatmap, overlay" style="width:100%;height:auto;"/><figcaption>Cholecystitis (CHOL) &mdash; sample 1 (original / heatmap / overlay)</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class_3panel/03_cholecystitis_02.png" alt="Primary model, Cholecystitis (CHOL), three-panel sample 2: original, raw Grad-CAM plus plus heatmap, overlay" style="width:100%;height:auto;"/><figcaption>Cholecystitis (CHOL) &mdash; sample 2 (original / heatmap / overlay)</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class_3panel/04_membranous_and_gangrenous_cholecystitis_01.png" alt="Primary model, Membranous/Gangrenous Cholecystitis (MGC), three-panel sample 1: original, raw Grad-CAM plus plus heatmap, overlay" style="width:100%;height:auto;"/><figcaption>Membranous/Gangrenous Cholecystitis (MGC) &mdash; sample 1 (original / heatmap / overlay)</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class_3panel/04_membranous_and_gangrenous_cholecystitis_02.png" alt="Primary model, Membranous/Gangrenous Cholecystitis (MGC), three-panel sample 2: original, raw Grad-CAM plus plus heatmap, overlay" style="width:100%;height:auto;"/><figcaption>Membranous/Gangrenous Cholecystitis (MGC) &mdash; sample 2 (original / heatmap / overlay)</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class_3panel/05_perforation_01.png" alt="Primary model, Perforation (PERF), three-panel sample 1: original, raw Grad-CAM plus plus heatmap, overlay" style="width:100%;height:auto;"/><figcaption>Perforation (PERF) &mdash; sample 1 (original / heatmap / overlay)</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class_3panel/05_perforation_02.png" alt="Primary model, Perforation (PERF), three-panel sample 2: original, raw Grad-CAM plus plus heatmap, overlay" style="width:100%;height:auto;"/><figcaption>Perforation (PERF) &mdash; sample 2 (original / heatmap / overlay)</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class_3panel/06_polyps_and_cholesterol_crystals_01.png" alt="Primary model, Polyps and Cholesterol Crystals (PCC), three-panel sample 1: original, raw Grad-CAM plus plus heatmap, overlay" style="width:100%;height:auto;"/><figcaption>Polyps &amp; Cholesterol Crystals (PCC) &mdash; sample 1 (original / heatmap / overlay)</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class_3panel/06_polyps_and_cholesterol_crystals_02.png" alt="Primary model, Polyps and Cholesterol Crystals (PCC), three-panel sample 2: original, raw Grad-CAM plus plus heatmap, overlay" style="width:100%;height:auto;"/><figcaption>Polyps &amp; Cholesterol Crystals (PCC) &mdash; sample 2 (original / heatmap / overlay)</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class_3panel/07_adenomyomatosis_01.png" alt="Primary model, Adenomyomatosis (ADNM), three-panel sample 1: original, raw Grad-CAM plus plus heatmap, overlay" style="width:100%;height:auto;"/><figcaption>Adenomyomatosis (ADNM) &mdash; sample 1 (original / heatmap / overlay)</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class_3panel/07_adenomyomatosis_02.png" alt="Primary model, Adenomyomatosis (ADNM), three-panel sample 2: original, raw Grad-CAM plus plus heatmap, overlay" style="width:100%;height:auto;"/><figcaption>Adenomyomatosis (ADNM) &mdash; sample 2 (original / heatmap / overlay)</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class_3panel/08_carcinoma_01.png" alt="Primary model, Carcinoma (CARC), three-panel sample 1: original, raw Grad-CAM plus plus heatmap, overlay" style="width:100%;height:auto;"/><figcaption>Carcinoma (CARC) &mdash; sample 1 (original / heatmap / overlay)</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class_3panel/08_carcinoma_02.png" alt="Primary model, Carcinoma (CARC), three-panel sample 2: original, raw Grad-CAM plus plus heatmap, overlay" style="width:100%;height:auto;"/><figcaption>Carcinoma (CARC) &mdash; sample 2 (original / heatmap / overlay)</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class_3panel/08_carcinoma_03.png" alt="Primary model, Carcinoma (CARC), three-panel sample 3: original, raw Grad-CAM plus plus heatmap, overlay" style="width:100%;height:auto;"/><figcaption>Carcinoma (CARC) &mdash; sample 3 (original / heatmap / overlay)</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class_3panel/09_various_causes_of_gallbladder_wall_thickening_01.png" alt="Primary model, Wall Thickening (WT), three-panel sample 1: original, raw Grad-CAM plus plus heatmap, overlay" style="width:100%;height:auto;"/><figcaption>Wall Thickening (WT) &mdash; sample 1 (original / heatmap / overlay)</figcaption></figure>
+      <figure><img src="fedgb/outputs/gradcam_uidatagb/per_class_3panel/09_various_causes_of_gallbladder_wall_thickening_02.png" alt="Primary model, Wall Thickening (WT), three-panel sample 2: original, raw Grad-CAM plus plus heatmap, overlay" style="width:100%;height:auto;"/><figcaption>Wall Thickening (WT) &mdash; sample 2 (original / heatmap / overlay)</figcaption></figure>
+    </div>
+  </div><!-- /body-cols -->
+
+</div><!-- /paper -->
+</body>
+</html>

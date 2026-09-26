@@ -1,0 +1,98 @@
+{
+  "confusion_matrix": [
+    [
+      119,
+      0,
+      1,
+      10,
+      0
+    ],
+    [
+      1,
+      31,
+      13,
+      5,
+      9
+    ],
+    [
+      0,
+      4,
+      156,
+      6,
+      6
+    ],
+    [
+      12,
+      1,
+      5,
+      219,
+      10
+    ],
+    [
+      1,
+      6,
+      5,
+      20,
+      49
+    ]
+  ],
+  "class_names": [
+    "nml",
+    "bmt",
+    "stn",
+    "abn",
+    "malg"
+  ],
+  "top_confusion_pairs": [
+    {
+      "true": "malg",
+      "pred": "abn",
+      "count": 20
+    },
+    {
+      "true": "bmt",
+      "pred": "stn",
+      "count": 13
+    },
+    {
+      "true": "abn",
+      "pred": "nml",
+      "count": 12
+    },
+    {
+      "true": "nml",
+      "pred": "abn",
+      "count": 10
+    },
+    {
+      "true": "abn",
+      "pred": "malg",
+      "count": 10
+    },
+    {
+      "true": "bmt",
+      "pred": "malg",
+      "count": 9
+    }
+  ],
+  "highlighted_cases": [
+    {
+      "true_class": "bmt",
+      "pred_class": "stn",
+      "confidence": 0.995,
+      "src_file": "1675_im00830_bmt_2.png",
+      "figure": "outputs/figures/failure_case_bmt.png",
+      "index": 150
+    },
+    {
+      "true_class": "malg",
+      "pred_class": "bmt",
+      "confidence": 0.98,
+      "src_file": "818_im00644_malg_1.png",
+      "figure": "outputs/figures/failure_case_malg.png",
+      "index": 685
+    }
+  ],
+  "n_val": 689,
+  "n_wrong_total": 115
+}

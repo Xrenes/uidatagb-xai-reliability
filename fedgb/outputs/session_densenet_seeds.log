@@ -1,0 +1,22 @@
+[Dataset] Loaded 7708 images from ./data/uidatagb_sessioncorrected\training
+[Dataset] Loaded 2984 images from ./data/uidatagb_sessioncorrected\validation
+[info] loaded existing densenet121 seed=7 result: acc=0.3395
+[densenet121 seed=42] epoch 1/10 loss=1.4788 (1049s elapsed)
+[densenet121 seed=42] epoch 2/10 loss=0.2892 (2170s elapsed)
+[densenet121 seed=42] epoch 3/10 loss=0.1007 (3566s elapsed)
+[densenet121 seed=42] epoch 4/10 loss=0.0587 (4569s elapsed)
+[densenet121 seed=42] epoch 5/10 loss=0.0576 (5698s elapsed)
+[densenet121 seed=42] epoch 6/10 loss=0.0430 (6916s elapsed)
+[densenet121 seed=42] epoch 7/10 loss=0.0377 (8256s elapsed)
+[densenet121 seed=42] epoch 8/10 loss=0.0271 (9490s elapsed)
+[densenet121 seed=42] epoch 9/10 loss=0.0218 (10824s elapsed)
+[densenet121 seed=42] epoch 10/10 loss=0.0207 (12054s elapsed)
+[densenet121 seed=42] accuracy=0.3750 f1=0.3655 auc=0.7731
+[densenet121 seed=123] epoch 1/10 loss=1.4642 (1406s elapsed)
+[densenet121 seed=123] epoch 2/10 loss=0.2964 (2812s elapsed)
+[densenet121 seed=123] epoch 3/10 loss=0.1011 (4215s elapsed)
+[densenet121 seed=123] epoch 4/10 loss=0.0702 (5614s elapsed)
+[densenet121 seed=123] epoch 5/10 loss=0.0525 (7012s elapsed)
+[densenet121 seed=123] epoch 6/10 loss=0.0313 (8441s elapsed)
+[densenet121 seed=123] epoch 7/10 loss=0.0229 (9877s elapsed)
+[densenet121 seed=123] epoch 8/10 loss=0.0289 (21696s elapsed)

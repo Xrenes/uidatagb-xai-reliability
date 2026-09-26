@@ -1,0 +1,67 @@
+\documentclass[journal]{IEEEtran}
+
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{cite}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{float}
+\usepackage{pifont}
+
+\title{Quantitative Evaluation of Explainable AI Methods for Gallbladder Diseases through Ultrasound Images}
+
+\author{
+\parbox{0.9\linewidth}{\centering
+Sayed Ifti Ahmed\textsuperscript{*}\quad Mst.~Khadiza Akter Sammi\textsuperscript{*}\\[4pt]
+\normalsize Department of Computer Science and Engineering, Daffodil International University (DIU), Dhaka, Bangladesh\\[2pt]
+ifti241-15-227@diu.edu.bd \quad akter241-15-704@diu.edu.bd\\[2pt]
+\textsuperscript{*}Equal contribution.
+}
+}
+
+\begin{document}
+
+% Figures/tables were drifting far from their in-text references (e.g. Fig. 1,
+% cited on page 3, was not placed until page 19) under IEEEtran's default
+% float-eligibility thresholds combined with [tb]-style deferred placement.
+% These must be set after \begin{document} -- IEEEtran resets them internally
+% at class-load time, so setting them before \begin{document} has no effect.
+\renewcommand{\topfraction}{0.95}
+\renewcommand{\bottomfraction}{0.95}
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\floatpagefraction}{0.75}
+\setcounter{topnumber}{6}
+\setcounter{bottomnumber}{6}
+\setcounter{totalnumber}{10}
+
+\maketitle
+\thispagestyle{empty}
+\pagestyle{plain}
+
+\input{sections/00_abstract}
+
+\begin{IEEEkeywords}
+Gallbladder ultrasound, explainable artificial intelligence,
+data leakage, shortcut learning, grouped validation, Grad-CAM,
+deep learning, internal validation.
+\end{IEEEkeywords}
+
+\input{sections/01_introduction}
+\input{sections/02_related_work}
+\input{sections/03_materials_methods}
+\input{sections/04_results}
+\input{sections/05_discussion}
+\input{sections/06_limitations}
+\input{sections/07_conclusion}
+\input{sections/08_declarations}
+
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+\end{document}

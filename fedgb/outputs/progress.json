@@ -1,0 +1,326 @@
+{
+    "status":  "done",
+    "strategy":  "fedavg",
+    "total_rounds":  10,
+    "num_clients":  3,
+    "completed_rounds":  10,
+    "current_round":  10,
+    "current_client":  null,
+    "eta_seconds":  0,
+    "elapsed_seconds":  47628,
+    "round_history":  [
+                          {
+                              "round":  1,
+                              "global_acc":  0.6052,
+                              "global_loss":  0.9922,
+                              "duration_s":  1683.6,
+                              "clients":  [
+                                              {
+                                                  "id":  0,
+                                                  "train_loss":  1.1188,
+                                                  "train_acc":  0.7093,
+                                                  "val_loss":  0.5087,
+                                                  "val_acc":  0.8041
+                                              },
+                                              {
+                                                  "id":  1,
+                                                  "train_loss":  1.1386,
+                                                  "train_acc":  0.721,
+                                                  "val_loss":  0.5508,
+                                                  "val_acc":  0.8273
+                                              },
+                                              {
+                                                  "id":  2,
+                                                  "train_loss":  1.1972,
+                                                  "train_acc":  0.6858,
+                                                  "val_loss":  0.7014,
+                                                  "val_acc":  0.7168
+                                              }
+                                          ]
+                          },
+                          {
+                              "round":  2,
+                              "global_acc":  0.7939,
+                              "global_loss":  0.6222,
+                              "duration_s":  1619.6,
+                              "clients":  [
+                                              {
+                                                  "id":  0,
+                                                  "train_loss":  0.8174,
+                                                  "train_acc":  0.8201,
+                                                  "val_loss":  0.3942,
+                                                  "val_acc":  0.8454
+                                              },
+                                              {
+                                                  "id":  1,
+                                                  "train_loss":  0.8336,
+                                                  "train_acc":  0.8122,
+                                                  "val_loss":  0.6134,
+                                                  "val_acc":  0.8273
+                                              },
+                                              {
+                                                  "id":  2,
+                                                  "train_loss":  0.949,
+                                                  "train_acc":  0.7736,
+                                                  "val_loss":  0.7156,
+                                                  "val_acc":  0.7434
+                                              }
+                                          ]
+                          },
+                          {
+                              "round":  3,
+                              "global_acc":  0.82,
+                              "global_loss":  0.5318,
+                              "duration_s":  30148.9,
+                              "clients":  [
+                                              {
+                                                  "id":  0,
+                                                  "train_loss":  0.7126,
+                                                  "train_acc":  0.844,
+                                                  "val_loss":  0.308,
+                                                  "val_acc":  0.8969
+                                              },
+                                              {
+                                                  "id":  1,
+                                                  "train_loss":  0.7091,
+                                                  "train_acc":  0.8431,
+                                                  "val_loss":  0.4514,
+                                                  "val_acc":  0.8545
+                                              },
+                                              {
+                                                  "id":  2,
+                                                  "train_loss":  0.7947,
+                                                  "train_acc":  0.809,
+                                                  "val_loss":  1.4001,
+                                                  "val_acc":  0.6106
+                                              }
+                                          ]
+                          },
+                          {
+                              "round":  4,
+                              "global_acc":  0.8113,
+                              "global_loss":  0.5181,
+                              "duration_s":  1825.3,
+                              "clients":  [
+                                              {
+                                                  "id":  0,
+                                                  "train_loss":  0.5986,
+                                                  "train_acc":  0.8858,
+                                                  "val_loss":  0.3192,
+                                                  "val_acc":  0.866
+                                              },
+                                              {
+                                                  "id":  1,
+                                                  "train_loss":  0.6586,
+                                                  "train_acc":  0.8597,
+                                                  "val_loss":  0.5389,
+                                                  "val_acc":  0.8091
+                                              },
+                                              {
+                                                  "id":  2,
+                                                  "train_loss":  0.7453,
+                                                  "train_acc":  0.8333,
+                                                  "val_loss":  0.7322,
+                                                  "val_acc":  0.7345
+                                              }
+                                          ]
+                          },
+                          {
+                              "round":  5,
+                              "global_acc":  0.8113,
+                              "global_loss":  0.543,
+                              "duration_s":  1814.5,
+                              "clients":  [
+                                              {
+                                                  "id":  0,
+                                                  "train_loss":  0.5609,
+                                                  "train_acc":  0.9079,
+                                                  "val_loss":  0.5074,
+                                                  "val_acc":  0.8351
+                                              },
+                                              {
+                                                  "id":  1,
+                                                  "train_loss":  0.6318,
+                                                  "train_acc":  0.871,
+                                                  "val_loss":  0.4608,
+                                                  "val_acc":  0.8818
+                                              },
+                                              {
+                                                  "id":  2,
+                                                  "train_loss":  0.7096,
+                                                  "train_acc":  0.8562,
+                                                  "val_loss":  0.7412,
+                                                  "val_acc":  0.708
+                                              }
+                                          ]
+                          },
+                          {
+                              "round":  6,
+                              "global_acc":  0.8418,
+                              "global_loss":  0.4863,
+                              "duration_s":  1781.3,
+                              "clients":  [
+                                              {
+                                                  "id":  0,
+                                                  "train_loss":  0.5318,
+                                                  "train_acc":  0.9028,
+                                                  "val_loss":  0.4159,
+                                                  "val_acc":  0.8763
+                                              },
+                                              {
+                                                  "id":  1,
+                                                  "train_loss":  0.5925,
+                                                  "train_acc":  0.8944,
+                                                  "val_loss":  0.461,
+                                                  "val_acc":  0.8636
+                                              },
+                                              {
+                                                  "id":  2,
+                                                  "train_loss":  0.7066,
+                                                  "train_acc":  0.8636,
+                                                  "val_loss":  0.6532,
+                                                  "val_acc":  0.7522
+                                              }
+                                          ]
+                          },
+                          {
+                              "round":  7,
+                              "global_acc":  0.8447,
+                              "global_loss":  0.4655,
+                              "duration_s":  1834.1,
+                              "clients":  [
+                                              {
+                                                  "id":  0,
+                                                  "train_loss":  0.5466,
+                                                  "train_acc":  0.9147,
+                                                  "val_loss":  0.38,
+                                                  "val_acc":  0.9072
+                                              },
+                                              {
+                                                  "id":  1,
+                                                  "train_loss":  0.5344,
+                                                  "train_acc":  0.9072,
+                                                  "val_loss":  0.4366,
+                                                  "val_acc":  0.8636
+                                              },
+                                              {
+                                                  "id":  2,
+                                                  "train_loss":  0.7112,
+                                                  "train_acc":  0.8665,
+                                                  "val_loss":  0.3812,
+                                                  "val_acc":  0.8584
+                                              }
+                                          ]
+                          },
+                          {
+                              "round":  8,
+                              "global_acc":  0.8418,
+                              "global_loss":  0.4722,
+                              "duration_s":  1460.5,
+                              "clients":  [
+                                              {
+                                                  "id":  0,
+                                                  "train_loss":  0.2491,
+                                                  "train_acc":  0.9241,
+                                                  "val_loss":  0.3246,
+                                                  "val_acc":  0.8763
+                                              },
+                                              {
+                                                  "id":  1,
+                                                  "train_loss":  0.2815,
+                                                  "train_acc":  0.902,
+                                                  "val_loss":  0.306,
+                                                  "val_acc":  0.8818
+                                              },
+                                              {
+                                                  "id":  2,
+                                                  "train_loss":  0.3863,
+                                                  "train_acc":  0.8798,
+                                                  "val_loss":  0.3873,
+                                                  "val_acc":  0.8673
+                                              }
+                                          ]
+                          },
+                          {
+                              "round":  9,
+                              "global_acc":  0.8433,
+                              "global_loss":  0.554,
+                              "duration_s":  1332.6,
+                              "clients":  [
+                                              {
+                                                  "id":  0,
+                                                  "train_loss":  0.2121,
+                                                  "train_acc":  0.9241,
+                                                  "val_loss":  0.2221,
+                                                  "val_acc":  0.8763
+                                              },
+                                              {
+                                                  "id":  1,
+                                                  "train_loss":  0.2546,
+                                                  "train_acc":  0.9118,
+                                                  "val_loss":  0.3174,
+                                                  "val_acc":  0.9182
+                                              },
+                                              {
+                                                  "id":  2,
+                                                  "train_loss":  0.2917,
+                                                  "train_acc":  0.8945,
+                                                  "val_loss":  0.2686,
+                                                  "val_acc":  0.8938
+                                              }
+                                          ]
+                          },
+                          {
+                              "round":  10,
+                              "global_acc":  0.8331,
+                              "global_loss":  0.5698,
+                              "duration_s":  1333.4,
+                              "clients":  [
+                                              {
+                                                  "id":  0,
+                                                  "train_loss":  0.1743,
+                                                  "train_acc":  0.9437,
+                                                  "val_loss":  0.1866,
+                                                  "val_acc":  0.9278
+                                              },
+                                              {
+                                                  "id":  1,
+                                                  "train_loss":  0.2312,
+                                                  "train_acc":  0.9208,
+                                                  "val_loss":  0.2788,
+                                                  "val_acc":  0.9182
+                                              },
+                                              {
+                                                  "id":  2,
+                                                  "train_loss":  0.3322,
+                                                  "train_acc":  0.8886,
+                                                  "val_loss":  0.3703,
+                                                  "val_acc":  0.8673
+                                              }
+                                          ]
+                          }
+                      ],
+    "current_round_clients":  [
+                                  {
+                                      "id":  0,
+                                      "train_loss":  0.1743,
+                                      "train_acc":  0.9437,
+                                      "val_loss":  0.1866,
+                                      "val_acc":  0.9278
+                                  },
+                                  {
+                                      "id":  1,
+                                      "train_loss":  0.2312,
+                                      "train_acc":  0.9208,
+                                      "val_loss":  0.2788,
+                                      "val_acc":  0.9182
+                                  },
+                                  {
+                                      "id":  2,
+                                      "train_loss":  0.3322,
+                                      "train_acc":  0.8886,
+                                      "val_loss":  0.3703,
+                                      "val_acc":  0.8673
+                                  }
+                              ]
+}

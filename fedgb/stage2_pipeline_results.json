@@ -1,0 +1,12 @@
+{
+  "extra_seeds": true,
+  "batch_id_diagnostic": true,
+  "classification_figures": false,
+  "failure_cases": false,
+  "compute_consistency": true,
+  "compute_faithfulness": true,
+  "compute_stability": true,
+  "sanity_checks": true,
+  "compute_calibration": true,
+  "shortcut_audit": true
+}

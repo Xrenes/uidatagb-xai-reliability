@@ -1,0 +1,20 @@
+C:\Users\HomePC\Documents\resarch - Copy\resarch - Copy\fedgb\_p0common.py:60: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  m.load_state_dict(torch.load(CKPT, map_location=DEVICE))
+C:\Users\HomePC\Documents\resarch - Copy\resarch - Copy\fedgb\compute_consistency.py:53: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  m.load_state_dict(torch.load(path, map_location=DEVICE))
+[consistency] loaded primary + 3 replicate models
+[Dataset] Loaded 2984 images from C:\Users\HomePC\Documents\resarch - Copy\resarch - Copy\fedgb\data\uidatagb_sessioncorrected\validation
+[consistency] evaluating 72 stratified images (8/class x 9 classes)
+[consistency] 10/72 images done
+[consistency] 20/72 images done
+[consistency] 30/72 images done
+[consistency] 40/72 images done
+[consistency] 50/72 images done
+[consistency] 60/72 images done
+[consistency] 70/72 images done
+[consistency] Grad-CAM     macro O^c = 0.751 +/- 0.237
+[consistency] Grad-CAM++   macro O^c = 0.932 +/- 0.052
+[consistency] Saliency     macro O^c = 0.687 +/- 0.039
+[consistency] Eigen-CAM    macro O^c = 0.448 +/- 0.413
+[consistency] Score-CAM    macro O^c = 0.928 +/- 0.059
+[consistency] wrote C:\Users\HomePC\Documents\resarch - Copy\resarch - Copy\fedgb\outputs\session_corrected\phase0/consistency.json and C:\Users\HomePC\Documents\resarch - Copy\resarch - Copy\fedgb\outputs\session_corrected\figures/consistency.png

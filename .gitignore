@@ -1,0 +1,47 @@
+# Datasets: the UIdataGB images themselves are not redistributed here.
+# The dataset is publicly available via its own Data in Brief release
+# (see the paper's Code and Data Availability statement); this repo
+# only contains the code that operates on it.
+fedgb/data/
+
+# Trained model checkpoints and large binary outputs: too large for git
+# and regenerable from the code + dataset. Small JSON/log results in
+# outputs/phase0/ ARE kept (tracked), since they are the actual
+# evidence backing the paper's reported numbers.
+fedgb/outputs/checkpoints/
+fedgb/outputs/seeds/
+fedgb/outputs/session_corrected/
+fedgb/outputs/session_corrected_densenet121/
+fedgb/outputs/gradcam/
+fedgb/outputs/gradcam_uidatagb/
+fedgb/outputs/scorecam/
+fedgb/outputs/radiologist_study/
+*.pt
+*.pth
+*.npy
+
+# Kaggle retrain outputs downloaded locally (large, checkpoint-heavy;
+# same rationale as above -- keep the scripts, not their outputs).
+kaggle_retrain/*outputs*/
+kaggle_retrain/**/*.pt
+
+# Python
+__pycache__/
+*.pyc
+
+# LaTeX build artifacts (regenerable from sections/*.tex + main.tex)
+uidatagb-paper/build/
+
+# Large redundant top-level exports: the LaTeX source in uidatagb-paper/
+# is the source of truth; these are point-in-time PDF/DOCX exports that
+# duplicate its content at a much larger file size than the source
+# itself, and are not needed for anyone reproducing the analysis.
+UIdataGB_Paper.pdf
+UIdataGB_Paper_Short.pdf
+UIdataGB_Paper.docx
+1-s2.0-*.pdf
+Quantitative Evaluation of Explainable AI Methods for Gallbladder Ultrasound Classification.pdf
+
+# OS/editor cruft
+.DS_Store
+Thumbs.db

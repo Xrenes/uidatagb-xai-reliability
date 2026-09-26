@@ -1,0 +1,26 @@
+\section*{CRediT Authorship Contribution Statement}
+\textbf{Sayed Ifti Ahmed:} Conceptualization, Methodology, Software, Investigation, Formal analysis, Visualization, Writing~-- original draft. \textbf{Mst Khadiza Akter Sammi:} Methodology, Validation, Data curation, Writing~-- review \& editing.
+
+\section*{Declaration of Competing Interest}
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+
+\section*{Funding}
+This research received no specific grant from any funding agency in the public, commercial, or not-for-profit sectors.
+
+\section*{Code and Data Availability}
+
+All XAI code required to reproduce the analysis is included in this repository under the \texttt{fedgb/} directory. The principal entry points are:
+
+\begin{itemize}
+\item \texttt{fedgb/dedupe\_split\_uidatagb.py} --- the image-cluster de-duplication split correction of Section~\ref{sec:methods}.1; emits \texttt{outputs/phase0/leakage\_check.json} and \texttt{outputs/phase0/dedupe\_split\_report.json}.
+\item \texttt{fedgb/gradcam.py} --- Grad-CAM, Grad-CAM++, Saliency, Eigen-CAM, and Score-CAM classes.
+\item \texttt{fedgb/compute\_consistency.py} --- computes cross-replicate cosine consistency $O_r^c$ across the stratified evaluation set for all five methods; emits \texttt{outputs/phase0/consistency.json} and flags images with $O_r^c < \theta = 0.70$.
+\item \texttt{fedgb/analyze\_failure\_cases\_uidatagb.py} --- regenerates the confusion matrix and the failure-case figures of Section~\ref{sec:results}.2 from the saved checkpoint.
+\item \texttt{fedgb/compute\_faithfulness.py}, \texttt{compute\_stability.py}, \texttt{sanity\_checks.py}, \texttt{compute\_calibration.py}, and \texttt{shortcut\_audit.py} --- the quantitative XAI-reliability battery of Section~\ref{sec:results}.4; each emits a JSON result to \texttt{outputs/phase0/} and its figure to \texttt{outputs/figures/}.
+\item \texttt{fedgb/generate\_uidatagb\_figures.py}, \texttt{fedgb/generate\_xai\_galleries.py} --- regenerate all classification and XAI paper figures from saved checkpoints and result JSON files.
+\end{itemize}
+
+The dataset is the publicly released UIdataGB collection \cite{ref17}. Trained model checkpoints and XAI outputs will be deposited to a permanent archive (Zenodo DOI to be assigned upon acceptance). Source code is licensed MIT.
+
+\section*{Ethics Statement}
+This study uses the publicly released, fully anonymized UIdataGB ultrasound dataset \cite{ref17}, collected and released for public research use by the original data providers. No new patient data were collected, and no identifiable patient information was accessed at any stage of this work. Since the public release contains no patient- or study-level identifiers, full patient-level split independence could not be independently verified in this analysis (Section~\ref{sec:limitations}). Separate institutional ethics board approval was not required for this secondary, fully-anonymized analysis.

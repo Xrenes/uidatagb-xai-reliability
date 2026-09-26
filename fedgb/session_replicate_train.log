@@ -1,0 +1,51 @@
+[Dataset] Loaded 7708 images from ./data/uidatagb_sessioncorrected\training
+[Dataset] Loaded 2984 images from ./data/uidatagb_sessioncorrected\validation
+[primary] epoch 1/10 loss=1.0697 (587s elapsed)
+[primary] epoch 2/10 loss=0.1887 (1251s elapsed)
+[primary] epoch 3/10 loss=0.1128 (2100s elapsed)
+[primary] epoch 4/10 loss=0.0691 (2875s elapsed)
+[primary] epoch 5/10 loss=0.0577 (3681s elapsed)
+[primary] epoch 6/10 loss=0.0490 (4535s elapsed)
+[primary] epoch 7/10 loss=0.0716 (5314s elapsed)
+[primary] epoch 8/10 loss=0.0382 (6091s elapsed)
+[primary] epoch 9/10 loss=0.0546 (6839s elapsed)
+[primary] epoch 10/10 loss=0.0370 (7600s elapsed)
+[primary] accuracy=0.3100 f1=0.2944 auc=0.7351
+[primary] wrote ./outputs/session_corrected/seed_42\primary.pt
+[replicate_1] epoch 1/10 loss=1.8071 (253s elapsed)
+[replicate_1] epoch 2/10 loss=0.7670 (502s elapsed)
+[replicate_1] epoch 3/10 loss=0.3733 (757s elapsed)
+[replicate_1] epoch 4/10 loss=0.2656 (1007s elapsed)
+[replicate_1] epoch 5/10 loss=0.1480 (1259s elapsed)
+[replicate_1] epoch 6/10 loss=0.1256 (1507s elapsed)
+[replicate_1] epoch 7/10 loss=0.1104 (1750s elapsed)
+[replicate_1] epoch 8/10 loss=0.1147 (1997s elapsed)
+[replicate_1] epoch 9/10 loss=0.0667 (2247s elapsed)
+[replicate_1] epoch 10/10 loss=0.0917 (2492s elapsed)
+[replicate_1] accuracy=0.3271 f1=0.3238 auc=0.7408
+[replicate_1] wrote ./outputs/session_corrected/seed_42\replicate_1.pt
+[replicate_2] epoch 1/10 loss=1.8200 (248s elapsed)
+[replicate_2] epoch 2/10 loss=0.8508 (491s elapsed)
+[replicate_2] epoch 3/10 loss=0.3900 (731s elapsed)
+[replicate_2] epoch 4/10 loss=0.2159 (1005s elapsed)
+[replicate_2] epoch 5/10 loss=0.1363 (1268s elapsed)
+[replicate_2] epoch 6/10 loss=0.1572 (1511s elapsed)
+[replicate_2] epoch 7/10 loss=0.1204 (1762s elapsed)
+[replicate_2] epoch 8/10 loss=0.0782 (2012s elapsed)
+[replicate_2] epoch 9/10 loss=0.0794 (2255s elapsed)
+[replicate_2] epoch 10/10 loss=0.1038 (2511s elapsed)
+[replicate_2] accuracy=0.3247 f1=0.3226 auc=0.7439
+[replicate_2] wrote ./outputs/session_corrected/seed_42\replicate_2.pt
+[replicate_3] epoch 1/10 loss=1.8044 (249s elapsed)
+[replicate_3] epoch 2/10 loss=0.8058 (495s elapsed)
+[replicate_3] epoch 3/10 loss=0.3719 (749s elapsed)
+[replicate_3] epoch 4/10 loss=0.2282 (1000s elapsed)
+[replicate_3] epoch 5/10 loss=0.1611 (1263s elapsed)
+[replicate_3] epoch 6/10 loss=0.1540 (1540s elapsed)
+[replicate_3] epoch 7/10 loss=0.0905 (1783s elapsed)
+[replicate_3] epoch 8/10 loss=0.0661 (2030s elapsed)
+[replicate_3] epoch 9/10 loss=0.0902 (2317s elapsed)
+[replicate_3] epoch 10/10 loss=0.1054 (2588s elapsed)
+[replicate_3] accuracy=0.2966 f1=0.2763 auc=0.7158
+[replicate_3] wrote ./outputs/session_corrected/seed_42\replicate_3.pt
+[session_replicate_train] all done.

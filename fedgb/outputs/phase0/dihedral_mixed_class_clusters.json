@@ -1,0 +1,130 @@
+[
+  {
+    "cluster_id": 271,
+    "majority_class": "08_carcinoma",
+    "member_classes": [
+      "02_abdomen_and_retroperitoneum",
+      "02_abdomen_and_retroperitoneum",
+      "02_abdomen_and_retroperitoneum",
+      "08_carcinoma",
+      "08_carcinoma",
+      "08_carcinoma",
+      "02_abdomen_and_retroperitoneum",
+      "02_abdomen_and_retroperitoneum",
+      "02_abdomen_and_retroperitoneum",
+      "08_carcinoma",
+      "08_carcinoma",
+      "08_carcinoma"
+    ],
+    "member_paths": [
+      "./data/uidatagb\\training\\02_abdomen_and_retroperitoneum\\b20 (16).jpg",
+      "./data/uidatagb\\training\\02_abdomen_and_retroperitoneum\\b20 (17).jpg",
+      "./data/uidatagb\\training\\02_abdomen_and_retroperitoneum\\b20 (18).jpg",
+      "./data/uidatagb\\training\\08_carcinoma\\h17 (19).jpg",
+      "./data/uidatagb\\training\\08_carcinoma\\h17 (20).jpg",
+      "./data/uidatagb\\training\\08_carcinoma\\h17 (21).jpg",
+      "./data/uidatagb\\validation\\02_abdomen_and_retroperitoneum\\b20 (13).jpg",
+      "./data/uidatagb\\validation\\02_abdomen_and_retroperitoneum\\b20 (14).jpg",
+      "./data/uidatagb\\validation\\02_abdomen_and_retroperitoneum\\b20 (15).jpg",
+      "./data/uidatagb\\validation\\08_carcinoma\\h17 (22).jpg",
+      "./data/uidatagb\\validation\\08_carcinoma\\h17 (23).jpg",
+      "./data/uidatagb\\validation\\08_carcinoma\\h17 (24).jpg"
+    ]
+  },
+  {
+    "cluster_id": 392,
+    "majority_class": "03_cholecystitis",
+    "member_classes": [
+      "03_cholecystitis",
+      "03_cholecystitis",
+      "03_cholecystitis",
+      "03_cholecystitis",
+      "03_cholecystitis",
+      "03_cholecystitis",
+      "05_perforation",
+      "05_perforation",
+      "05_perforation",
+      "05_perforation",
+      "05_perforation",
+      "05_perforation"
+    ],
+    "member_paths": [
+      "./data/uidatagb\\training\\03_cholecystitis\\c20 (13).jpg",
+      "./data/uidatagb\\training\\03_cholecystitis\\c20 (14).jpg",
+      "./data/uidatagb\\training\\03_cholecystitis\\c20 (15).jpg",
+      "./data/uidatagb\\training\\03_cholecystitis\\c20 (16).jpg",
+      "./data/uidatagb\\training\\03_cholecystitis\\c20 (17).jpg",
+      "./data/uidatagb\\training\\03_cholecystitis\\c20 (18).jpg",
+      "./data/uidatagb\\training\\05_perforation\\e3 (7).jpg",
+      "./data/uidatagb\\training\\05_perforation\\e3 (8).jpg",
+      "./data/uidatagb\\training\\05_perforation\\e3 (9).jpg",
+      "./data/uidatagb\\validation\\05_perforation\\e3 (10).jpg",
+      "./data/uidatagb\\validation\\05_perforation\\e3 (11).jpg",
+      "./data/uidatagb\\validation\\05_perforation\\e3 (12).jpg"
+    ]
+  },
+  {
+    "cluster_id": 802,
+    "majority_class": "08_carcinoma",
+    "member_classes": [
+      "06_polyps_and_cholesterol_crystals",
+      "06_polyps_and_cholesterol_crystals",
+      "06_polyps_and_cholesterol_crystals",
+      "08_carcinoma",
+      "08_carcinoma",
+      "08_carcinoma",
+      "06_polyps_and_cholesterol_crystals",
+      "06_polyps_and_cholesterol_crystals",
+      "06_polyps_and_cholesterol_crystals",
+      "08_carcinoma",
+      "08_carcinoma",
+      "08_carcinoma"
+    ],
+    "member_paths": [
+      "./data/uidatagb\\training\\06_polyps_and_cholesterol_crystals\\f16 (4).jpg",
+      "./data/uidatagb\\training\\06_polyps_and_cholesterol_crystals\\f16 (5).jpg",
+      "./data/uidatagb\\training\\06_polyps_and_cholesterol_crystals\\f16 (6).jpg",
+      "./data/uidatagb\\training\\08_carcinoma\\h23 (25).jpg",
+      "./data/uidatagb\\training\\08_carcinoma\\h23 (26).jpg",
+      "./data/uidatagb\\training\\08_carcinoma\\h23 (27).jpg",
+      "./data/uidatagb\\validation\\06_polyps_and_cholesterol_crystals\\f16 (1).jpg",
+      "./data/uidatagb\\validation\\06_polyps_and_cholesterol_crystals\\f16 (2).jpg",
+      "./data/uidatagb\\validation\\06_polyps_and_cholesterol_crystals\\f16 (3).jpg",
+      "./data/uidatagb\\validation\\08_carcinoma\\h23 (28).jpg",
+      "./data/uidatagb\\validation\\08_carcinoma\\h23 (29).jpg",
+      "./data/uidatagb\\validation\\08_carcinoma\\h23 (30).jpg"
+    ]
+  },
+  {
+    "cluster_id": 1520,
+    "majority_class": "07_adenomyomatosis",
+    "member_classes": [
+      "07_adenomyomatosis",
+      "07_adenomyomatosis",
+      "07_adenomyomatosis",
+      "07_adenomyomatosis",
+      "07_adenomyomatosis",
+      "07_adenomyomatosis",
+      "09_various_causes_of_gallbladder_wall_thickening",
+      "09_various_causes_of_gallbladder_wall_thickening",
+      "09_various_causes_of_gallbladder_wall_thickening",
+      "09_various_causes_of_gallbladder_wall_thickening",
+      "09_various_causes_of_gallbladder_wall_thickening",
+      "09_various_causes_of_gallbladder_wall_thickening"
+    ],
+    "member_paths": [
+      "./data/uidatagb\\validation\\07_adenomyomatosis\\g14 (1).jpg",
+      "./data/uidatagb\\validation\\07_adenomyomatosis\\g14 (2).jpg",
+      "./data/uidatagb\\validation\\07_adenomyomatosis\\g14 (3).jpg",
+      "./data/uidatagb\\validation\\07_adenomyomatosis\\g14 (4).jpg",
+      "./data/uidatagb\\validation\\07_adenomyomatosis\\g14 (5).jpg",
+      "./data/uidatagb\\validation\\07_adenomyomatosis\\g14 (6).jpg",
+      "./data/uidatagb\\validation\\09_various_causes_of_gallbladder_wall_thickening\\i6 (10).jpg",
+      "./data/uidatagb\\validation\\09_various_causes_of_gallbladder_wall_thickening\\i6 (11).jpg",
+      "./data/uidatagb\\validation\\09_various_causes_of_gallbladder_wall_thickening\\i6 (12).jpg",
+      "./data/uidatagb\\validation\\09_various_causes_of_gallbladder_wall_thickening\\i6 (7).jpg",
+      "./data/uidatagb\\validation\\09_various_causes_of_gallbladder_wall_thickening\\i6 (8).jpg",
+      "./data/uidatagb\\validation\\09_various_causes_of_gallbladder_wall_thickening\\i6 (9).jpg"
+    ]
+  }
+]

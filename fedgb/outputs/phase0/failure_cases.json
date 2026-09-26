@@ -1,0 +1,180 @@
+{
+  "confusion_matrix": [
+    [
+      374,
+      9,
+      1,
+      0,
+      0,
+      3,
+      7,
+      5,
+      0
+    ],
+    [
+      12,
+      322,
+      0,
+      0,
+      6,
+      0,
+      4,
+      7,
+      12
+    ],
+    [
+      9,
+      0,
+      325,
+      12,
+      3,
+      0,
+      0,
+      0,
+      2
+    ],
+    [
+      6,
+      0,
+      0,
+      338,
+      0,
+      0,
+      0,
+      0,
+      12
+    ],
+    [
+      17,
+      7,
+      0,
+      11,
+      271,
+      0,
+      1,
+      6,
+      7
+    ],
+    [
+      2,
+      0,
+      0,
+      0,
+      0,
+      255,
+      25,
+      4,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      351,
+      0,
+      0
+    ],
+    [
+      12,
+      0,
+      0,
+      0,
+      6,
+      0,
+      10,
+      442,
+      0
+    ],
+    [
+      0,
+      2,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      293
+    ]
+  ],
+  "class_names": [
+    "01_gallstones",
+    "02_abdomen_and_retroperitoneum",
+    "03_cholecystitis",
+    "04_membranous_and_gangrenous_cholecystitis",
+    "05_perforation",
+    "06_polyps_and_cholesterol_crystals",
+    "07_adenomyomatosis",
+    "08_carcinoma",
+    "09_various_causes_of_gallbladder_wall_thickening"
+  ],
+  "top_confusion_pairs": [
+    {
+      "true": "Polyps & Cholesterol Crystals",
+      "pred": "Adenomyomatosis",
+      "count": 25
+    },
+    {
+      "true": "Perforation",
+      "pred": "Gallstones",
+      "count": 17
+    },
+    {
+      "true": "Abdomen & Retroperitoneum",
+      "pred": "Gallstones",
+      "count": 12
+    },
+    {
+      "true": "Abdomen & Retroperitoneum",
+      "pred": "Wall Thickening (Various Causes)",
+      "count": 12
+    },
+    {
+      "true": "Cholecystitis",
+      "pred": "Membranous/Gangrenous Cholecystitis",
+      "count": 12
+    },
+    {
+      "true": "Membranous/Gangrenous Cholecystitis",
+      "pred": "Wall Thickening (Various Causes)",
+      "count": 12
+    },
+    {
+      "true": "Carcinoma",
+      "pred": "Gallstones",
+      "count": 12
+    },
+    {
+      "true": "Perforation",
+      "pred": "Membranous/Gangrenous Cholecystitis",
+      "count": 11
+    }
+  ],
+  "highlighted_cases": [
+    {
+      "true_class": "05_perforation",
+      "true_class_label": "Perforation",
+      "pred_class": "01_gallstones",
+      "pred_class_label": "Gallstones",
+      "confidence": 0.996,
+      "src_file": "e9 (7).jpg",
+      "figure": "outputs/figures/failure_case_perforation.png",
+      "index": 1780
+    },
+    {
+      "true_class": "01_gallstones",
+      "true_class_label": "Gallstones",
+      "pred_class": "02_abdomen_and_retroperitoneum",
+      "pred_class_label": "Abdomen & Retroperitoneum",
+      "confidence": 0.936,
+      "src_file": "a32 (159).jpg",
+      "figure": "outputs/figures/failure_case_gallstones.png",
+      "index": 272
+    }
+  ],
+  "n_val": 3193,
+  "n_wrong_total": 222
+}

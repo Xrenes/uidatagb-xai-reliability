@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Stage-2 Ablation Training Status</title>
+<style>
+  :root {
+    --bg: #0b0e14; --panel: #131722; --border: #232838; --text: #e6e9f0;
+    --muted: #8b93a7; --accent: #4f8cff; --good: #35c979; --bad: #ff5d5d; --warn: #ffb454;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; font-family: -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg); color: var(--text); padding: 24px 16px 60px;
+  }
+  .wrap { max-width: 920px; margin: 0 auto; }
+  h1 { font-size: 1.4rem; margin: 0 0 4px; }
+  .sub { color: var(--muted); font-size: 0.9rem; margin-bottom: 24px; }
+  .status-pill {
+    display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 0.78rem;
+    font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em;
+  }
+  .status-running { background: rgba(255,180,84,0.15); color: var(--warn); }
+  .status-complete { background: rgba(53,201,121,0.15); color: var(--good); }
+  .status-starting, .status-not_started { background: rgba(139,147,167,0.15); color: var(--muted); }
+  .baseline {
+    background: var(--panel); border: 1px solid var(--border); border-radius: 10px;
+    padding: 14px 18px; margin-bottom: 20px; font-size: 0.88rem; color: var(--muted);
+  }
+  .baseline b { color: var(--text); }
+  .card {
+    background: var(--panel); border: 1px solid var(--border); border-radius: 12px;
+    padding: 18px 20px; margin-bottom: 16px;
+  }
+  .card h2 { font-size: 1.05rem; margin: 0 0 4px; display: flex; align-items: center; gap: 10px; }
+  .card .desc { color: var(--muted); font-size: 0.82rem; margin-bottom: 14px; }
+  .progress-label { display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--muted); margin-bottom: 6px; }
+  .progress-label .pctnum { color: var(--text); font-weight: 700; font-size: 0.95rem; }
+  .progress-track {
+    height: 22px; background: #1d2230; border-radius: 999px; overflow: hidden; margin-bottom: 10px;
+    border: 1px solid var(--border); position: relative;
+  }
+  .progress-fill {
+    height: 100%; border-radius: 999px; transition: width 0.4s ease;
+    background: linear-gradient(90deg, var(--accent), #7db2ff);
+    display: flex; align-items: center; justify-content: flex-end;
+  }
+  .progress-fill.done { background: linear-gradient(90deg, #24b567, var(--good)); }
+  .row { display: flex; justify-content: space-between; font-size: 0.82rem; color: var(--muted); }
+  .metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 14px; }
+  .metric {
+    background: #0e1119; border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px;
+  }
+  .metric .label { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.03em; }
+  .metric .value { font-size: 1.15rem; font-weight: 600; margin-top: 2px; }
+  .delta-pos { color: var(--good); }
+  .delta-neg { color: var(--bad); }
+  .loss-list { margin-top: 12px; font-size: 0.78rem; color: var(--muted); font-family: ui-monospace, Consolas, monospace; }
+  .loss-list div { padding: 1px 0; }
+  pre.raw {
+    background: #0e1119; border: 1px solid var(--border); border-radius: 8px;
+    padding: 12px; font-size: 0.74rem; color: var(--muted); overflow-x: auto;
+    white-space: pre-wrap; word-break: break-word; max-height: 220px; overflow-y: auto;
+  }
+  .footer { color: var(--muted); font-size: 0.76rem; margin-top: 24px; text-align: center; }
+  .waiting { color: var(--muted); font-style: italic; font-size: 0.85rem; }
+
+  .gpu-card { display: flex; flex-direction: column; gap: 14px; }
+  .gpu-bars { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .gpu-bar-block .label { display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--muted); margin-bottom: 6px; }
+  .gpu-bar-block .label .pctnum { color: var(--text); font-weight: 700; font-size: 0.95rem; }
+  .gpu-track { height: 22px; background: #1d2230; border-radius: 999px; overflow: hidden; position: relative; border: 1px solid var(--border); }
+  .gpu-fill { height: 100%; border-radius: 999px; transition: width 0.5s ease; background: linear-gradient(90deg, var(--accent), #7db2ff); }
+  .gpu-fill.hot { background: linear-gradient(90deg, #ff8a3d, var(--bad)); }
+  .gpu-fill.good { background: linear-gradient(90deg, #24b567, var(--good)); }
+  .gpu-meta { font-size: 0.76rem; color: var(--muted); }
+  .gpu-name { font-size: 0.82rem; color: var(--muted); }
+
+  .steps { list-style: none; margin: 0; padding: 0; }
+  .step {
+    display: flex; align-items: center; gap: 10px; padding: 7px 0;
+    border-bottom: 1px solid var(--border); font-size: 0.85rem;
+  }
+  .step:last-child { border-bottom: none; }
+  .step-icon {
+    flex: 0 0 20px; height: 20px; width: 20px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.7rem; font-weight: 700;
+  }
+  .step-done .step-icon { background: rgba(53,201,121,0.18); color: var(--good); }
+  .step-active .step-icon { background: rgba(79,140,255,0.18); color: var(--accent); animation: pulse 1.4s infinite; }
+  .step-pending .step-icon { background: rgba(139,147,167,0.12); color: var(--muted); }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+  .step-name { flex: 1; color: var(--text); }
+  .step-done .step-name { color: var(--text); }
+  .step-pending .step-name { color: var(--muted); }
+  .step-meta { font-size: 0.76rem; color: var(--muted); font-family: ui-monospace, Consolas, monospace; }
+
+  .pkg-overview { display: flex; flex-direction: column; gap: 2px; margin-bottom: 4px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Stage-2 Ablation Training <span id="statusPill" class="status-pill status-starting">loading</span></h1>
+  <div class="sub">Two cheap fixes attempted against the Stage-2 (batch-corrected) classifier &mdash; per-image normalisation and stronger augmentation. Auto-refreshes every 5s.</div>
+
+  <div class="baseline">
+    Baseline to beat (Stage-2 primary model, seed 42, Table 10): <b>accuracy 0.3100</b> &middot; <b>macro-F1 0.2944</b> &middot; <b>macro-AUC 0.7351</b>
+  </div>
+
+  <div class="card gpu-card" id="gpuCard">
+    <h2>GPU</h2>
+    <div class="gpu-name" id="gpuName">reading nvidia-smi&hellip;</div>
+    <div class="gpu-bars">
+      <div class="gpu-bar-block">
+        <div class="label"><span>Utilization</span><span class="pctnum" id="gpuUtilPct">&mdash;</span></div>
+        <div class="gpu-track"><div class="gpu-fill" id="gpuUtilFill" style="width:0%"></div></div>
+      </div>
+      <div class="gpu-bar-block">
+        <div class="label"><span>Memory</span><span class="pctnum" id="gpuMemPct">&mdash;</span></div>
+        <div class="gpu-track"><div class="gpu-fill" id="gpuMemFill" style="width:0%"></div></div>
+      </div>
+    </div>
+    <div class="gpu-meta" id="gpuMeta"></div>
+  </div>
+
+  <div class="card">
+    <h2>Pipeline</h2>
+    <div class="desc">Overall run &mdash; two experiments, run one after another.</div>
+    <ul class="steps" id="pkgSteps"></ul>
+  </div>
+
+  <div id="cards"></div>
+
+  <div class="card">
+    <h2>Raw log tail</h2>
+    <pre class="raw" id="rawTail">waiting for log...</pre>
+  </div>
+
+  <div class="footer">Served locally by ablation_status_server.py &middot; polling /status</div>
+</div>
+
+<script>
+const EXPERIMENT_LABELS = {
+  per_image_norm: "Experiment A &mdash; Per-image normalisation",
+  stronger_aug: "Experiment B &mdash; Stronger augmentation",
+};
+const EXPERIMENT_DESC = {
+  per_image_norm: "Normalises each image by its own mean/std instead of fixed ImageNet stats, removing global per-image brightness/contrast/gain before the network sees it.",
+  stronger_aug: "Heavier color jitter, random autocontrast, equalize, and sharpness on top of standard ImageNet normalisation, forcing the model away from low-level statistics.",
+};
+
+function fmtPct(x) { return (x * 100).toFixed(2) + "%"; }
+function fmtDelta(x) {
+  const pct = (x * 100).toFixed(2);
+  const sign = x >= 0 ? "+" : "";
+  return `${sign}${pct}pp`;
+}
+
+async function refresh() {
+  let data;
+  try {
+    const res = await fetch("/status", { cache: "no-store" });
+    data = await res.json();
+  } catch (e) {
+    document.getElementById("statusPill").textContent = "server unreachable";
+    return;
+  }
+
+  const pill = document.getElementById("statusPill");
+  pill.textContent = data.status.replace("_", " ");
+  pill.className = "status-pill status-" + data.status;
+
+  const gpu = data.gpu || { available: false };
+  if (gpu.available) {
+    document.getElementById("gpuName").textContent = "NVIDIA GPU (via nvidia-smi)";
+    const utilFill = document.getElementById("gpuUtilFill");
+    const memFill = document.getElementById("gpuMemFill");
+    utilFill.style.width = gpu.utilization_pct + "%";
+    memFill.style.width = gpu.memory_pct + "%";
+    utilFill.className = "gpu-fill" + (gpu.utilization_pct >= 90 ? " hot" : gpu.utilization_pct >= 60 ? "" : " good");
+    memFill.className = "gpu-fill" + (gpu.memory_pct >= 90 ? " hot" : "");
+    document.getElementById("gpuUtilPct").textContent = gpu.utilization_pct + "%";
+    document.getElementById("gpuMemPct").textContent = gpu.memory_pct + "%";
+    document.getElementById("gpuMeta").textContent =
+      `${gpu.memory_used_mib} MiB / ${gpu.memory_total_mib} MiB used`;
+  } else {
+    document.getElementById("gpuName").textContent = "nvidia-smi unavailable";
+    document.getElementById("gpuMeta").textContent = "";
+  }
+
+  const order = data.order && data.order.length ? data.order : ["per_image_norm", "stronger_aug"];
+
+  // ---- Pipeline (package-level) checklist ----
+  const pkgStepsEl = document.getElementById("pkgSteps");
+  pkgStepsEl.innerHTML = "";
+  const allTags = ["per_image_norm", "stronger_aug"];
+  let activeAssigned = false;
+  for (const tag of allTags) {
+    const exp = (data.experiments && data.experiments[tag]) || null;
+    const label = EXPERIMENT_LABELS[tag] || tag;
+    let stateClass, icon, meta;
+    if (exp && exp.done) {
+      stateClass = "step-done"; icon = "&#10003;";
+      meta = exp.result ? `accuracy ${fmtPct(exp.result.accuracy)}` : "complete";
+    } else if (exp && exp.epochs.length > 0 && !activeAssigned) {
+      stateClass = "step-active"; icon = "&#9679;";
+      const last = exp.epochs[exp.epochs.length - 1];
+      meta = `epoch ${last.epoch}/${last.total} running`;
+      activeAssigned = true;
+    } else if (exp && !activeAssigned && order[order.length - 1] !== undefined && order.indexOf(tag) === order.length - 1 && data.status === "running" && exp.epochs.length === 0) {
+      stateClass = "step-active"; icon = "&#9679;";
+      meta = "loading data…";
+      activeAssigned = true;
+    } else {
+      stateClass = "step-pending"; icon = "&#9675;";
+      meta = "queued";
+    }
+    const li = document.createElement("li");
+    li.className = "step " + stateClass;
+    li.innerHTML = `<span class="step-icon">${icon}</span><span class="step-name">${label}</span><span class="step-meta">${meta}</span>`;
+    pkgStepsEl.appendChild(li);
+  }
+
+  // ---- Per-experiment epoch checklists ----
+  const cardsEl = document.getElementById("cards");
+  cardsEl.innerHTML = "";
+
+  for (const tag of order) {
+    const exp = (data.experiments && data.experiments[tag]) || { epochs: [], result: null, done: false };
+    const label = EXPERIMENT_LABELS[tag] || tag;
+    const desc = EXPERIMENT_DESC[tag] || "";
+    const totalEpochs = exp.epochs.length ? exp.epochs[exp.epochs.length - 1].total : 10;
+    const doneEpochs = exp.epochs.length;
+
+    let epochStepsHtml = "";
+    for (let e = 1; e <= totalEpochs; e++) {
+      const rec = exp.epochs.find(x => x.epoch === e);
+      if (rec) {
+        epochStepsHtml += `<li class="step step-done"><span class="step-icon">&#10003;</span><span class="step-name">Epoch ${e} / ${totalEpochs}</span><span class="step-meta">loss ${rec.loss.toFixed(4)} &middot; ${rec.elapsed_s}s elapsed</span></li>`;
+      } else if (e === doneEpochs + 1 && !exp.done) {
+        epochStepsHtml += `<li class="step step-active"><span class="step-icon">&#9679;</span><span class="step-name">Epoch ${e} / ${totalEpochs}</span><span class="step-meta">running&hellip;</span></li>`;
+      } else {
+        epochStepsHtml += `<li class="step step-pending"><span class="step-icon">&#9675;</span><span class="step-name">Epoch ${e} / ${totalEpochs}</span><span class="step-meta">queued</span></li>`;
+      }
+    }
+
+    let metricsHtml = "";
+    if (exp.result) {
+      const d = exp.result.delta_accuracy;
+      const deltaClass = d >= 0 ? "delta-pos" : "delta-neg";
+      metricsHtml = `
+        <div class="metrics">
+          <div class="metric"><div class="label">Accuracy</div><div class="value">${fmtPct(exp.result.accuracy)}</div></div>
+          <div class="metric"><div class="label">Macro-F1</div><div class="value">${exp.result.f1_macro.toFixed(4)}</div></div>
+          <div class="metric"><div class="label">Macro-AUC</div><div class="value">${exp.result.auc_macro.toFixed(4)}</div></div>
+          <div class="metric"><div class="label">&Delta; vs. baseline</div><div class="value ${deltaClass}">${fmtDelta(d)}</div></div>
+        </div>`;
+    }
+
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+      <h2>${label} ${exp.done ? "&#9989;" : ""}</h2>
+      <div class="desc">${desc}</div>
+      <ul class="steps">${epochStepsHtml}</ul>
+      ${metricsHtml}
+    `;
+    cardsEl.appendChild(card);
+  }
+
+  document.getElementById("rawTail").textContent = data.raw_tail || "(no log output yet)";
+}
+
+refresh();
+setInterval(refresh, 5000);
+</script>
+</body>
+</html>

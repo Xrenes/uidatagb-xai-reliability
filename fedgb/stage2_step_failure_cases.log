@@ -1,0 +1,11 @@
+C:\Users\HomePC\Documents\resarch - Copy\resarch - Copy\fedgb\analyze_failure_cases_uidatagb.py:49: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  model.load_state_dict(torch.load(CKPT, map_location=DEVICE))
+[Dataset] Loaded 2984 images from C:\Users\HomePC\Documents\resarch - Copy\resarch - Copy\fedgb\data\uidatagb_sessioncorrected\validation
+[info] confusion matrix computed
+Traceback (most recent call last):
+  File "C:\Users\HomePC\Documents\resarch - Copy\resarch - Copy\fedgb\analyze_failure_cases_uidatagb.py", line 145, in <module>
+    main()
+  File "C:\Users\HomePC\Documents\resarch - Copy\resarch - Copy\fedgb\analyze_failure_cases_uidatagb.py", line 61, in main
+    f1_per_class = metrics.get("f1_per_class") or metrics.get("per_class_f1")
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()

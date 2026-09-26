@@ -1,0 +1,13 @@
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+# Conservative set for an existing research codebase: real-bug categories
+# (undefined names, unused imports, bare excepts) without a full style
+# rewrite (no import-sorting/complexity churn on working scripts).
+select = ["E", "F", "W", "B"]
+ignore = ["E501"]  # line length handled by formatter, not a hard error
+
+[tool.ruff.format]
+quote-style = "double"

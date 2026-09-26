@@ -1,0 +1,12 @@
+{
+  "threshold_hamming_bits": 4,
+  "n_raw_images": 10692,
+  "n_raw_connected_components_before_veto": 1570,
+  "n_vetoed_suspicious_clusters": 0,
+  "n_clusters_true_effective_n": 1570,
+  "n_mixed_class_clusters_post_veto": 4,
+  "cluster_size_max": 24,
+  "cluster_size_median": 6,
+  "n_singleton_clusters": 1,
+  "comparison_to_old_single_orientation_clustering": "The old dedupe_split_uidatagb.py found 2,993 clusters from the same 10,692 raw images using single-orientation pHash. This script's dihedral-aware clustering should find FEWER, LARGER clusters than that (since it additionally merges flip/rotation duplicates the old method could not see), but NOT as extreme as the first (THRESH=8, no veto) attempt, which produced a 498-image cluster spanning all 9 classes -- confirmed via direct measurement to be a single-linkage chaining artifact, not real duplicates (directly-measured distance 20 between its two most disparate members, within the null/random range) -- compare n_clusters_true_effective_n above to the old figure."
+}

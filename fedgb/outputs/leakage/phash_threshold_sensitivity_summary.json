@@ -1,0 +1,53 @@
+{
+  "selected_threshold": 8,
+  "sensitivity_rows": [
+    {
+      "hamming_threshold": 4,
+      "n_components": 3862,
+      "n_singleton_components": 782,
+      "max_component_size": 12,
+      "median_component_size": 3,
+      "n_mixed_class_components": 2,
+      "pct_val_images_with_train_match_in_same_component": 0.0
+    },
+    {
+      "hamming_threshold": 6,
+      "n_components": 3182,
+      "n_singleton_components": 104,
+      "max_component_size": 18,
+      "median_component_size": 3,
+      "n_mixed_class_components": 11,
+      "pct_val_images_with_train_match_in_same_component": 0.0
+    },
+    {
+      "hamming_threshold": 8,
+      "n_components": 2993,
+      "n_singleton_components": 10,
+      "max_component_size": 27,
+      "median_component_size": 3,
+      "n_mixed_class_components": 37,
+      "pct_val_images_with_train_match_in_same_component": 0.0
+    },
+    {
+      "hamming_threshold": 10,
+      "n_components": 2645,
+      "n_singleton_components": 2,
+      "max_component_size": 132,
+      "median_component_size": 3,
+      "n_mixed_class_components": 118,
+      "pct_val_images_with_train_match_in_same_component": 14.78
+    },
+    {
+      "hamming_threshold": 12,
+      "n_components": 1657,
+      "n_singleton_components": 0,
+      "max_component_size": 4272,
+      "median_component_size": 3,
+      "n_mixed_class_components": 100,
+      "pct_val_images_with_train_match_in_same_component": 48.01
+    }
+  ],
+  "selected_threshold_n_cross_label_components": 37,
+  "selected_threshold_component_diameter_max": 26,
+  "selected_threshold_component_diameter_median": 4
+}

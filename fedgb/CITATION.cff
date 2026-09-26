@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the associated manuscript."
+title: >-
+  Code and artifacts for "Quantitative Evaluation of Explainable AI Methods
+  for Gallbladder Diseases through Ultrasound Images"
+authors:
+  - family-names: Ahmed
+    given-names: Sayed Ifti
+    affiliation: >-
+      Department of Computer Science and Engineering, Daffodil International
+      University, Dhaka, Bangladesh
+  - family-names: Sammi
+    given-names: "Mst. Khadiza Akter"
+    affiliation: >-
+      Department of Computer Science and Engineering, Daffodil International
+      University, Dhaka, Bangladesh
+type: software
+license: MIT
+repository-code: "[FILL IN: anonymous-review or public repository URL]"
+date-released: "[FILL IN: date of first public/reviewer-accessible release]"
+preferred-citation:
+  type: article
+  title: >-
+    Quantitative Evaluation of Explainable AI Methods for Gallbladder
+    Diseases through Ultrasound Images
+  authors:
+    - family-names: Ahmed
+      given-names: Sayed Ifti
+    - family-names: Sammi
+      given-names: "Mst. Khadiza Akter"
+  year: 2026
+  journal: "[FILL IN: target journal, once accepted]"

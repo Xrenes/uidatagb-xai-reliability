@@ -1,0 +1,7637 @@
+{
+  "per_class_per_client": {
+    "nml": {
+      "client_0": {
+        "n": 130,
+        "mean": 0.8971958883753818,
+        "std": 0.10501694676500041,
+        "min": 0.2973377611276282,
+        "max": 0.9893006888241235,
+        "n_flagged_lt_theta": 5
+      },
+      "client_1": {
+        "n": 130,
+        "mean": 0.8038094651323687,
+        "std": 0.1628068518536164,
+        "min": 0.2101330712261596,
+        "max": 0.972834235889626,
+        "n_flagged_lt_theta": 24
+      },
+      "client_2": {
+        "n": 130,
+        "mean": 0.7467098334360016,
+        "std": 0.18282478398474733,
+        "min": 0.026056318626842694,
+        "max": 0.975826107996726,
+        "n_flagged_lt_theta": 40
+      }
+    },
+    "bmt": {
+      "client_0": {
+        "n": 59,
+        "mean": 0.7146532670706496,
+        "std": 0.22800644461826441,
+        "min": 0.047027027625214185,
+        "max": 0.9590195083022903,
+        "n_flagged_lt_theta": 19
+      },
+      "client_1": {
+        "n": 59,
+        "mean": 0.7866040221450067,
+        "std": 0.20744629788812596,
+        "min": 0.21923600708778446,
+        "max": 0.9837670004998064,
+        "n_flagged_lt_theta": 15
+      },
+      "client_2": {
+        "n": 59,
+        "mean": 0.7434821714711292,
+        "std": 0.21251079950733673,
+        "min": 0.016545148562546207,
+        "max": 0.977703368111895,
+        "n_flagged_lt_theta": 21
+      }
+    },
+    "stn": {
+      "client_0": {
+        "n": 172,
+        "mean": 0.8969413410769151,
+        "std": 0.12370861058589142,
+        "min": 0.3688586995089799,
+        "max": 0.9895593853364663,
+        "n_flagged_lt_theta": 14
+      },
+      "client_1": {
+        "n": 172,
+        "mean": 0.8842797825671519,
+        "std": 0.1253356567007448,
+        "min": 0.28162287380319234,
+        "max": 0.9841801090320188,
+        "n_flagged_lt_theta": 16
+      },
+      "client_2": {
+        "n": 172,
+        "mean": 0.9017709409219051,
+        "std": 0.12453149997254823,
+        "min": 0.1970635520369569,
+        "max": 0.990723976238962,
+        "n_flagged_lt_theta": 12
+      }
+    },
+    "abn": {
+      "client_0": {
+        "n": 247,
+        "mean": 0.8086905731823788,
+        "std": 0.17568380859193758,
+        "min": 0.07316788087737247,
+        "max": 0.987457574719928,
+        "n_flagged_lt_theta": 48
+      },
+      "client_1": {
+        "n": 247,
+        "mean": 0.8494460025350095,
+        "std": 0.1505338206293721,
+        "min": 0.0965710458158633,
+        "max": 0.9854395713724875,
+        "n_flagged_lt_theta": 29
+      },
+      "client_2": {
+        "n": 247,
+        "mean": 0.8239730507317727,
+        "std": 0.1526944815463477,
+        "min": 0.11988916739096314,
+        "max": 0.9895639121445797,
+        "n_flagged_lt_theta": 37
+      }
+    },
+    "malg": {
+      "client_0": {
+        "n": 81,
+        "mean": 0.7364266419518103,
+        "std": 0.1910345718521646,
+        "min": 0.1270334091666499,
+        "max": 0.9664142640066617,
+        "n_flagged_lt_theta": 29
+      },
+      "client_1": {
+        "n": 81,
+        "mean": 0.7885357823464059,
+        "std": 0.18896050460952138,
+        "min": 0.17529534237255295,
+        "max": 0.9859441930283176,
+        "n_flagged_lt_theta": 17
+      },
+      "client_2": {
+        "n": 81,
+        "mean": 0.8228789684270148,
+        "std": 0.16454193624938268,
+        "min": 0.09715704616173111,
+        "max": 0.981402070801902,
+        "n_flagged_lt_theta": 15
+      }
+    }
+  },
+  "per_image": [
+    {
+      "index": 0,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.2973,
+        "client_1": 0.6786,
+        "client_2": 0.0261
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_1",
+        "client_2"
+      ]
+    },
+    {
+      "index": 1,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.8591,
+        "client_1": 0.605,
+        "client_2": 0.5797
+      },
+      "flagged_divergent_for": [
+        "client_1",
+        "client_2"
+      ]
+    },
+    {
+      "index": 2,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9373,
+        "client_1": 0.898,
+        "client_2": 0.493
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 3,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9325,
+        "client_1": 0.9347,
+        "client_2": 0.8308
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 4,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9808,
+        "client_1": 0.9367,
+        "client_2": 0.3634
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 5,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9677,
+        "client_1": 0.9258,
+        "client_2": 0.2125
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 6,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9513,
+        "client_1": 0.5871,
+        "client_2": 0.4535
+      },
+      "flagged_divergent_for": [
+        "client_1",
+        "client_2"
+      ]
+    },
+    {
+      "index": 7,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9386,
+        "client_1": 0.6165,
+        "client_2": 0.2703
+      },
+      "flagged_divergent_for": [
+        "client_1",
+        "client_2"
+      ]
+    },
+    {
+      "index": 8,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.8973,
+        "client_1": 0.7659,
+        "client_2": 0.7649
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 9,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9754,
+        "client_1": 0.5226,
+        "client_2": 0.7919
+      },
+      "flagged_divergent_for": [
+        "client_1"
+      ]
+    },
+    {
+      "index": 10,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.974,
+        "client_1": 0.8498,
+        "client_2": 0.7641
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 11,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.4133,
+        "client_1": 0.888,
+        "client_2": 0.9675
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 12,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9343,
+        "client_1": 0.6579,
+        "client_2": 0.4973
+      },
+      "flagged_divergent_for": [
+        "client_1",
+        "client_2"
+      ]
+    },
+    {
+      "index": 13,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9655,
+        "client_1": 0.9174,
+        "client_2": 0.8766
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 14,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9356,
+        "client_1": 0.9006,
+        "client_2": 0.9222
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 15,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.8338,
+        "client_1": 0.8372,
+        "client_2": 0.7391
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 16,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9489,
+        "client_1": 0.8551,
+        "client_2": 0.766
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 17,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.8457,
+        "client_1": 0.8135,
+        "client_2": 0.9518
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 18,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9715,
+        "client_1": 0.9089,
+        "client_2": 0.428
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 19,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9234,
+        "client_1": 0.9471,
+        "client_2": 0.841
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 20,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9284,
+        "client_1": 0.871,
+        "client_2": 0.7434
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 21,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.8736,
+        "client_1": 0.9499,
+        "client_2": 0.8321
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 22,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9246,
+        "client_1": 0.8791,
+        "client_2": 0.8411
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 23,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9447,
+        "client_1": 0.7131,
+        "client_2": 0.9222
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 24,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.7515,
+        "client_1": 0.8642,
+        "client_2": 0.9366
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 25,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9106,
+        "client_1": 0.9665,
+        "client_2": 0.9317
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 26,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9522,
+        "client_1": 0.7311,
+        "client_2": 0.5409
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 27,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9445,
+        "client_1": 0.5002,
+        "client_2": 0.9346
+      },
+      "flagged_divergent_for": [
+        "client_1"
+      ]
+    },
+    {
+      "index": 28,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9422,
+        "client_1": 0.8439,
+        "client_2": 0.8606
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 29,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9423,
+        "client_1": 0.8531,
+        "client_2": 0.835
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 30,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9408,
+        "client_1": 0.9123,
+        "client_2": 0.9485
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 31,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9495,
+        "client_1": 0.7873,
+        "client_2": 0.9263
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 32,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9633,
+        "client_1": 0.7384,
+        "client_2": 0.8218
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 33,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9394,
+        "client_1": 0.7815,
+        "client_2": 0.6462
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 34,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.8851,
+        "client_1": 0.9256,
+        "client_2": 0.906
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 35,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.8598,
+        "client_1": 0.9204,
+        "client_2": 0.9758
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 36,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9844,
+        "client_1": 0.8774,
+        "client_2": 0.8857
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 37,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9718,
+        "client_1": 0.848,
+        "client_2": 0.8098
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 38,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.8516,
+        "client_1": 0.7869,
+        "client_2": 0.8772
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 39,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.8412,
+        "client_1": 0.9208,
+        "client_2": 0.8766
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 40,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.8241,
+        "client_1": 0.3932,
+        "client_2": 0.9155
+      },
+      "flagged_divergent_for": [
+        "client_1"
+      ]
+    },
+    {
+      "index": 41,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.8536,
+        "client_1": 0.9488,
+        "client_2": 0.6887
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 42,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.8623,
+        "client_1": 0.8124,
+        "client_2": 0.9026
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 43,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9549,
+        "client_1": 0.9559,
+        "client_2": 0.9141
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 44,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9346,
+        "client_1": 0.8271,
+        "client_2": 0.865
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 45,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.8716,
+        "client_1": 0.6698,
+        "client_2": 0.8705
+      },
+      "flagged_divergent_for": [
+        "client_1"
+      ]
+    },
+    {
+      "index": 46,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9724,
+        "client_1": 0.6859,
+        "client_2": 0.6522
+      },
+      "flagged_divergent_for": [
+        "client_1",
+        "client_2"
+      ]
+    },
+    {
+      "index": 47,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.8452,
+        "client_1": 0.7972,
+        "client_2": 0.7667
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 48,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.959,
+        "client_1": 0.8037,
+        "client_2": 0.6289
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 49,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9303,
+        "client_1": 0.9728,
+        "client_2": 0.7531
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 50,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9893,
+        "client_1": 0.9691,
+        "client_2": 0.5328
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 51,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9473,
+        "client_1": 0.8015,
+        "client_2": 0.6241
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 52,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9686,
+        "client_1": 0.4639,
+        "client_2": 0.9001
+      },
+      "flagged_divergent_for": [
+        "client_1"
+      ]
+    },
+    {
+      "index": 53,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.8634,
+        "client_1": 0.8695,
+        "client_2": 0.8577
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 54,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9494,
+        "client_1": 0.7648,
+        "client_2": 0.924
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 55,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9494,
+        "client_1": 0.7959,
+        "client_2": 0.7692
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 56,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9197,
+        "client_1": 0.234,
+        "client_2": 0.558
+      },
+      "flagged_divergent_for": [
+        "client_1",
+        "client_2"
+      ]
+    },
+    {
+      "index": 57,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.8955,
+        "client_1": 0.9517,
+        "client_2": 0.8721
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 58,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9338,
+        "client_1": 0.8597,
+        "client_2": 0.471
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 59,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9754,
+        "client_1": 0.8657,
+        "client_2": 0.7942
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 60,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.8596,
+        "client_1": 0.8909,
+        "client_2": 0.8306
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 61,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.7617,
+        "client_1": 0.9409,
+        "client_2": 0.9266
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 62,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.937,
+        "client_1": 0.8362,
+        "client_2": 0.8357
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 63,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9652,
+        "client_1": 0.4307,
+        "client_2": 0.7789
+      },
+      "flagged_divergent_for": [
+        "client_1"
+      ]
+    },
+    {
+      "index": 64,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.89,
+        "client_1": 0.8855,
+        "client_2": 0.4282
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 65,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9519,
+        "client_1": 0.9086,
+        "client_2": 0.6633
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 66,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9459,
+        "client_1": 0.8547,
+        "client_2": 0.8582
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 67,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9158,
+        "client_1": 0.7748,
+        "client_2": 0.7881
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 68,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9408,
+        "client_1": 0.8547,
+        "client_2": 0.8004
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 69,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.8392,
+        "client_1": 0.696,
+        "client_2": 0.7618
+      },
+      "flagged_divergent_for": [
+        "client_1"
+      ]
+    },
+    {
+      "index": 70,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.8498,
+        "client_1": 0.8349,
+        "client_2": 0.8922
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 71,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.949,
+        "client_1": 0.912,
+        "client_2": 0.8645
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 72,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9197,
+        "client_1": 0.8949,
+        "client_2": 0.6329
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 73,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9753,
+        "client_1": 0.8629,
+        "client_2": 0.4335
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 74,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9621,
+        "client_1": 0.9331,
+        "client_2": 0.5236
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 75,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.8617,
+        "client_1": 0.9625,
+        "client_2": 0.8483
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 76,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9493,
+        "client_1": 0.9374,
+        "client_2": 0.9051
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 77,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.953,
+        "client_1": 0.8042,
+        "client_2": 0.3987
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 78,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.934,
+        "client_1": 0.7857,
+        "client_2": 0.8807
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 79,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9402,
+        "client_1": 0.8431,
+        "client_2": 0.9162
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 80,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.3825,
+        "client_1": 0.909,
+        "client_2": 0.9083
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 81,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9,
+        "client_1": 0.8568,
+        "client_2": 0.8616
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 82,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9172,
+        "client_1": 0.9223,
+        "client_2": 0.9179
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 83,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.8878,
+        "client_1": 0.8417,
+        "client_2": 0.7006
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 84,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.6145,
+        "client_1": 0.2394,
+        "client_2": 0.8515
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_1"
+      ]
+    },
+    {
+      "index": 85,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9607,
+        "client_1": 0.8457,
+        "client_2": 0.8468
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 86,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.8495,
+        "client_1": 0.9336,
+        "client_2": 0.4106
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 87,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.7906,
+        "client_1": 0.9191,
+        "client_2": 0.6503
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 88,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9686,
+        "client_1": 0.5173,
+        "client_2": 0.796
+      },
+      "flagged_divergent_for": [
+        "client_1"
+      ]
+    },
+    {
+      "index": 89,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9241,
+        "client_1": 0.8951,
+        "client_2": 0.8053
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 90,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.8768,
+        "client_1": 0.8645,
+        "client_2": 0.5594
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 91,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9398,
+        "client_1": 0.4218,
+        "client_2": 0.8821
+      },
+      "flagged_divergent_for": [
+        "client_1"
+      ]
+    },
+    {
+      "index": 92,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9762,
+        "client_1": 0.9622,
+        "client_2": 0.495
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 93,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.8861,
+        "client_1": 0.9132,
+        "client_2": 0.7122
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 94,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9778,
+        "client_1": 0.8144,
+        "client_2": 0.4404
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 95,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9359,
+        "client_1": 0.8714,
+        "client_2": 0.6331
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 96,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9591,
+        "client_1": 0.7689,
+        "client_2": 0.809
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 97,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.6872,
+        "client_1": 0.6063,
+        "client_2": 0.867
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_1"
+      ]
+    },
+    {
+      "index": 98,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.8924,
+        "client_1": 0.8908,
+        "client_2": 0.7293
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 99,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9378,
+        "client_1": 0.5718,
+        "client_2": 0.3656
+      },
+      "flagged_divergent_for": [
+        "client_1",
+        "client_2"
+      ]
+    },
+    {
+      "index": 100,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9052,
+        "client_1": 0.9144,
+        "client_2": 0.7212
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 101,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9555,
+        "client_1": 0.8639,
+        "client_2": 0.8951
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 102,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.933,
+        "client_1": 0.8105,
+        "client_2": 0.8153
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 103,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.7375,
+        "client_1": 0.8546,
+        "client_2": 0.7982
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 104,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9397,
+        "client_1": 0.9016,
+        "client_2": 0.6835
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 105,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.886,
+        "client_1": 0.9064,
+        "client_2": 0.8472
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 106,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9238,
+        "client_1": 0.8069,
+        "client_2": 0.4473
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 107,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9133,
+        "client_1": 0.9601,
+        "client_2": 0.9201
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 108,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.8743,
+        "client_1": 0.7482,
+        "client_2": 0.6496
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 109,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9125,
+        "client_1": 0.8224,
+        "client_2": 0.3355
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 110,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.7227,
+        "client_1": 0.4439,
+        "client_2": 0.8677
+      },
+      "flagged_divergent_for": [
+        "client_1"
+      ]
+    },
+    {
+      "index": 111,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.8444,
+        "client_1": 0.946,
+        "client_2": 0.7854
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 112,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.8516,
+        "client_1": 0.9017,
+        "client_2": 0.9344
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 113,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9497,
+        "client_1": 0.7933,
+        "client_2": 0.5037
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 114,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9885,
+        "client_1": 0.7515,
+        "client_2": 0.9107
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 115,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9229,
+        "client_1": 0.3335,
+        "client_2": 0.7986
+      },
+      "flagged_divergent_for": [
+        "client_1"
+      ]
+    },
+    {
+      "index": 116,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9215,
+        "client_1": 0.8764,
+        "client_2": 0.7062
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 117,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9655,
+        "client_1": 0.6539,
+        "client_2": 0.6959
+      },
+      "flagged_divergent_for": [
+        "client_1",
+        "client_2"
+      ]
+    },
+    {
+      "index": 118,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.7398,
+        "client_1": 0.8729,
+        "client_2": 0.8671
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 119,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9699,
+        "client_1": 0.9015,
+        "client_2": 0.6922
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 120,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9775,
+        "client_1": 0.88,
+        "client_2": 0.8494
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 121,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.8992,
+        "client_1": 0.9294,
+        "client_2": 0.8681
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 122,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.8052,
+        "client_1": 0.8788,
+        "client_2": 0.6579
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 123,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9202,
+        "client_1": 0.943,
+        "client_2": 0.7977
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 124,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9235,
+        "client_1": 0.8083,
+        "client_2": 0.6971
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 125,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9178,
+        "client_1": 0.9066,
+        "client_2": 0.8864
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 126,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9303,
+        "client_1": 0.5615,
+        "client_2": 0.8521
+      },
+      "flagged_divergent_for": [
+        "client_1"
+      ]
+    },
+    {
+      "index": 127,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.78,
+        "client_1": 0.9721,
+        "client_2": 0.9312
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 128,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9412,
+        "client_1": 0.7729,
+        "client_2": 0.8497
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 129,
+      "true": "nml",
+      "client_cosines": {
+        "client_0": 0.9332,
+        "client_1": 0.2101,
+        "client_2": 0.7458
+      },
+      "flagged_divergent_for": [
+        "client_1"
+      ]
+    },
+    {
+      "index": 130,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.959,
+        "client_1": 0.8509,
+        "client_2": 0.7418
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 131,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.7457,
+        "client_1": 0.3445,
+        "client_2": 0.6155
+      },
+      "flagged_divergent_for": [
+        "client_1",
+        "client_2"
+      ]
+    },
+    {
+      "index": 132,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.9514,
+        "client_1": 0.9838,
+        "client_2": 0.5531
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 133,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.5882,
+        "client_1": 0.9041,
+        "client_2": 0.5716
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_2"
+      ]
+    },
+    {
+      "index": 134,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.9151,
+        "client_1": 0.4523,
+        "client_2": 0.7746
+      },
+      "flagged_divergent_for": [
+        "client_1"
+      ]
+    },
+    {
+      "index": 135,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.8081,
+        "client_1": 0.9107,
+        "client_2": 0.9043
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 136,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.7779,
+        "client_1": 0.6614,
+        "client_2": 0.9777
+      },
+      "flagged_divergent_for": [
+        "client_1"
+      ]
+    },
+    {
+      "index": 137,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.8716,
+        "client_1": 0.9164,
+        "client_2": 0.4732
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 138,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.8499,
+        "client_1": 0.8639,
+        "client_2": 0.8663
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 139,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.8716,
+        "client_1": 0.9345,
+        "client_2": 0.6354
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 140,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.8297,
+        "client_1": 0.9632,
+        "client_2": 0.8873
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 141,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.7967,
+        "client_1": 0.4521,
+        "client_2": 0.5847
+      },
+      "flagged_divergent_for": [
+        "client_1",
+        "client_2"
+      ]
+    },
+    {
+      "index": 142,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.959,
+        "client_1": 0.9656,
+        "client_2": 0.8452
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 143,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.7687,
+        "client_1": 0.8737,
+        "client_2": 0.7504
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 144,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.2668,
+        "client_1": 0.8554,
+        "client_2": 0.4432
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_2"
+      ]
+    },
+    {
+      "index": 145,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.614,
+        "client_1": 0.8892,
+        "client_2": 0.8936
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 146,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.8063,
+        "client_1": 0.8864,
+        "client_2": 0.8901
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 147,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.4714,
+        "client_1": 0.2435,
+        "client_2": 0.5041
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_1",
+        "client_2"
+      ]
+    },
+    {
+      "index": 148,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.7935,
+        "client_1": 0.872,
+        "client_2": 0.6125
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 149,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.9052,
+        "client_1": 0.9456,
+        "client_2": 0.6747
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 150,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.4296,
+        "client_1": 0.9399,
+        "client_2": 0.936
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 151,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.6015,
+        "client_1": 0.7046,
+        "client_2": 0.9106
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 152,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.8282,
+        "client_1": 0.9098,
+        "client_2": 0.6531
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 153,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.5705,
+        "client_1": 0.8778,
+        "client_2": 0.969
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 154,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.5424,
+        "client_1": 0.6807,
+        "client_2": 0.9432
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_1"
+      ]
+    },
+    {
+      "index": 155,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.8405,
+        "client_1": 0.2192,
+        "client_2": 0.3858
+      },
+      "flagged_divergent_for": [
+        "client_1",
+        "client_2"
+      ]
+    },
+    {
+      "index": 156,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.9279,
+        "client_1": 0.9723,
+        "client_2": 0.972
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 157,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.7758,
+        "client_1": 0.5888,
+        "client_2": 0.6582
+      },
+      "flagged_divergent_for": [
+        "client_1",
+        "client_2"
+      ]
+    },
+    {
+      "index": 158,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.3122,
+        "client_1": 0.6158,
+        "client_2": 0.752
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_1"
+      ]
+    },
+    {
+      "index": 159,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.7701,
+        "client_1": 0.9598,
+        "client_2": 0.4428
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 160,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.7726,
+        "client_1": 0.8959,
+        "client_2": 0.8072
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 161,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.4051,
+        "client_1": 0.9097,
+        "client_2": 0.8464
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 162,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.8142,
+        "client_1": 0.2929,
+        "client_2": 0.747
+      },
+      "flagged_divergent_for": [
+        "client_1"
+      ]
+    },
+    {
+      "index": 163,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.7786,
+        "client_1": 0.9112,
+        "client_2": 0.9417
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 164,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.9146,
+        "client_1": 0.7642,
+        "client_2": 0.8952
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 165,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.7886,
+        "client_1": 0.799,
+        "client_2": 0.9665
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 166,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.3637,
+        "client_1": 0.936,
+        "client_2": 0.278
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_2"
+      ]
+    },
+    {
+      "index": 167,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.047,
+        "client_1": 0.951,
+        "client_2": 0.7848
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 168,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.9067,
+        "client_1": 0.9027,
+        "client_2": 0.8565
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 169,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.8067,
+        "client_1": 0.7993,
+        "client_2": 0.9136
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 170,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.4749,
+        "client_1": 0.6509,
+        "client_2": 0.8307
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_1"
+      ]
+    },
+    {
+      "index": 171,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.9235,
+        "client_1": 0.9311,
+        "client_2": 0.9273
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 172,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.7481,
+        "client_1": 0.7334,
+        "client_2": 0.8704
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 173,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.9461,
+        "client_1": 0.9617,
+        "client_2": 0.9582
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 174,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.7693,
+        "client_1": 0.9234,
+        "client_2": 0.8672
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 175,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.8759,
+        "client_1": 0.8626,
+        "client_2": 0.8516
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 176,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.8376,
+        "client_1": 0.6593,
+        "client_2": 0.7454
+      },
+      "flagged_divergent_for": [
+        "client_1"
+      ]
+    },
+    {
+      "index": 177,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.6669,
+        "client_1": 0.8934,
+        "client_2": 0.5452
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_2"
+      ]
+    },
+    {
+      "index": 178,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.2323,
+        "client_1": 0.8992,
+        "client_2": 0.5298
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_2"
+      ]
+    },
+    {
+      "index": 179,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.8896,
+        "client_1": 0.9444,
+        "client_2": 0.9691
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 180,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.2881,
+        "client_1": 0.9398,
+        "client_2": 0.9505
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 181,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.0944,
+        "client_1": 0.3007,
+        "client_2": 0.0165
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_1",
+        "client_2"
+      ]
+    },
+    {
+      "index": 182,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.7853,
+        "client_1": 0.9348,
+        "client_2": 0.372
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 183,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.8653,
+        "client_1": 0.4126,
+        "client_2": 0.3891
+      },
+      "flagged_divergent_for": [
+        "client_1",
+        "client_2"
+      ]
+    },
+    {
+      "index": 184,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.9273,
+        "client_1": 0.971,
+        "client_2": 0.8873
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 185,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.8803,
+        "client_1": 0.8484,
+        "client_2": 0.9405
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 186,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.9444,
+        "client_1": 0.7382,
+        "client_2": 0.5402
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 187,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.6481,
+        "client_1": 0.7835,
+        "client_2": 0.8838
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 188,
+      "true": "bmt",
+      "client_cosines": {
+        "client_0": 0.6209,
+        "client_1": 0.6217,
+        "client_2": 0.9317
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_1"
+      ]
+    },
+    {
+      "index": 189,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9506,
+        "client_1": 0.9725,
+        "client_2": 0.9561
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 190,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.3689,
+        "client_1": 0.8549,
+        "client_2": 0.9052
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 191,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.975,
+        "client_1": 0.9494,
+        "client_2": 0.9629
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 192,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.989,
+        "client_1": 0.962,
+        "client_2": 0.9427
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 193,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.8605,
+        "client_1": 0.9591,
+        "client_2": 0.9061
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 194,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9454,
+        "client_1": 0.9722,
+        "client_2": 0.9541
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 195,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.96,
+        "client_1": 0.9238,
+        "client_2": 0.9748
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 196,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9294,
+        "client_1": 0.9653,
+        "client_2": 0.9732
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 197,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9281,
+        "client_1": 0.9048,
+        "client_2": 0.8943
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 198,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.8256,
+        "client_1": 0.9241,
+        "client_2": 0.8284
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 199,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.7946,
+        "client_1": 0.6568,
+        "client_2": 0.8773
+      },
+      "flagged_divergent_for": [
+        "client_1"
+      ]
+    },
+    {
+      "index": 200,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9784,
+        "client_1": 0.9659,
+        "client_2": 0.9714
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 201,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.971,
+        "client_1": 0.9769,
+        "client_2": 0.9843
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 202,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9493,
+        "client_1": 0.7489,
+        "client_2": 0.9818
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 203,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.8605,
+        "client_1": 0.9151,
+        "client_2": 0.6964
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 204,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9575,
+        "client_1": 0.9733,
+        "client_2": 0.9771
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 205,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9805,
+        "client_1": 0.9343,
+        "client_2": 0.9736
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 206,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9516,
+        "client_1": 0.9592,
+        "client_2": 0.9457
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 207,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9657,
+        "client_1": 0.8726,
+        "client_2": 0.9202
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 208,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9799,
+        "client_1": 0.9644,
+        "client_2": 0.9452
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 209,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9027,
+        "client_1": 0.9753,
+        "client_2": 0.9085
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 210,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.84,
+        "client_1": 0.9248,
+        "client_2": 0.876
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 211,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9755,
+        "client_1": 0.9781,
+        "client_2": 0.9452
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 212,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9216,
+        "client_1": 0.9293,
+        "client_2": 0.9297
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 213,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9503,
+        "client_1": 0.9629,
+        "client_2": 0.9412
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 214,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.6064,
+        "client_1": 0.9304,
+        "client_2": 0.9056
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 215,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.941,
+        "client_1": 0.978,
+        "client_2": 0.9603
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 216,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9283,
+        "client_1": 0.8211,
+        "client_2": 0.8586
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 217,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9673,
+        "client_1": 0.9628,
+        "client_2": 0.9811
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 218,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9167,
+        "client_1": 0.8958,
+        "client_2": 0.9907
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 219,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.8188,
+        "client_1": 0.9618,
+        "client_2": 0.9768
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 220,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9614,
+        "client_1": 0.8667,
+        "client_2": 0.1971
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 221,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.567,
+        "client_1": 0.5239,
+        "client_2": 0.8183
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_1"
+      ]
+    },
+    {
+      "index": 222,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9829,
+        "client_1": 0.9657,
+        "client_2": 0.9727
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 223,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.936,
+        "client_1": 0.9147,
+        "client_2": 0.95
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 224,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9553,
+        "client_1": 0.939,
+        "client_2": 0.5334
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 225,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9017,
+        "client_1": 0.9326,
+        "client_2": 0.9209
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 226,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9535,
+        "client_1": 0.9105,
+        "client_2": 0.9655
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 227,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9896,
+        "client_1": 0.978,
+        "client_2": 0.9527
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 228,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9662,
+        "client_1": 0.9069,
+        "client_2": 0.8799
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 229,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9597,
+        "client_1": 0.9528,
+        "client_2": 0.8475
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 230,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9486,
+        "client_1": 0.9464,
+        "client_2": 0.9673
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 231,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.8551,
+        "client_1": 0.9214,
+        "client_2": 0.9621
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 232,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9603,
+        "client_1": 0.8764,
+        "client_2": 0.9596
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 233,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9305,
+        "client_1": 0.9317,
+        "client_2": 0.9258
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 234,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.893,
+        "client_1": 0.9014,
+        "client_2": 0.9713
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 235,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9167,
+        "client_1": 0.9557,
+        "client_2": 0.889
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 236,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9319,
+        "client_1": 0.7616,
+        "client_2": 0.9609
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 237,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9688,
+        "client_1": 0.9526,
+        "client_2": 0.9858
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 238,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9782,
+        "client_1": 0.9573,
+        "client_2": 0.9399
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 239,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.73,
+        "client_1": 0.8684,
+        "client_2": 0.8533
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 240,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9532,
+        "client_1": 0.8959,
+        "client_2": 0.896
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 241,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.8772,
+        "client_1": 0.9777,
+        "client_2": 0.6517
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 242,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9462,
+        "client_1": 0.8751,
+        "client_2": 0.9818
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 243,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9529,
+        "client_1": 0.9525,
+        "client_2": 0.9356
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 244,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9757,
+        "client_1": 0.903,
+        "client_2": 0.9321
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 245,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.8929,
+        "client_1": 0.8911,
+        "client_2": 0.8996
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 246,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.8809,
+        "client_1": 0.5635,
+        "client_2": 0.3002
+      },
+      "flagged_divergent_for": [
+        "client_1",
+        "client_2"
+      ]
+    },
+    {
+      "index": 247,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.8746,
+        "client_1": 0.9193,
+        "client_2": 0.9544
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 248,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9456,
+        "client_1": 0.9274,
+        "client_2": 0.9648
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 249,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.8499,
+        "client_1": 0.5554,
+        "client_2": 0.8335
+      },
+      "flagged_divergent_for": [
+        "client_1"
+      ]
+    },
+    {
+      "index": 250,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9666,
+        "client_1": 0.85,
+        "client_2": 0.9849
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 251,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9292,
+        "client_1": 0.9511,
+        "client_2": 0.931
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 252,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.6341,
+        "client_1": 0.7396,
+        "client_2": 0.8956
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 253,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9674,
+        "client_1": 0.8922,
+        "client_2": 0.9297
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 254,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9809,
+        "client_1": 0.9607,
+        "client_2": 0.9777
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 255,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.767,
+        "client_1": 0.6426,
+        "client_2": 0.9084
+      },
+      "flagged_divergent_for": [
+        "client_1"
+      ]
+    },
+    {
+      "index": 256,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9378,
+        "client_1": 0.8362,
+        "client_2": 0.9576
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 257,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9658,
+        "client_1": 0.9314,
+        "client_2": 0.9207
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 258,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9477,
+        "client_1": 0.8979,
+        "client_2": 0.6609
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 259,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.8769,
+        "client_1": 0.7623,
+        "client_2": 0.9243
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 260,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.8447,
+        "client_1": 0.9223,
+        "client_2": 0.9148
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 261,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9815,
+        "client_1": 0.9688,
+        "client_2": 0.976
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 262,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9713,
+        "client_1": 0.9067,
+        "client_2": 0.9735
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 263,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.6548,
+        "client_1": 0.4186,
+        "client_2": 0.7171
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_1"
+      ]
+    },
+    {
+      "index": 264,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9655,
+        "client_1": 0.9135,
+        "client_2": 0.9476
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 265,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9719,
+        "client_1": 0.9579,
+        "client_2": 0.9727
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 266,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.8635,
+        "client_1": 0.6928,
+        "client_2": 0.9149
+      },
+      "flagged_divergent_for": [
+        "client_1"
+      ]
+    },
+    {
+      "index": 267,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.8888,
+        "client_1": 0.7167,
+        "client_2": 0.8643
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 268,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.7128,
+        "client_1": 0.9502,
+        "client_2": 0.8087
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 269,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9583,
+        "client_1": 0.9726,
+        "client_2": 0.9397
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 270,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9887,
+        "client_1": 0.9455,
+        "client_2": 0.9571
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 271,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.5661,
+        "client_1": 0.7659,
+        "client_2": 0.8046
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 272,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9049,
+        "client_1": 0.9037,
+        "client_2": 0.8772
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 273,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9132,
+        "client_1": 0.6386,
+        "client_2": 0.8411
+      },
+      "flagged_divergent_for": [
+        "client_1"
+      ]
+    },
+    {
+      "index": 274,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9661,
+        "client_1": 0.9421,
+        "client_2": 0.9876
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 275,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9718,
+        "client_1": 0.9439,
+        "client_2": 0.9289
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 276,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.98,
+        "client_1": 0.8714,
+        "client_2": 0.97
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 277,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9833,
+        "client_1": 0.9342,
+        "client_2": 0.9667
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 278,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9736,
+        "client_1": 0.9269,
+        "client_2": 0.8073
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 279,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9678,
+        "client_1": 0.9086,
+        "client_2": 0.9776
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 280,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.8894,
+        "client_1": 0.8015,
+        "client_2": 0.5688
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 281,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9751,
+        "client_1": 0.9423,
+        "client_2": 0.9502
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 282,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.894,
+        "client_1": 0.9816,
+        "client_2": 0.9629
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 283,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.7007,
+        "client_1": 0.723,
+        "client_2": 0.7866
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 284,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.97,
+        "client_1": 0.9528,
+        "client_2": 0.9612
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 285,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9687,
+        "client_1": 0.9025,
+        "client_2": 0.9619
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 286,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9752,
+        "client_1": 0.9842,
+        "client_2": 0.9651
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 287,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.7841,
+        "client_1": 0.9642,
+        "client_2": 0.8752
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 288,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.6052,
+        "client_1": 0.4044,
+        "client_2": 0.6233
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_1",
+        "client_2"
+      ]
+    },
+    {
+      "index": 289,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.7625,
+        "client_1": 0.7513,
+        "client_2": 0.4273
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 290,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9135,
+        "client_1": 0.9327,
+        "client_2": 0.9764
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 291,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9318,
+        "client_1": 0.6679,
+        "client_2": 0.909
+      },
+      "flagged_divergent_for": [
+        "client_1"
+      ]
+    },
+    {
+      "index": 292,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.8303,
+        "client_1": 0.8093,
+        "client_2": 0.9083
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 293,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9608,
+        "client_1": 0.9174,
+        "client_2": 0.9849
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 294,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9341,
+        "client_1": 0.9614,
+        "client_2": 0.9779
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 295,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.963,
+        "client_1": 0.8986,
+        "client_2": 0.9256
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 296,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9711,
+        "client_1": 0.9128,
+        "client_2": 0.8934
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 297,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9099,
+        "client_1": 0.8938,
+        "client_2": 0.9674
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 298,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9356,
+        "client_1": 0.9412,
+        "client_2": 0.8991
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 299,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9585,
+        "client_1": 0.9334,
+        "client_2": 0.8744
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 300,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.971,
+        "client_1": 0.9583,
+        "client_2": 0.9901
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 301,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9437,
+        "client_1": 0.9322,
+        "client_2": 0.9663
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 302,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9728,
+        "client_1": 0.967,
+        "client_2": 0.9701
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 303,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9727,
+        "client_1": 0.9828,
+        "client_2": 0.9819
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 304,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9625,
+        "client_1": 0.9573,
+        "client_2": 0.9685
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 305,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.5127,
+        "client_1": 0.4736,
+        "client_2": 0.8859
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_1"
+      ]
+    },
+    {
+      "index": 306,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.3783,
+        "client_1": 0.6959,
+        "client_2": 0.8309
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_1"
+      ]
+    },
+    {
+      "index": 307,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.7879,
+        "client_1": 0.8839,
+        "client_2": 0.9536
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 308,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9627,
+        "client_1": 0.8661,
+        "client_2": 0.9587
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 309,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9757,
+        "client_1": 0.9122,
+        "client_2": 0.9547
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 310,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.8062,
+        "client_1": 0.9259,
+        "client_2": 0.9565
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 311,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.8729,
+        "client_1": 0.9351,
+        "client_2": 0.7202
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 312,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9728,
+        "client_1": 0.8453,
+        "client_2": 0.9856
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 313,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9456,
+        "client_1": 0.9115,
+        "client_2": 0.9532
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 314,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9608,
+        "client_1": 0.946,
+        "client_2": 0.9691
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 315,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9747,
+        "client_1": 0.9756,
+        "client_2": 0.9811
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 316,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9327,
+        "client_1": 0.9369,
+        "client_2": 0.9466
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 317,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.948,
+        "client_1": 0.8851,
+        "client_2": 0.9474
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 318,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9546,
+        "client_1": 0.8175,
+        "client_2": 0.9684
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 319,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9592,
+        "client_1": 0.9735,
+        "client_2": 0.9767
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 320,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9518,
+        "client_1": 0.9761,
+        "client_2": 0.984
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 321,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.913,
+        "client_1": 0.6881,
+        "client_2": 0.65
+      },
+      "flagged_divergent_for": [
+        "client_1",
+        "client_2"
+      ]
+    },
+    {
+      "index": 322,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9249,
+        "client_1": 0.9578,
+        "client_2": 0.975
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 323,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.4144,
+        "client_1": 0.7275,
+        "client_2": 0.7218
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 324,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9276,
+        "client_1": 0.895,
+        "client_2": 0.9586
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 325,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9401,
+        "client_1": 0.9621,
+        "client_2": 0.942
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 326,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9489,
+        "client_1": 0.9418,
+        "client_2": 0.9715
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 327,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.6072,
+        "client_1": 0.2816,
+        "client_2": 0.4903
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_1",
+        "client_2"
+      ]
+    },
+    {
+      "index": 328,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9499,
+        "client_1": 0.9301,
+        "client_2": 0.9644
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 329,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9822,
+        "client_1": 0.9181,
+        "client_2": 0.9456
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 330,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9814,
+        "client_1": 0.9485,
+        "client_2": 0.954
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 331,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9691,
+        "client_1": 0.9634,
+        "client_2": 0.9433
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 332,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.8933,
+        "client_1": 0.9591,
+        "client_2": 0.9178
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 333,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9414,
+        "client_1": 0.9355,
+        "client_2": 0.9472
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 334,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.7734,
+        "client_1": 0.8522,
+        "client_2": 0.7976
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 335,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.413,
+        "client_1": 0.3626,
+        "client_2": 0.9581
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_1"
+      ]
+    },
+    {
+      "index": 336,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9446,
+        "client_1": 0.9332,
+        "client_2": 0.95
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 337,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.8766,
+        "client_1": 0.8747,
+        "client_2": 0.9841
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 338,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.5916,
+        "client_1": 0.6518,
+        "client_2": 0.8664
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_1"
+      ]
+    },
+    {
+      "index": 339,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9853,
+        "client_1": 0.9305,
+        "client_2": 0.9792
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 340,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.654,
+        "client_1": 0.8636,
+        "client_2": 0.4753
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_2"
+      ]
+    },
+    {
+      "index": 341,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9623,
+        "client_1": 0.9566,
+        "client_2": 0.9787
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 342,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.989,
+        "client_1": 0.9484,
+        "client_2": 0.968
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 343,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9064,
+        "client_1": 0.8109,
+        "client_2": 0.7868
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 344,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9512,
+        "client_1": 0.974,
+        "client_2": 0.9893
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 345,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9327,
+        "client_1": 0.9112,
+        "client_2": 0.9373
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 346,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9709,
+        "client_1": 0.9745,
+        "client_2": 0.9696
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 347,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9236,
+        "client_1": 0.9573,
+        "client_2": 0.9371
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 348,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9758,
+        "client_1": 0.9208,
+        "client_2": 0.9799
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 349,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9636,
+        "client_1": 0.9787,
+        "client_2": 0.9485
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 350,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.8753,
+        "client_1": 0.9266,
+        "client_2": 0.8262
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 351,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9349,
+        "client_1": 0.9285,
+        "client_2": 0.9879
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 352,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9378,
+        "client_1": 0.9649,
+        "client_2": 0.9641
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 353,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9857,
+        "client_1": 0.9748,
+        "client_2": 0.7583
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 354,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9642,
+        "client_1": 0.9506,
+        "client_2": 0.978
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 355,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.8919,
+        "client_1": 0.9464,
+        "client_2": 0.9409
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 356,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9628,
+        "client_1": 0.9132,
+        "client_2": 0.9624
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 357,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.8737,
+        "client_1": 0.9076,
+        "client_2": 0.9085
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 358,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9749,
+        "client_1": 0.9539,
+        "client_2": 0.9723
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 359,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.9481,
+        "client_1": 0.8439,
+        "client_2": 0.8448
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 360,
+      "true": "stn",
+      "client_cosines": {
+        "client_0": 0.8369,
+        "client_1": 0.977,
+        "client_2": 0.9402
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 361,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8941,
+        "client_1": 0.9577,
+        "client_2": 0.7387
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 362,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.907,
+        "client_1": 0.9766,
+        "client_2": 0.971
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 363,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8583,
+        "client_1": 0.9418,
+        "client_2": 0.4272
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 364,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9875,
+        "client_1": 0.8805,
+        "client_2": 0.982
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 365,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9259,
+        "client_1": 0.8537,
+        "client_2": 0.954
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 366,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9199,
+        "client_1": 0.7978,
+        "client_2": 0.7478
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 367,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.7007,
+        "client_1": 0.9604,
+        "client_2": 0.9346
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 368,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8239,
+        "client_1": 0.8629,
+        "client_2": 0.9545
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 369,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9149,
+        "client_1": 0.9721,
+        "client_2": 0.9244
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 370,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9291,
+        "client_1": 0.4621,
+        "client_2": 0.8869
+      },
+      "flagged_divergent_for": [
+        "client_1"
+      ]
+    },
+    {
+      "index": 371,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8921,
+        "client_1": 0.9134,
+        "client_2": 0.6542
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 372,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9792,
+        "client_1": 0.9409,
+        "client_2": 0.9784
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 373,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.952,
+        "client_1": 0.9576,
+        "client_2": 0.7372
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 374,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.7818,
+        "client_1": 0.9243,
+        "client_2": 0.924
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 375,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.7839,
+        "client_1": 0.8847,
+        "client_2": 0.8999
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 376,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9435,
+        "client_1": 0.9825,
+        "client_2": 0.8365
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 377,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9779,
+        "client_1": 0.8975,
+        "client_2": 0.9491
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 378,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.6818,
+        "client_1": 0.8286,
+        "client_2": 0.8191
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 379,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8965,
+        "client_1": 0.8519,
+        "client_2": 0.9588
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 380,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.4358,
+        "client_1": 0.9693,
+        "client_2": 0.9023
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 381,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.4968,
+        "client_1": 0.6922,
+        "client_2": 0.7123
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_1"
+      ]
+    },
+    {
+      "index": 382,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9514,
+        "client_1": 0.8913,
+        "client_2": 0.9411
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 383,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.5746,
+        "client_1": 0.8975,
+        "client_2": 0.6069
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_2"
+      ]
+    },
+    {
+      "index": 384,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.7543,
+        "client_1": 0.7428,
+        "client_2": 0.9626
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 385,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8757,
+        "client_1": 0.8745,
+        "client_2": 0.5676
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 386,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9395,
+        "client_1": 0.9261,
+        "client_2": 0.8751
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 387,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8709,
+        "client_1": 0.9579,
+        "client_2": 0.9514
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 388,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8294,
+        "client_1": 0.9012,
+        "client_2": 0.9125
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 389,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8192,
+        "client_1": 0.925,
+        "client_2": 0.9446
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 390,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.6865,
+        "client_1": 0.7957,
+        "client_2": 0.9025
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 391,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8537,
+        "client_1": 0.8592,
+        "client_2": 0.856
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 392,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9209,
+        "client_1": 0.9095,
+        "client_2": 0.8011
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 393,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8067,
+        "client_1": 0.6752,
+        "client_2": 0.9063
+      },
+      "flagged_divergent_for": [
+        "client_1"
+      ]
+    },
+    {
+      "index": 394,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9481,
+        "client_1": 0.8469,
+        "client_2": 0.7936
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 395,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.5177,
+        "client_1": 0.9389,
+        "client_2": 0.7654
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 396,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8834,
+        "client_1": 0.912,
+        "client_2": 0.8632
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 397,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8955,
+        "client_1": 0.8987,
+        "client_2": 0.9862
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 398,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.7434,
+        "client_1": 0.9556,
+        "client_2": 0.8262
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 399,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9611,
+        "client_1": 0.7874,
+        "client_2": 0.9258
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 400,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.2075,
+        "client_1": 0.7464,
+        "client_2": 0.8468
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 401,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.3298,
+        "client_1": 0.1799,
+        "client_2": 0.642
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_1",
+        "client_2"
+      ]
+    },
+    {
+      "index": 402,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.6553,
+        "client_1": 0.8107,
+        "client_2": 0.7797
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 403,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.7198,
+        "client_1": 0.9035,
+        "client_2": 0.7454
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 404,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.2343,
+        "client_1": 0.558,
+        "client_2": 0.4987
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_1",
+        "client_2"
+      ]
+    },
+    {
+      "index": 405,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9301,
+        "client_1": 0.9291,
+        "client_2": 0.9574
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 406,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.3542,
+        "client_1": 0.9152,
+        "client_2": 0.9481
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 407,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9598,
+        "client_1": 0.9374,
+        "client_2": 0.8978
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 408,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.853,
+        "client_1": 0.9315,
+        "client_2": 0.891
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 409,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9005,
+        "client_1": 0.2175,
+        "client_2": 0.8902
+      },
+      "flagged_divergent_for": [
+        "client_1"
+      ]
+    },
+    {
+      "index": 410,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.7844,
+        "client_1": 0.9311,
+        "client_2": 0.7817
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 411,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9418,
+        "client_1": 0.8941,
+        "client_2": 0.7954
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 412,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8015,
+        "client_1": 0.9686,
+        "client_2": 0.9241
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 413,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8599,
+        "client_1": 0.9407,
+        "client_2": 0.9526
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 414,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9444,
+        "client_1": 0.7759,
+        "client_2": 0.6818
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 415,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9322,
+        "client_1": 0.9557,
+        "client_2": 0.7911
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 416,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.76,
+        "client_1": 0.8204,
+        "client_2": 0.8957
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 417,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9365,
+        "client_1": 0.9219,
+        "client_2": 0.7933
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 418,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9438,
+        "client_1": 0.9161,
+        "client_2": 0.9394
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 419,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8475,
+        "client_1": 0.8196,
+        "client_2": 0.9067
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 420,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9192,
+        "client_1": 0.9259,
+        "client_2": 0.8368
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 421,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8789,
+        "client_1": 0.9013,
+        "client_2": 0.9896
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 422,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.7725,
+        "client_1": 0.9599,
+        "client_2": 0.7768
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 423,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9682,
+        "client_1": 0.9537,
+        "client_2": 0.81
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 424,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9324,
+        "client_1": 0.768,
+        "client_2": 0.9743
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 425,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8997,
+        "client_1": 0.9169,
+        "client_2": 0.8574
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 426,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8691,
+        "client_1": 0.6929,
+        "client_2": 0.9225
+      },
+      "flagged_divergent_for": [
+        "client_1"
+      ]
+    },
+    {
+      "index": 427,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9455,
+        "client_1": 0.9472,
+        "client_2": 0.8378
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 428,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.7651,
+        "client_1": 0.8208,
+        "client_2": 0.8219
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 429,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8875,
+        "client_1": 0.6388,
+        "client_2": 0.788
+      },
+      "flagged_divergent_for": [
+        "client_1"
+      ]
+    },
+    {
+      "index": 430,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9565,
+        "client_1": 0.9487,
+        "client_2": 0.9584
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 431,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8396,
+        "client_1": 0.8456,
+        "client_2": 0.9029
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 432,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8445,
+        "client_1": 0.817,
+        "client_2": 0.9089
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 433,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8488,
+        "client_1": 0.9487,
+        "client_2": 0.8764
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 434,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9558,
+        "client_1": 0.9391,
+        "client_2": 0.9793
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 435,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9059,
+        "client_1": 0.9021,
+        "client_2": 0.8782
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 436,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9328,
+        "client_1": 0.9429,
+        "client_2": 0.8741
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 437,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.7844,
+        "client_1": 0.8523,
+        "client_2": 0.8908
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 438,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8137,
+        "client_1": 0.8248,
+        "client_2": 0.7706
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 439,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.4794,
+        "client_1": 0.9212,
+        "client_2": 0.9266
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 440,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.4059,
+        "client_1": 0.8581,
+        "client_2": 0.9007
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 441,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9302,
+        "client_1": 0.97,
+        "client_2": 0.8543
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 442,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.944,
+        "client_1": 0.9046,
+        "client_2": 0.9738
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 443,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.7485,
+        "client_1": 0.3586,
+        "client_2": 0.5582
+      },
+      "flagged_divergent_for": [
+        "client_1",
+        "client_2"
+      ]
+    },
+    {
+      "index": 444,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.3026,
+        "client_1": 0.8198,
+        "client_2": 0.9101
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 445,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.955,
+        "client_1": 0.9402,
+        "client_2": 0.98
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 446,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8984,
+        "client_1": 0.9051,
+        "client_2": 0.8901
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 447,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8312,
+        "client_1": 0.9502,
+        "client_2": 0.9292
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 448,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9179,
+        "client_1": 0.8678,
+        "client_2": 0.8248
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 449,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.0732,
+        "client_1": 0.9706,
+        "client_2": 0.1199
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_2"
+      ]
+    },
+    {
+      "index": 450,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.6643,
+        "client_1": 0.8613,
+        "client_2": 0.8196
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 451,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9709,
+        "client_1": 0.9036,
+        "client_2": 0.9437
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 452,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9185,
+        "client_1": 0.8656,
+        "client_2": 0.7067
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 453,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.5314,
+        "client_1": 0.8178,
+        "client_2": 0.3652
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_2"
+      ]
+    },
+    {
+      "index": 454,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.6639,
+        "client_1": 0.8077,
+        "client_2": 0.839
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 455,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9377,
+        "client_1": 0.9636,
+        "client_2": 0.9775
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 456,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8964,
+        "client_1": 0.8745,
+        "client_2": 0.8583
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 457,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.5282,
+        "client_1": 0.9519,
+        "client_2": 0.7348
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 458,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9196,
+        "client_1": 0.9483,
+        "client_2": 0.9366
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 459,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9386,
+        "client_1": 0.9646,
+        "client_2": 0.7885
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 460,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8298,
+        "client_1": 0.8685,
+        "client_2": 0.857
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 461,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.3296,
+        "client_1": 0.9678,
+        "client_2": 0.2316
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_2"
+      ]
+    },
+    {
+      "index": 462,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9626,
+        "client_1": 0.9424,
+        "client_2": 0.9148
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 463,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.7197,
+        "client_1": 0.5125,
+        "client_2": 0.8237
+      },
+      "flagged_divergent_for": [
+        "client_1"
+      ]
+    },
+    {
+      "index": 464,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.7753,
+        "client_1": 0.9402,
+        "client_2": 0.8562
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 465,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8006,
+        "client_1": 0.9455,
+        "client_2": 0.4317
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 466,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.6648,
+        "client_1": 0.9441,
+        "client_2": 0.9303
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 467,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9258,
+        "client_1": 0.9491,
+        "client_2": 0.8464
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 468,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9753,
+        "client_1": 0.8757,
+        "client_2": 0.9674
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 469,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9504,
+        "client_1": 0.9338,
+        "client_2": 0.9035
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 470,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9543,
+        "client_1": 0.8697,
+        "client_2": 0.8669
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 471,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.895,
+        "client_1": 0.518,
+        "client_2": 0.7815
+      },
+      "flagged_divergent_for": [
+        "client_1"
+      ]
+    },
+    {
+      "index": 472,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.7728,
+        "client_1": 0.8941,
+        "client_2": 0.7742
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 473,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.5872,
+        "client_1": 0.9271,
+        "client_2": 0.6675
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_2"
+      ]
+    },
+    {
+      "index": 474,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9721,
+        "client_1": 0.8885,
+        "client_2": 0.955
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 475,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8332,
+        "client_1": 0.9523,
+        "client_2": 0.8469
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 476,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.6617,
+        "client_1": 0.4734,
+        "client_2": 0.8586
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_1"
+      ]
+    },
+    {
+      "index": 477,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8871,
+        "client_1": 0.9016,
+        "client_2": 0.9035
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 478,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.7932,
+        "client_1": 0.8988,
+        "client_2": 0.8555
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 479,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9769,
+        "client_1": 0.7697,
+        "client_2": 0.9491
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 480,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9467,
+        "client_1": 0.9287,
+        "client_2": 0.9302
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 481,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.7959,
+        "client_1": 0.5962,
+        "client_2": 0.8481
+      },
+      "flagged_divergent_for": [
+        "client_1"
+      ]
+    },
+    {
+      "index": 482,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9244,
+        "client_1": 0.9854,
+        "client_2": 0.7473
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 483,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.6139,
+        "client_1": 0.348,
+        "client_2": 0.436
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_1",
+        "client_2"
+      ]
+    },
+    {
+      "index": 484,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9217,
+        "client_1": 0.9548,
+        "client_2": 0.9382
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 485,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8005,
+        "client_1": 0.9623,
+        "client_2": 0.8981
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 486,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8992,
+        "client_1": 0.7506,
+        "client_2": 0.7707
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 487,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9258,
+        "client_1": 0.3272,
+        "client_2": 0.8617
+      },
+      "flagged_divergent_for": [
+        "client_1"
+      ]
+    },
+    {
+      "index": 488,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8424,
+        "client_1": 0.8459,
+        "client_2": 0.9363
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 489,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.7021,
+        "client_1": 0.8184,
+        "client_2": 0.8268
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 490,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.5324,
+        "client_1": 0.8064,
+        "client_2": 0.5352
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_2"
+      ]
+    },
+    {
+      "index": 491,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.906,
+        "client_1": 0.957,
+        "client_2": 0.8228
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 492,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9245,
+        "client_1": 0.9055,
+        "client_2": 0.8672
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 493,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.7174,
+        "client_1": 0.8224,
+        "client_2": 0.8283
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 494,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.3936,
+        "client_1": 0.9846,
+        "client_2": 0.9373
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 495,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.6586,
+        "client_1": 0.7156,
+        "client_2": 0.777
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 496,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9172,
+        "client_1": 0.9661,
+        "client_2": 0.9097
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 497,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9282,
+        "client_1": 0.9391,
+        "client_2": 0.9822
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 498,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9323,
+        "client_1": 0.8189,
+        "client_2": 0.9497
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 499,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9544,
+        "client_1": 0.7653,
+        "client_2": 0.82
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 500,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8122,
+        "client_1": 0.4106,
+        "client_2": 0.8052
+      },
+      "flagged_divergent_for": [
+        "client_1"
+      ]
+    },
+    {
+      "index": 501,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8118,
+        "client_1": 0.733,
+        "client_2": 0.5793
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 502,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9726,
+        "client_1": 0.9303,
+        "client_2": 0.8662
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 503,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.7136,
+        "client_1": 0.9506,
+        "client_2": 0.668
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 504,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8612,
+        "client_1": 0.9488,
+        "client_2": 0.9011
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 505,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9238,
+        "client_1": 0.9681,
+        "client_2": 0.9816
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 506,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9496,
+        "client_1": 0.9482,
+        "client_2": 0.9409
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 507,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9207,
+        "client_1": 0.317,
+        "client_2": 0.91
+      },
+      "flagged_divergent_for": [
+        "client_1"
+      ]
+    },
+    {
+      "index": 508,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9005,
+        "client_1": 0.9058,
+        "client_2": 0.8457
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 509,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9062,
+        "client_1": 0.8451,
+        "client_2": 0.9499
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 510,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8707,
+        "client_1": 0.8761,
+        "client_2": 0.2769
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 511,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8418,
+        "client_1": 0.9613,
+        "client_2": 0.8813
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 512,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.5502,
+        "client_1": 0.9215,
+        "client_2": 0.9219
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 513,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.7668,
+        "client_1": 0.9163,
+        "client_2": 0.9024
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 514,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9344,
+        "client_1": 0.6748,
+        "client_2": 0.8616
+      },
+      "flagged_divergent_for": [
+        "client_1"
+      ]
+    },
+    {
+      "index": 515,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8986,
+        "client_1": 0.6583,
+        "client_2": 0.8852
+      },
+      "flagged_divergent_for": [
+        "client_1"
+      ]
+    },
+    {
+      "index": 516,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8336,
+        "client_1": 0.0966,
+        "client_2": 0.5499
+      },
+      "flagged_divergent_for": [
+        "client_1",
+        "client_2"
+      ]
+    },
+    {
+      "index": 517,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9423,
+        "client_1": 0.7695,
+        "client_2": 0.5801
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 518,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.4704,
+        "client_1": 0.8749,
+        "client_2": 0.8648
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 519,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9243,
+        "client_1": 0.673,
+        "client_2": 0.9606
+      },
+      "flagged_divergent_for": [
+        "client_1"
+      ]
+    },
+    {
+      "index": 520,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9249,
+        "client_1": 0.936,
+        "client_2": 0.9412
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 521,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9282,
+        "client_1": 0.8982,
+        "client_2": 0.8738
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 522,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8544,
+        "client_1": 0.5449,
+        "client_2": 0.688
+      },
+      "flagged_divergent_for": [
+        "client_1",
+        "client_2"
+      ]
+    },
+    {
+      "index": 523,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8838,
+        "client_1": 0.8969,
+        "client_2": 0.7375
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 524,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.7471,
+        "client_1": 0.9711,
+        "client_2": 0.4984
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 525,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8703,
+        "client_1": 0.8168,
+        "client_2": 0.9318
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 526,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8915,
+        "client_1": 0.9015,
+        "client_2": 0.8351
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 527,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9128,
+        "client_1": 0.9825,
+        "client_2": 0.8738
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 528,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8862,
+        "client_1": 0.8122,
+        "client_2": 0.9335
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 529,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9355,
+        "client_1": 0.9259,
+        "client_2": 0.8086
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 530,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.895,
+        "client_1": 0.8799,
+        "client_2": 0.6959
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 531,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9433,
+        "client_1": 0.9136,
+        "client_2": 0.9721
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 532,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9637,
+        "client_1": 0.9318,
+        "client_2": 0.8571
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 533,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9712,
+        "client_1": 0.9753,
+        "client_2": 0.8913
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 534,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.6552,
+        "client_1": 0.9561,
+        "client_2": 0.6115
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_2"
+      ]
+    },
+    {
+      "index": 535,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8454,
+        "client_1": 0.9543,
+        "client_2": 0.8984
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 536,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.4469,
+        "client_1": 0.846,
+        "client_2": 0.5359
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_2"
+      ]
+    },
+    {
+      "index": 537,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.974,
+        "client_1": 0.8002,
+        "client_2": 0.9074
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 538,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.6778,
+        "client_1": 0.8896,
+        "client_2": 0.926
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 539,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.2821,
+        "client_1": 0.8257,
+        "client_2": 0.9419
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 540,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8484,
+        "client_1": 0.8817,
+        "client_2": 0.6983
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 541,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8124,
+        "client_1": 0.8405,
+        "client_2": 0.9469
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 542,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.4973,
+        "client_1": 0.8026,
+        "client_2": 0.8685
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 543,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9076,
+        "client_1": 0.9219,
+        "client_2": 0.6715
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 544,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.2616,
+        "client_1": 0.9196,
+        "client_2": 0.5678
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_2"
+      ]
+    },
+    {
+      "index": 545,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8428,
+        "client_1": 0.8136,
+        "client_2": 0.7083
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 546,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.7295,
+        "client_1": 0.8407,
+        "client_2": 0.6347
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 547,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8975,
+        "client_1": 0.9373,
+        "client_2": 0.8646
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 548,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9648,
+        "client_1": 0.9373,
+        "client_2": 0.9532
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 549,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9398,
+        "client_1": 0.8995,
+        "client_2": 0.8708
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 550,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9259,
+        "client_1": 0.8844,
+        "client_2": 0.9441
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 551,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9101,
+        "client_1": 0.9724,
+        "client_2": 0.7879
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 552,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8213,
+        "client_1": 0.9438,
+        "client_2": 0.8881
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 553,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8912,
+        "client_1": 0.9029,
+        "client_2": 0.921
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 554,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9613,
+        "client_1": 0.9486,
+        "client_2": 0.3861
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 555,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8683,
+        "client_1": 0.973,
+        "client_2": 0.8693
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 556,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.7931,
+        "client_1": 0.7749,
+        "client_2": 0.8779
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 557,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.0764,
+        "client_1": 0.6995,
+        "client_2": 0.5004
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_1",
+        "client_2"
+      ]
+    },
+    {
+      "index": 558,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9541,
+        "client_1": 0.8498,
+        "client_2": 0.3809
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 559,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8186,
+        "client_1": 0.8964,
+        "client_2": 0.9519
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 560,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.4806,
+        "client_1": 0.8934,
+        "client_2": 0.9119
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 561,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.7814,
+        "client_1": 0.8709,
+        "client_2": 0.8998
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 562,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.7508,
+        "client_1": 0.8452,
+        "client_2": 0.8974
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 563,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9547,
+        "client_1": 0.4639,
+        "client_2": 0.9208
+      },
+      "flagged_divergent_for": [
+        "client_1"
+      ]
+    },
+    {
+      "index": 564,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.5729,
+        "client_1": 0.8653,
+        "client_2": 0.9808
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 565,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9703,
+        "client_1": 0.9321,
+        "client_2": 0.9277
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 566,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.6889,
+        "client_1": 0.8736,
+        "client_2": 0.8932
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 567,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.7975,
+        "client_1": 0.8406,
+        "client_2": 0.9096
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 568,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.75,
+        "client_1": 0.9683,
+        "client_2": 0.6239
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 569,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.6752,
+        "client_1": 0.7943,
+        "client_2": 0.8413
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 570,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.711,
+        "client_1": 0.9759,
+        "client_2": 0.7741
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 571,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9621,
+        "client_1": 0.9023,
+        "client_2": 0.9224
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 572,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8371,
+        "client_1": 0.9167,
+        "client_2": 0.7541
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 573,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9585,
+        "client_1": 0.906,
+        "client_2": 0.9776
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 574,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.958,
+        "client_1": 0.8975,
+        "client_2": 0.8267
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 575,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.5633,
+        "client_1": 0.8894,
+        "client_2": 0.774
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 576,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.788,
+        "client_1": 0.9673,
+        "client_2": 0.9659
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 577,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.6851,
+        "client_1": 0.3477,
+        "client_2": 0.8281
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_1"
+      ]
+    },
+    {
+      "index": 578,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.6291,
+        "client_1": 0.8235,
+        "client_2": 0.769
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 579,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8722,
+        "client_1": 0.825,
+        "client_2": 0.8939
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 580,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.596,
+        "client_1": 0.8968,
+        "client_2": 0.8272
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 581,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8611,
+        "client_1": 0.6618,
+        "client_2": 0.844
+      },
+      "flagged_divergent_for": [
+        "client_1"
+      ]
+    },
+    {
+      "index": 582,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8339,
+        "client_1": 0.9602,
+        "client_2": 0.8759
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 583,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8888,
+        "client_1": 0.9293,
+        "client_2": 0.9364
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 584,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8055,
+        "client_1": 0.7039,
+        "client_2": 0.2389
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 585,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.905,
+        "client_1": 0.9321,
+        "client_2": 0.7847
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 586,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.7912,
+        "client_1": 0.9491,
+        "client_2": 0.7647
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 587,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8716,
+        "client_1": 0.8949,
+        "client_2": 0.9655
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 588,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9041,
+        "client_1": 0.906,
+        "client_2": 0.3771
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 589,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.77,
+        "client_1": 0.9189,
+        "client_2": 0.8642
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 590,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9334,
+        "client_1": 0.7869,
+        "client_2": 0.8892
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 591,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9509,
+        "client_1": 0.7323,
+        "client_2": 0.9019
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 592,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8272,
+        "client_1": 0.9254,
+        "client_2": 0.8559
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 593,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.5999,
+        "client_1": 0.4806,
+        "client_2": 0.8526
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_1"
+      ]
+    },
+    {
+      "index": 594,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9453,
+        "client_1": 0.945,
+        "client_2": 0.944
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 595,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.7275,
+        "client_1": 0.9024,
+        "client_2": 0.9034
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 596,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.911,
+        "client_1": 0.9143,
+        "client_2": 0.7203
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 597,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.942,
+        "client_1": 0.674,
+        "client_2": 0.8877
+      },
+      "flagged_divergent_for": [
+        "client_1"
+      ]
+    },
+    {
+      "index": 598,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.6045,
+        "client_1": 0.8508,
+        "client_2": 0.7419
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 599,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9679,
+        "client_1": 0.956,
+        "client_2": 0.9574
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 600,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8909,
+        "client_1": 0.949,
+        "client_2": 0.9411
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 601,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9611,
+        "client_1": 0.9128,
+        "client_2": 0.8105
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 602,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.5368,
+        "client_1": 0.8303,
+        "client_2": 0.4838
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_2"
+      ]
+    },
+    {
+      "index": 603,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9413,
+        "client_1": 0.9558,
+        "client_2": 0.7846
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 604,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8608,
+        "client_1": 0.8967,
+        "client_2": 0.8889
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 605,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.6745,
+        "client_1": 0.6835,
+        "client_2": 0.7258
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_1"
+      ]
+    },
+    {
+      "index": 606,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.9155,
+        "client_1": 0.8417,
+        "client_2": 0.8183
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 607,
+      "true": "abn",
+      "client_cosines": {
+        "client_0": 0.8348,
+        "client_1": 0.9243,
+        "client_2": 0.6828
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 608,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.8203,
+        "client_1": 0.8292,
+        "client_2": 0.9489
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 609,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.9663,
+        "client_1": 0.8689,
+        "client_2": 0.8347
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 610,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.7114,
+        "client_1": 0.9525,
+        "client_2": 0.8538
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 611,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.6498,
+        "client_1": 0.909,
+        "client_2": 0.9705
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 612,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.8298,
+        "client_1": 0.93,
+        "client_2": 0.9048
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 613,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.7412,
+        "client_1": 0.8734,
+        "client_2": 0.8823
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 614,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.8354,
+        "client_1": 0.928,
+        "client_2": 0.0972
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 615,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.9357,
+        "client_1": 0.9387,
+        "client_2": 0.8982
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 616,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.5739,
+        "client_1": 0.2316,
+        "client_2": 0.7701
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_1"
+      ]
+    },
+    {
+      "index": 617,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.6837,
+        "client_1": 0.7321,
+        "client_2": 0.6867
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_2"
+      ]
+    },
+    {
+      "index": 618,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.7319,
+        "client_1": 0.8816,
+        "client_2": 0.9057
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 619,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.9408,
+        "client_1": 0.9042,
+        "client_2": 0.9416
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 620,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.8342,
+        "client_1": 0.7452,
+        "client_2": 0.8752
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 621,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.7502,
+        "client_1": 0.9462,
+        "client_2": 0.8958
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 622,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.7038,
+        "client_1": 0.8477,
+        "client_2": 0.8441
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 623,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.8475,
+        "client_1": 0.8395,
+        "client_2": 0.8678
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 624,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.8196,
+        "client_1": 0.8726,
+        "client_2": 0.7298
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 625,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.3672,
+        "client_1": 0.756,
+        "client_2": 0.7308
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 626,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.6487,
+        "client_1": 0.4229,
+        "client_2": 0.8188
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_1"
+      ]
+    },
+    {
+      "index": 627,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.8133,
+        "client_1": 0.8843,
+        "client_2": 0.9594
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 628,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.8873,
+        "client_1": 0.9719,
+        "client_2": 0.9814
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 629,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.8282,
+        "client_1": 0.8497,
+        "client_2": 0.732
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 630,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.6721,
+        "client_1": 0.9125,
+        "client_2": 0.4796
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_2"
+      ]
+    },
+    {
+      "index": 631,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.5387,
+        "client_1": 0.9003,
+        "client_2": 0.7825
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 632,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.8061,
+        "client_1": 0.9779,
+        "client_2": 0.8059
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 633,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.6315,
+        "client_1": 0.8997,
+        "client_2": 0.9477
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 634,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.8643,
+        "client_1": 0.868,
+        "client_2": 0.8959
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 635,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.9376,
+        "client_1": 0.8259,
+        "client_2": 0.9744
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 636,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.5696,
+        "client_1": 0.9249,
+        "client_2": 0.9656
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 637,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.534,
+        "client_1": 0.6686,
+        "client_2": 0.8949
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_1"
+      ]
+    },
+    {
+      "index": 638,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.958,
+        "client_1": 0.8829,
+        "client_2": 0.9405
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 639,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.8814,
+        "client_1": 0.9276,
+        "client_2": 0.8565
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 640,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.3605,
+        "client_1": 0.8208,
+        "client_2": 0.5156
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_2"
+      ]
+    },
+    {
+      "index": 641,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.6473,
+        "client_1": 0.6511,
+        "client_2": 0.7145
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_1"
+      ]
+    },
+    {
+      "index": 642,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.683,
+        "client_1": 0.6329,
+        "client_2": 0.8195
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_1"
+      ]
+    },
+    {
+      "index": 643,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.8766,
+        "client_1": 0.3062,
+        "client_2": 0.7936
+      },
+      "flagged_divergent_for": [
+        "client_1"
+      ]
+    },
+    {
+      "index": 644,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.3287,
+        "client_1": 0.9268,
+        "client_2": 0.8748
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 645,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.8438,
+        "client_1": 0.4678,
+        "client_2": 0.8308
+      },
+      "flagged_divergent_for": [
+        "client_1"
+      ]
+    },
+    {
+      "index": 646,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.127,
+        "client_1": 0.9067,
+        "client_2": 0.8789
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 647,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.4224,
+        "client_1": 0.7877,
+        "client_2": 0.6868
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_2"
+      ]
+    },
+    {
+      "index": 648,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.9557,
+        "client_1": 0.8033,
+        "client_2": 0.9641
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 649,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.9309,
+        "client_1": 0.3532,
+        "client_2": 0.8544
+      },
+      "flagged_divergent_for": [
+        "client_1"
+      ]
+    },
+    {
+      "index": 650,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.7713,
+        "client_1": 0.9421,
+        "client_2": 0.7684
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 651,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.939,
+        "client_1": 0.8683,
+        "client_2": 0.9705
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 652,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.8904,
+        "client_1": 0.947,
+        "client_2": 0.6089
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 653,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.9179,
+        "client_1": 0.8882,
+        "client_2": 0.9094
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 654,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.8293,
+        "client_1": 0.9417,
+        "client_2": 0.9552
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 655,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.9426,
+        "client_1": 0.7598,
+        "client_2": 0.696
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 656,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.9,
+        "client_1": 0.6076,
+        "client_2": 0.435
+      },
+      "flagged_divergent_for": [
+        "client_1",
+        "client_2"
+      ]
+    },
+    {
+      "index": 657,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.8286,
+        "client_1": 0.6329,
+        "client_2": 0.8842
+      },
+      "flagged_divergent_for": [
+        "client_1"
+      ]
+    },
+    {
+      "index": 658,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.878,
+        "client_1": 0.1753,
+        "client_2": 0.6427
+      },
+      "flagged_divergent_for": [
+        "client_1",
+        "client_2"
+      ]
+    },
+    {
+      "index": 659,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.7015,
+        "client_1": 0.7266,
+        "client_2": 0.628
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 660,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.9579,
+        "client_1": 0.8395,
+        "client_2": 0.9674
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 661,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.6543,
+        "client_1": 0.9164,
+        "client_2": 0.9046
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 662,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.8819,
+        "client_1": 0.8843,
+        "client_2": 0.7694
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 663,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.9627,
+        "client_1": 0.9558,
+        "client_2": 0.975
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 664,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.6129,
+        "client_1": 0.8771,
+        "client_2": 0.8723
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 665,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.7199,
+        "client_1": 0.8467,
+        "client_2": 0.8976
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 666,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.6323,
+        "client_1": 0.4762,
+        "client_2": 0.7738
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_1"
+      ]
+    },
+    {
+      "index": 667,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.4376,
+        "client_1": 0.4069,
+        "client_2": 0.6794
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_1",
+        "client_2"
+      ]
+    },
+    {
+      "index": 668,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.9253,
+        "client_1": 0.5848,
+        "client_2": 0.9499
+      },
+      "flagged_divergent_for": [
+        "client_1"
+      ]
+    },
+    {
+      "index": 669,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.7352,
+        "client_1": 0.8143,
+        "client_2": 0.8677
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 670,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.9192,
+        "client_1": 0.8229,
+        "client_2": 0.9715
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 671,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.8579,
+        "client_1": 0.7623,
+        "client_2": 0.956
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 672,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.6504,
+        "client_1": 0.8218,
+        "client_2": 0.8108
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 673,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.3756,
+        "client_1": 0.9176,
+        "client_2": 0.9664
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 674,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.8295,
+        "client_1": 0.9561,
+        "client_2": 0.6893
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 675,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.8373,
+        "client_1": 0.8972,
+        "client_2": 0.3756
+      },
+      "flagged_divergent_for": [
+        "client_2"
+      ]
+    },
+    {
+      "index": 676,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.389,
+        "client_1": 0.7302,
+        "client_2": 0.3585
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_2"
+      ]
+    },
+    {
+      "index": 677,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.4794,
+        "client_1": 0.4789,
+        "client_2": 0.9301
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_1"
+      ]
+    },
+    {
+      "index": 678,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.9154,
+        "client_1": 0.9299,
+        "client_2": 0.9058
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 679,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.4441,
+        "client_1": 0.2855,
+        "client_2": 0.9121
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_1"
+      ]
+    },
+    {
+      "index": 680,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.9199,
+        "client_1": 0.9493,
+        "client_2": 0.9692
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 681,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.8502,
+        "client_1": 0.9859,
+        "client_2": 0.9733
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 682,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.8137,
+        "client_1": 0.8628,
+        "client_2": 0.9221
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 683,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.7876,
+        "client_1": 0.8162,
+        "client_2": 0.9344
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 684,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.4573,
+        "client_1": 0.8146,
+        "client_2": 0.6739
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_2"
+      ]
+    },
+    {
+      "index": 685,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.6056,
+        "client_1": 0.7273,
+        "client_2": 0.9154
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 686,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.3916,
+        "client_1": 0.8493,
+        "client_2": 0.7115
+      },
+      "flagged_divergent_for": [
+        "client_0"
+      ]
+    },
+    {
+      "index": 687,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.9664,
+        "client_1": 0.9528,
+        "client_2": 0.9768
+      },
+      "flagged_divergent_for": []
+    },
+    {
+      "index": 688,
+      "true": "malg",
+      "client_cosines": {
+        "client_0": 0.5526,
+        "client_1": 0.6591,
+        "client_2": 0.9392
+      },
+      "flagged_divergent_for": [
+        "client_0",
+        "client_1"
+      ]
+    }
+  ],
+  "meta": {
+    "theta": 0.7,
+    "global_ckpt": "C:\\Users\\ifti2\\3D Objects\\resarch\\fedgb\\outputs\\checkpoints\\round_010.pt",
+    "local_ckpts": [
+      "C:\\Users\\ifti2\\3D Objects\\resarch\\fedgb\\outputs\\seeds\\seed_42\\local_only_client0.pt",
+      "C:\\Users\\ifti2\\3D Objects\\resarch\\fedgb\\outputs\\seeds\\seed_42\\local_only_client1.pt",
+      "C:\\Users\\ifti2\\3D Objects\\resarch\\fedgb\\outputs\\seeds\\seed_42\\local_only_client2.pt"
+    ],
+    "n_val": 689,
+    "class_names": [
+      "nml",
+      "bmt",
+      "stn",
+      "abn",
+      "malg"
+    ]
+  }
+}

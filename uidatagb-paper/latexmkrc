@@ -1,0 +1,11 @@
+$out_dir = 'build';
+$pdf_mode = 1;
+$bibtex_use = 2;
+
+# KNOWN ISSUE on this machine's MiKTeX install: kpsewhich does not search
+# the project directory for .bib files when bibtex runs from $out_dir,
+# and a file named references.bib silently resolves to an unrelated
+# bundled package (feupphdteses) instead of failing, producing an empty
+# bibliography with no error. Before building, copy the .bib into
+# build/ manually:  mkdir -p build && cp references.bib build/
+# then run latexmk/make as normal. Same issue and fix as ../../xai-review.

@@ -1,0 +1,11 @@
+C:\Users\HomePC\Documents\resarch - Copy\resarch - Copy\fedgb\_p0common.py:60: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  m.load_state_dict(torch.load(CKPT, map_location=DEVICE))
+[Dataset] Loaded 2984 images from C:\Users\HomePC\Documents\resarch - Copy\resarch - Copy\fedgb\data\uidatagb_sessioncorrected\validation
+[sanity] computed 108 reference heatmaps
+[sanity] randomized down to fc     : |Spearman|=0.937  SSIM=0.892
+[sanity] randomized down to layer4 : |Spearman|=0.557  SSIM=0.609
+[sanity] randomized down to layer3 : |Spearman|=0.299  SSIM=0.529
+[sanity] randomized down to layer2 : |Spearman|=0.263  SSIM=0.512
+[sanity] randomized down to layer1 : |Spearman|=0.232  SSIM=0.521
+[sanity] randomized down to conv1  : |Spearman|=0.357  SSIM=0.463
+[sanity] wrote outputs/phase0/sanity_checks.json and outputs/figures/sanity_checks.png

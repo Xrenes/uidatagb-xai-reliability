@@ -1,0 +1,58 @@
+{
+  "threshold_hamming_bits": 8,
+  "n_train": 7484,
+  "n_val": 3208,
+  "n_leaked": 2990,
+  "pct_leaked": 93.2,
+  "n_same_class_leaks": 2984,
+  "per_class": {
+    "01_gallstones": {
+      "n_val": 398,
+      "n_leaked": 355,
+      "pct_leaked": 89.2
+    },
+    "02_abdomen_and_retroperitoneum": {
+      "n_val": 351,
+      "n_leaked": 345,
+      "pct_leaked": 98.3
+    },
+    "03_cholecystitis": {
+      "n_val": 344,
+      "n_leaked": 313,
+      "pct_leaked": 91.0
+    },
+    "04_membranous_and_gangrenous_cholecystitis": {
+      "n_val": 367,
+      "n_leaked": 367,
+      "pct_leaked": 100.0
+    },
+    "05_perforation": {
+      "n_val": 319,
+      "n_leaked": 302,
+      "pct_leaked": 94.7
+    },
+    "06_polyps_and_cholesterol_crystals": {
+      "n_val": 306,
+      "n_leaked": 295,
+      "pct_leaked": 96.4
+    },
+    "07_adenomyomatosis": {
+      "n_val": 349,
+      "n_leaked": 316,
+      "pct_leaked": 90.5
+    },
+    "08_carcinoma": {
+      "n_val": 477,
+      "n_leaked": 430,
+      "pct_leaked": 90.1
+    },
+    "09_various_causes_of_gallbladder_wall_thickening": {
+      "n_val": 297,
+      "n_leaked": 267,
+      "pct_leaked": 89.9
+    }
+  },
+  "accuracy_full_val": 0.9878,
+  "accuracy_clean_val_only": 0.9862,
+  "n_clean_val": 218
+}

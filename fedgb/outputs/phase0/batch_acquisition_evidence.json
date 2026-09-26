@@ -1,0 +1,2447 @@
+{
+  "n_total_images": 10692,
+  "n_no_filename_prefix_match": 0,
+  "n_no_usable_exif": 0,
+  "software_tags_seen": {
+    "ACDSee Pro 6": 10692
+  },
+  "image_dimensions_seen": {
+    "1200x900": 10639,
+    "2400x1800": 2,
+    "900x1200": 46,
+    "1170x876": 5
+  },
+  "within_prefix_time_windows": {
+    "a1": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "01_gallstones"
+      ],
+      "start": "2023-06-14T20:15:46",
+      "end": "2023-06-14T20:21:37",
+      "span_seconds": 351.0,
+      "span_minutes": 5.85
+    },
+    "a10": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "01_gallstones"
+      ],
+      "start": "2023-06-14T21:20:25",
+      "end": "2023-06-14T21:22:55",
+      "span_seconds": 150.0,
+      "span_minutes": 2.5
+    },
+    "a11": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "01_gallstones"
+      ],
+      "start": "2023-06-14T21:23:25",
+      "end": "2023-06-14T21:25:52",
+      "span_seconds": 147.0,
+      "span_minutes": 2.45
+    },
+    "a12": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "01_gallstones"
+      ],
+      "start": "2023-06-14T21:26:16",
+      "end": "2023-06-14T21:28:43",
+      "span_seconds": 147.0,
+      "span_minutes": 2.45
+    },
+    "a13": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "01_gallstones"
+      ],
+      "start": "2023-06-14T22:51:31",
+      "end": "2023-06-14T22:54:35",
+      "span_seconds": 184.0,
+      "span_minutes": 3.07
+    },
+    "a14": {
+      "n_images": 36,
+      "n_distinct_classes": 1,
+      "classes": [
+        "01_gallstones"
+      ],
+      "start": "2023-06-14T22:54:56",
+      "end": "2023-06-14T22:58:53",
+      "span_seconds": 237.0,
+      "span_minutes": 3.95
+    },
+    "a15": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "01_gallstones"
+      ],
+      "start": "2023-06-14T22:59:29",
+      "end": "2023-06-14T23:02:01",
+      "span_seconds": 152.0,
+      "span_minutes": 2.53
+    },
+    "a16": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "01_gallstones"
+      ],
+      "start": "2023-06-14T23:02:38",
+      "end": "2023-06-14T23:05:13",
+      "span_seconds": 155.0,
+      "span_minutes": 2.58
+    },
+    "a17": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "01_gallstones"
+      ],
+      "start": "2023-06-14T23:05:34",
+      "end": "2023-06-14T23:08:03",
+      "span_seconds": 149.0,
+      "span_minutes": 2.48
+    },
+    "a18": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "01_gallstones"
+      ],
+      "start": "2023-06-14T23:08:37",
+      "end": "2023-06-14T23:15:39",
+      "span_seconds": 422.0,
+      "span_minutes": 7.03
+    },
+    "a19": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "01_gallstones"
+      ],
+      "start": "2023-06-14T23:16:07",
+      "end": "2023-06-14T23:21:37",
+      "span_seconds": 330.0,
+      "span_minutes": 5.5
+    },
+    "a2": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "01_gallstones"
+      ],
+      "start": "2023-06-14T20:22:38",
+      "end": "2023-06-14T20:28:26",
+      "span_seconds": 348.0,
+      "span_minutes": 5.8
+    },
+    "a20": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "01_gallstones"
+      ],
+      "start": "2023-06-14T23:23:14",
+      "end": "2023-06-14T23:26:13",
+      "span_seconds": 179.0,
+      "span_minutes": 2.98
+    },
+    "a21": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "01_gallstones"
+      ],
+      "start": "2023-06-14T23:26:38",
+      "end": "2023-06-14T23:32:32",
+      "span_seconds": 354.0,
+      "span_minutes": 5.9
+    },
+    "a22": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "01_gallstones"
+      ],
+      "start": "2023-06-14T23:32:57",
+      "end": "2023-06-14T23:38:38",
+      "span_seconds": 341.0,
+      "span_minutes": 5.68
+    },
+    "a23": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "01_gallstones"
+      ],
+      "start": "2023-06-14T23:39:02",
+      "end": "2023-06-14T23:42:25",
+      "span_seconds": 203.0,
+      "span_minutes": 3.38
+    },
+    "a24": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "01_gallstones"
+      ],
+      "start": "2023-06-14T23:42:44",
+      "end": "2023-06-14T23:45:16",
+      "span_seconds": 152.0,
+      "span_minutes": 2.53
+    },
+    "a25": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "01_gallstones"
+      ],
+      "start": "2023-06-14T23:45:40",
+      "end": "2023-06-14T23:50:58",
+      "span_seconds": 318.0,
+      "span_minutes": 5.3
+    },
+    "a26": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "01_gallstones"
+      ],
+      "start": "2023-06-14T23:51:31",
+      "end": "2023-06-14T23:54:18",
+      "span_seconds": 167.0,
+      "span_minutes": 2.78
+    },
+    "a27": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "01_gallstones"
+      ],
+      "start": "2023-06-14T23:56:09",
+      "end": "2023-06-15T00:01:53",
+      "span_seconds": 344.0,
+      "span_minutes": 5.73
+    },
+    "a28": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "01_gallstones"
+      ],
+      "start": "2023-06-15T00:02:28",
+      "end": "2023-06-15T00:05:15",
+      "span_seconds": 167.0,
+      "span_minutes": 2.78
+    },
+    "a29": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "01_gallstones"
+      ],
+      "start": "2023-06-15T00:05:40",
+      "end": "2023-06-15T00:08:23",
+      "span_seconds": 163.0,
+      "span_minutes": 2.72
+    },
+    "a3": {
+      "n_images": 36,
+      "n_distinct_classes": 1,
+      "classes": [
+        "01_gallstones"
+      ],
+      "start": "2023-06-14T20:28:52",
+      "end": "2023-06-14T20:32:48",
+      "span_seconds": 236.0,
+      "span_minutes": 3.93
+    },
+    "a30": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "01_gallstones"
+      ],
+      "start": "2023-06-15T00:08:49",
+      "end": "2023-06-15T00:11:51",
+      "span_seconds": 182.0,
+      "span_minutes": 3.03
+    },
+    "a31": {
+      "n_images": 42,
+      "n_distinct_classes": 1,
+      "classes": [
+        "01_gallstones"
+      ],
+      "start": "2023-06-15T00:12:17",
+      "end": "2023-06-15T00:17:07",
+      "span_seconds": 290.0,
+      "span_minutes": 4.83
+    },
+    "a32": {
+      "n_images": 228,
+      "n_distinct_classes": 1,
+      "classes": [
+        "01_gallstones"
+      ],
+      "start": "2023-06-15T00:17:34",
+      "end": "2023-06-15T00:48:14",
+      "span_seconds": 1840.0,
+      "span_minutes": 30.67
+    },
+    "a4": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "01_gallstones"
+      ],
+      "start": "2023-06-14T20:33:13",
+      "end": "2023-06-14T20:36:19",
+      "span_seconds": 186.0,
+      "span_minutes": 3.1
+    },
+    "a5": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "01_gallstones"
+      ],
+      "start": "2023-06-14T20:37:34",
+      "end": "2023-06-14T20:48:30",
+      "span_seconds": 656.0,
+      "span_minutes": 10.93
+    },
+    "a6": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "01_gallstones"
+      ],
+      "start": "2023-06-14T20:49:07",
+      "end": "2023-06-14T20:58:15",
+      "span_seconds": 548.0,
+      "span_minutes": 9.13
+    },
+    "a7": {
+      "n_images": 42,
+      "n_distinct_classes": 1,
+      "classes": [
+        "01_gallstones"
+      ],
+      "start": "2023-06-14T20:58:44",
+      "end": "2023-06-14T21:03:57",
+      "span_seconds": 313.0,
+      "span_minutes": 5.22
+    },
+    "a8": {
+      "n_images": 54,
+      "n_distinct_classes": 1,
+      "classes": [
+        "01_gallstones"
+      ],
+      "start": "2023-06-14T21:05:24",
+      "end": "2023-06-14T21:11:17",
+      "span_seconds": 353.0,
+      "span_minutes": 5.88
+    },
+    "a9": {
+      "n_images": 72,
+      "n_distinct_classes": 1,
+      "classes": [
+        "01_gallstones"
+      ],
+      "start": "2023-06-14T21:11:42",
+      "end": "2023-06-14T21:19:43",
+      "span_seconds": 481.0,
+      "span_minutes": 8.02
+    },
+    "b1": {
+      "n_images": 168,
+      "n_distinct_classes": 1,
+      "classes": [
+        "02_abdomen_and_retroperitoneum"
+      ],
+      "start": "2023-06-22T00:46:21",
+      "end": "2023-06-22T01:09:16",
+      "span_seconds": 1375.0,
+      "span_minutes": 22.92
+    },
+    "b10": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "02_abdomen_and_retroperitoneum"
+      ],
+      "start": "2023-06-22T14:48:52",
+      "end": "2023-06-22T14:54:19",
+      "span_seconds": 327.0,
+      "span_minutes": 5.45
+    },
+    "b11": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "02_abdomen_and_retroperitoneum"
+      ],
+      "start": "2023-06-22T14:55:58",
+      "end": "2023-06-22T22:03:43",
+      "span_seconds": 25665.0,
+      "span_minutes": 427.75
+    },
+    "b12": {
+      "n_images": 72,
+      "n_distinct_classes": 1,
+      "classes": [
+        "02_abdomen_and_retroperitoneum"
+      ],
+      "start": "2023-06-22T22:04:16",
+      "end": "2023-06-22T22:14:35",
+      "span_seconds": 619.0,
+      "span_minutes": 10.32
+    },
+    "b13": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "02_abdomen_and_retroperitoneum"
+      ],
+      "start": "2023-06-22T22:19:57",
+      "end": "2023-06-22T22:26:31",
+      "span_seconds": 394.0,
+      "span_minutes": 6.57
+    },
+    "b14": {
+      "n_images": 84,
+      "n_distinct_classes": 1,
+      "classes": [
+        "02_abdomen_and_retroperitoneum"
+      ],
+      "start": "2023-06-22T22:27:21",
+      "end": "2023-06-22T23:35:26",
+      "span_seconds": 4085.0,
+      "span_minutes": 68.08
+    },
+    "b15": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "02_abdomen_and_retroperitoneum"
+      ],
+      "start": "2023-06-22T23:36:44",
+      "end": "2023-06-22T23:39:09",
+      "span_seconds": 145.0,
+      "span_minutes": 2.42
+    },
+    "b16": {
+      "n_images": 60,
+      "n_distinct_classes": 1,
+      "classes": [
+        "02_abdomen_and_retroperitoneum"
+      ],
+      "start": "2023-06-22T23:39:36",
+      "end": "2023-06-22T23:46:30",
+      "span_seconds": 414.0,
+      "span_minutes": 6.9
+    },
+    "b17": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "02_abdomen_and_retroperitoneum"
+      ],
+      "start": "2023-06-22T23:46:51",
+      "end": "2023-06-22T23:50:31",
+      "span_seconds": 220.0,
+      "span_minutes": 3.67
+    },
+    "b18": {
+      "n_images": 30,
+      "n_distinct_classes": 1,
+      "classes": [
+        "02_abdomen_and_retroperitoneum"
+      ],
+      "start": "2023-06-22T23:52:12",
+      "end": "2023-06-22T23:55:49",
+      "span_seconds": 217.0,
+      "span_minutes": 3.62
+    },
+    "b19": {
+      "n_images": 12,
+      "n_distinct_classes": 1,
+      "classes": [
+        "02_abdomen_and_retroperitoneum"
+      ],
+      "start": "2023-06-22T23:56:16",
+      "end": "2023-06-22T23:57:32",
+      "span_seconds": 76.0,
+      "span_minutes": 1.27
+    },
+    "b2": {
+      "n_images": 60,
+      "n_distinct_classes": 1,
+      "classes": [
+        "02_abdomen_and_retroperitoneum"
+      ],
+      "start": "2023-06-22T01:09:42",
+      "end": "2023-06-22T01:16:49",
+      "span_seconds": 427.0,
+      "span_minutes": 7.12
+    },
+    "b20": {
+      "n_images": 60,
+      "n_distinct_classes": 1,
+      "classes": [
+        "02_abdomen_and_retroperitoneum"
+      ],
+      "start": "2023-06-22T23:58:54",
+      "end": "2023-06-23T00:06:16",
+      "span_seconds": 442.0,
+      "span_minutes": 7.37
+    },
+    "b21": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "02_abdomen_and_retroperitoneum"
+      ],
+      "start": "2023-06-23T00:06:41",
+      "end": "2023-06-23T00:09:49",
+      "span_seconds": 188.0,
+      "span_minutes": 3.13
+    },
+    "b3": {
+      "n_images": 96,
+      "n_distinct_classes": 1,
+      "classes": [
+        "02_abdomen_and_retroperitoneum"
+      ],
+      "start": "2023-06-22T01:17:18",
+      "end": "2023-06-22T01:29:34",
+      "span_seconds": 736.0,
+      "span_minutes": 12.27
+    },
+    "b4": {
+      "n_images": 36,
+      "n_distinct_classes": 1,
+      "classes": [
+        "02_abdomen_and_retroperitoneum"
+      ],
+      "start": "2023-06-22T01:30:02",
+      "end": "2023-06-22T01:34:09",
+      "span_seconds": 247.0,
+      "span_minutes": 4.12
+    },
+    "b5": {
+      "n_images": 72,
+      "n_distinct_classes": 1,
+      "classes": [
+        "02_abdomen_and_retroperitoneum"
+      ],
+      "start": "2023-06-22T01:34:35",
+      "end": "2023-06-22T01:43:03",
+      "span_seconds": 508.0,
+      "span_minutes": 8.47
+    },
+    "b6": {
+      "n_images": 36,
+      "n_distinct_classes": 1,
+      "classes": [
+        "02_abdomen_and_retroperitoneum"
+      ],
+      "start": "2023-06-22T01:43:38",
+      "end": "2023-06-22T01:48:46",
+      "span_seconds": 308.0,
+      "span_minutes": 5.13
+    },
+    "b7": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "02_abdomen_and_retroperitoneum"
+      ],
+      "start": "2023-06-22T01:49:32",
+      "end": "2023-06-22T01:55:21",
+      "span_seconds": 349.0,
+      "span_minutes": 5.82
+    },
+    "b8": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "02_abdomen_and_retroperitoneum"
+      ],
+      "start": "2023-06-22T01:55:54",
+      "end": "2023-06-22T02:06:31",
+      "span_seconds": 637.0,
+      "span_minutes": 10.62
+    },
+    "b9": {
+      "n_images": 96,
+      "n_distinct_classes": 1,
+      "classes": [
+        "02_abdomen_and_retroperitoneum"
+      ],
+      "start": "2023-06-22T02:07:00",
+      "end": "2023-06-22T02:23:58",
+      "span_seconds": 1018.0,
+      "span_minutes": 16.97
+    },
+    "c1": {
+      "n_images": 30,
+      "n_distinct_classes": 1,
+      "classes": [
+        "03_cholecystitis"
+      ],
+      "start": "2023-06-23T13:24:02",
+      "end": "2023-06-23T13:44:54",
+      "span_seconds": 1252.0,
+      "span_minutes": 20.87
+    },
+    "c10": {
+      "n_images": 36,
+      "n_distinct_classes": 1,
+      "classes": [
+        "03_cholecystitis"
+      ],
+      "start": "2023-06-23T14:15:56",
+      "end": "2023-06-23T14:28:05",
+      "span_seconds": 729.0,
+      "span_minutes": 12.15
+    },
+    "c11": {
+      "n_images": 42,
+      "n_distinct_classes": 1,
+      "classes": [
+        "03_cholecystitis"
+      ],
+      "start": "2023-06-23T14:32:14",
+      "end": "2023-06-23T14:37:24",
+      "span_seconds": 310.0,
+      "span_minutes": 5.17
+    },
+    "c12": {
+      "n_images": 42,
+      "n_distinct_classes": 1,
+      "classes": [
+        "03_cholecystitis"
+      ],
+      "start": "2023-06-23T14:37:45",
+      "end": "2023-06-23T14:44:15",
+      "span_seconds": 390.0,
+      "span_minutes": 6.5
+    },
+    "c13": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "03_cholecystitis"
+      ],
+      "start": "2023-06-23T14:44:48",
+      "end": "2023-06-23T22:27:10",
+      "span_seconds": 27742.0,
+      "span_minutes": 462.37
+    },
+    "c14": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "03_cholecystitis"
+      ],
+      "start": "2023-06-23T22:27:38",
+      "end": "2023-06-23T22:36:44",
+      "span_seconds": 546.0,
+      "span_minutes": 9.1
+    },
+    "c15": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "03_cholecystitis"
+      ],
+      "start": "2023-06-23T22:37:42",
+      "end": "2023-06-23T22:40:31",
+      "span_seconds": 169.0,
+      "span_minutes": 2.82
+    },
+    "c16": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "03_cholecystitis"
+      ],
+      "start": "2023-06-23T22:40:59",
+      "end": "2023-06-23T22:43:34",
+      "span_seconds": 155.0,
+      "span_minutes": 2.58
+    },
+    "c17": {
+      "n_images": 36,
+      "n_distinct_classes": 1,
+      "classes": [
+        "03_cholecystitis"
+      ],
+      "start": "2023-06-23T22:44:11",
+      "end": "2023-06-23T22:48:30",
+      "span_seconds": 259.0,
+      "span_minutes": 4.32
+    },
+    "c18": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "03_cholecystitis"
+      ],
+      "start": "2023-06-23T22:50:11",
+      "end": "2023-06-23T22:55:51",
+      "span_seconds": 340.0,
+      "span_minutes": 5.67
+    },
+    "c19": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "03_cholecystitis"
+      ],
+      "start": "2023-06-23T22:56:21",
+      "end": "2023-06-24T00:35:12",
+      "span_seconds": 5931.0,
+      "span_minutes": 98.85
+    },
+    "c2": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "03_cholecystitis"
+      ],
+      "start": "2023-06-23T13:45:33",
+      "end": "2023-06-23T13:48:05",
+      "span_seconds": 152.0,
+      "span_minutes": 2.53
+    },
+    "c20": {
+      "n_images": 72,
+      "n_distinct_classes": 1,
+      "classes": [
+        "03_cholecystitis"
+      ],
+      "start": "2023-06-24T00:39:57",
+      "end": "2023-06-24T00:47:36",
+      "span_seconds": 459.0,
+      "span_minutes": 7.65
+    },
+    "c21": {
+      "n_images": 42,
+      "n_distinct_classes": 1,
+      "classes": [
+        "03_cholecystitis"
+      ],
+      "start": "2023-06-24T00:48:13",
+      "end": "2023-06-24T00:57:31",
+      "span_seconds": 558.0,
+      "span_minutes": 9.3
+    },
+    "c22": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "03_cholecystitis"
+      ],
+      "start": "2023-06-24T00:58:13",
+      "end": "2023-06-24T01:07:59",
+      "span_seconds": 586.0,
+      "span_minutes": 9.77
+    },
+    "c23": {
+      "n_images": 60,
+      "n_distinct_classes": 1,
+      "classes": [
+        "03_cholecystitis"
+      ],
+      "start": "2023-06-24T01:13:08",
+      "end": "2023-06-24T01:43:08",
+      "span_seconds": 1800.0,
+      "span_minutes": 30.0
+    },
+    "c24": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "03_cholecystitis"
+      ],
+      "start": "2023-06-24T01:43:39",
+      "end": "2023-06-24T02:01:29",
+      "span_seconds": 1070.0,
+      "span_minutes": 17.83
+    },
+    "c25": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "03_cholecystitis"
+      ],
+      "start": "2023-06-24T02:01:51",
+      "end": "2023-06-24T03:13:11",
+      "span_seconds": 4280.0,
+      "span_minutes": 71.33
+    },
+    "c26": {
+      "n_images": 72,
+      "n_distinct_classes": 1,
+      "classes": [
+        "03_cholecystitis"
+      ],
+      "start": "2023-06-24T03:13:39",
+      "end": "2023-06-24T03:36:42",
+      "span_seconds": 1383.0,
+      "span_minutes": 23.05
+    },
+    "c27": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "03_cholecystitis"
+      ],
+      "start": "2023-06-24T03:37:12",
+      "end": "2023-06-24T03:42:43",
+      "span_seconds": 331.0,
+      "span_minutes": 5.52
+    },
+    "c28": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "03_cholecystitis"
+      ],
+      "start": "2023-06-24T22:19:41",
+      "end": "2023-06-24T22:26:51",
+      "span_seconds": 430.0,
+      "span_minutes": 7.17
+    },
+    "c29": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "03_cholecystitis"
+      ],
+      "start": "2023-06-24T22:27:15",
+      "end": "2023-06-24T22:32:36",
+      "span_seconds": 321.0,
+      "span_minutes": 5.35
+    },
+    "c3": {
+      "n_images": 36,
+      "n_distinct_classes": 1,
+      "classes": [
+        "03_cholecystitis"
+      ],
+      "start": "2023-06-23T13:48:31",
+      "end": "2023-06-23T13:52:38",
+      "span_seconds": 247.0,
+      "span_minutes": 4.12
+    },
+    "c4": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "03_cholecystitis"
+      ],
+      "start": "2023-06-23T13:53:46",
+      "end": "2023-06-23T13:56:20",
+      "span_seconds": 154.0,
+      "span_minutes": 2.57
+    },
+    "c5": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "03_cholecystitis"
+      ],
+      "start": "2023-06-23T13:58:15",
+      "end": "2023-06-23T14:00:46",
+      "span_seconds": 151.0,
+      "span_minutes": 2.52
+    },
+    "c6": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "03_cholecystitis"
+      ],
+      "start": "2023-06-23T14:01:10",
+      "end": "2023-06-23T14:03:35",
+      "span_seconds": 145.0,
+      "span_minutes": 2.42
+    },
+    "c7": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "03_cholecystitis"
+      ],
+      "start": "2023-06-23T14:05:40",
+      "end": "2023-06-23T14:08:11",
+      "span_seconds": 151.0,
+      "span_minutes": 2.52
+    },
+    "c8": {
+      "n_images": 12,
+      "n_distinct_classes": 1,
+      "classes": [
+        "03_cholecystitis"
+      ],
+      "start": "2023-06-23T14:11:08",
+      "end": "2023-06-23T14:12:18",
+      "span_seconds": 70.0,
+      "span_minutes": 1.17
+    },
+    "c9": {
+      "n_images": 18,
+      "n_distinct_classes": 1,
+      "classes": [
+        "03_cholecystitis"
+      ],
+      "start": "2023-06-23T14:13:46",
+      "end": "2023-06-23T14:15:33",
+      "span_seconds": 107.0,
+      "span_minutes": 1.78
+    },
+    "d1": {
+      "n_images": 74,
+      "n_distinct_classes": 1,
+      "classes": [
+        "04_membranous_and_gangrenous_cholecystitis"
+      ],
+      "start": "2023-06-24T22:33:06",
+      "end": "2023-06-24T22:41:44",
+      "span_seconds": 518.0,
+      "span_minutes": 8.63
+    },
+    "d10": {
+      "n_images": 72,
+      "n_distinct_classes": 1,
+      "classes": [
+        "04_membranous_and_gangrenous_cholecystitis"
+      ],
+      "start": "2023-06-29T04:49:54",
+      "end": "2023-06-29T04:59:36",
+      "span_seconds": 582.0,
+      "span_minutes": 9.7
+    },
+    "d11": {
+      "n_images": 98,
+      "n_distinct_classes": 1,
+      "classes": [
+        "04_membranous_and_gangrenous_cholecystitis"
+      ],
+      "start": "2023-06-29T05:01:42",
+      "end": "2023-06-29T05:28:36",
+      "span_seconds": 1614.0,
+      "span_minutes": 26.9
+    },
+    "d12": {
+      "n_images": 72,
+      "n_distinct_classes": 1,
+      "classes": [
+        "04_membranous_and_gangrenous_cholecystitis"
+      ],
+      "start": "2023-06-29T05:30:07",
+      "end": "2023-06-29T05:42:32",
+      "span_seconds": 745.0,
+      "span_minutes": 12.42
+    },
+    "d13": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "04_membranous_and_gangrenous_cholecystitis"
+      ],
+      "start": "2023-06-29T05:43:59",
+      "end": "2023-06-29T05:51:42",
+      "span_seconds": 463.0,
+      "span_minutes": 7.72
+    },
+    "d14": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "04_membranous_and_gangrenous_cholecystitis"
+      ],
+      "start": "2023-06-29T05:54:25",
+      "end": "2023-06-29T06:03:30",
+      "span_seconds": 545.0,
+      "span_minutes": 9.08
+    },
+    "d2": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "04_membranous_and_gangrenous_cholecystitis"
+      ],
+      "start": "2023-06-24T23:05:33",
+      "end": "2023-06-24T23:10:53",
+      "span_seconds": 320.0,
+      "span_minutes": 5.33
+    },
+    "d3": {
+      "n_images": 72,
+      "n_distinct_classes": 1,
+      "classes": [
+        "04_membranous_and_gangrenous_cholecystitis"
+      ],
+      "start": "2023-06-25T00:22:14",
+      "end": "2023-06-25T00:31:44",
+      "span_seconds": 570.0,
+      "span_minutes": 9.5
+    },
+    "d4": {
+      "n_images": 84,
+      "n_distinct_classes": 1,
+      "classes": [
+        "04_membranous_and_gangrenous_cholecystitis"
+      ],
+      "start": "2023-06-27T22:22:37",
+      "end": "2023-06-27T22:53:20",
+      "span_seconds": 1843.0,
+      "span_minutes": 30.72
+    },
+    "d5": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "04_membranous_and_gangrenous_cholecystitis"
+      ],
+      "start": "2023-06-27T22:53:48",
+      "end": "2023-06-27T23:00:05",
+      "span_seconds": 377.0,
+      "span_minutes": 6.28
+    },
+    "d6": {
+      "n_images": 140,
+      "n_distinct_classes": 1,
+      "classes": [
+        "04_membranous_and_gangrenous_cholecystitis"
+      ],
+      "start": "2023-06-27T23:00:31",
+      "end": "2023-06-27T23:33:10",
+      "span_seconds": 1959.0,
+      "span_minutes": 32.65
+    },
+    "d7": {
+      "n_images": 132,
+      "n_distinct_classes": 1,
+      "classes": [
+        "04_membranous_and_gangrenous_cholecystitis"
+      ],
+      "start": "2023-06-27T23:35:02",
+      "end": "2023-06-28T00:15:45",
+      "span_seconds": 2443.0,
+      "span_minutes": 40.72
+    },
+    "d8": {
+      "n_images": 96,
+      "n_distinct_classes": 1,
+      "classes": [
+        "04_membranous_and_gangrenous_cholecystitis"
+      ],
+      "start": "2023-06-29T03:24:18",
+      "end": "2023-06-29T04:23:28",
+      "span_seconds": 3550.0,
+      "span_minutes": 59.17
+    },
+    "d9": {
+      "n_images": 192,
+      "n_distinct_classes": 1,
+      "classes": [
+        "04_membranous_and_gangrenous_cholecystitis"
+      ],
+      "start": "2023-06-29T04:24:05",
+      "end": "2023-06-29T04:49:28",
+      "span_seconds": 1523.0,
+      "span_minutes": 25.38
+    },
+    "e1": {
+      "n_images": 18,
+      "n_distinct_classes": 1,
+      "classes": [
+        "05_perforation"
+      ],
+      "start": "2023-06-29T06:07:42",
+      "end": "2023-06-29T06:09:37",
+      "span_seconds": 115.0,
+      "span_minutes": 1.92
+    },
+    "e10": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "05_perforation"
+      ],
+      "start": "2023-06-29T08:20:29",
+      "end": "2023-06-29T08:26:42",
+      "span_seconds": 373.0,
+      "span_minutes": 6.22
+    },
+    "e11": {
+      "n_images": 72,
+      "n_distinct_classes": 1,
+      "classes": [
+        "05_perforation"
+      ],
+      "start": "2023-06-29T08:27:32",
+      "end": "2023-06-29T08:37:08",
+      "span_seconds": 576.0,
+      "span_minutes": 9.6
+    },
+    "e12": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "05_perforation"
+      ],
+      "start": "2023-06-29T08:38:28",
+      "end": "2023-06-29T08:46:11",
+      "span_seconds": 463.0,
+      "span_minutes": 7.72
+    },
+    "e13": {
+      "n_images": 30,
+      "n_distinct_classes": 1,
+      "classes": [
+        "05_perforation"
+      ],
+      "start": "2023-06-29T08:46:44",
+      "end": "2023-06-29T08:49:54",
+      "span_seconds": 190.0,
+      "span_minutes": 3.17
+    },
+    "e14": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "05_perforation"
+      ],
+      "start": "2023-06-29T08:50:15",
+      "end": "2023-06-29T08:52:35",
+      "span_seconds": 140.0,
+      "span_minutes": 2.33
+    },
+    "e15": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "05_perforation"
+      ],
+      "start": "2023-06-29T08:53:02",
+      "end": "2023-06-29T08:55:24",
+      "span_seconds": 142.0,
+      "span_minutes": 2.37
+    },
+    "e16": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "05_perforation"
+      ],
+      "start": "2023-06-29T08:55:48",
+      "end": "2023-06-29T08:59:04",
+      "span_seconds": 196.0,
+      "span_minutes": 3.27
+    },
+    "e17": {
+      "n_images": 36,
+      "n_distinct_classes": 1,
+      "classes": [
+        "05_perforation"
+      ],
+      "start": "2023-06-29T08:59:37",
+      "end": "2023-06-29T09:05:36",
+      "span_seconds": 359.0,
+      "span_minutes": 5.98
+    },
+    "e18": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "05_perforation"
+      ],
+      "start": "2023-06-29T09:06:31",
+      "end": "2023-06-29T09:12:15",
+      "span_seconds": 344.0,
+      "span_minutes": 5.73
+    },
+    "e19": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "05_perforation"
+      ],
+      "start": "2023-06-29T09:12:34",
+      "end": "2023-06-29T09:19:25",
+      "span_seconds": 411.0,
+      "span_minutes": 6.85
+    },
+    "e2": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "05_perforation"
+      ],
+      "start": "2023-06-29T06:10:01",
+      "end": "2023-06-29T06:12:30",
+      "span_seconds": 149.0,
+      "span_minutes": 2.48
+    },
+    "e20": {
+      "n_images": 84,
+      "n_distinct_classes": 1,
+      "classes": [
+        "05_perforation"
+      ],
+      "start": "2023-06-29T09:19:55",
+      "end": "2023-06-29T10:23:57",
+      "span_seconds": 3842.0,
+      "span_minutes": 64.03
+    },
+    "e21": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "05_perforation"
+      ],
+      "start": "2023-06-29T10:24:31",
+      "end": "2023-06-29T10:27:49",
+      "span_seconds": 198.0,
+      "span_minutes": 3.3
+    },
+    "e22": {
+      "n_images": 36,
+      "n_distinct_classes": 1,
+      "classes": [
+        "05_perforation"
+      ],
+      "start": "2023-06-29T10:28:30",
+      "end": "2023-06-29T10:33:37",
+      "span_seconds": 307.0,
+      "span_minutes": 5.12
+    },
+    "e23": {
+      "n_images": 18,
+      "n_distinct_classes": 1,
+      "classes": [
+        "05_perforation"
+      ],
+      "start": "2023-06-29T10:33:58",
+      "end": "2023-06-29T10:36:02",
+      "span_seconds": 124.0,
+      "span_minutes": 2.07
+    },
+    "e3": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "05_perforation"
+      ],
+      "start": "2023-06-29T06:12:51",
+      "end": "2023-06-29T06:19:36",
+      "span_seconds": 405.0,
+      "span_minutes": 6.75
+    },
+    "e4": {
+      "n_images": 72,
+      "n_distinct_classes": 1,
+      "classes": [
+        "05_perforation"
+      ],
+      "start": "2023-06-29T06:19:59",
+      "end": "2023-06-29T06:28:50",
+      "span_seconds": 531.0,
+      "span_minutes": 8.85
+    },
+    "e5": {
+      "n_images": 36,
+      "n_distinct_classes": 1,
+      "classes": [
+        "05_perforation"
+      ],
+      "start": "2023-06-29T06:29:40",
+      "end": "2023-06-29T07:33:41",
+      "span_seconds": 3841.0,
+      "span_minutes": 64.02
+    },
+    "e6": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "05_perforation"
+      ],
+      "start": "2023-06-29T07:34:43",
+      "end": "2023-06-29T07:37:30",
+      "span_seconds": 167.0,
+      "span_minutes": 2.78
+    },
+    "e7": {
+      "n_images": 120,
+      "n_distinct_classes": 1,
+      "classes": [
+        "05_perforation"
+      ],
+      "start": "2023-06-29T07:37:59",
+      "end": "2023-06-29T07:55:33",
+      "span_seconds": 1054.0,
+      "span_minutes": 17.57
+    },
+    "e8": {
+      "n_images": 72,
+      "n_distinct_classes": 1,
+      "classes": [
+        "05_perforation"
+      ],
+      "start": "2023-06-29T07:58:03",
+      "end": "2023-06-29T08:07:44",
+      "span_seconds": 581.0,
+      "span_minutes": 9.68
+    },
+    "e9": {
+      "n_images": 84,
+      "n_distinct_classes": 1,
+      "classes": [
+        "05_perforation"
+      ],
+      "start": "2023-06-29T08:08:13",
+      "end": "2023-06-29T08:18:59",
+      "span_seconds": 646.0,
+      "span_minutes": 10.77
+    },
+    "f1": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "06_polyps_and_cholesterol_crystals"
+      ],
+      "start": "2023-06-29T15:23:04",
+      "end": "2023-06-29T15:28:44",
+      "span_seconds": 340.0,
+      "span_minutes": 5.67
+    },
+    "f10": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "06_polyps_and_cholesterol_crystals"
+      ],
+      "start": "2023-06-29T18:40:58",
+      "end": "2023-06-29T18:43:54",
+      "span_seconds": 176.0,
+      "span_minutes": 2.93
+    },
+    "f11": {
+      "n_images": 96,
+      "n_distinct_classes": 1,
+      "classes": [
+        "06_polyps_and_cholesterol_crystals"
+      ],
+      "start": "2023-06-29T18:48:10",
+      "end": "2023-06-29T20:25:20",
+      "span_seconds": 5830.0,
+      "span_minutes": 97.17
+    },
+    "f12": {
+      "n_images": 42,
+      "n_distinct_classes": 1,
+      "classes": [
+        "06_polyps_and_cholesterol_crystals"
+      ],
+      "start": "2023-06-29T20:25:53",
+      "end": "2023-06-29T20:32:31",
+      "span_seconds": 398.0,
+      "span_minutes": 6.63
+    },
+    "f13": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "06_polyps_and_cholesterol_crystals"
+      ],
+      "start": "2023-06-29T20:33:02",
+      "end": "2023-06-29T20:35:22",
+      "span_seconds": 140.0,
+      "span_minutes": 2.33
+    },
+    "f14": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "06_polyps_and_cholesterol_crystals"
+      ],
+      "start": "2023-06-29T20:35:44",
+      "end": "2023-06-29T20:40:58",
+      "span_seconds": 314.0,
+      "span_minutes": 5.23
+    },
+    "f15": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "06_polyps_and_cholesterol_crystals"
+      ],
+      "start": "2023-06-29T20:41:21",
+      "end": "2023-06-29T22:08:57",
+      "span_seconds": 5256.0,
+      "span_minutes": 87.6
+    },
+    "f16": {
+      "n_images": 18,
+      "n_distinct_classes": 1,
+      "classes": [
+        "06_polyps_and_cholesterol_crystals"
+      ],
+      "start": "2023-06-29T22:09:47",
+      "end": "2023-06-29T22:11:49",
+      "span_seconds": 122.0,
+      "span_minutes": 2.03
+    },
+    "f17": {
+      "n_images": 30,
+      "n_distinct_classes": 1,
+      "classes": [
+        "06_polyps_and_cholesterol_crystals"
+      ],
+      "start": "2023-06-29T22:12:54",
+      "end": "2023-06-29T22:15:58",
+      "span_seconds": 184.0,
+      "span_minutes": 3.07
+    },
+    "f18": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "06_polyps_and_cholesterol_crystals"
+      ],
+      "start": "2023-06-29T22:16:36",
+      "end": "2023-06-29T22:18:51",
+      "span_seconds": 135.0,
+      "span_minutes": 2.25
+    },
+    "f19": {
+      "n_images": 30,
+      "n_distinct_classes": 1,
+      "classes": [
+        "06_polyps_and_cholesterol_crystals"
+      ],
+      "start": "2023-06-30T06:58:30",
+      "end": "2023-06-30T07:01:55",
+      "span_seconds": 205.0,
+      "span_minutes": 3.42
+    },
+    "f2": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "06_polyps_and_cholesterol_crystals"
+      ],
+      "start": "2023-06-29T15:32:43",
+      "end": "2023-06-29T15:35:50",
+      "span_seconds": 187.0,
+      "span_minutes": 3.12
+    },
+    "f20": {
+      "n_images": 30,
+      "n_distinct_classes": 1,
+      "classes": [
+        "06_polyps_and_cholesterol_crystals"
+      ],
+      "start": "2023-06-30T07:02:17",
+      "end": "2023-06-30T07:15:08",
+      "span_seconds": 771.0,
+      "span_minutes": 12.85
+    },
+    "f21": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "06_polyps_and_cholesterol_crystals"
+      ],
+      "start": "2023-06-30T07:20:00",
+      "end": "2023-06-30T07:22:51",
+      "span_seconds": 171.0,
+      "span_minutes": 2.85
+    },
+    "f22": {
+      "n_images": 30,
+      "n_distinct_classes": 1,
+      "classes": [
+        "06_polyps_and_cholesterol_crystals"
+      ],
+      "start": "2023-06-30T07:24:12",
+      "end": "2023-06-30T07:27:30",
+      "span_seconds": 198.0,
+      "span_minutes": 3.3
+    },
+    "f3": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "06_polyps_and_cholesterol_crystals"
+      ],
+      "start": "2023-06-29T15:38:38",
+      "end": "2023-06-29T15:40:54",
+      "span_seconds": 136.0,
+      "span_minutes": 2.27
+    },
+    "f4": {
+      "n_images": 96,
+      "n_distinct_classes": 1,
+      "classes": [
+        "06_polyps_and_cholesterol_crystals"
+      ],
+      "start": "2023-06-29T16:29:36",
+      "end": "2023-06-29T17:43:24",
+      "span_seconds": 4428.0,
+      "span_minutes": 73.8
+    },
+    "f5": {
+      "n_images": 144,
+      "n_distinct_classes": 1,
+      "classes": [
+        "06_polyps_and_cholesterol_crystals"
+      ],
+      "start": "2023-06-29T17:43:56",
+      "end": "2023-06-29T18:02:58",
+      "span_seconds": 1142.0,
+      "span_minutes": 19.03
+    },
+    "f6": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "06_polyps_and_cholesterol_crystals"
+      ],
+      "start": "2023-06-29T18:03:21",
+      "end": "2023-06-29T18:07:23",
+      "span_seconds": 242.0,
+      "span_minutes": 4.03
+    },
+    "f7": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "06_polyps_and_cholesterol_crystals"
+      ],
+      "start": "2023-06-29T18:15:18",
+      "end": "2023-06-29T18:20:23",
+      "span_seconds": 305.0,
+      "span_minutes": 5.08
+    },
+    "f8": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "06_polyps_and_cholesterol_crystals"
+      ],
+      "start": "2023-06-29T18:21:09",
+      "end": "2023-06-29T18:26:19",
+      "span_seconds": 310.0,
+      "span_minutes": 5.17
+    },
+    "f9": {
+      "n_images": 96,
+      "n_distinct_classes": 1,
+      "classes": [
+        "06_polyps_and_cholesterol_crystals"
+      ],
+      "start": "2023-06-29T18:27:24",
+      "end": "2023-06-29T18:40:35",
+      "span_seconds": 791.0,
+      "span_minutes": 13.18
+    },
+    "g1": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "07_adenomyomatosis"
+      ],
+      "start": "2023-06-30T07:27:51",
+      "end": "2023-06-30T07:35:52",
+      "span_seconds": 481.0,
+      "span_minutes": 8.02
+    },
+    "g10": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "07_adenomyomatosis"
+      ],
+      "start": "2023-06-30T13:15:17",
+      "end": "2023-06-30T13:22:39",
+      "span_seconds": 442.0,
+      "span_minutes": 7.37
+    },
+    "g11": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "07_adenomyomatosis"
+      ],
+      "start": "2023-06-30T13:25:19",
+      "end": "2023-06-30T13:30:47",
+      "span_seconds": 328.0,
+      "span_minutes": 5.47
+    },
+    "g12": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "07_adenomyomatosis"
+      ],
+      "start": "2023-06-30T13:31:09",
+      "end": "2023-06-30T13:36:53",
+      "span_seconds": 344.0,
+      "span_minutes": 5.73
+    },
+    "g13": {
+      "n_images": 36,
+      "n_distinct_classes": 1,
+      "classes": [
+        "07_adenomyomatosis"
+      ],
+      "start": "2023-06-30T13:37:15",
+      "end": "2023-06-30T13:41:34",
+      "span_seconds": 259.0,
+      "span_minutes": 4.32
+    },
+    "g14": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "07_adenomyomatosis"
+      ],
+      "start": "2023-06-30T13:42:00",
+      "end": "2023-06-30T13:47:27",
+      "span_seconds": 327.0,
+      "span_minutes": 5.45
+    },
+    "g15": {
+      "n_images": 96,
+      "n_distinct_classes": 1,
+      "classes": [
+        "07_adenomyomatosis"
+      ],
+      "start": "2023-06-30T13:48:40",
+      "end": "2023-06-30T14:13:54",
+      "span_seconds": 1514.0,
+      "span_minutes": 25.23
+    },
+    "g16": {
+      "n_images": 18,
+      "n_distinct_classes": 1,
+      "classes": [
+        "07_adenomyomatosis"
+      ],
+      "start": "2023-06-30T14:14:27",
+      "end": "2023-06-30T14:16:38",
+      "span_seconds": 131.0,
+      "span_minutes": 2.18
+    },
+    "g17": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "07_adenomyomatosis"
+      ],
+      "start": "2023-06-30T14:16:58",
+      "end": "2023-06-30T14:19:59",
+      "span_seconds": 181.0,
+      "span_minutes": 3.02
+    },
+    "g18": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "07_adenomyomatosis"
+      ],
+      "start": "2023-06-30T14:22:22",
+      "end": "2023-06-30T15:44:02",
+      "span_seconds": 4900.0,
+      "span_minutes": 81.67
+    },
+    "g19": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "07_adenomyomatosis"
+      ],
+      "start": "2023-06-30T15:44:36",
+      "end": "2023-06-30T15:47:32",
+      "span_seconds": 176.0,
+      "span_minutes": 2.93
+    },
+    "g2": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "07_adenomyomatosis"
+      ],
+      "start": "2023-06-30T07:38:18",
+      "end": "2023-06-30T07:40:44",
+      "span_seconds": 146.0,
+      "span_minutes": 2.43
+    },
+    "g20": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "07_adenomyomatosis"
+      ],
+      "start": "2023-06-30T15:48:39",
+      "end": "2023-06-30T15:55:51",
+      "span_seconds": 432.0,
+      "span_minutes": 7.2
+    },
+    "g21": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "07_adenomyomatosis"
+      ],
+      "start": "2023-06-30T15:56:09",
+      "end": "2023-06-30T16:01:38",
+      "span_seconds": 329.0,
+      "span_minutes": 5.48
+    },
+    "g22": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "07_adenomyomatosis"
+      ],
+      "start": "2023-06-30T16:02:22",
+      "end": "2023-06-30T16:15:25",
+      "span_seconds": 783.0,
+      "span_minutes": 13.05
+    },
+    "g23": {
+      "n_images": 54,
+      "n_distinct_classes": 1,
+      "classes": [
+        "07_adenomyomatosis"
+      ],
+      "start": "2023-06-30T16:16:20",
+      "end": "2023-06-30T16:26:04",
+      "span_seconds": 584.0,
+      "span_minutes": 9.73
+    },
+    "g24": {
+      "n_images": 78,
+      "n_distinct_classes": 1,
+      "classes": [
+        "07_adenomyomatosis"
+      ],
+      "start": "2023-06-30T16:28:50",
+      "end": "2023-06-30T16:37:39",
+      "span_seconds": 529.0,
+      "span_minutes": 8.82
+    },
+    "g25": {
+      "n_images": 30,
+      "n_distinct_classes": 1,
+      "classes": [
+        "07_adenomyomatosis"
+      ],
+      "start": "2023-06-30T16:38:01",
+      "end": "2023-06-30T16:41:30",
+      "span_seconds": 209.0,
+      "span_minutes": 3.48
+    },
+    "g26": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "07_adenomyomatosis"
+      ],
+      "start": "2023-06-30T16:54:14",
+      "end": "2023-06-30T17:00:16",
+      "span_seconds": 362.0,
+      "span_minutes": 6.03
+    },
+    "g27": {
+      "n_images": 84,
+      "n_distinct_classes": 1,
+      "classes": [
+        "07_adenomyomatosis"
+      ],
+      "start": "2023-06-30T17:01:45",
+      "end": "2023-06-30T17:52:13",
+      "span_seconds": 3028.0,
+      "span_minutes": 50.47
+    },
+    "g3": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "07_adenomyomatosis"
+      ],
+      "start": "2023-06-30T07:42:20",
+      "end": "2023-06-30T07:47:48",
+      "span_seconds": 328.0,
+      "span_minutes": 5.47
+    },
+    "g4": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "07_adenomyomatosis"
+      ],
+      "start": "2023-06-30T07:48:44",
+      "end": "2023-06-30T07:54:49",
+      "span_seconds": 365.0,
+      "span_minutes": 6.08
+    },
+    "g5": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "07_adenomyomatosis"
+      ],
+      "start": "2023-06-30T07:55:09",
+      "end": "2023-06-30T07:57:54",
+      "span_seconds": 165.0,
+      "span_minutes": 2.75
+    },
+    "g6": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "07_adenomyomatosis"
+      ],
+      "start": "2023-06-30T07:58:21",
+      "end": "2023-06-30T08:03:50",
+      "span_seconds": 329.0,
+      "span_minutes": 5.48
+    },
+    "g7": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "07_adenomyomatosis"
+      ],
+      "start": "2023-06-30T12:50:14",
+      "end": "2023-06-30T12:54:48",
+      "span_seconds": 274.0,
+      "span_minutes": 4.57
+    },
+    "g8": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "07_adenomyomatosis"
+      ],
+      "start": "2023-06-30T12:55:10",
+      "end": "2023-06-30T12:57:49",
+      "span_seconds": 159.0,
+      "span_minutes": 2.65
+    },
+    "g9": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "07_adenomyomatosis"
+      ],
+      "start": "2023-06-30T12:58:41",
+      "end": "2023-06-30T13:14:04",
+      "span_seconds": 923.0,
+      "span_minutes": 15.38
+    },
+    "h1": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "08_carcinoma"
+      ],
+      "start": "2023-06-30T20:24:28",
+      "end": "2023-06-30T20:26:46",
+      "span_seconds": 138.0,
+      "span_minutes": 2.3
+    },
+    "h10": {
+      "n_images": 120,
+      "n_distinct_classes": 1,
+      "classes": [
+        "08_carcinoma"
+      ],
+      "start": "2023-06-30T22:12:47",
+      "end": "2023-06-30T23:10:52",
+      "span_seconds": 3485.0,
+      "span_minutes": 58.08
+    },
+    "h11": {
+      "n_images": 60,
+      "n_distinct_classes": 1,
+      "classes": [
+        "08_carcinoma"
+      ],
+      "start": "2023-06-30T23:11:57",
+      "end": "2023-06-30T23:20:48",
+      "span_seconds": 531.0,
+      "span_minutes": 8.85
+    },
+    "h12": {
+      "n_images": 36,
+      "n_distinct_classes": 1,
+      "classes": [
+        "08_carcinoma"
+      ],
+      "start": "2023-06-30T23:21:51",
+      "end": "2023-06-30T23:27:12",
+      "span_seconds": 321.0,
+      "span_minutes": 5.35
+    },
+    "h13": {
+      "n_images": 66,
+      "n_distinct_classes": 1,
+      "classes": [
+        "08_carcinoma"
+      ],
+      "start": "2023-06-30T23:27:57",
+      "end": "2023-06-30T23:36:35",
+      "span_seconds": 518.0,
+      "span_minutes": 8.63
+    },
+    "h14": {
+      "n_images": 126,
+      "n_distinct_classes": 1,
+      "classes": [
+        "08_carcinoma"
+      ],
+      "start": "2023-06-30T23:37:31",
+      "end": "2023-06-30T23:58:29",
+      "span_seconds": 1258.0,
+      "span_minutes": 20.97
+    },
+    "h15": {
+      "n_images": 84,
+      "n_distinct_classes": 1,
+      "classes": [
+        "08_carcinoma"
+      ],
+      "start": "2023-06-30T23:59:06",
+      "end": "2023-07-01T00:10:44",
+      "span_seconds": 698.0,
+      "span_minutes": 11.63
+    },
+    "h16": {
+      "n_images": 30,
+      "n_distinct_classes": 1,
+      "classes": [
+        "08_carcinoma"
+      ],
+      "start": "2023-07-01T00:11:55",
+      "end": "2023-07-01T00:15:43",
+      "span_seconds": 228.0,
+      "span_minutes": 3.8
+    },
+    "h17": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "08_carcinoma"
+      ],
+      "start": "2023-07-01T00:16:08",
+      "end": "2023-07-01T00:19:41",
+      "span_seconds": 213.0,
+      "span_minutes": 3.55
+    },
+    "h18": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "08_carcinoma"
+      ],
+      "start": "2023-07-01T00:20:05",
+      "end": "2023-07-01T00:22:24",
+      "span_seconds": 139.0,
+      "span_minutes": 2.32
+    },
+    "h19": {
+      "n_images": 42,
+      "n_distinct_classes": 1,
+      "classes": [
+        "08_carcinoma"
+      ],
+      "start": "2023-07-01T00:23:03",
+      "end": "2023-07-01T00:28:38",
+      "span_seconds": 335.0,
+      "span_minutes": 5.58
+    },
+    "h2": {
+      "n_images": 30,
+      "n_distinct_classes": 1,
+      "classes": [
+        "08_carcinoma"
+      ],
+      "start": "2023-06-30T20:27:09",
+      "end": "2023-06-30T20:30:23",
+      "span_seconds": 194.0,
+      "span_minutes": 3.23
+    },
+    "h20": {
+      "n_images": 54,
+      "n_distinct_classes": 1,
+      "classes": [
+        "08_carcinoma"
+      ],
+      "start": "2023-07-01T00:29:08",
+      "end": "2023-07-01T00:36:03",
+      "span_seconds": 415.0,
+      "span_minutes": 6.92
+    },
+    "h21": {
+      "n_images": 90,
+      "n_distinct_classes": 1,
+      "classes": [
+        "08_carcinoma"
+      ],
+      "start": "2023-07-01T00:36:31",
+      "end": "2023-07-01T00:51:30",
+      "span_seconds": 899.0,
+      "span_minutes": 14.98
+    },
+    "h22": {
+      "n_images": 66,
+      "n_distinct_classes": 1,
+      "classes": [
+        "08_carcinoma"
+      ],
+      "start": "2023-07-01T00:52:10",
+      "end": "2023-07-01T01:01:03",
+      "span_seconds": 533.0,
+      "span_minutes": 8.88
+    },
+    "h23": {
+      "n_images": 72,
+      "n_distinct_classes": 1,
+      "classes": [
+        "08_carcinoma"
+      ],
+      "start": "2023-07-01T01:01:26",
+      "end": "2023-07-01T01:12:09",
+      "span_seconds": 643.0,
+      "span_minutes": 10.72
+    },
+    "h24": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "08_carcinoma"
+      ],
+      "start": "2023-07-01T01:13:05",
+      "end": "2023-07-01T01:18:45",
+      "span_seconds": 340.0,
+      "span_minutes": 5.67
+    },
+    "h25": {
+      "n_images": 60,
+      "n_distinct_classes": 1,
+      "classes": [
+        "08_carcinoma"
+      ],
+      "start": "2023-07-01T01:19:10",
+      "end": "2023-07-01T01:28:32",
+      "span_seconds": 562.0,
+      "span_minutes": 9.37
+    },
+    "h26": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "08_carcinoma"
+      ],
+      "start": "2023-07-01T01:31:20",
+      "end": "2023-07-01T01:38:01",
+      "span_seconds": 401.0,
+      "span_minutes": 6.68
+    },
+    "h27": {
+      "n_images": 42,
+      "n_distinct_classes": 1,
+      "classes": [
+        "08_carcinoma"
+      ],
+      "start": "2023-07-01T16:35:09",
+      "end": "2023-07-01T16:41:53",
+      "span_seconds": 404.0,
+      "span_minutes": 6.73
+    },
+    "h3": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "08_carcinoma"
+      ],
+      "start": "2023-06-30T20:30:47",
+      "end": "2023-06-30T20:33:10",
+      "span_seconds": 143.0,
+      "span_minutes": 2.38
+    },
+    "h4": {
+      "n_images": 36,
+      "n_distinct_classes": 1,
+      "classes": [
+        "08_carcinoma"
+      ],
+      "start": "2023-06-30T20:34:38",
+      "end": "2023-06-30T20:42:22",
+      "span_seconds": 464.0,
+      "span_minutes": 7.73
+    },
+    "h5": {
+      "n_images": 42,
+      "n_distinct_classes": 1,
+      "classes": [
+        "08_carcinoma"
+      ],
+      "start": "2023-06-30T20:42:50",
+      "end": "2023-06-30T20:49:36",
+      "span_seconds": 406.0,
+      "span_minutes": 6.77
+    },
+    "h6": {
+      "n_images": 78,
+      "n_distinct_classes": 1,
+      "classes": [
+        "08_carcinoma"
+      ],
+      "start": "2023-06-30T20:49:58",
+      "end": "2023-06-30T21:02:33",
+      "span_seconds": 755.0,
+      "span_minutes": 12.58
+    },
+    "h7": {
+      "n_images": 72,
+      "n_distinct_classes": 1,
+      "classes": [
+        "08_carcinoma"
+      ],
+      "start": "2023-06-30T21:04:20",
+      "end": "2023-06-30T21:12:56",
+      "span_seconds": 516.0,
+      "span_minutes": 8.6
+    },
+    "h8": {
+      "n_images": 72,
+      "n_distinct_classes": 1,
+      "classes": [
+        "08_carcinoma"
+      ],
+      "start": "2023-06-30T21:16:07",
+      "end": "2023-06-30T21:44:42",
+      "span_seconds": 1715.0,
+      "span_minutes": 28.58
+    },
+    "h9": {
+      "n_images": 120,
+      "n_distinct_classes": 1,
+      "classes": [
+        "08_carcinoma"
+      ],
+      "start": "2023-06-30T21:45:03",
+      "end": "2023-06-30T22:12:23",
+      "span_seconds": 1640.0,
+      "span_minutes": 27.33
+    },
+    "i1": {
+      "n_images": 6,
+      "n_distinct_classes": 1,
+      "classes": [
+        "09_various_causes_of_gallbladder_wall_thickening"
+      ],
+      "start": "2023-07-01T16:42:18",
+      "end": "2023-07-01T16:42:50",
+      "span_seconds": 32.0,
+      "span_minutes": 0.53
+    },
+    "i10": {
+      "n_images": 72,
+      "n_distinct_classes": 1,
+      "classes": [
+        "09_various_causes_of_gallbladder_wall_thickening"
+      ],
+      "start": "2023-07-01T23:24:29",
+      "end": "2023-07-02T01:00:53",
+      "span_seconds": 5784.0,
+      "span_minutes": 96.4
+    },
+    "i11": {
+      "n_images": 12,
+      "n_distinct_classes": 1,
+      "classes": [
+        "09_various_causes_of_gallbladder_wall_thickening"
+      ],
+      "start": "2023-07-02T01:07:29",
+      "end": "2023-07-02T01:21:29",
+      "span_seconds": 840.0,
+      "span_minutes": 14.0
+    },
+    "i12": {
+      "n_images": 18,
+      "n_distinct_classes": 1,
+      "classes": [
+        "09_various_causes_of_gallbladder_wall_thickening"
+      ],
+      "start": "2023-07-02T01:22:34",
+      "end": "2023-07-02T01:33:56",
+      "span_seconds": 682.0,
+      "span_minutes": 11.37
+    },
+    "i13": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "09_various_causes_of_gallbladder_wall_thickening"
+      ],
+      "start": "2023-07-02T01:34:18",
+      "end": "2023-07-02T01:36:55",
+      "span_seconds": 157.0,
+      "span_minutes": 2.62
+    },
+    "i14": {
+      "n_images": 78,
+      "n_distinct_classes": 1,
+      "classes": [
+        "09_various_causes_of_gallbladder_wall_thickening"
+      ],
+      "start": "2023-07-02T01:37:55",
+      "end": "2023-07-02T01:52:21",
+      "span_seconds": 866.0,
+      "span_minutes": 14.43
+    },
+    "i15": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "09_various_causes_of_gallbladder_wall_thickening"
+      ],
+      "start": "2023-07-02T01:52:54",
+      "end": "2023-07-02T01:58:43",
+      "span_seconds": 349.0,
+      "span_minutes": 5.82
+    },
+    "i16": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "09_various_causes_of_gallbladder_wall_thickening"
+      ],
+      "start": "2023-07-02T01:59:03",
+      "end": "2023-07-02T02:04:18",
+      "span_seconds": 315.0,
+      "span_minutes": 5.25
+    },
+    "i17": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "09_various_causes_of_gallbladder_wall_thickening"
+      ],
+      "start": "2023-07-02T02:04:37",
+      "end": "2023-07-02T02:07:06",
+      "span_seconds": 149.0,
+      "span_minutes": 2.48
+    },
+    "i18": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "09_various_causes_of_gallbladder_wall_thickening"
+      ],
+      "start": "2023-07-02T02:07:26",
+      "end": "2023-07-02T02:09:53",
+      "span_seconds": 147.0,
+      "span_minutes": 2.45
+    },
+    "i19": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "09_various_causes_of_gallbladder_wall_thickening"
+      ],
+      "start": "2023-07-02T02:10:12",
+      "end": "2023-07-02T02:12:55",
+      "span_seconds": 163.0,
+      "span_minutes": 2.72
+    },
+    "i2": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "09_various_causes_of_gallbladder_wall_thickening"
+      ],
+      "start": "2023-07-01T16:43:15",
+      "end": "2023-07-01T16:46:26",
+      "span_seconds": 191.0,
+      "span_minutes": 3.18
+    },
+    "i20": {
+      "n_images": 42,
+      "n_distinct_classes": 1,
+      "classes": [
+        "09_various_causes_of_gallbladder_wall_thickening"
+      ],
+      "start": "2023-07-02T02:13:41",
+      "end": "2023-07-02T02:18:04",
+      "span_seconds": 263.0,
+      "span_minutes": 4.38
+    },
+    "i21": {
+      "n_images": 48,
+      "n_distinct_classes": 1,
+      "classes": [
+        "09_various_causes_of_gallbladder_wall_thickening"
+      ],
+      "start": "2023-07-02T02:18:22",
+      "end": "2023-07-02T02:23:07",
+      "span_seconds": 285.0,
+      "span_minutes": 4.75
+    },
+    "i22": {
+      "n_images": 54,
+      "n_distinct_classes": 1,
+      "classes": [
+        "09_various_causes_of_gallbladder_wall_thickening"
+      ],
+      "start": "2023-07-02T02:23:25",
+      "end": "2023-07-02T02:28:46",
+      "span_seconds": 321.0,
+      "span_minutes": 5.35
+    },
+    "i23": {
+      "n_images": 18,
+      "n_distinct_classes": 1,
+      "classes": [
+        "09_various_causes_of_gallbladder_wall_thickening"
+      ],
+      "start": "2023-07-02T02:29:05",
+      "end": "2023-07-02T02:30:46",
+      "span_seconds": 101.0,
+      "span_minutes": 1.68
+    },
+    "i24": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "09_various_causes_of_gallbladder_wall_thickening"
+      ],
+      "start": "2023-07-02T02:31:05",
+      "end": "2023-07-02T02:33:32",
+      "span_seconds": 147.0,
+      "span_minutes": 2.45
+    },
+    "i25": {
+      "n_images": 30,
+      "n_distinct_classes": 1,
+      "classes": [
+        "09_various_causes_of_gallbladder_wall_thickening"
+      ],
+      "start": "2023-07-02T02:33:54",
+      "end": "2023-07-02T02:36:46",
+      "span_seconds": 172.0,
+      "span_minutes": 2.87
+    },
+    "i3": {
+      "n_images": 30,
+      "n_distinct_classes": 1,
+      "classes": [
+        "09_various_causes_of_gallbladder_wall_thickening"
+      ],
+      "start": "2023-07-01T16:46:46",
+      "end": "2023-07-01T16:49:55",
+      "span_seconds": 189.0,
+      "span_minutes": 3.15
+    },
+    "i4": {
+      "n_images": 36,
+      "n_distinct_classes": 1,
+      "classes": [
+        "09_various_causes_of_gallbladder_wall_thickening"
+      ],
+      "start": "2023-07-01T16:50:14",
+      "end": "2023-07-01T16:53:53",
+      "span_seconds": 219.0,
+      "span_minutes": 3.65
+    },
+    "i5": {
+      "n_images": 144,
+      "n_distinct_classes": 1,
+      "classes": [
+        "09_various_causes_of_gallbladder_wall_thickening"
+      ],
+      "start": "2023-07-01T16:59:50",
+      "end": "2023-07-01T22:45:22",
+      "span_seconds": 20732.0,
+      "span_minutes": 345.53
+    },
+    "i6": {
+      "n_images": 24,
+      "n_distinct_classes": 1,
+      "classes": [
+        "09_various_causes_of_gallbladder_wall_thickening"
+      ],
+      "start": "2023-07-01T22:46:23",
+      "end": "2023-07-01T22:51:51",
+      "span_seconds": 328.0,
+      "span_minutes": 5.47
+    },
+    "i7": {
+      "n_images": 60,
+      "n_distinct_classes": 1,
+      "classes": [
+        "09_various_causes_of_gallbladder_wall_thickening"
+      ],
+      "start": "2023-07-01T22:52:15",
+      "end": "2023-07-01T22:58:41",
+      "span_seconds": 386.0,
+      "span_minutes": 6.43
+    },
+    "i8": {
+      "n_images": 36,
+      "n_distinct_classes": 1,
+      "classes": [
+        "09_various_causes_of_gallbladder_wall_thickening"
+      ],
+      "start": "2023-07-01T23:01:21",
+      "end": "2023-07-01T23:04:53",
+      "span_seconds": 212.0,
+      "span_minutes": 3.53
+    },
+    "i9": {
+      "n_images": 42,
+      "n_distinct_classes": 1,
+      "classes": [
+        "09_various_causes_of_gallbladder_wall_thickening"
+      ],
+      "start": "2023-07-01T23:05:15",
+      "end": "2023-07-01T23:24:06",
+      "span_seconds": 1131.0,
+      "span_minutes": 18.85
+    }
+  },
+  "within_prefix_span_minutes_summary": {
+    "min": 0.53,
+    "max": 462.37,
+    "median": 5.68
+  },
+  "cross_prefix_same_day_overlap": {
+    "n_pairs_checked": 3312,
+    "n_pairs_overlapping": 0,
+    "overlapping_pairs": []
+  },
+  "note": "EXIF DateTimeOriginal (tag 306) and Software (tag 305) read directly from each image's embedded metadata. If within-prefix time spans are short (minutes, not hours/days) and cross-prefix same-day windows rarely or never overlap, this is direct, non-inferred evidence that a filename prefix corresponds to one contiguous acquisition/export session, closing Review 10's request for quantitative acquisition-characteristic evidence beyond the filename pattern alone. This does not equate to contacting the original dataset providers for their export convention, but it is direct evidence from the images' own embedded metadata rather than an inference from filename structure."
+}

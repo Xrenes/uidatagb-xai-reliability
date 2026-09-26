@@ -1,0 +1,21 @@
+
+============================================================
+  FedGB multi-seed driver
+  Device  : cuda
+  Seeds   : [7, 42, 123]
+  Methods : ['centralized', 'local_only', 'fedavg', 'fedprox']
+  Rounds  : 10  (local_epochs=3)
+============================================================
+
+[Dataset] Loaded 1605 images from ./data/data\training
+[Dataset] Loaded 689 images from ./data/data\validation
+[Split] Client 0: 488 samples | nml=241, bmt=27, stn=92, abn=115, malg=13
+[Split] Client 1: 552 samples | nml=40, bmt=82, stn=245, abn=172, malg=13
+[Split] Client 2: 565 samples | nml=21, bmt=29, stn=62, abn=289, malg=164
+
+[seed 7] client sizes = [488, 552, 565], |test| = 689
+
+  >>> CENTRALIZED (seed=7) starting...
+  <<< wrote C:\Users\HomePC\Documents\resarch - Copy\resarch - Copy\fedgb\outputs\seeds\seed_7\centralized.json (2510.1s)
+
+  >>> LOCAL_ONLY (seed=7) starting...

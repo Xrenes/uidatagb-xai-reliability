@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Stage-2 Pipeline — Live Progress</title>
+<style>
+  :root { color-scheme: light dark; }
+  body {
+    font-family: -apple-system, Segoe UI, Roboto, sans-serif;
+    max-width: 920px;
+    margin: 32px auto;
+    padding: 0 20px;
+    background: #0f1115;
+    color: #e6e6e6;
+  }
+  h1 { font-size: 1.4rem; margin-bottom: 2px; }
+  .sub { color: #9aa0a6; font-size: 0.85rem; margin-bottom: 22px; }
+  .card {
+    background: #171a21;
+    border: 1px solid #2a2e37;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 16px;
+  }
+  .card h2 { font-size: 0.95rem; margin: 0 0 12px; color: #cdd3db; }
+  .steps { display: flex; flex-direction: column; gap: 4px; }
+  .step { display: flex; align-items: center; gap: 10px; padding: 5px 0; font-size: 0.88rem; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; background: #3a3f4b; flex: none; }
+  .dot.active { background: #f5b400; box-shadow: 0 0 8px #f5b40088; animation: pulse 1.2s infinite; }
+  .dot.done { background: #34c759; }
+  .dot.failed { background: #ff453a; }
+  .step .label { flex: 1; }
+  .step .meta { color: #8a909b; font-size: 0.78rem; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.35} }
+  .bar-wrap { background: #23262f; border-radius: 8px; height: 12px; overflow: hidden; margin: 4px 0; }
+  .bar { height: 100%; background: linear-gradient(90deg,#4f8cff,#34c759); width: 0%; transition: width .4s ease; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+  td { padding: 4px 8px; border-bottom: 1px solid #23262f; }
+  td.k { color: #9aa0a6; }
+  td.v { text-align: right; font-variant-numeric: tabular-nums; }
+  select {
+    background: #0b0d11; color: #e6e6e6; border: 1px solid #2a2e37; border-radius: 6px;
+    padding: 5px 8px; font-size: 0.85rem; margin-bottom: 8px;
+  }
+  pre#log {
+    background: #0b0d11;
+    border: 1px solid #23262f;
+    border-radius: 8px;
+    padding: 12px;
+    max-height: 340px;
+    overflow-y: auto;
+    font-size: 0.76rem;
+    line-height: 1.4;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .badge {
+    display: inline-block; font-size: 0.72rem; padding: 1px 7px; border-radius: 20px;
+    background: #23262f; color: #9aa0a6; margin-left: 6px;
+  }
+  .footer { color: #676c76; font-size: 0.75rem; margin-top: 18px; text-align: center; }
+</style>
+</head>
+<body>
+  <h1>Stage-2 Validation Pipeline — Live Progress</h1>
+  <div class="sub">Auto-refreshing every 4s &middot; GPU-bound steps run sequentially on one 4GB card</div>
+
+  <div class="card">
+    <h2>Pipeline stages</h2>
+    <div class="steps" id="steps"></div>
+  </div>
+
+  <div class="card">
+    <h2 id="active-stage-title">Current step</h2>
+    <div class="bar-wrap"><div class="bar" id="bar"></div></div>
+    <div id="barlabel" style="font-size:0.82rem;color:#9aa0a6;">waiting for log output&hellip;</div>
+    <table style="margin-top:10px;">
+      <tr><td class="k">Epoch</td><td class="v" id="v-epoch">&mdash;</td></tr>
+      <tr><td class="k">Latest loss</td><td class="v" id="v-loss">&mdash;</td></tr>
+      <tr><td class="k">Elapsed (this step)</td><td class="v" id="v-elapsed">&mdash;</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>Log viewer <span class="badge" id="log-source-badge">auto</span></h2>
+    <select id="log-picker">
+      <option value="auto">Auto (follow active step)</option>
+      <option value="run_stage2_pipeline.log">run_stage2_pipeline.log (orchestrator)</option>
+      <option value="session_replicate_train.log">session_replicate_train.log</option>
+      <option value="stage2_step_extra_seeds.log">stage2_step_extra_seeds.log</option>
+      <option value="stage2_step_batch_id_diagnostic.log">stage2_step_batch_id_diagnostic.log</option>
+      <option value="stage2_step_classification_figures.log">stage2_step_classification_figures.log</option>
+      <option value="stage2_step_failure_cases.log">stage2_step_failure_cases.log</option>
+      <option value="stage2_step_compute_consistency.log">stage2_step_compute_consistency.log</option>
+      <option value="stage2_step_compute_faithfulness.log">stage2_step_compute_faithfulness.log</option>
+      <option value="stage2_step_compute_stability.log">stage2_step_compute_stability.log</option>
+      <option value="stage2_step_sanity_checks.log">stage2_step_sanity_checks.log</option>
+      <option value="stage2_step_compute_calibration.log">stage2_step_compute_calibration.log</option>
+      <option value="stage2_step_shortcut_audit.log">stage2_step_shortcut_audit.log</option>
+    </select>
+    <pre id="log">(no output yet)</pre>
+  </div>
+
+  <div class="footer">Served from a local http.server rooted at fedgb/ &middot; reads plain log files, no backend logic</div>
+
+<script>
+const STEPS = [
+  {key: "training", label: "Train primary + 3 replicates (Stage-2 split, seed 42)", log: "session_replicate_train.log", kind: "train", totalEpochs: 40 /* 10x4 models, approx */},
+  {key: "extra_seeds", label: "Multi-seed replication (seeds 7, 123)", log: "stage2_step_extra_seeds.log", kind: "train"},
+  {key: "batch_id_diagnostic", label: "Batch-ID shortcut diagnostic", log: "stage2_step_batch_id_diagnostic.log", kind: "train"},
+  {key: "classification_figures", label: "Stage-2 classification figures/tables", log: "stage2_step_classification_figures.log", kind: "infer"},
+  {key: "failure_cases", label: "Stage-2 failure-case analysis", log: "stage2_step_failure_cases.log", kind: "infer"},
+  {key: "compute_consistency", label: "XAI battery: cross-replicate consistency", log: "stage2_step_compute_consistency.log", kind: "infer"},
+  {key: "compute_faithfulness", label: "XAI battery: faithfulness", log: "stage2_step_compute_faithfulness.log", kind: "infer"},
+  {key: "compute_stability", label: "XAI battery: stability", log: "stage2_step_compute_stability.log", kind: "infer"},
+  {key: "sanity_checks", label: "XAI battery: sanity check", log: "stage2_step_sanity_checks.log", kind: "infer"},
+  {key: "compute_calibration", label: "XAI battery: calibration", log: "stage2_step_compute_calibration.log", kind: "infer"},
+  {key: "shortcut_audit", label: "XAI battery: shortcut audit", log: "stage2_step_shortcut_audit.log", kind: "infer"},
+];
+
+let stepStatus = {}; // key -> "pending"|"active"|"done"|"failed"
+STEPS.forEach(s => stepStatus[s.key] = "pending");
+
+async function fetchText(name) {
+  try {
+    const res = await fetch(name + "?t=" + Date.now(), {cache: "no-store"});
+    if (!res.ok) return null;
+    return await res.text();
+  } catch (e) { return null; }
+}
+
+function renderSteps() {
+  const el = document.getElementById("steps");
+  el.innerHTML = "";
+  STEPS.forEach(s => {
+    const status = stepStatus[s.key];
+    const div = document.createElement("div");
+    div.className = "step";
+    div.innerHTML = `<div class="dot ${status === 'active' ? 'active' : status === 'done' ? 'done' : status === 'failed' ? 'failed' : ''}"></div>` +
+                     `<div class="label">${s.label}</div>` +
+                     `<div class="meta">${status}</div>`;
+    el.appendChild(div);
+  });
+}
+
+function parseEpochProgress(text, pattern) {
+  const matches = [...text.matchAll(pattern)];
+  if (!matches.length) return null;
+  return matches[matches.length - 1];
+}
+
+async function tick() {
+  // 1. orchestrator log tells us pipeline-level status
+  const orchLog = await fetchText("run_stage2_pipeline.log") || "";
+  const resultsJson = await fetchText("stage2_pipeline_results.json");
+
+  // training step: active until all 4 checkpoints exist (orchestrator log says so)
+  if (orchLog.includes("All expected checkpoints found.")) {
+    stepStatus.training = "done";
+  } else if (orchLog.length) {
+    stepStatus.training = "active";
+  }
+
+  // subsequent steps: parse "=== START/END: <name> ===" lines
+  const startRe = /=== START: (\w+) ===/g;
+  const endRe = /=== END: (\w+)\s+(OK|FAILED[^=]*)\s+\(/g;
+  let m;
+  const started = new Set(), ended = {};
+  while ((m = startRe.exec(orchLog))) started.add(m[1]);
+  while ((m = endRe.exec(orchLog))) ended[m[1]] = m[2].startsWith("OK") ? "done" : "failed";
+
+  const nameMap = {extra_seeds: "extra_seeds", batch_id_diagnostic: "batch_id_diagnostic",
+                    classification_figures: "classification_figures", failure_cases: "failure_cases",
+                    compute_consistency: "compute_consistency", compute_faithfulness: "compute_faithfulness",
+                    compute_stability: "compute_stability", sanity_checks: "sanity_checks",
+                    compute_calibration: "compute_calibration", shortcut_audit: "shortcut_audit"};
+  for (const [orchKey, stepKey] of Object.entries(nameMap)) {
+    if (ended[orchKey]) stepStatus[stepKey] = ended[orchKey];
+    else if (started.has(orchKey)) stepStatus[stepKey] = "active";
+  }
+
+  renderSteps();
+
+  // find the currently active step for the detail panel
+  let active = STEPS.find(s => stepStatus[s.key] === "active") || STEPS.find(s => stepStatus[s.key] === "pending");
+  document.getElementById("active-stage-title").textContent = active ? ("Current step: " + active.label) : "All steps complete";
+
+  // 2. log viewer
+  const picker = document.getElementById("log-picker");
+  const chosen = picker.value === "auto" ? (active ? active.log : "run_stage2_pipeline.log") : picker.value;
+  document.getElementById("log-source-badge").textContent = chosen;
+  const text = await fetchText(chosen) || "";
+  const logEl = document.getElementById("log");
+  logEl.textContent = text.trim() ? text : "(empty so far)";
+  logEl.scrollTop = logEl.scrollHeight;
+
+  // 3. epoch/loss progress for the active step, if it's a training step
+  const epochMatch = parseEpochProgress(text, /epoch (\d+)\/(\d+)\s+loss=([\d.]+)\s+\((\d+)s elapsed\)/g);
+  if (epochMatch) {
+    document.getElementById("v-epoch").textContent = epochMatch[1] + " / " + epochMatch[2];
+    document.getElementById("v-loss").textContent = epochMatch[3];
+    document.getElementById("v-elapsed").textContent = epochMatch[4] + "s";
+    const pct = Math.min(100, (parseInt(epochMatch[1]) / parseInt(epochMatch[2])) * 100);
+    document.getElementById("bar").style.width = pct + "%";
+    document.getElementById("barlabel").textContent = `epoch ${epochMatch[1]}/${epochMatch[2]} — loss ${epochMatch[3]}`;
+  } else if (text.includes("RESULT") || text.includes("wrote")) {
+    document.getElementById("bar").style.width = "100%";
+    document.getElementById("barlabel").textContent = "step complete";
+  } else {
+    document.getElementById("barlabel").textContent = active ? "running…" : "idle";
+  }
+
+  if (resultsJson) {
+    try {
+      const r = JSON.parse(resultsJson);
+      const allDone = Object.values(r).every(v => v === true);
+      if (allDone) {
+        document.getElementById("active-stage-title").textContent = "✅ Full pipeline complete";
+        document.getElementById("barlabel").textContent = "all steps finished successfully";
+      }
+    } catch (e) {}
+  }
+}
+
+tick();
+setInterval(tick, 4000);
+</script>
+</body>
+</html>

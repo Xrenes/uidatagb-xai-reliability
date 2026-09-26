@@ -1,0 +1,27 @@
+[Dataset] Loaded 7708 images from ./data/uidatagb_sessioncorrected\training
+[Dataset] Loaded 2984 images from ./data/uidatagb_sessioncorrected\validation
+[info] loaded existing seed=42 result: acc=0.3100
+[seed=7] epoch 1/10 loss=1.0337 (659s elapsed)
+[seed=7] epoch 2/10 loss=0.1836 (1790s elapsed)
+[seed=7] epoch 3/10 loss=0.1142 (2393s elapsed)
+[seed=7] epoch 4/10 loss=0.0708 (2996s elapsed)
+[seed=7] epoch 5/10 loss=0.0636 (3599s elapsed)
+[seed=7] epoch 6/10 loss=0.0445 (4203s elapsed)
+[seed=7] epoch 7/10 loss=0.0507 (5737s elapsed)
+[seed=7] epoch 8/10 loss=0.0396 (6735s elapsed)
+[seed=7] epoch 9/10 loss=0.0725 (7733s elapsed)
+[seed=7] epoch 10/10 loss=0.0273 (8221s elapsed)
+[seed=7] accuracy=0.3690 f1=0.3717 auc=0.7721
+[seed=123] epoch 1/10 loss=1.0079 (329s elapsed)
+[seed=123] epoch 2/10 loss=0.1851 (4499s elapsed)
+[seed=123] epoch 3/10 loss=0.0853 (4798s elapsed)
+[seed=123] epoch 4/10 loss=0.1082 (5326s elapsed)
+[seed=123] epoch 5/10 loss=0.0622 (6335s elapsed)
+[seed=123] epoch 6/10 loss=0.0488 (7339s elapsed)
+[seed=123] epoch 7/10 loss=0.0374 (8342s elapsed)
+[seed=123] epoch 8/10 loss=0.0573 (9341s elapsed)
+[seed=123] epoch 9/10 loss=0.0342 (10343s elapsed)
+[seed=123] epoch 10/10 loss=0.0451 (11345s elapsed)
+[seed=123] accuracy=0.3234 f1=0.3221 auc=0.7387
+
+[multiseed] 3-seed Stage-2 summary: accuracy=0.3341+/-0.0252  F1=0.3294+/-0.0320  AUC=0.7486+/-0.0166

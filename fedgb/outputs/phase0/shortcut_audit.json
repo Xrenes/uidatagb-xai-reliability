@@ -1,0 +1,13 @@
+{
+  "margin_frac": 0.12,
+  "accuracy_full": 0.9304729094895083,
+  "accuracy_cropped": 0.7121829000939556,
+  "accuracy_delta": -0.21829000939555276,
+  "macro_f1_full": 0.9303426338405578,
+  "macro_f1_cropped": 0.703906567644297,
+  "border_energy_mean": 0.21781821138795193,
+  "border_energy_std": 0.049110947726989214,
+  "ring_area_frac": 0.4103954081632653,
+  "n_cam_images": 216,
+  "interpretation": "Cropping away the outer 12% margin changes accuracy by -0.218 (0.930 -> 0.712), and only 21.8% of Grad-CAM++ attribution mass falls in that margin ring (which covers 41% of the frame). Both indicate the model relies on central anatomy rather than margin text/border shortcuts."
+}

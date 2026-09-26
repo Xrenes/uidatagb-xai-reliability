@@ -1,0 +1,36 @@
+{
+  "threshold_hamming_bits": 8,
+  "n_raw_images": 10692,
+  "n_clusters_true_effective_n": 2993,
+  "n_mixed_class_clusters": 37,
+  "cluster_size_max": 27,
+  "cluster_size_median": 3,
+  "n_singleton_clusters": 10,
+  "files_moved": 4509,
+  "final_train_total": 7499,
+  "final_val_total": 3193,
+  "final_counts": {
+    "training": {
+      "01_gallstones": 927,
+      "02_abdomen_and_retroperitoneum": 807,
+      "03_cholecystitis": 795,
+      "04_membranous_and_gangrenous_cholecystitis": 868,
+      "05_perforation": 742,
+      "06_polyps_and_cholesterol_crystals": 734,
+      "07_adenomyomatosis": 813,
+      "08_carcinoma": 1120,
+      "09_various_causes_of_gallbladder_wall_thickening": 693
+    },
+    "validation": {
+      "01_gallstones": 399,
+      "02_abdomen_and_retroperitoneum": 363,
+      "03_cholecystitis": 351,
+      "04_membranous_and_gangrenous_cholecystitis": 356,
+      "05_perforation": 320,
+      "06_polyps_and_cholesterol_crystals": 286,
+      "07_adenomyomatosis": 351,
+      "08_carcinoma": 470,
+      "09_various_causes_of_gallbladder_wall_thickening": 297
+    }
+  }
+}

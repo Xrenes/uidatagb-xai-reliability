@@ -1,0 +1,14 @@
+[batch-id] 27 total batches in 08_carcinoma, 23 with >= 25 images
+[batch-id] using 10 batches: [('h14', 126), ('h10', 120), ('h9', 120), ('h21', 90), ('h15', 84), ('h6', 78), ('h23', 72), ('h7', 72), ('h8', 72), ('h13', 66)]
+[batch-id] train=629 val=271 images (image-level split within each batch -- this task deliberately is NOT leakage-audited, since it tests same-batch discriminability, not generalisation to unseen batches)
+[batch-id] epoch 1/6 loss=2.0531 (64s elapsed)
+[batch-id] epoch 2/6 loss=0.9610 (99s elapsed)
+[batch-id] epoch 3/6 loss=0.2288 (134s elapsed)
+[batch-id] epoch 4/6 loss=0.0746 (169s elapsed)
+[batch-id] epoch 5/6 loss=0.0501 (204s elapsed)
+[batch-id] epoch 6/6 loss=0.0430 (239s elapsed)
+
+[batch-id] === RESULT ===
+  10-way batch-ID accuracy = 1.0000  (chance = 0.1000, 10.0x chance)
+  All images share ONE disease label (08_carcinoma); this accuracy is therefore attributable to a non-anatomical, batch-correlated signature, not diagnosis.
+[batch-id] wrote ./outputs/phase0/batch_id_diagnostic.json, ./outputs/figures/batch_id_diagnostic.png, ./outputs/figures/batch_id_gradcam_gallery.png (total 250s)

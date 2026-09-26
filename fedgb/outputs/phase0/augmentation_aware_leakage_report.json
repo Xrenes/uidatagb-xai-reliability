@@ -1,0 +1,16 @@
+{
+  "n_images": 10692,
+  "note_on_relationship_to_prior_correction": "Prior single-orientation pHash pipeline already clustered the full corpus at Hamming<=8 and re-split at the cluster level (see dedupe_split_report.json), so ANY cross-split pair found here that single-orientation pHash also would have caught is not actually 'new' leakage -- it is evidence the CURRENT data already reflects that correction. What matters is whether dihedral/embedding-only matches (pairs NOT within Hamming<=8 at single orientation) still cross the split.",
+  "pass_1_dihedral_phash": {
+    "threshold_hamming_bits": 8,
+    "n_candidate_pairs": 38320,
+    "n_cross_split_pairs": 9751,
+    "n_cross_class_pairs": 1112
+  },
+  "pass_2_cnn_embedding": {
+    "cosine_similarity_threshold": 0.95,
+    "n_candidate_pairs": 30222,
+    "n_cross_split_pairs": 7295,
+    "n_cross_class_pairs": 255
+  }
+}
