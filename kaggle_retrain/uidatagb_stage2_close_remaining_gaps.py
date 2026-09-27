@@ -373,12 +373,46 @@ def gap_a_phash_threshold_accuracy(device, thresholds=(4, 6, 8, 10, 12), epochs=
     items_on_disk = list_all_images()
     if cached_paths != [it[0] for it in items_on_disk]:
         log("[gap_a] WARNING: cached item order does not match current disk "
-            "listing; reconstructing items from the cache's own path list "
-            "so hash indices stay aligned")
+            "listing (the cache was generated on a different machine, so "
+            "its paths are stale); reconstructing items from the cache's "
+            "own path list, REBASED onto this session's real DATA_ROOT, "
+            "so hash indices stay aligned but the resulting paths are "
+            "actually openable here. Any cached entry that cannot be "
+            "rebased to a real file is dropped from BOTH items and the "
+            "hashes array together (by index), so the two stay aligned -- "
+            "dropping only from items while leaving hashes at its "
+            "original length would silently desync hashes[i] from "
+            "items[i] for every i past the first drop.")
         items = []
+        keep_mask = []
+        n_unmatched = 0
         for p in cached_paths:
-            cname = next((c for c in CLASS_NAMES if f"/{c}/" in p.replace("\\", "/")), "UNKNOWN")
-            items.append((p, cname, None))
+            norm = p.replace("\\", "/")
+            parts = norm.split("/")
+            rel_parts = None
+            for i, part in enumerate(parts):
+                if part.lower() in ("training", "validation"):
+                    rel_parts = parts[i:]
+                    break
+            if rel_parts is None:
+                n_unmatched += 1
+                keep_mask.append(False)
+                continue
+            real_path = os.path.join(DATA_ROOT, *rel_parts)
+            if not os.path.exists(real_path):
+                keep_mask.append(False)
+                continue
+            cname = next((c for c in CLASS_NAMES if c in rel_parts), "UNKNOWN")
+            items.append((real_path, cname, rel_parts[0]))
+            keep_mask.append(True)
+        n_dropped = len(keep_mask) - sum(keep_mask)
+        if n_dropped:
+            log(f"[gap_a] WARNING: {n_dropped}/{len(keep_mask)} cached "
+                f"entries dropped ({n_unmatched} had no training/validation "
+                f"segment, {n_dropped - n_unmatched} rebased to a path "
+                f"that does not exist on disk); filtering hashes to match "
+                f"by the same mask so hashes[i] still lines up with items[i]")
+            hashes = hashes[np.array(keep_mask)]
     else:
         items = items_on_disk
 
