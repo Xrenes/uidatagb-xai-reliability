@@ -70,24 +70,36 @@ def log(msg):
 
 
 def ensure_fedgb_code():
-    """Prefer an already-attached fedgb-code(-v2) dataset if present
-    (avoids a network dependency); otherwise fetch the needed files
-    directly from GitHub via wget, since the group-aware bootstrap
-    changes are already pushed there."""
+    """ALWAYS fetch the three group-aware-bootstrap scripts (plus their
+    import dependencies) fresh from GitHub, even if a fedgb-code(-v2)
+    dataset is attached -- an attached dataset is a point-in-time upload
+    and will be stale relative to this script's own code changes unless
+    manually re-uploaded after every push, which is exactly the kind of
+    silent-staleness bug that has bitten this session before (the group-
+    aware bootstrap fields silently missing from a first run traced back
+    to precisely this: an attached fedgb-code-v2 dataset pre-dating the
+    bootstrap code, used instead of the updated GitHub version). If an
+    attached dataset exists, use it ONLY for any *other* fedgb files that
+    might be imported transitively but aren't in DEPENDENCIES below."""
+    os.makedirs(FEDGB_DIR, exist_ok=True)
     for slug in ("fedgb-code-v2", "fedgb-code"):
         candidate = f"/kaggle/input/datasets/sayed227/{slug}/fedgb"
         if os.path.isdir(candidate):
-            log(f"[setup] found attached dataset at {candidate}, copying")
+            log(f"[setup] found attached dataset at {candidate}; copying it "
+                f"as a BASE, then overwriting the scripts this run actually "
+                f"needs with fresh GitHub versions so it can't be stale")
             shutil.copytree(candidate, FEDGB_DIR, dirs_exist_ok=True)
-            return
-    log("[setup] no fedgb-code dataset attached; fetching updated scripts "
-        "directly from GitHub instead")
-    os.makedirs(FEDGB_DIR, exist_ok=True)
+            break
+    else:
+        log("[setup] no fedgb-code dataset attached; that's fine, fetching "
+            "everything needed fresh from GitHub")
+
     for fname in SCRIPTS_TO_RUN + DEPENDENCIES:
         url = f"{GITHUB_RAW}/{fname}"
         dest = os.path.join(FEDGB_DIR, fname)
         urllib.request.urlretrieve(url, dest)
-        log(f"[setup] fetched {fname} ({os.path.getsize(dest)} bytes)")
+        log(f"[setup] fetched fresh {fname} from GitHub ({os.path.getsize(dest)} bytes), "
+            f"overwriting any stale attached-dataset copy")
 
 
 def ensure_cluster_manifest():
