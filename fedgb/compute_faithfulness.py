@@ -39,6 +39,31 @@ PER_CLASS = 16          # 16 x 9 classes = 144 images
 STEPS = 20              # number of reveal/removal steps
 N_PIX = 224 * 224
 
+HERE = os.path.dirname(os.path.abspath(__file__))
+CLUSTER_MANIFEST_PATH = os.environ.get(
+    "P0_CLUSTER_MANIFEST",
+    os.path.join(HERE, "outputs", "phase0", "dihedral_cluster_manifest.json"))
+
+
+def _rel_key(path):
+    norm = path.replace("\\", "/")
+    parts = norm.split("/")
+    for i, p in enumerate(parts):
+        if p.lower() in ("training", "validation"):
+            return "/".join(parts[i:])
+    return "/".join(parts[-3:])
+
+
+def load_cluster_lookup():
+    if not os.path.exists(CLUSTER_MANIFEST_PATH):
+        print(f"[faithfulness] WARNING: cluster manifest not found at "
+              f"{CLUSTER_MANIFEST_PATH}; group-aware bootstrap will be "
+              f"skipped, only image-level CI reported.")
+        return {}
+    with open(CLUSTER_MANIFEST_PATH) as f:
+        manifest = json.load(f)
+    return {_rel_key(p): cid for p, cid in manifest["path_to_cluster_id"].items()}
+
 
 def make_baseline(x0):
     """Blurred version of the image, used as deletion target / insertion start."""
@@ -84,6 +109,11 @@ def main():
     model = load_primary_model()
     ds = val_dataset()
     idxs = stratified_indices(ds, PER_CLASS)
+    cluster_lookup = load_cluster_lookup()
+    image_cluster_ids = [
+        cluster_lookup.get(_rel_key(ds.samples[i][0]), f"singleton_{i}")
+        for i in idxs
+    ]
 
     explainers = {
         "Grad-CAM": lambda: GradCAM(model, get_target_layer(model)),
@@ -146,12 +176,30 @@ def main():
         lo, hi = np.percentile(boot_gaps, [2.5, 97.5])
         return float(lo), float(hi)
 
+    def group_bootstrap_gap_ci(del_arr, ins_arr, cluster_ids):
+        # Same group-aware correction as compute_consistency.py: resample
+        # whole dihedral-hash duplicate clusters, not individual images.
+        unique_clusters = sorted(set(cluster_ids))
+        if len(unique_clusters) < 2:
+            return None
+        cluster_to_indices = {c: [i for i, cid in enumerate(cluster_ids) if cid == c]
+                               for c in unique_clusters}
+        n_clusters = len(unique_clusters)
+        boot_gaps = []
+        for _ in range(N_BOOT):
+            sampled_clusters = boot_rng.choice(unique_clusters, size=n_clusters, replace=True)
+            sample_idx = [i for c in sampled_clusters for i in cluster_to_indices[c]]
+            boot_gaps.append(ins_arr[sample_idx].mean() - del_arr[sample_idx].mean())
+        lo, hi = np.percentile(boot_gaps, [2.5, 97.5])
+        return float(lo), float(hi), n_clusters
+
     summary = {"n_images": len(idxs), "steps": STEPS,
                "bootstrap_n_resamples": N_BOOT, "methods": {}}
     for m in list(explainers) + ["Random"]:
         d = np.array(res[m]["deletion"])
         ins = np.array(res[m]["insertion"])
         gap_ci_lo, gap_ci_hi = bootstrap_gap_ci(d, ins)
+        group_result = group_bootstrap_gap_ci(d, ins, image_cluster_ids)
         summary["methods"][m] = {
             "deletion_auc_mean": float(d.mean()), "deletion_auc_std": float(d.std()),
             "insertion_auc_mean": float(ins.mean()), "insertion_auc_std": float(ins.std()),
@@ -160,9 +208,21 @@ def main():
             "faithfulness_gap_bootstrap_95ci": [gap_ci_lo, gap_ci_hi],
         }
         s = summary["methods"][m]
-        print(f"[faithfulness] {m:11s} del-AUC={s['deletion_auc_mean']:.3f} "
-              f"ins-AUC={s['insertion_auc_mean']:.3f} gap={s['faithfulness_gap']:.3f} "
-              f"95% CI [{gap_ci_lo:.3f}, {gap_ci_hi:.3f}]")
+        if group_result is not None:
+            g_lo, g_hi, n_clusters = group_result
+            s["faithfulness_gap_group_bootstrap_95ci"] = [g_lo, g_hi]
+            s["group_bootstrap_n_clusters"] = n_clusters
+            width_ratio = (g_hi - g_lo) / (gap_ci_hi - gap_ci_lo) if gap_ci_hi > gap_ci_lo else None
+            s["group_vs_image_width_ratio"] = width_ratio
+            print(f"[faithfulness] {m:11s} del-AUC={s['deletion_auc_mean']:.3f} "
+                  f"ins-AUC={s['insertion_auc_mean']:.3f} gap={s['faithfulness_gap']:.3f} "
+                  f"image-CI [{gap_ci_lo:.3f}, {gap_ci_hi:.3f}] "
+                  f"group-CI [{g_lo:.3f}, {g_hi:.3f}] ({n_clusters} clusters, "
+                  f"{width_ratio:.2f}x width)")
+        else:
+            print(f"[faithfulness] {m:11s} del-AUC={s['deletion_auc_mean']:.3f} "
+                  f"ins-AUC={s['insertion_auc_mean']:.3f} gap={s['faithfulness_gap']:.3f} "
+                  f"95% CI [{gap_ci_lo:.3f}, {gap_ci_hi:.3f}] (group bootstrap skipped)")
 
     with open(os.path.join(OUT_DIR, "faithfulness.json"), "w") as f:
         json.dump(summary, f, indent=2)

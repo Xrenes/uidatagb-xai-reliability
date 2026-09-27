@@ -33,6 +33,31 @@ SHIFT = 10      # pixels for translation test
 BRIGHT = 1.15   # brightness multiplier
 NOISE = 0.03    # gaussian noise std (in [0,1] pixel space)
 
+HERE = os.path.dirname(os.path.abspath(__file__))
+CLUSTER_MANIFEST_PATH = os.environ.get(
+    "P0_CLUSTER_MANIFEST",
+    os.path.join(HERE, "outputs", "phase0", "dihedral_cluster_manifest.json"))
+
+
+def _rel_key(path):
+    norm = path.replace("\\", "/")
+    parts = norm.split("/")
+    for i, p in enumerate(parts):
+        if p.lower() in ("training", "validation"):
+            return "/".join(parts[i:])
+    return "/".join(parts[-3:])
+
+
+def load_cluster_lookup():
+    if not os.path.exists(CLUSTER_MANIFEST_PATH):
+        print(f"[stability] WARNING: cluster manifest not found at "
+              f"{CLUSTER_MANIFEST_PATH}; group-aware bootstrap will be "
+              f"skipped, only image-level CI reported.")
+        return {}
+    with open(CLUSTER_MANIFEST_PATH) as f:
+        manifest = json.load(f)
+    return {_rel_key(p): cid for p, cid in manifest["path_to_cluster_id"].items()}
+
 
 def gcpp(model, cam, x_norm, target_class):
     hm, pred, _ = cam.generate(x_norm, target_class=target_class)
@@ -54,6 +79,11 @@ def main():
     cam = GradCAMPlusPlus(model, get_target_layer(model))
     ds = val_dataset()
     idxs = stratified_indices(ds, PER_CLASS)
+    cluster_lookup = load_cluster_lookup()
+    image_cluster_ids = [
+        cluster_lookup.get(_rel_key(ds.samples[i][0]), f"singleton_{i}")
+        for i in idxs
+    ]
 
     transforms_list = ["brightness", "translation", "noise"]
     agg = {t: {"ssim": [], "pearson": [], "topk_iou": [], "pred_same": []}
@@ -106,6 +136,25 @@ def main():
         lo, hi = np.percentile(boot_means, [2.5, 97.5])
         return float(lo), float(hi)
 
+    def group_bootstrap_ci(values, cluster_ids):
+        # Same group-aware correction as compute_consistency.py /
+        # compute_faithfulness.py: resample whole dihedral-hash duplicate
+        # clusters rather than individual images.
+        arr = np.array(values)
+        unique_clusters = sorted(set(cluster_ids))
+        if len(unique_clusters) < 2:
+            return None
+        cluster_to_indices = {c: [i for i, cid in enumerate(cluster_ids) if cid == c]
+                               for c in unique_clusters}
+        n_clusters = len(unique_clusters)
+        boot_means = []
+        for _ in range(N_BOOT):
+            sampled_clusters = boot_rng.choice(unique_clusters, size=n_clusters, replace=True)
+            sample_idx = [i for c in sampled_clusters for i in cluster_to_indices[c]]
+            boot_means.append(arr[sample_idx].mean())
+        lo, hi = np.percentile(boot_means, [2.5, 97.5])
+        return float(lo), float(hi), n_clusters
+
     results = {"n_images": len(idxs), "shift_px": SHIFT,
                "brightness_mult": BRIGHT, "noise_std": NOISE,
                "bootstrap_n_resamples": N_BOOT, "transforms": {}}
@@ -113,6 +162,7 @@ def main():
         ssim_ci = bootstrap_ci(agg[t]["ssim"])
         pearson_ci = bootstrap_ci(agg[t]["pearson"])
         iou_ci = bootstrap_ci(agg[t]["topk_iou"])
+        ssim_group = group_bootstrap_ci(agg[t]["ssim"], image_cluster_ids)
         results["transforms"][t] = {
             "ssim_mean": float(np.mean(agg[t]["ssim"])),
             "ssim_std": float(np.std(agg[t]["ssim"])),
@@ -126,9 +176,20 @@ def main():
             "pred_consistency": float(np.mean(agg[t]["pred_same"])),
         }
         m = results["transforms"][t]
-        print(f"[stability] {t:12s} SSIM={m['ssim_mean']:.3f} [{ssim_ci[0]:.3f},{ssim_ci[1]:.3f}] "
-              f"Pearson={m['pearson_mean']:.3f} topkIoU={m['topk_iou_mean']:.3f} "
-              f"pred-consistency={m['pred_consistency']:.3f}")
+        if ssim_group is not None:
+            g_lo, g_hi, n_clusters = ssim_group
+            m["ssim_group_bootstrap_95ci"] = [g_lo, g_hi]
+            m["group_bootstrap_n_clusters"] = n_clusters
+            width_ratio = (g_hi - g_lo) / (ssim_ci[1] - ssim_ci[0]) if ssim_ci[1] > ssim_ci[0] else None
+            m["group_vs_image_width_ratio"] = width_ratio
+            print(f"[stability] {t:12s} SSIM={m['ssim_mean']:.3f} image-CI [{ssim_ci[0]:.3f},{ssim_ci[1]:.3f}] "
+                  f"group-CI [{g_lo:.3f},{g_hi:.3f}] ({n_clusters} clusters, {width_ratio:.2f}x width) "
+                  f"Pearson={m['pearson_mean']:.3f} topkIoU={m['topk_iou_mean']:.3f} "
+                  f"pred-consistency={m['pred_consistency']:.3f}")
+        else:
+            print(f"[stability] {t:12s} SSIM={m['ssim_mean']:.3f} [{ssim_ci[0]:.3f},{ssim_ci[1]:.3f}] "
+                  f"Pearson={m['pearson_mean']:.3f} topkIoU={m['topk_iou_mean']:.3f} "
+                  f"pred-consistency={m['pred_consistency']:.3f} (group bootstrap skipped)")
 
     with open(os.path.join(OUT_DIR, "stability.json"), "w") as f:
         json.dump(results, f, indent=2)

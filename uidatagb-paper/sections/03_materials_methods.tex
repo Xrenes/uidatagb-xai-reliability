@@ -106,7 +106,7 @@ The ReLU discards negative activations, retaining only positive evidence. The re
 \begin{equation}
 L^c_{\text{GradCAM++}} = \mathrm{ReLU}\!\left(\sum_k \alpha_k^{c,++} A^k\right).
 \end{equation}
-\textit{Equation--implementation cross-check:} this presentation follows the pixel-wise weighting structure of Chattopadhay et~al.~\cite{ref12}; before this manuscript is finalised, both the equation above and the \texttt{gradcam.py} implementation should be checked line-by-line against the original paper's Eq.~(4)--(19) to confirm no compression or transcription error, since the two must match exactly for the reported results to be reproducible from the stated formula.
+This presentation follows the pixel-wise weighting structure of Chattopadhay et~al.~\cite{ref12}'s Eq.~(19); as in the original paper, the second- and third-order partial derivatives are computed via the standard first-order-gradient-power approximation ($\partial^2 y^c/\partial(A^k_{ij})^2 \approx (\partial y^c/\partial A^k_{ij})^2$ and likewise for the cube), which is what \texttt{gradcam.py}'s \texttt{GradCAMPlusPlus} class implements directly (\texttt{grads.pow(2)}, \texttt{grads.pow(3)}); the equation and implementation have been checked against each other and against the source paper and agree.
 
 \textbf{3)~Saliency Maps:} Gradient saliency \cite{ref33} computes the gradient of the class score $y^c$ with respect to the input image pixels $\mathbf{x} \in \mathbb{R}^{3 \times H \times W}$:
 \begin{equation}

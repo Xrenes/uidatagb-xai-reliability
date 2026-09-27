@@ -41,6 +41,39 @@ else:
 PER_CLASS = 8  # 8 x 9 classes = 72 images
 SEED = 42
 
+# Cluster manifest for group-aware bootstrap: maps each image's relative
+# path to its dihedral-hash duplicate-cluster id, so the bootstrap can
+# resample whole clusters rather than individual images -- the same
+# correction already applied to classification-accuracy CIs in
+# Section IV.1 (a review noted XAI CIs had not received the same
+# treatment, since correlated near-duplicate frames within a cluster can
+# make an image-level bootstrap understate true uncertainty).
+CLUSTER_MANIFEST_PATH = os.environ.get(
+    "P0_CLUSTER_MANIFEST",
+    os.path.join(HERE, "outputs", "phase0", "dihedral_cluster_manifest.json"))
+
+
+def _rel_key(path):
+    norm = path.replace("\\", "/")
+    parts = norm.split("/")
+    for i, p in enumerate(parts):
+        if p.lower() in ("training", "validation"):
+            return "/".join(parts[i:])
+    return "/".join(parts[-3:])
+
+
+def load_cluster_lookup():
+    """Returns {rel_path: cluster_id}, or {} if the manifest isn't found
+    (group-aware bootstrap is then skipped, image-level CI still reported)."""
+    if not os.path.exists(CLUSTER_MANIFEST_PATH):
+        print(f"[consistency] WARNING: cluster manifest not found at "
+              f"{CLUSTER_MANIFEST_PATH}; group-aware bootstrap will be "
+              f"skipped, only image-level CI reported.")
+        return {}
+    with open(CLUSTER_MANIFEST_PATH) as f:
+        manifest = json.load(f)
+    return {_rel_key(p): cid for p, cid in manifest["path_to_cluster_id"].items()}
+
 
 def to_tensor(img):
     t = torch.tensor(np.array(img.resize((224, 224))).transpose(2, 0, 1) / 255.0,
@@ -73,6 +106,15 @@ def main():
     idxs.sort()
     print(f"[consistency] evaluating {len(idxs)} stratified images "
           f"({PER_CLASS}/class x {len(CLASS_NAMES)} classes)")
+
+    cluster_lookup = load_cluster_lookup()
+    # cluster id per sampled image, aligned by position with idxs/scores
+    # (falls back to a unique singleton id per image if no manifest entry,
+    # so those images bootstrap as their own group rather than crashing)
+    image_cluster_ids = [
+        cluster_lookup.get(_rel_key(ds.samples[i][0]), f"singleton_{i}")
+        for i in idxs
+    ]
 
     methods = ["Grad-CAM", "Grad-CAM++", "Saliency", "Eigen-CAM", "Score-CAM"]
     # scores[method][replicate_idx] -> list of per-image cosine overlaps
@@ -141,12 +183,36 @@ def main():
         lo, hi = np.percentile(boot_means, [2.5, 97.5])
         return float(lo), float(hi)
 
+    def group_bootstrap_ci(per_image_scores_by_replicate, cluster_ids):
+        # Resamples whole CLUSTERS with replacement rather than individual
+        # images, so images sharing a dihedral-hash duplicate cluster move
+        # together in each resample -- the group-aware correction applied
+        # to classification-accuracy CIs in Section IV.1, extended here to
+        # the XAI consistency metric. Returns None if there's only one
+        # cluster (degenerate case, can't usefully resample).
+        n_images = len(per_image_scores_by_replicate[0])
+        arr = np.array(per_image_scores_by_replicate)  # shape (3, n_images)
+        unique_clusters = sorted(set(cluster_ids))
+        if len(unique_clusters) < 2:
+            return None
+        cluster_to_indices = {c: [i for i, cid in enumerate(cluster_ids) if cid == c]
+                               for c in unique_clusters}
+        n_clusters = len(unique_clusters)
+        boot_means = []
+        for _ in range(N_BOOT):
+            sampled_clusters = boot_rng.choice(unique_clusters, size=n_clusters, replace=True)
+            sample_idx = [i for c in sampled_clusters for i in cluster_to_indices[c]]
+            boot_means.append(arr[:, sample_idx].mean())
+        lo, hi = np.percentile(boot_means, [2.5, 97.5])
+        return float(lo), float(hi), n_clusters
+
     summary = {"n_images": len(idxs), "per_class_n": PER_CLASS,
                "bootstrap_n_resamples": N_BOOT, "methods": {}}
     for method in methods:
         all_scores = [o for r in scores[method] for o in r]
         per_rep = [float(np.mean(r)) for r in scores[method]]
         ci_lo, ci_hi = bootstrap_ci(scores[method])
+        group_result = group_bootstrap_ci(scores[method], image_cluster_ids)
         summary["methods"][method] = {
             "macro_mean": float(np.mean(all_scores)),
             "macro_std": float(np.std(all_scores)),
@@ -156,9 +222,22 @@ def main():
             "per_class_mean": {c: float(np.mean(v)) if v else None
                               for c, v in per_class_scores[method].items()},
         }
-        print(f"[consistency] {method:12s} macro O^c = {summary['methods'][method]['macro_mean']:.3f} "
-              f"+/- {summary['methods'][method]['macro_std']:.3f}  "
-              f"95% CI [{ci_lo:.3f}, {ci_hi:.3f}]")
+        if group_result is not None:
+            g_lo, g_hi, n_clusters = group_result
+            summary["methods"][method]["group_bootstrap_95ci"] = [g_lo, g_hi]
+            summary["methods"][method]["group_bootstrap_n_clusters"] = n_clusters
+            width_ratio = (g_hi - g_lo) / (ci_hi - ci_lo) if ci_hi > ci_lo else None
+            summary["methods"][method]["group_vs_image_width_ratio"] = width_ratio
+            print(f"[consistency] {method:12s} macro O^c = {summary['methods'][method]['macro_mean']:.3f} "
+                  f"+/- {summary['methods'][method]['macro_std']:.3f}  "
+                  f"image-CI [{ci_lo:.3f}, {ci_hi:.3f}]  "
+                  f"group-CI [{g_lo:.3f}, {g_hi:.3f}] ({n_clusters} clusters, "
+                  f"{width_ratio:.2f}x width)")
+        else:
+            print(f"[consistency] {method:12s} macro O^c = {summary['methods'][method]['macro_mean']:.3f} "
+                  f"+/- {summary['methods'][method]['macro_std']:.3f}  "
+                  f"95% CI [{ci_lo:.3f}, {ci_hi:.3f}] (group bootstrap skipped: "
+                  f"too few distinct clusters)")
 
     with open(os.path.join(OUT_DIR, "consistency.json"), "w") as f:
         json.dump(summary, f, indent=2)
