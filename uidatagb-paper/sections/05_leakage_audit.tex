@@ -22,16 +22,16 @@ A primary model (seed~42) and three replicate models (seeds~7, 123, 2027) are tr
 \centering
 \caption{Stage 2: Held-Out Test Performance, Cluster-Aware 70/20/10 Split (Test $n=1084$). All four models see identical training data; only the random seed varies.}
 \label{tbl:stage2-test}
-\begin{tabular}{lccc}
+\begin{tabular}{lcc}
 \toprule
-Model & Test Accuracy & Macro-F1 & Epochs to best \\
+Model & Test Accuracy & Macro-F1 \\
 \midrule
-Primary (seed~42) & 0.7030 & 0.7039 & --- \\
-Replicate (seed~7) & 0.7020 & 0.6992 & --- \\
-Replicate (seed~123) & 0.7482 & 0.7486 & --- \\
-Replicate (seed~2027) & 0.7491 & 0.7438 & --- \\
+Primary (seed~42) & 0.7030 & 0.7039 \\
+Replicate (seed~7) & 0.7020 & 0.6992 \\
+Replicate (seed~123) & 0.7482 & 0.7486 \\
+Replicate (seed~2027) & 0.7491 & 0.7438 \\
 \midrule
-\textbf{Mean~$\pm$~Std} & \textbf{0.7256~$\pm$~0.0235} & \textbf{0.7239~$\pm$~0.0221} & \\
+\textbf{Mean~$\pm$~Std} & \textbf{0.7256~$\pm$~0.0235} & \textbf{0.7239~$\pm$~0.0221} \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -55,7 +55,7 @@ Three numbers move together as the threshold loosens. Cluster count roughly trip
 
 This is direct, not just proxy, evidence for threshold~4: a looser threshold does not merely produce more mixed-class clusters, it lets enough near-duplicate content back across the train/test boundary to reinflate accuracy by nearly 30 points. Under-merging duplicates is therefore not a cosmetic concern but the same failure mode Stage~1 itself exhibited, recurring in miniature as the threshold loosens. Threshold~4 remains the conservative choice on every count: smallest, most internally-consistent clusters, fewest cross-class merges, and the accuracy closest to what a fully cluster-safe split should show, at the cost of a somewhat larger effective sample size than a looser threshold would give. Each threshold's model uses a single seed and a fixed 10-epoch budget, lighter than the main Stage~2 retrain's early-stopped, up-to-20-epoch, 4-seed design, since this sweep's purpose is to show the accuracy trend across thresholds, not to produce another publication-grade checkpoint at each one.
 
-\begin{table}[!ht]
+\begin{table*}[!ht]
 \centering
 \caption{pHash Clustering Threshold Sensitivity (Hamming distance, dihedral 8-orientation hashing, 10,692 raw images), Now Including Real Stage 2 Test Accuracy per Threshold. Threshold 4 is used throughout this paper; thresholds 6--12 are shown for comparison only. Each accuracy figure is one 10-epoch, single-seed run on that threshold's own cluster-aware 70/20/10 split.}
 \label{tbl:phash-sweep}
@@ -70,7 +70,7 @@ Threshold (bits) & Final Clusters & Mixed-Class Clusters & Median Cluster Size &
 12 & 9,299 & 12 & 1 & 0.9762 \\
 \bottomrule
 \end{tabular}
-\end{table}
+\end{table*}
 
 With the split itself examined, the remaining three questions turn to the batch-correlated shortcut Section~\ref{sec:results}.4 first raised. \textbf{Does the batch-ID diagnostic survive the same leakage fix that motivated Stage~2?} That diagnostic, a $K$-way classifier trained to predict which acquisition batch a Carcinoma image came from, all images sharing one disease label, originally used a random image-level split within each batch. A review pointed out this could let near-duplicate frames from the same acquisition sit on both sides of that split, inflating its reported 100\% accuracy. Re-running the same 10-batch diagnostic with the dihedral cluster manifest applied, so no duplicate cluster crosses the train/validation boundary (608 training, 292 validation images), gives \textbf{82.88\% accuracy}, 8.3$\times$ the 10\% chance level and well down from the original 100\%, but still far above chance. The review's concern was partly correct: some of the original 100\% figure was inflated by near-duplicate-frame memorisation. Its underlying conclusion also survives: a substantial, learnable, non-anatomical batch signature remains even under a leakage-controlled split.
 
