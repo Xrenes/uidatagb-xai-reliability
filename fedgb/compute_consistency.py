@@ -89,7 +89,7 @@ def main():
         if name == "Eigen-CAM":
             return EigenCAM(model, layer)
         if name == "Score-CAM":
-            return ScoreCAM(model, layer, max_channels=64, batch_size=32)
+            return ScoreCAM(model, layer, max_channels=64, batch_size=128)
         raise ValueError(name)
 
     for n_done, idx in enumerate(idxs):

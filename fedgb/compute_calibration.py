@@ -97,8 +97,8 @@ def main():
         calib_idx += idxs[:h]
         test_idx += idxs[h:]
 
-    calib_loader = DataLoader(Subset(ds, calib_idx), batch_size=32)
-    test_loader = DataLoader(Subset(ds, test_idx), batch_size=32)
+    calib_loader = DataLoader(Subset(ds, calib_idx), batch_size=128)
+    test_loader = DataLoader(Subset(ds, test_idx), batch_size=128)
 
     calib_logits, calib_labels = get_logits(model, calib_loader)
     test_logits, test_labels = get_logits(model, test_loader)

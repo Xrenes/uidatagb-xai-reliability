@@ -89,7 +89,7 @@ def main():
         "Grad-CAM": lambda: GradCAM(model, get_target_layer(model)),
         "Grad-CAM++": lambda: GradCAMPlusPlus(model, get_target_layer(model)),
         "Score-CAM": lambda: ScoreCAM(model, get_target_layer(model),
-                                      max_channels=64, batch_size=32),
+                                      max_channels=64, batch_size=128),
     }
 
     res = {m: {"deletion": [], "insertion": []} for m in explainers}

@@ -1,43 +1,35 @@
 """
 check_paths.py
-===============
-Run this FIRST, in its own notebook cell, before uidatagb_full_retrain.py.
+--------------
+Run this FIRST in the Kaggle notebook, after attaching all three datasets:
+  - uidatagb
+  - uidatagb-stage2-checkpoints
+  - fedgb-code
 
-WHAT: walks /kaggle/input and prints the full folder tree so the real
-      mount path of the attached "uidatagb" dataset can be read off
-      directly, instead of guessed.
-WHY:  uidatagb_full_retrain.py already failed once with
-      "DATA_ROOT ... does not exist" because the dataset's actual
-      nested folder structure on Kaggle didn't match what was assumed
-      locally. Guessing again risks the same failure and wastes GPU
-      session time. This script costs nothing to run and removes the
-      guesswork entirely.
-OUTPUT: printed tree of every folder (and up to 3 example files per
-        folder) under /kaggle/input, to the notebook's output. Copy
-        that output back so DATA_ROOT and CLUSTER_MANIFEST_PATH in
-        uidatagb_full_retrain.py can be set to match exactly.
+Paste this whole file into a notebook cell and run it. It walks /kaggle/input
+and prints every file so we confirm real mount paths instead of guessing them
+(Kaggle nests datasets under /kaggle/input/datasets/<user>/<slug>/... rather
+than the /kaggle/input/<slug>/... shown in the "Add data" UI, and this has
+been wrong before).
 """
-
 import os
 
-ROOT = "/kaggle/input"
+for root, dirs, files in os.walk("/kaggle/input"):
+    # skip descending into huge image folders, just show first few + count
+    if "uidatagb" in root and "uidatagb-corrected" in root and files:
+        print(f"{root}/  ({len(files)} files, showing 3)")
+        for f in files[:3]:
+            print(f"    {f}")
+        dirs[:] = []  # don't recurse further into this image tree
+        continue
+    for f in files:
+        print(os.path.join(root, f))
 
-if not os.path.isdir(ROOT):
-    print(f"FATAL: {ROOT} does not exist. Are you running this inside a "
-          f"Kaggle notebook with at least one dataset attached under "
-          f"Input? Attach a dataset first, then re-run this cell.")
-else:
-    print(f"Walking {ROOT} ...\n")
-    for root, dirs, files in os.walk(ROOT):
-        depth = root.replace(ROOT, "").count(os.sep)
-        indent = "  " * depth
-        print(f"{indent}{os.path.basename(root) or root}/")
-        if depth < 4:
-            for f in sorted(files)[:3]:
-                print(f"{indent}  {f}")
-            if len(files) > 3:
-                print(f"{indent}  ... ({len(files) - 3} more files)")
-
-    print("\nDone. Copy everything above and send it back so DATA_ROOT "
-          "and CLUSTER_MANIFEST_PATH can be set correctly in "
-          "uidatagb_full_retrain.py before the main run.")
+print("\n--- summary: top-level dataset folders ---")
+base = "/kaggle/input"
+for d in sorted(os.listdir(base)):
+    print(d)
+    sub = os.path.join(base, d)
+    if os.path.isdir(sub):
+        for d2 in sorted(os.listdir(sub)):
+            print("  ", d2)
